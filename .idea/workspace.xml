@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/AbstractDataFactoryRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/AbstractDataFactoryRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/test/resources/files2import/B2308213.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/test/resources/files2import/B2309244.DAT" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
+  <component name="GitLabMergeRequestsSettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "first": "https://gitlab-ce.intern.hessen.de/Dusch/datafactoryutilities.git",
+    "second": "c09f350b-77a2-40b2-916d-38afcbae799e"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2i6XLcNx53dBw8FAOMMGXpivh09" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "909",
+    "RequestMappingsPanelWidth1": "909",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AdressInformationProviderApplication.executor": "Run",
+    "Spring Boot.DatafactoryImporterApplication.executor": "Run",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/idea-workspaces/dfutil/commons/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="de.dfutil.entities" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\idea-workspaces\dfutil\commons\src" />
+      <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\resources" />
+      <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\idea-workspaces\dfutil\commons\src\main\java" />
+      <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\test\resources\files2import" />
+      <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\resources" />
+      <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\java\de\dfutil" />
+      <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\main\java\de\dfutil" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil.endpoints" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AdressInformationProviderApplication">
+    <configuration name="AdressInformationProviderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="adressinformationprovider" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.AdressInformationProviderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatafactoryImporterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="datafactoryimporter" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.DatafactoryImporterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\dusch\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="" />
+      <created>1718811945971</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718811945971</updated>
+      <workItem from="1718811946999" duration="3712000" />
+      <workItem from="1718865985181" duration="1240000" />
+      <workItem from="1718876553526" duration="45000" />
+      <workItem from="1718963845933" duration="595000" />
+      <workItem from="1720426647680" duration="233000" />
+      <workItem from="1720617910917" duration="3709000" />
+      <workItem from="1720672909129" duration="605000" />
+      <workItem from="1720704728005" duration="677000" />
+      <workItem from="1721115590911" duration="20000" />
+      <workItem from="1722873495348" duration="3713000" />
+      <workItem from="1724230778088" duration="594000" />
+      <workItem from="1724681466732" duration="571000" />
+      <workItem from="1724745412854" duration="7859000" />
+      <workItem from="1724833471931" duration="11633000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

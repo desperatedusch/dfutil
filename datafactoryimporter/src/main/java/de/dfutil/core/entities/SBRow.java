@@ -2,7 +2,7 @@ package de.dfutil.core.entities;
 
 import de.dfutil.entities.Strasse;
 
-public class SBRow extends AbstractDataFactoryRow<Strasse> {
+public class SBRow implements AbstractDataFactoryRow<Strasse> {
 
     //"SB9410001" für die erste Version der STRA-DB im Oktober 1994
     private String version;

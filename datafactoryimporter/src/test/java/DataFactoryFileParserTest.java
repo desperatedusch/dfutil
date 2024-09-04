@@ -1,15 +1,22 @@
-import de.dfutil.core.DataFactoryFileParser;
+import de.dfutil.core.FileParser;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 public class DataFactoryFileParserTest {
 
-    DataFactoryFileParser cut = new DataFactoryFileParser();
+    FileParser cut = new FileParser();
 
     @Test
-    public void testParseDataFactoryFileSBRow() {
-        String alpenStrasseGueltigRow = "SB2308213199910270000210000176200013                G01ALPENSTR                                      Alpenstr.                                     Alpenstr.             0N78267001   1318807008335001                                   $";
-
-
+    @Ignore
+    public void testParseDataFactoryFileSBRowWithFileChannel() {
+        cut.parseFileWithFileChannel(getClass().getResource("/files2import/B2308213.DAT").getFile());
     }
+
+    @Test
+    public void testParseDataFactoryFileSBRowWithAsynchronousileChannel() {
+        cut.parseFileWithAsynchronousFileChannelBlockingBehaviour("D:\\idea-workspaces\\dfutil\\datafactoryimporter\\target\\test-classes\\files2import\\B2308213.DAT");
+    }
+
+
 
 }

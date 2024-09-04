@@ -24,7 +24,7 @@ public class StrassenDAO implements Dao<Strasse>{
 
     @Override
     public void save(Strasse strasse) {
-
+        entityManager.persist(strasse);
     }
 
     @Override

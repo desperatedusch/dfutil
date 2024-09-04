@@ -14,6 +14,8 @@ public class DatafactoryImporterApplication {
 
 		log.info("App started...");
 		SpringApplication.run(DatafactoryImporterApplication.class, args);
+		//TODO implement serious parameter handling
+		//new DataFactoryFileParser().parseFileWithFileChannel(args[1]);
 		log.info("App stopped...");
 	}
 }

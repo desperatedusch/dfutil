@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Some basic stuff">
+      <change afterPath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/FileParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adressinformationprovider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/adressinformationprovider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adressinformationprovider/src/main/java/de/dfutil/endpoints/AGSRestEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/adressinformationprovider/src/main/java/de/dfutil/endpoints/AGSRestEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/de/dfutil/dao/StrassenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/de/dfutil/dao/StrassenDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryimporter/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/DatafactoryImporterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/DatafactoryImporterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/DataFactoryFileParser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/AbstractDataFactoryRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/AbstractDataFactoryRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/test/resources/files2import/B2308213.DAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/test/resources/files2import/B2309244.DAT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/SBRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/test/java/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryimporter/src/test/java/DataFactoryFileParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,15 +34,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
-  "lastFilter": {}
-}]]></component>
-  <component name="GitLabMergeRequestsSettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "first": "https://gitlab-ce.intern.hessen.de/Dusch/datafactoryutilities.git",
-    "second": "c09f350b-77a2-40b2-916d-38afcbae799e"
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://gitlab-ce.intern.hessen.de/Dusch/datafactoryutilities.git&quot;,
+    &quot;second&quot;: &quot;c09f350b-77a2-40b2-916d-38afcbae799e&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -47,31 +54,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "909",
-    "RequestMappingsPanelWidth1": "909",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AdressInformationProviderApplication.executor": "Run",
-    "Spring Boot.DatafactoryImporterApplication.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/idea-workspaces/dfutil/commons/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;909&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;909&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AdressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DatafactoryImporterApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/idea-workspaces/dfutil/commons/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="de.dfutil.entities" />
@@ -92,7 +104,27 @@
       <recent name="de.dfutil.endpoints" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.AdressInformationProviderApplication">
+  <component name="RunManager" selected="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel">
+    <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="datafactoryimporter" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DataFactoryFileParserTest" />
+      <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="datafactoryimporter" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DataFactoryFileParserTest" />
+      <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithFileChannel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdressInformationProviderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="adressinformationprovider" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.AdressInformationProviderApplication" />
@@ -107,6 +139,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
+        <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -140,7 +178,12 @@
       <workItem from="1724230778088" duration="594000" />
       <workItem from="1724681466732" duration="571000" />
       <workItem from="1724745412854" duration="7859000" />
-      <workItem from="1724833471931" duration="11633000" />
+      <workItem from="1724833471931" duration="19894000" />
+      <workItem from="1724998377620" duration="1385000" />
+      <workItem from="1725007388661" duration="6206000" />
+      <workItem from="1725268539219" duration="3104000" />
+      <workItem from="1725352367261" duration="5471000" />
+      <workItem from="1725441843065" duration="974000" />
     </task>
     <servers />
   </component>
@@ -152,7 +195,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -160,5 +215,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Some basic stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some basic stuff" />
   </component>
 </project>

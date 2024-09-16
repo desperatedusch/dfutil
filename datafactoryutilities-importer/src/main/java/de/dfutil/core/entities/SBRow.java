@@ -1,9 +1,13 @@
 package de.dfutil.core.entities;
 
+import de.dfutil.core.entities.format.v2308213.RowType;
+import de.dfutil.core.entities.format.v2308213.SBRowFormat;
 import de.dfutil.entities.Strasse;
 
-public class SBRow implements AbstractDataFactoryRow<Strasse> {
+public class SBRow implements AbstractDataFactoryRow<Strasse, SBRowFormat> {
 
+
+    private final RowType rowType = RowType.SB;
     //"SB9410001" für die erste Version der STRA-DB im Oktober 1994
     private String version;
     //= "SB" für alle Sätze der Datei STRA-DB
@@ -11,13 +15,13 @@ public class SBRow implements AbstractDataFactoryRow<Strasse> {
     //Jahr und Monat der Versionslieferung
     private String versionDatum;
     //Datum der Archivierung (STR-STATUS=S oder N) bzw. Datum des Zugangs (STR-STATUS = G)
-    //    private String strDatum;
+    private String strDatum;
     //Alphanummer des Bestimmungsortes in der letzten Zeile der Adresse
     private String strAlOrt;
     //Bundesweiter Straßenschlüssel
     private String strSchluessel;
     //Straßennamenschlüssel
-    private String straßennamenschluessel;
+    private String strassennamenschluessel;
     //Bundesweite Unterscheidungsnummer für Straßen gleichen Namens
     private String strBundLfdNr;
     //erste Hausnr. des Straßenabschnitts
@@ -29,16 +33,17 @@ public class SBRow implements AbstractDataFactoryRow<Strasse> {
 
 
 
+@Deprecated
     public static Strasse fromBytes(byte[] rowChars) {
         if (rowChars.length != 324)
             throw new IllegalArgumentException(rowChars + " entspricht nicht dem festgelegten Zeilenformat");
-
         Strasse parsedElement = new Strasse();
         return parsedElement;
     }
 
+
     @Override
-    public Strasse parsedFrom(byte[] rowBytes) {
+    public Strasse parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
         return fromBytes(rowBytes);
     }
 

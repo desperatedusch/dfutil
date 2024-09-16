@@ -4,36 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Some basic stuff">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/AbstractDataFactoryRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/format/RowFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/format/v2308213/RowType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/format/v2308213/SBRowFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Some renamings and formating enums reworked">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adressinformationprovider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adressinformationprovider/src/main/java/de/dfutil/AdressInformationProviderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/AdressInformationProviderApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adressinformationprovider/src/main/java/de/dfutil/endpoints/AGSRestEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/endpoints/AGSRestEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adressinformationprovider/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adressinformationprovider/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/de/dfutil/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/de/dfutil/dao/StrassenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/StrassenDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/de/dfutil/entities/PostalObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PostalObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/de/dfutil/entities/Strasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/Strasse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/DatafactoryImporterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporterApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/AbstractDataFactoryRow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/ArchivierungsStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/ArchivierungsStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/HausnummernTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/HausnummernTyp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/java/de/dfutil/core/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/SBRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryimporter/src/test/java/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/DataFactoryFileParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +200,7 @@
       <workItem from="1725352367261" duration="5471000" />
       <workItem from="1725441843065" duration="1058000" />
       <workItem from="1726042045800" duration="7072000" />
-      <workItem from="1726133337090" duration="22979000" />
+      <workItem from="1726133337090" duration="23869000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -237,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725448223776</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Some renamings and formating enums reworked">
+      <option name="closed" value="true" />
+      <created>1726492451175</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726492451175</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +250,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Some basic stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some basic stuff" />
+    <MESSAGE value="Some renamings and formating enums reworked" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some renamings and formating enums reworked" />
   </component>
 </project>

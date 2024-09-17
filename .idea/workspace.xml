@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Some renamings and formating enums reworked">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="database dependencies in parent-aggregator verschoben">
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/StreetCreatedFromSBRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/Importer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/StrassenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/StreetDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/Strasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/Street.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/FileParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/SBRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,6 +64,7 @@
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor": "Run",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor": "Run",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor": "Run",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor": "Run",
     "Maven.datafactoryutilities [package].executor": "Run",
     "Maven.datafactoryutilities-aggregator-parent [clean].executor": "Run",
     "Maven.datafactoryutilities-aggregator-parent [compile].executor": "Run",
@@ -70,6 +80,7 @@
     "Spring Boot.AdressInformationProviderApplication.executor": "Run",
     "Spring Boot.DatafactoryImporterApplication.executor": "Run",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/idea-workspaces/dfutil/datafactoryutilities-importer/src/test/java",
     "last_opened_file_path": "D:/idea-workspaces/dfutil/commons/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -79,7 +90,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "settings.editor.selected.configurable": "preferences.customizations",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -88,6 +99,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="de.dfutil.events" />
       <recent name="de.dfutil.core.entities.format" />
       <recent name="de.dfutil.entities" />
     </key>
@@ -104,15 +116,16 @@
       <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\main\java\de\dfutil" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil.core.services" />
       <recent name="de.dfutil.core.entities.format" />
       <recent name="de.dfutil.endpoints" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler">
+  <component name="RunManager" selected="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel">
     <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryimporter" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DataFactoryFileParserTest" />
+      <module name="datafactoryutilities-importer" />
+      <option name="PACKAGE_NAME" value="de.dfutil.core.services" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.services.DataFactoryFileParserTest" />
       <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -120,9 +133,9 @@
       </method>
     </configuration>
     <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryimporter" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DataFactoryFileParserTest" />
+      <module name="datafactoryutilities-importer" />
+      <option name="PACKAGE_NAME" value="de.dfutil.core.services" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.services.DataFactoryFileParserTest" />
       <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithCompletionHandler" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -130,9 +143,9 @@
       </method>
     </configuration>
     <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryimporter" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DataFactoryFileParserTest" />
+      <module name="datafactoryutilities-importer" />
+      <option name="PACKAGE_NAME" value="de.dfutil.core.services" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.services.DataFactoryFileParserTest" />
       <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithFileChannel" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -155,9 +168,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler" />
         <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
         <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel" />
+        <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +213,9 @@
       <workItem from="1725352367261" duration="5471000" />
       <workItem from="1725441843065" duration="1058000" />
       <workItem from="1726042045800" duration="7072000" />
-      <workItem from="1726133337090" duration="23869000" />
+      <workItem from="1726133337090" duration="25736000" />
+      <workItem from="1726555499749" duration="2709000" />
+      <workItem from="1726558649740" duration="14329000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -218,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726492451175</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="database dependencies in parent-aggregator verschoben">
+      <option name="closed" value="true" />
+      <created>1726493393303</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726493393303</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +274,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Some basic stuff" />
     <MESSAGE value="Some renamings and formating enums reworked" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some renamings and formating enums reworked" />
+    <MESSAGE value="database dependencies in parent-aggregator verschoben" />
+    <option name="LAST_COMMIT_MESSAGE" value="database dependencies in parent-aggregator verschoben" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/FileParser.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

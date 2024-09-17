@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Strasse implements PostalObject {
+public class Street implements PostalObject {
 
     @Id
     private Long id;

@@ -2,9 +2,9 @@ package de.dfutil.core.entities;
 
 import de.dfutil.core.entities.format.v2308213.RowType;
 import de.dfutil.core.entities.format.v2308213.SBRowFormat;
-import de.dfutil.entities.Strasse;
+import de.dfutil.entities.Street;
 
-public class SBRow implements AbstractDataFactoryRow<Strasse, SBRowFormat> {
+public class SBRow implements AbstractDataFactoryRow<Street, SBRowFormat> {
 
 
     private final RowType rowType = RowType.SB;
@@ -34,16 +34,16 @@ public class SBRow implements AbstractDataFactoryRow<Strasse, SBRowFormat> {
 
 
 @Deprecated
-    public static Strasse fromBytes(byte[] rowChars) {
+    public static Street fromBytes(byte[] rowChars) {
         if (rowChars.length != 324)
             throw new IllegalArgumentException(rowChars + " entspricht nicht dem festgelegten Zeilenformat");
-        Strasse parsedElement = new Strasse();
+        Street parsedElement = new Street();
         return parsedElement;
     }
 
 
     @Override
-    public Strasse parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
+    public Street parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
         return fromBytes(rowBytes);
     }
 

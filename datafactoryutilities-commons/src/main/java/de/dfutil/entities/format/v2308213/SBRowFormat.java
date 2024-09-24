@@ -1,6 +1,6 @@
-package de.dfutil.core.entities.format.v2308213;
+package de.dfutil.entities.format.v2308213;
 
-import de.dfutil.core.entities.format.RowFormat;
+import de.dfutil.entities.format.RowFormat;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package de.dfutil.core.entities.format;
+package de.dfutil.entities.format;
 
 import java.util.List;
 

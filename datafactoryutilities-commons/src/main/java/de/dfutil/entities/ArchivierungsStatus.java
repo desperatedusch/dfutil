@@ -1,4 +1,4 @@
-package de.dfutil.core.entities;
+package de.dfutil.entities;
 
 public enum ArchivierungsStatus {
     GUELTIG("G"),

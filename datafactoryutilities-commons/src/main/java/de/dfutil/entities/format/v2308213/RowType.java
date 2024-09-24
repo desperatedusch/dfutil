@@ -1,4 +1,4 @@
-package de.dfutil.core.entities.format.v2308213;
+package de.dfutil.entities.format.v2308213;
 
 public enum RowType {
 

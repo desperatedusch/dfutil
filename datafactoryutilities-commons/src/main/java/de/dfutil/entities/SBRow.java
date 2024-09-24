@@ -1,11 +1,15 @@
-package de.dfutil.core.entities;
+package de.dfutil.entities;
 
-import de.dfutil.core.entities.format.v2308213.RowType;
-import de.dfutil.core.entities.format.v2308213.SBRowFormat;
-import de.dfutil.entities.Street;
+import de.dfutil.entities.format.v2308213.RowType;
+import de.dfutil.entities.format.v2308213.SBRowFormat;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-public class SBRow implements AbstractDataFactoryRow<Street, SBRowFormat> {
+@Entity
+public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, PostalObject {
 
+    @Id
+    private Long id;
 
     private final RowType rowType = RowType.SB;
     //"SB9410001" für die erste Version der STRA-DB im Oktober 1994
@@ -31,35 +35,29 @@ public class SBRow implements AbstractDataFactoryRow<Street, SBRowFormat> {
     //ArchivierungsStatus
     private SBGueltigkeitsStatus gueltigkeitsStatus;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Long getId() {
+        return id;
+    }
 
-@Deprecated
-    public static Street fromBytes(byte[] rowChars) {
+    @Deprecated
+    public static SBRow fromBytes(byte[] rowChars) {
         if (rowChars.length != 324)
             throw new IllegalArgumentException(rowChars + " entspricht nicht dem festgelegten Zeilenformat");
-        Street parsedElement = new Street();
+        SBRow parsedElement = new SBRow();
         return parsedElement;
     }
 
 
     @Override
-    public Street parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
+    public SBRow parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
         return fromBytes(rowBytes);
     }
 
-    private static class SBGueltigkeitsStatus {
-        private String datum;
-        private String schluessel;
-        private ArchivierungsStatus status;
-        private String schluesselNeu;
 
-        SBGueltigkeitsStatus(String datum, String schluessel, ArchivierungsStatus status, String schluesselNeu) {
-            this.datum = datum;
-            this.schluessel = schluessel;
-            this.status = status;
-            this.schluesselNeu = schluesselNeu;
-        }
-    }
 }
 
 

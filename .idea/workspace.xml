@@ -4,19 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="database dependencies in parent-aggregator verschoben">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/StreetCreatedFromSBRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/Importer.java" afterDir="false" />
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Move rowobjects to commons and merge them with contrete postal implementations Some renamings&#10;Further work on event handling">
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/SBDaoPersistingIntoRedis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBGueltigkeitsStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/CreatedFrom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/MergeWith.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/DataFactoryImportHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/StrassenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/StreetDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/Strasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/Street.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporterApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/FileParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/SBRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/StreetDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/Street.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/StreetCreatedFromSBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/CreatedFromSBRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/AbstractDataFactoryRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/AbstractDataFactoryRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/ArchivierungsStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ArchivierungsStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/HausnummernTyp.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/HausnummernTyp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/format/RowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/format/v2308213/RowType.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/RowType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/entities/format/v2308213/SBRowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/SBRowFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/Importer.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/Importer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +53,11 @@
     &quot;second&quot;: &quot;c09f350b-77a2-40b2-916d-38afcbae799e&quot;
   }
 }</component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="MavenRunConfiguration" name="datafactoryutilities-aggregator-parent [compile]" />
+    </enabled-run-configurations>
+  </component>
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
@@ -80,7 +94,7 @@
     "Spring Boot.AdressInformationProviderApplication.executor": "Run",
     "Spring Boot.DatafactoryImporterApplication.executor": "Run",
     "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/idea-workspaces/dfutil/datafactoryutilities-importer/src/test/java",
+    "last_directory_selection": "D:/idea-workspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil",
     "last_opened_file_path": "D:/idea-workspaces/dfutil/commons/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -100,6 +114,7 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="de.dfutil.events" />
+      <recent name="de.dfutil.core.listener" />
       <recent name="de.dfutil.core.entities.format" />
       <recent name="de.dfutil.entities" />
     </key>
@@ -116,9 +131,17 @@
       <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\main\java\de\dfutil" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil.dao.redis" />
+      <recent name="de.dfutil.dao.jpa" />
+      <recent name="de.dfutil.core" />
       <recent name="de.dfutil.core.services" />
       <recent name="de.dfutil.core.entities.format" />
-      <recent name="de.dfutil.endpoints" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="de.dfutil.entities" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.dfutil.dao" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel">
@@ -216,6 +239,9 @@
       <workItem from="1726133337090" duration="25736000" />
       <workItem from="1726555499749" duration="2709000" />
       <workItem from="1726558649740" duration="14329000" />
+      <workItem from="1726596875173" duration="131000" />
+      <workItem from="1727073138152" duration="12317000" />
+      <workItem from="1727157659395" duration="4364000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -241,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726493393303</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="first prototype of event handling and fileparsing">
+      <option name="closed" value="true" />
+      <created>1726597008331</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726597008331</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,13 +309,15 @@
     <MESSAGE value="Some basic stuff" />
     <MESSAGE value="Some renamings and formating enums reworked" />
     <MESSAGE value="database dependencies in parent-aggregator verschoben" />
-    <option name="LAST_COMMIT_MESSAGE" value="database dependencies in parent-aggregator verschoben" />
+    <MESSAGE value="first prototype of event handling and fileparsing" />
+    <MESSAGE value="Move rowobjects to commons and merge them with contrete postal implementations Some renamings&#10;Further work on event handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move rowobjects to commons and merge them with contrete postal implementations Some renamings&#10;Further work on event handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/services/FileParser.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java</url>
           <line>64</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

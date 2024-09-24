@@ -3,10 +3,10 @@ package de.dfutil.entities;
 public class SBGueltigkeitsStatus {
     private String datum;
     private String schluessel;
-    private ArchivierungsStatus status;
+    private ArchivingsState status;
     private String schluesselNeu;
 
-    SBGueltigkeitsStatus(String datum, String schluessel, ArchivierungsStatus status, String schluesselNeu) {
+    public SBGueltigkeitsStatus(String datum, String schluessel, ArchivingsState status, String schluesselNeu) {
         this.datum = datum;
         this.schluessel = schluessel;
         this.status = status;

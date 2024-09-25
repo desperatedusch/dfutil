@@ -12,7 +12,6 @@
 
     <artifactId>datafactoryutilities-importer</artifactId>
     <name>datafactoryutilities-importer</name>
-    <version>${project.parent.version}</version>
 
     <dependencies>
         <dependency>

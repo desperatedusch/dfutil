@@ -12,7 +12,6 @@
 
     <artifactId>datafactoryutilities-commons</artifactId>
     <name>datafactoryutilities-commons</name>
-    <version>${project.parent.version}</version>
 
     <dependencies>
         <dependency>

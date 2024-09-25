@@ -33,13 +33,9 @@ public class SBDaoPersistingIntoRedis implements Dao<SBRow> {
     }
 
     @Override
-    public void update(SBRow street, String[] params) {
-
-    }
+    public void update(SBRow street, String[] params) {}
 
     @Override
-    public void delete(SBRow street) {
-
-    }
+    public void delete(SBRow street) {}
 
 }

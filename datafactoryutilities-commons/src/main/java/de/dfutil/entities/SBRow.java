@@ -33,7 +33,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     //letzte Hausnr. des Straßenabschnitts
     private String strHnrBis;
     //ArchivierungsStatus
-    private SBGueltigkeitsStatus gueltigkeitsStatus;
+    private ValidityStatus gueltigkeitsStatus;
 
     public void setId(Long id) {
         this.id = id;
@@ -47,8 +47,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     public static SBRow fromBytes(byte[] rowChars) {
         if (rowChars.length != 324)
             throw new IllegalArgumentException(rowChars + " entspricht nicht dem festgelegten Zeilenformat");
-        SBRow parsedElement = new SBRow();
-        return parsedElement;
+        return new SBRow();
     }
 
 

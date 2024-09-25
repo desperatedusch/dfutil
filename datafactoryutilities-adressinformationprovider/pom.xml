@@ -12,6 +12,7 @@
 
     <artifactId>datafactoryutilities-adressinformationprovider</artifactId>
     <name>datafactoryutilities-adressinformationprovider</name>
+    <version>${project.parent.version}</version>
 
     <dependencies>
         <dependency>
@@ -24,12 +25,14 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.dfutil</groupId>
+            <artifactId>datafactoryutilities-commons</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

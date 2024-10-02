@@ -8,5 +8,4 @@ public interface DataFactoryImportHandler {
     public void handleCreate(CreatedFrom event);
     public void handleMerge(MergeWith event);
 
-
 }

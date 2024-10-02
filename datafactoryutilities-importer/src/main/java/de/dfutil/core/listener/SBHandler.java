@@ -3,16 +3,16 @@ package de.dfutil.core.listener;
 import de.dfutil.dao.jpa.SBDaoUsingJPA;
 import de.dfutil.events.CreatedFrom;
 import de.dfutil.events.MergeWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SBHandler implements DataFactoryImportHandler{
 
-    private final SBDaoUsingJPA dao;
+    @Autowired
+    private SBDaoUsingJPA dao;
 
-    public SBHandler(SBDaoUsingJPA dao) {
-        this.dao = dao;
-    }
+    public SBHandler() {    }
 
     @Override
     public void handleCreate(CreatedFrom event) {

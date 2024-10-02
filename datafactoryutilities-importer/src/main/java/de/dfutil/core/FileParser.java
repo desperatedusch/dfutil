@@ -2,6 +2,7 @@ package de.dfutil.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +22,10 @@ public class FileParser {
 
     private static final Logger log = LoggerFactory.getLogger(FileParser.class);
 
-    private final ApplicationEventPublisher eventPublisher;
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
-    public FileParser(ApplicationEventPublisher eventPublisher) {
-        this.eventPublisher = eventPublisher;
-    }
+    public FileParser() {}
 
     public void parseFileWithFileChannel(String path) {
         try {

@@ -14,6 +14,5 @@ public class AdressInformationProviderApplication {
 	public static void main(String[] args) {
 		log.info("App started...");
 		SpringApplication.run(AdressInformationProviderApplication.class, args);
-		log.info("App stopped...");
 	}
 }

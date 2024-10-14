@@ -79,22 +79,4 @@ public class SBDaoPersistingIntoRedis implements CrudRepository<SBRow,Long> {
 
     }
 
-/*    @Override
-    public Optional<SBRow> get(long id) { throw new UnsupportedOperationException("not implemented");   }
-
-    @Override
-    public List<SBRow> getAll() { throw new UnsupportedOperationException("not implemented");}
-
-    @Override
-    public SBRow save(SBRow sbRow) { throw new UnsupportedOperationException("not implemented");}
-
-    @Override
-    public void update(SBRow sbRow, String[] params) { throw new UnsupportedOperationException("not implemented");}
-
-    @Override
-    public void delete(SBRow sbRow) { throw new UnsupportedOperationException("not implemented");}
-
-    public void mergeIfExists(SBRow sbRow) { throw new UnsupportedOperationException("not implemented");}
-*/
-
 }

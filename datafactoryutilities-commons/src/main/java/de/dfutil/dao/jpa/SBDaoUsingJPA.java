@@ -18,14 +18,10 @@ public class SBDaoUsingJPA implements Dao<SBRow> {
     }
 
     @Override
-    public Optional<SBRow> get(long id) {
-        return Optional.empty();
-    }
+    public Optional<SBRow> get(long id){ throw new UnsupportedOperationException("not implemented");}
 
     @Override
-    public List<SBRow> getAll() {
-        return List.of();
-    }
+    public List<SBRow> getAll(){ throw new UnsupportedOperationException("not implemented");}
 
     @Override
     public void save(SBRow sbRow) {
@@ -33,9 +29,9 @@ public class SBDaoUsingJPA implements Dao<SBRow> {
     }
 
     @Override
-    public void update(SBRow street, String[] params) {}
+    public void update(SBRow street, String[] params) { throw new UnsupportedOperationException("not implemented");}
 
     @Override
-    public void delete(SBRow street) {}
+    public void delete(SBRow street) { throw new UnsupportedOperationException("not implemented");}
 
 }

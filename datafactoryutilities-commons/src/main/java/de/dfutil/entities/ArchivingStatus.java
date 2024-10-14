@@ -1,6 +1,6 @@
 package de.dfutil.entities;
 
-public enum ArchivingsStatus {
+public enum ArchivingStatus {
     VALID("G"),
     SINGLE_SUCCESSOR("S"),
     MULTIPLE_SUCCESSORS("N"),
@@ -8,7 +8,7 @@ public enum ArchivingsStatus {
 
     private String statusValue;
 
-    private ArchivingsStatus(String statusValue) {
+    private ArchivingStatus(String statusValue) {
         this.statusValue = statusValue;
     }
 }

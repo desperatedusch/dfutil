@@ -5,7 +5,7 @@ import java.util.Objects;
 public class ValidityStatus {
     private String date;
     private String key;
-    private ArchivingsStatus state;
+    private ArchivingStatus state;
     private String keyNew;
 
     public String keyNew() {
@@ -16,11 +16,11 @@ public class ValidityStatus {
         this.keyNew = keyNew;
     }
 
-    public ArchivingsStatus state() {
+    public ArchivingStatus state() {
         return state;
     }
 
-    public void setState(ArchivingsStatus state) {
+    public void setState(ArchivingStatus state) {
         this.state = state;
     }
 
@@ -40,7 +40,7 @@ public class ValidityStatus {
         this.date = date;
     }
 
-    public ValidityStatus(String date, String key, ArchivingsStatus state, String keyNew) {
+    public ValidityStatus(String date, String key, ArchivingStatus state, String keyNew) {
         this.date = date;
         this.key = key;
         this.state = state;

@@ -1,6 +1,5 @@
 package de.dfutil.core;
 
-import de.dfutil.entities.SBRow;
 import de.dfutil.dao.jpa.SBDaoUsingJPA;
 import de.dfutil.events.CreatedFromSBRow;
 import org.slf4j.Logger;
@@ -25,7 +24,7 @@ public class Importer{
     @EventListener(CreatedFromSBRow.class)
     public void onApplicationEvent(CreatedFromSBRow event) {
         log.trace("Event {} received", event);
-        sbDao.save((SBRow) event.getSource());
+        sbDao.save(event.getContent());
     }
 
 

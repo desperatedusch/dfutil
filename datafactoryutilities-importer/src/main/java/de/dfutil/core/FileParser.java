@@ -27,6 +27,28 @@ public class FileParser {
 
     public FileParser() {}
 
+    public void parseFile(String path) {
+        try {
+            RandomAccessFile file = new RandomAccessFile(path, "r");
+            FileChannel channel = file.getChannel();
+            log.info("File size is {}: ", channel.size());
+            ByteBuffer buffer = ByteBuffer.allocate((int) channel.size());
+            channel.read(buffer);
+            buffer.flip();//Restore buffer to position 0 to read it
+            log.info("Reading content and printing ... ");
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < channel.size(); i++) {
+                stringBuffer.append((char) buffer.get());
+            }
+            log.info(stringBuffer.toString());
+            channel.close();
+            file.close();
+        } catch (IOException e) {
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
     public void parseFileWithFileChannel(String path) {
         try {
             RandomAccessFile file = new RandomAccessFile(path, "r");
@@ -75,7 +97,6 @@ public class FileParser {
             long position = 0;
 
             fileChannel.read(buffer, position, buffer, new CompletionHandler<Integer, ByteBuffer>() {
-
                     public void completed(Integer result, ByteBuffer attachment) {
                         log.info("CompletionResult = {}", result);
                         attachment.flip();
@@ -88,6 +109,7 @@ public class FileParser {
                     @Override
                     public void failed(Throwable t, ByteBuffer attachment) {
                         log.error(t.getMessage());
+                        throw new RuntimeException(t);
                     }
                 });
             } catch(IOException e){

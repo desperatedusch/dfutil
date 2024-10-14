@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationEvent;
 import java.time.Clock;
 
 public class CreatedFrom extends ApplicationEvent {
+
     public CreatedFrom(Object source) {
         super(source);
     }

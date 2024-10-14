@@ -4,8 +4,10 @@ import de.dfutil.entities.format.v2308213.RowType;
 import de.dfutil.entities.format.v2308213.SBRowFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import org.springframework.data.redis.core.RedisHash;
 
 @Entity
+@RedisHash("SBRow")
 public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, PostalObject {
 
     @Id
@@ -33,6 +35,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     //letzte Hausnr. des Straßenabschnitts
     private String strHnrBis;
     //ArchivierungsStatus
+    @SuppressWarnings("JpaAttributeTypeInspection")
     private ValidityStatus gueltigkeitsStatus;
 
     public void setId(Long id) {
@@ -43,17 +46,9 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
         return id;
     }
 
-    @Deprecated
-    public static SBRow fromBytes(byte[] rowChars) {
-        if (rowChars.length != 324)
-            throw new IllegalArgumentException(rowChars + " entspricht nicht dem festgelegten Zeilenformat");
-        return new SBRow();
-    }
-
-
     @Override
     public SBRow parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
-        return fromBytes(rowBytes);
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 

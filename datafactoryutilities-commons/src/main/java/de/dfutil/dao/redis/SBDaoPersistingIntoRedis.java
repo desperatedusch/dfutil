@@ -1,37 +1,92 @@
 package de.dfutil.dao.redis;
 
-import de.dfutil.dao.Dao;
 import de.dfutil.entities.SBRow;
-import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class SBDaoPersistingIntoRedis implements Dao<SBRow> {
+public class SBDaoPersistingIntoRedis implements CrudRepository<SBRow,Long> {
 
 
     @Autowired
-    RedisTemplate<String, Object> redisTemplate;
+    RedisTemplate<String, SBRow> redisTemplate;
 
-    ValueOperations<String, Object> valueOperations = null;
-
-    public SBDaoPersistingIntoRedis(RedisTemplate<String, Object> template) {
+    public SBDaoPersistingIntoRedis(RedisTemplate<String, SBRow> template) {
         this.redisTemplate = template;
     }
 
     @Override
+    public <S extends SBRow> S save(S entity) {
+        return null;
+    }
+
+    @Override
+    public <S extends SBRow> Iterable<S> saveAll(Iterable<S> entities) {
+        return null;
+    }
+
+    @Override
+    public Optional<SBRow> findById(Long aLong) {
+        return Optional.empty();
+    }
+
+    @Override
+    public boolean existsById(Long aLong) {
+        return false;
+    }
+
+    @Override
+    public Iterable<SBRow> findAll() {
+        return null;
+    }
+
+    @Override
+    public Iterable<SBRow> findAllById(Iterable<Long> longs) {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+
+    }
+
+    @Override
+    public void delete(SBRow entity) {
+
+    }
+
+    @Override
+    public void deleteAllById(Iterable<? extends Long> longs) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends SBRow> entities) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
+/*    @Override
     public Optional<SBRow> get(long id) { throw new UnsupportedOperationException("not implemented");   }
 
     @Override
     public List<SBRow> getAll() { throw new UnsupportedOperationException("not implemented");}
 
     @Override
-    public void save(SBRow sbRow) { throw new UnsupportedOperationException("not implemented");}
+    public SBRow save(SBRow sbRow) { throw new UnsupportedOperationException("not implemented");}
 
     @Override
     public void update(SBRow sbRow, String[] params) { throw new UnsupportedOperationException("not implemented");}
@@ -40,5 +95,6 @@ public class SBDaoPersistingIntoRedis implements Dao<SBRow> {
     public void delete(SBRow sbRow) { throw new UnsupportedOperationException("not implemented");}
 
     public void mergeIfExists(SBRow sbRow) { throw new UnsupportedOperationException("not implemented");}
+*/
 
 }

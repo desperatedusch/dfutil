@@ -4,13 +4,15 @@ import de.dfutil.entities.format.v2308213.RowType;
 import de.dfutil.entities.format.v2308213.SBRowFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jdk.jfr.DataAmount;
 import org.springframework.data.redis.core.RedisHash;
 
 @Entity
 @RedisHash("SBRow")
 public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, PostalObject {
 
-    @Id
+    @jakarta.persistence.Id
+    @org.springframework.data.annotation.Id
     private Long id;
 
     private final RowType rowType = RowType.SB;
@@ -50,7 +52,6 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     public SBRow parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
 
 }
 

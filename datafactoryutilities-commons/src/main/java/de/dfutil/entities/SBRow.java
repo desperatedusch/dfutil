@@ -3,12 +3,10 @@ package de.dfutil.entities;
 import de.dfutil.entities.format.v2308213.RowType;
 import de.dfutil.entities.format.v2308213.SBRowFormat;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jdk.jfr.DataAmount;
 import org.springframework.data.redis.core.RedisHash;
 
-@Entity
-@RedisHash("SBRow")
+@Entity(name = "Street")
+@RedisHash("Street")
 public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, PostalObject {
 
     @jakarta.persistence.Id

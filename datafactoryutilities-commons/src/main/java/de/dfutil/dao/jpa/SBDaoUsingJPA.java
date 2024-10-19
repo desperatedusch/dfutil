@@ -2,6 +2,7 @@ package de.dfutil.dao.jpa;
 
 import de.dfutil.entities.SBRow;
 import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,12 +11,12 @@ import java.util.Optional;
 @Repository
 public class SBDaoUsingJPA  implements CrudRepository<SBRow, Long> {
 
+    @Autowired
     private final EntityManager entityManager;
 
     public SBDaoUsingJPA(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-
 
     @Override
     public <S extends SBRow> S save(S entity) {

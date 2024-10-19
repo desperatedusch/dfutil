@@ -1,15 +1,19 @@
 package de.dfutil.core.services;
 
 import de.dfutil.core.FileParser;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 
-
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 class DataFactoryFileParserTest {
 
@@ -20,21 +24,23 @@ class DataFactoryFileParserTest {
     private ResourceLoader resourceLoader;
 
     @Test
-    @Disabled
-    public void testParseDataFactoryFileSBRowWithFileChannel() throws IOException {
-        cut.parseFileWithFileChannel(resourceLoader.getResource("classpath:files2Import/B2308213.DAT").getFile().getPath());
+    public void testParseDataFactoryFileSBRow() throws IOException {
+        cut.parseFileWithBufferedReader(resourceLoader.getResource("classpath:files2Import/B2308213.DAT").getFile().getPath());
     }
 
     @Test
-    public void testParseDataFactoryFileSBRowWithAsynchronousileChannel() throws IOException, InterruptedException {
-        cut.parseFileWithAsynchronousFileChannelBlockingBehaviour(resourceLoader.getResource("classpath:files2Import/B2308213.DAT").getFile().getPath());
-        Thread.sleep(1000000);
+    public void testParseDataFactoryFileSBRowViaRandomAccessFile() throws IOException {
+        cut.parseFileViaRandomAccessFile(resourceLoader.getResource("classpath:files2Import/B2308213.DAT").getFile().getPath(), "UTF-8");
     }
 
-    @Test
-    @Disabled
-    public void testParseDataFactoryFileSBRowWithCompletionHandler() throws IOException {
-        cut.parseFileWithAsynchronousFileChannelCompletionHandler(resourceLoader.getResource("classpath:files2Import/B2308213.DAT").getFile().getPath());
+    @Configuration
+    class DataFactoryFileParserTestConfiguration {
+
+        @Bean
+        public ResourceLoader resourceLoader() {
+            resourceLoader = new DefaultResourceLoader();
+            return resourceLoader;
+        }
     }
 
 }

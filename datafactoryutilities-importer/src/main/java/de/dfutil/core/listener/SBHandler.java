@@ -1,27 +1,25 @@
 package de.dfutil.core.listener;
 
 import de.dfutil.dao.jpa.SBDaoUsingJPA;
-import de.dfutil.events.CreatedFrom;
-import de.dfutil.events.MergeWith;
+import de.dfutil.dao.redis.SBDaoPersistingIntoRedis;
+import de.dfutil.entities.SBRow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SBHandler implements DataFactoryImportHandler{
+public class SBHandler {
 
     @Autowired
-    private SBDaoUsingJPA dao;
+    private SBDaoUsingJPA jpaDao;
 
+    @Autowired
+    private SBDaoPersistingIntoRedis redisDao;
 
     public SBHandler() {    }
 
-    @Override
-    public void handleCreate(CreatedFrom event) {
 
-    }
-
-    @Override
-    public void handleMerge(MergeWith event) {
-
+    public void updateOrInsert(SBRow content) {
+        jpaDao.save(content);
+        redisDao.save(content);
     }
 }

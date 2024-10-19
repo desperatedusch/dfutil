@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -27,22 +29,27 @@ public class FileParser {
 
     public FileParser() {}
 
-    public void parseFile(String path) {
-        try {
-            RandomAccessFile file = new RandomAccessFile(path, "r");
-            FileChannel channel = file.getChannel();
-            log.info("File size is {}: ", channel.size());
-            ByteBuffer buffer = ByteBuffer.allocate((int) channel.size());
-            channel.read(buffer);
-            buffer.flip();//Restore buffer to position 0 to read it
-            log.info("Reading content and printing ... ");
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < channel.size(); i++) {
-                stringBuffer.append((char) buffer.get());
+    public void parseFileWithBufferedReader(String path) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Process each line
+                log.info(line);
             }
-            log.info(stringBuffer.toString());
-            channel.close();
-            file.close();
+        } catch (IOException e) {
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void parseFileViaRandomAccessFile(String path, String charset) {
+        try (RandomAccessFile file = new RandomAccessFile("sample.txt", "r")) {
+            String str;
+            while ((str = file.readLine()) != null) {
+                System.out.println(str);
+            }
+
         } catch (IOException e) {
             log.error(e.getMessage());
             throw new RuntimeException(e);

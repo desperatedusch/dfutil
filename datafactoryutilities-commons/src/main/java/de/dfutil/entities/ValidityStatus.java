@@ -1,43 +1,62 @@
 package de.dfutil.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+@Entity
 public class ValidityStatus {
+
+    @Id
+    private Long id;
+
     private String date;
     private String key;
     private ArchivingStatus state;
     private String keyNew;
 
-    public String keyNew() {
-        return keyNew;
+    public ValidityStatus() {
     }
 
     public void setKeyNew(String keyNew) {
         this.keyNew = keyNew;
     }
 
-    public ArchivingStatus state() {
-        return state;
+    public String getKeyNew() {
+        return keyNew;
     }
 
     public void setState(ArchivingStatus state) {
         this.state = state;
     }
 
-    public String key() {
-        return key;
+    public ArchivingStatus getState() {
+        return state;
     }
 
     public void setKey(String key) {
         this.key = key;
     }
 
-    public String date() {
-        return date;
+    public String getKey() {
+        return key;
     }
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public ValidityStatus(String date, String key, ArchivingStatus state, String keyNew) {
@@ -46,6 +65,7 @@ public class ValidityStatus {
         this.state = state;
         this.keyNew = keyNew;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -59,4 +79,5 @@ public class ValidityStatus {
     public int hashCode() {
         return Objects.hash(date, key, state, keyNew);
     }
+
 }

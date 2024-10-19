@@ -265,7 +265,7 @@
       <workItem from="1728906879538" duration="7302000" />
       <workItem from="1728916428071" duration="9881000" />
       <workItem from="1728992060135" duration="13783000" />
-      <workItem from="1729325187358" duration="760000" />
+      <workItem from="1729325187358" duration="1138000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -363,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729325683540</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Adds basic redis configuration">
+      <option name="closed" value="true" />
+      <created>1729325996461</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1729325996461</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

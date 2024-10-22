@@ -47,7 +47,7 @@ public class FileParser {
         try (RandomAccessFile file = new RandomAccessFile("sample.txt", "r")) {
             String str;
             while ((str = file.readLine()) != null) {
-                System.out.println(str);
+                log.info(str);
             }
 
         } catch (IOException e) {

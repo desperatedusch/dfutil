@@ -5,15 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 
 @ExtendWith(SpringExtension.class)
+@Import(DataFactoryFileParserTestConfiguration.class)
 @SpringBootTest
 class DataFactoryFileParserTest {
 
@@ -31,16 +30,6 @@ class DataFactoryFileParserTest {
     @Test
     public void testParseDataFactoryFileSBRowViaRandomAccessFile() throws IOException {
         cut.parseFileViaRandomAccessFile(resourceLoader.getResource("classpath:files2Import/B2308213.DAT").getFile().getPath(), "UTF-8");
-    }
-
-    @Configuration
-    class DataFactoryFileParserTestConfiguration {
-
-        @Bean
-        public ResourceLoader resourceLoader() {
-            resourceLoader = new DefaultResourceLoader();
-            return resourceLoader;
-        }
     }
 
 }

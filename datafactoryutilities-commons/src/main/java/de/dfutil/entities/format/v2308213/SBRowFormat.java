@@ -1,10 +1,11 @@
 package de.dfutil.entities.format.v2308213;
 
+import de.dfutil.entities.SBRow;
 import de.dfutil.entities.format.RowFormat;
 
 import java.util.List;
 
-public enum SBRowFormat implements RowFormat {
+public enum SBRowFormat implements RowFormat<SBRowFormat, SBRow> {
 
     ST01a("VERSION-DATEIKENNUNG", 2, 1, 2),
     ST01b("VERSION-DATUM", 4, 3, 6),
@@ -66,8 +67,12 @@ public enum SBRowFormat implements RowFormat {
     }
 
     @Override
-    public List paramValuesList() {
+    public List<SBRowFormat> paramValuesList() {
         return List.of(SBRowFormat.values());
+    }
+
+    public void collectParamValue(SBRowFormat cursorElement, SBRow sbRow) {
+
     }
 
 

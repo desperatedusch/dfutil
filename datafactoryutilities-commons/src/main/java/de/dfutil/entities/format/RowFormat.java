@@ -2,7 +2,7 @@ package de.dfutil.entities.format;
 
 import java.util.List;
 
-public interface RowFormat<RT> {
+public interface RowFormat<RF, RT> {
 
     public String getDescription();
 
@@ -12,6 +12,8 @@ public interface RowFormat<RT> {
 
     public int getEndingPos();
 
-    public List<RT> paramValuesList();
+    public List<RF> paramValuesList();
+
+    public void collectParamValue(RF cursorElement, RT sbRow);
 
 }

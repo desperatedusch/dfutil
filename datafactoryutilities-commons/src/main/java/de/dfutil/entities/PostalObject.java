@@ -1,4 +1,6 @@
 package de.dfutil.entities;
 
-public interface PostalObject {
+import java.io.Serializable;
+
+public interface PostalObject extends Serializable {
 }

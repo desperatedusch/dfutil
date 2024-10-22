@@ -11,4 +11,8 @@ public enum ArchivingStatus {
     private ArchivingStatus(String statusValue) {
         this.statusValue = statusValue;
     }
+
+    public String getStatusValue() {
+        return statusValue;
+    }
 }

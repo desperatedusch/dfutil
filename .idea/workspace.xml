@@ -5,8 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds basic redis configuration">
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ArchivingStatusConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTestConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ValidityStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ValidityStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/JPAConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/JPAConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/RedisConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ArchivingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ArchivingStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PostalObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PostalObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ValidityStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/SBRowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/SBRowFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/Importer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +42,32 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin-github/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -53,7 +98,7 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -71,6 +116,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "JUnit.DataFactoryFileParserTest.executor": "Run",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor": "Run",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor": "Debug",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor": "Run",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor": "Run",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor": "Run",
@@ -79,14 +125,17 @@
     "Maven.datafactoryutilities-aggregator-parent [compile].executor": "Run",
     "Maven.datafactoryutilities-aggregator-parent [install].executor": "Run",
     "Maven.datafactoryutilities-aggregator-parent [package].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [test].executor": "Run",
     "Maven.datafactoryutilities-aggregator-parent [verify].executor": "Run",
     "Maven.datafactoryutilities-importer [compile].executor": "Run",
+    "Maven.datafactoryutilities-importer [install].executor": "Run",
+    "Maven.datafactoryutilities-importer [package].executor": "Run",
     "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
     "Notification.DoNotAsk-Database detector": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "909",
-    "RequestMappingsPanelWidth1": "909",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AdressInformationProviderApplication.executor": "Run",
@@ -130,6 +179,9 @@
       <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\java\de\dfutil" />
       <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\main\java\de\dfutil" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="de.dfutil.entities.format.v2308213" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="de.dfutil.dao.redis" />
       <recent name="de.dfutil.dao.jpa" />
@@ -138,6 +190,7 @@
       <recent name="de.dfutil.core.entities.format" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="de.dfutil.core.services" />
       <recent name="de.dfutil.entities" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -176,21 +229,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-importer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.dfutil.core.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="PACKAGE_NAME" value="de.dfutil.core.services" />
       <option name="MAIN_CLASS_NAME" value="de.dfutil.core.services.DataFactoryFileParserTest" />
-      <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
+      <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowViaRandomAccessFile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-importer" />
       <option name="PACKAGE_NAME" value="de.dfutil.core.services" />
       <option name="MAIN_CLASS_NAME" value="de.dfutil.core.services.DataFactoryFileParserTest" />
-      <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithCompletionHandler" />
+      <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -224,9 +283,9 @@
       <list>
         <item itemvalue="JUnit.DataFactoryFileParserTest" />
         <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow" />
+        <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile" />
         <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
         <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel" />
-        <item itemvalue="JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -287,6 +346,10 @@
       <workItem from="1728916428071" duration="9881000" />
       <workItem from="1728992060135" duration="13783000" />
       <workItem from="1729325187358" duration="6342000" />
+      <workItem from="1729333250811" duration="273000" />
+      <workItem from="1729494859390" duration="10747000" />
+      <workItem from="1729529468792" duration="3786000" />
+      <workItem from="1729587549741" duration="13837000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -416,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729331834184</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adds basic redis configuration">
+      <option name="closed" value="true" />
+      <created>1729333291993</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1729333291993</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +504,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="origin-github/main" />
                       </list>
                     </value>
                   </entry>
@@ -464,9 +535,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/RedisConfig.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/RedisConfig.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

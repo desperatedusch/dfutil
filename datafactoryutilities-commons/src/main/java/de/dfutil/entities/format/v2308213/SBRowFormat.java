@@ -36,7 +36,7 @@ public enum SBRowFormat implements RowFormat<SBRowFormat, SBRow> {
     ST23("STR-HNRBIS-NEU", 8, 226, 233),
     ST24("SATZENDE", 1, 234, 234);
 
-    private final String description;
+    private final String paramName;
     private final int fieldLength;
     private final int startingPos;
     private final int endingPos;
@@ -44,14 +44,14 @@ public enum SBRowFormat implements RowFormat<SBRowFormat, SBRow> {
     private final RowType type = RowType.SB;
 
     private SBRowFormat(String desc, int length, int start, int end) {
-        this.description = desc;
+        this.paramName = desc;
         this.fieldLength = length;
         this.startingPos = start;
         this.endingPos = end;
     }
 
-    public String getDescription() {
-        return description;
+    public String getParamName() {
+        return paramName;
     }
 
     public int getFieldLength() {
@@ -71,8 +71,8 @@ public enum SBRowFormat implements RowFormat<SBRowFormat, SBRow> {
         return List.of(SBRowFormat.values());
     }
 
-    public void collectParamValue(SBRowFormat cursorElement, SBRow sbRow) {
-
+    public SBRow collectedParamValue(SBRowFormat cursorElement, SBRow sbRow) {
+        new
     }
 
 

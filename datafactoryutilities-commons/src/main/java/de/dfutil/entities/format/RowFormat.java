@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface RowFormat<RF, RT> {
 
-    public String getDescription();
+    public String getParamName();
 
     public int getFieldLength();
 
@@ -14,6 +14,6 @@ public interface RowFormat<RF, RT> {
 
     public List<RF> paramValuesList();
 
-    public void collectParamValue(RF cursorElement, RT sbRow);
+    public RT collectedParamValue(RF cursorElement, RT rt);
 
 }

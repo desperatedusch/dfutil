@@ -2,18 +2,15 @@ package de.dfutil.entities.format;
 
 import java.util.List;
 
-public interface RowFormat<RF, RT> {
+public interface RowFormat<RF> {
 
-    public String getParamName();
+    public String paramName();
 
-    public int getFieldLength();
+    public int fieldLength();
 
-    public int getStartingPos();
+    public int startingPos();
 
-    public int getEndingPos();
+    public int endingPos();
 
-    public List<RF> paramValuesList();
-
-    public RT collectedParamValue(RF cursorElement, RT rt);
-
+    public List<RF> paramList();
 }

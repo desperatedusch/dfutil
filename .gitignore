@@ -39,3 +39,4 @@ build/
 
 ### Datafactory files ###
 B2*.dat
+/datafactoryutilities-importer/src/test/resources/files2Import/

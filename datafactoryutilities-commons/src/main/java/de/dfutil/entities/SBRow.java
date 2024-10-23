@@ -52,8 +52,8 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
 
     @Override
     public SBRow parsedFrom(byte[] rowBytes, SBRowFormat rowFormat) {
-        rowFormat.paramValuesList().stream().forEach(val -> (
-                (SBRowFormat) val).getStartingPos());
+        rowFormat.paramList().stream().forEach(val -> (
+                (SBRowFormat) val).startingPos());
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

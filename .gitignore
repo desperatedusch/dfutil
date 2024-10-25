@@ -38,5 +38,5 @@ build/
 .DS_Store
 
 ### Datafactory files ###
-B2*.dat
+*.dat
 /datafactoryutilities-importer/src/test/resources/files2Import/

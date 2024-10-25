@@ -18,7 +18,7 @@ public class LoggingExecutionTimeAspect {
         long startTime = System.currentTimeMillis();
         Object proceed = joinPoint.proceed();
         long endTime = System.currentTimeMillis();
-        log.info(joinPoint.getSignature() + " executed in " + (endTime - startTime) + "ms");
+        log.info("<<<<<<<<<<<<<<< " + joinPoint.getSignature() + " >>>>>>>>>>>>>>> executed in " + (endTime - startTime) + "ms");
         return proceed;
     }
 }

@@ -1,6 +1,6 @@
 package de.dfutil.core;
 
-import de.dfutil.core.events.RowParsedEvent;
+import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

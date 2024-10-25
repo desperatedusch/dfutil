@@ -1,7 +1,6 @@
 package de.dfutil.entities;
 
 import de.dfutil.entities.format.v2308213.RowType;
-import de.dfutil.entities.format.v2308213.SBRowFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -10,7 +9,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Table(name = "sbrow")
-public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, PostalObject {
+public class SBRow implements AbstractDataFactoryRow<SBRow>, PostalObject {
 
     @jakarta.persistence.Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
@@ -51,9 +50,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     private String strHnrbisNeu;
 
     @Override
-    public SBRow parseFrom(byte[] rowBytes, SBRowFormat rowFormat) {
-        rowFormat.paramList().stream().forEach(val -> (
-                (SBRowFormat) val).startingPos());
+    public SBRow parseFrom(byte[] rowBytes) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

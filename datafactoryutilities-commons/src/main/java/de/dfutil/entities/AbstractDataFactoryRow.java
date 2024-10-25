@@ -1,9 +1,7 @@
 package de.dfutil.entities;
 
-import de.dfutil.entities.format.RowFormat;
+public interface AbstractDataFactoryRow<T extends PostalObject> {
 
-public interface AbstractDataFactoryRow<T extends PostalObject, RF extends RowFormat> {
-
-    T parseFrom(byte[] rowBytes, RF rowFormat);
+    public T parseFrom(byte[] rowBytes);
 
 }

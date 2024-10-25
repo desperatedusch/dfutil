@@ -1,8 +1,9 @@
 package de.dfutil.core.listener;
 
-import de.dfutil.core.events.RowParsedEvent;
 import de.dfutil.dao.jpa.SBDaoUsingJPA;
 import de.dfutil.dao.redis.SBDaoPersistingIntoRedis;
+import de.dfutil.entities.SBRow;
+import de.dfutil.events.RowParsedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class SBDataImportHandler implements ApplicationListener<RowParsedEvent> 
 
     @Override
     public void onApplicationEvent(RowParsedEvent event) {
-        jpaDao.save(event.getContent());
+        jpaDao.save(new SBRow().parseFrom(((String) event.getSource()).getBytes()));
 //        redisDao.save(event.getContent());
     }
 

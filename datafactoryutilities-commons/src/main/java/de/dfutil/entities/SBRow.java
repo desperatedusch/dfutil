@@ -1,8 +1,14 @@
 package de.dfutil.entities;
 
-import de.dfutil.entities.format.v2308213.RowType;
+import de.dfutil.entities.format.RowType;
+import de.dfutil.entities.format.SBRowFormat;
+import de.dfutil.helpers.utilities.StringHelper;
 import jakarta.persistence.*;
+import org.springframework.beans.PropertyAccessor;
+import org.springframework.beans.PropertyAccessorFactory;
+import org.springframework.util.StringUtils;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
@@ -19,7 +25,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow>, PostalObject {
     @Column(name = "version")
     private Date version;
 
-    private final RowType rowType = RowType.SB;
+    private final static RowType rowType = RowType.SB;
     //"SB9410001" für die erste Version der STRA-DB im Oktober 1994
     private String dataSchemeVersion;
     //= "SB" für alle Sätze der Datei STRA-DB
@@ -49,9 +55,22 @@ public class SBRow implements AbstractDataFactoryRow<SBRow>, PostalObject {
     private String strHnrvonNeu;
     private String strHnrbisNeu;
 
-    @Override
+    @Transient
+    static PropertyAccessor myAccessor = PropertyAccessorFactory.forBeanPropertyAccess(SBRow.class);
+
+    private static void accept(SBRowFormat p, byte[] rowBytes) throws ClassNotFoundException, NoSuchMethodException {
+        myAccessor.setPropertyValue(StringUtils.capitalize(StringHelper.convertSnakeToCamelCase(p.paramName())), Arrays.copyOfRange(rowBytes, p.startingPos(), p.endingPos()));
+    }
+
     public SBRow parseFrom(byte[] rowBytes) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for (SBRowFormat sbRowFormat : SBRowFormat.values()) {
+            try {
+                accept(sbRowFormat, rowBytes);
+            } catch (ClassNotFoundException | NoSuchMethodException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return this;
     }
 
     public Long getId() {

@@ -1,6 +1,6 @@
 package de.dfutil.events;
 
-import de.dfutil.entities.format.v2308213.RowType;
+import de.dfutil.entities.format.RowType;
 import org.springframework.context.ApplicationEvent;
 
 public class RowParsedEvent extends ApplicationEvent {

@@ -1,4 +1,4 @@
-package de.dfutil.entities.format.v2308213;
+package de.dfutil.entities.format;
 
 public enum RowType {
 
@@ -59,8 +59,4 @@ public enum RowType {
         return satzLaenge;
     }
 
-    @Override
-    public String toString() {
-        return "RowType{}";
-    }
 }

@@ -13,12 +13,14 @@ public class LoggingExecutionTimeAspect {
 
     private static final Logger log = LoggerFactory.getLogger(LoggingExecutionTimeAspect.class);
 
+
     @Around("@annotation(LogExecutionTime)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         Object proceed = joinPoint.proceed();
         long endTime = System.currentTimeMillis();
-        log.info("<<<<<<<<<<<<<<< " + joinPoint.getSignature() + " >>>>>>>>>>>>>>> executed in " + (endTime - startTime) + "ms");
+        log.info("<<<<<<<<<<<<<<< {} >>>>>>>>>>>>>>> executed in {}ms", joinPoint.getSignature(), endTime - startTime);
+        System.out.println("<<<<<<<<<<<<<<< " + joinPoint.getSignature() + " >>>>>>>>>>>>>>> executed in " + (endTime - startTime) + "ms");
         return proceed;
     }
 }

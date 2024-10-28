@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Reworks event handling and remove central importer instance">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/DataImportHandler.java" afterDir="false" />
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Eventhandling works now to the  SBDataImportHandler, but step to database still open">
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/utilities/StringHelper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-01/AUSPC.DAT" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-01/FD.DAT" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-01/FPC.DAT" afterDir="false" />
@@ -16,15 +16,12 @@
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-10/FPC.DAT" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-10/PACKSTAT.DAT" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/AdressInformationProviderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/AddressInformationProviderApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/RowType.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/RowType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/RowType.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/SBRowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/SBRowFormat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/RowParsedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/RowParsedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/logging/LogExecutionTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/measurement/LogExecutionTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/logging/LoggingExecutionTimeAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/measurement/LoggingExecutionTimeAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/measurement/LoggingExecutionTimeAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/measurement/LoggingExecutionTimeAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +33,8 @@
       <list>
         <option value="Enum" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -185,11 +182,11 @@
       <recent name="de.dfutil.entities.format.v2308213" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil.entities.format" />
       <recent name="de.dfutil.helpers.logging" />
       <recent name="de.dfutil.dao.redis" />
       <recent name="de.dfutil.dao.jpa" />
       <recent name="de.dfutil.core" />
-      <recent name="de.dfutil.core.services" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="de.dfutil.core.services" />
@@ -354,7 +351,7 @@
       <workItem from="1729587549741" duration="18080000" />
       <workItem from="1729668082289" duration="14649000" />
       <workItem from="1729756839798" duration="18845000" />
-      <workItem from="1730118157265" duration="13989000" />
+      <workItem from="1730118157265" duration="21424000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -524,7 +521,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729844711024</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Eventhandling works now to the  SBDataImportHandler, but step to database still open">
+      <option name="closed" value="true" />
+      <created>1730133422962</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1730133422962</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +569,8 @@
     <MESSAGE value="Modules java version" />
     <MESSAGE value="Adds basic redis configuration" />
     <MESSAGE value="Reworks event handling and remove central importer instance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reworks event handling and remove central importer instance" />
+    <MESSAGE value="Eventhandling works now to the  SBDataImportHandler, but step to database still open" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eventhandling works now to the  SBDataImportHandler, but step to database still open" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

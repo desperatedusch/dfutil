@@ -28,7 +28,7 @@ public class SBDataImportHandler implements DataImportHandler {
 
     @EventListener(condition = "#event.rowType.name().contains('SB')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
-        log.info("event {} of type {} received", event.getSource(), event.rowType());
+//        log.info("event {} of type {} received", event.getSource(), event.rowType());
 //        persistEventContent2DataSources(event);
     }
 

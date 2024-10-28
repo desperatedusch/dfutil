@@ -1,4 +1,4 @@
-package de.dfutil.helpers.logging;
+package de.dfutil.helpers.measurement;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

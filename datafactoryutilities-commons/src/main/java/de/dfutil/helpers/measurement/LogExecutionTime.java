@@ -1,4 +1,4 @@
-package de.dfutil.helpers.logging;
+package de.dfutil.helpers.measurement;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

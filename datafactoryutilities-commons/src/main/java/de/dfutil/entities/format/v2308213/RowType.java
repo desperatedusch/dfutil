@@ -24,6 +24,8 @@ public enum RowType {
 
     public static RowType fromPrefix(String prefix) {
         switch (prefix) {
+            case "OE":
+                return OE;
             case "GE":
                 return GE;
             case "KG":
@@ -34,6 +36,8 @@ public enum RowType {
                 return OB;
             case "PL":
                 return PL;
+            case "PF":
+                return PF;
             case "SB":
                 return SB;
             case "XX":
@@ -55,4 +59,8 @@ public enum RowType {
         return satzLaenge;
     }
 
+    @Override
+    public String toString() {
+        return "RowType{}";
+    }
 }

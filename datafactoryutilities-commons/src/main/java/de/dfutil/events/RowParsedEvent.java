@@ -9,7 +9,7 @@ public class RowParsedEvent extends ApplicationEvent {
 
     public RowParsedEvent(Object source) {
         super(source);
-        this.rowType = RowType.fromPrefix(((String) source).substring(0, 1));
+        this.rowType = RowType.fromPrefix(((String) source).substring(0, 2));
     }
 
     public RowType rowType() {

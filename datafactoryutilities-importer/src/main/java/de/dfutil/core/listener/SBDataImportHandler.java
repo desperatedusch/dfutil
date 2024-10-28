@@ -2,34 +2,40 @@ package de.dfutil.core.listener;
 
 import de.dfutil.dao.jpa.SBDaoUsingJPA;
 import de.dfutil.dao.redis.SBDaoPersistingIntoRedis;
-import de.dfutil.entities.SBRow;
 import de.dfutil.events.RowParsedEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.EventListener;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SBDataImportHandler implements ApplicationListener<RowParsedEvent> {
+public class SBDataImportHandler implements DataImportHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(SBDataImportHandler.class);
 
     @Autowired
     private SBDaoUsingJPA jpaDao;
 
-//    @Autowired
-//    private SBDaoPersistingIntoRedis redisDao;
+    @Autowired
+    private SBDaoPersistingIntoRedis redisDao;
 
     public SBDataImportHandler(SBDaoUsingJPA jpaDao, SBDaoPersistingIntoRedis redisDao) {
         this.jpaDao = jpaDao;
-//      this.redisDao = redisDao;
+        this.redisDao = redisDao;
+    }
+
+    @EventListener(condition = "#event.rowType.name().contains('SB')")
+    public void onApplicationEvent(@NonNull RowParsedEvent event) {
+        log.info("event {} of type {} received", event.getSource(), event.rowType());
+//        persistEventContent2DataSources(event);
     }
 
     @Override
-    public void onApplicationEvent(RowParsedEvent event) {
-        jpaDao.save(new SBRow().parseFrom(((String) event.getSource()).getBytes()));
+    public void persistEventContent2DataSources(RowParsedEvent event) {
+//        jpaDao.save(new SBRow().parseFrom(((String) event.getSource()).getBytes()));
 //        redisDao.save(event.getContent());
     }
-
-    @Override
-    public boolean supportsAsyncExecution() {
-        return ApplicationListener.super.supportsAsyncExecution();
-    }
 }
+

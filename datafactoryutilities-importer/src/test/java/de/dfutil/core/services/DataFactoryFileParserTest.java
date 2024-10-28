@@ -1,7 +1,7 @@
 package de.dfutil.core.services;
 
 import de.dfutil.core.FileParser;
-import de.dfutil.helpers.logging.LogExecutionTime;
+import de.dfutil.helpers.measurement.LogExecutionTime;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

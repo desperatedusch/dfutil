@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingExecutionTimeAspect {
 
-    private static final Logger log = LoggerFactory.getLogger(LoggingExecutionTimeAspect.class);
+    private Logger log = LoggerFactory.getLogger(LoggingExecutionTimeAspect.class);
 
 
     @Around("@annotation(LogExecutionTime)")
@@ -20,7 +20,6 @@ public class LoggingExecutionTimeAspect {
         Object proceed = joinPoint.proceed();
         long endTime = System.currentTimeMillis();
         log.info("<<<<<<<<<<<<<<< {} >>>>>>>>>>>>>>> executed in {}ms", joinPoint.getSignature(), endTime - startTime);
-        System.out.println("<<<<<<<<<<<<<<< " + joinPoint.getSignature() + " >>>>>>>>>>>>>>> executed in " + (endTime - startTime) + "ms");
         return proceed;
     }
 }

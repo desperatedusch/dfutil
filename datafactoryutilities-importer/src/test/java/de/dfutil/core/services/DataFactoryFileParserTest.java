@@ -1,7 +1,6 @@
 package de.dfutil.core.services;
 
 import de.dfutil.core.FileParser;
-import de.dfutil.helpers.measurement.LogExecutionTime;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,6 @@ class DataFactoryFileParserTest {
     private ResourceLoader resourceLoader;
 
     @Test
-    @LogExecutionTime
     public void testParseDataFactoryFileSBRow() throws IOException {
         cut.parseFileWithBufferedReader(resourceLoader.getResource("classpath:files2Import/Streetcode_Stand_2024-01/B2401001.DAT").getFile().getPath());
     }

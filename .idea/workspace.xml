@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Eventhandling works now to the  SBDataImportHandler, but step to database still open">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/utilities/StringHelper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-01/AUSPC.DAT" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-01/FD.DAT" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-01/FPC.DAT" afterDir="false" />
@@ -16,12 +15,10 @@
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-10/FPC.DAT" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-10/PACKSTAT.DAT" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/RowType.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/v2308213/SBRowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/SBRowFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/RowParsedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/RowParsedEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/measurement/LoggingExecutionTimeAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/measurement/LoggingExecutionTimeAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/utilities/StringHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/utilities/StringHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +111,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "JUnit.DataFactoryFileParserTest.executor": "Debug",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor": "Run",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor": "Debug",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor": "Debug",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor": "Run",
     "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor": "Run",
@@ -352,6 +349,7 @@
       <workItem from="1729668082289" duration="14649000" />
       <workItem from="1729756839798" duration="18845000" />
       <workItem from="1730118157265" duration="21424000" />
+      <workItem from="1730181336990" duration="7093000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -589,9 +587,9 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/services/DataFactoryFileParserTest.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/measurement/LoggingExecutionTimeAspect.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

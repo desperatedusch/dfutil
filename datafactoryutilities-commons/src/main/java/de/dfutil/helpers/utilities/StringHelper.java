@@ -6,7 +6,6 @@ public class StringHelper {
         if (!input.contains("_")) {
             throw new IllegalArgumentException("Invalid input");
         }
-
         StringBuilder sb = new StringBuilder();
         String[] words = input.split("_");
         for (int j = 0; j < words.length; j++) {
@@ -19,10 +18,8 @@ public class StringHelper {
                 }
             }
         }
-
         return sb.toString();
     }
-
 
 }
 

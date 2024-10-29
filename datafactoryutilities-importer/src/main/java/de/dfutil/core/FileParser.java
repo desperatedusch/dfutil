@@ -1,6 +1,7 @@
 package de.dfutil.core;
 
 import de.dfutil.events.RowParsedEvent;
+import de.dfutil.helpers.measurement.LogExecutionTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class FileParser {
 
     public FileParser() {}
 
+    @LogExecutionTime
     public void parseFileWithBufferedReader(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;

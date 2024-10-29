@@ -12,10 +12,10 @@ public class DatafactoryImporterApplication {
 
 	public static void main(String[] args) {
 
-		log.info("App started...");
+		log.info("Importer app started...");
 		SpringApplication.run(DatafactoryImporterApplication.class, args);
 		//TODO implement serious parameter handling
 		//new DataFactoryFileParser().parseFile
-		log.info("App stopped...");
+		log.info("Importer app stopped...");
 	}
 }

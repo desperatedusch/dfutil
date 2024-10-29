@@ -2,6 +2,7 @@ package de.dfutil.core.listener;
 
 import de.dfutil.dao.jpa.SBDaoUsingJPA;
 import de.dfutil.dao.redis.SBDaoPersistingIntoRedis;
+import de.dfutil.entities.SBRow;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,13 +29,15 @@ public class SBDataImportHandler implements DataImportHandler {
 
     @EventListener(condition = "#event.rowType.name().contains('SB')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
-//        log.info("event {} of type {} received", event.getSource(), event.rowType());
-//        persistEventContent2DataSources(event);
+        log.info("event {} of type {} received", event.getSource(), event.rowType());
+        persistEventContent2DataSources(event);
+
     }
 
     @Override
     public void persistEventContent2DataSources(RowParsedEvent event) {
-//        jpaDao.save(new SBRow().parseFrom(((String) event.getSource()).getBytes()));
+        event.row();
+        SBRow sbRow = jpaDao.save(new SBRow().parseFrom(event.row()));
 //        redisDao.save(event.getContent());
     }
 }

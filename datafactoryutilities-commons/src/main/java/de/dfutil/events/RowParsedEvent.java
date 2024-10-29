@@ -6,14 +6,19 @@ import org.springframework.context.ApplicationEvent;
 public class RowParsedEvent extends ApplicationEvent {
 
     private final RowType rowType;
+    private final String row;
 
     public RowParsedEvent(Object source) {
         super(source);
         this.rowType = RowType.fromPrefix(((String) source).substring(0, 2));
+        this.row = String.valueOf(source);
     }
 
     public RowType rowType() {
         return rowType;
     }
 
+    public byte[] row() {
+        return row.getBytes();
+    }
 }

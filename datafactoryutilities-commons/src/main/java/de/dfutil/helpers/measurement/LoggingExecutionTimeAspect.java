@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingExecutionTimeAspect {
 
-    private Logger log = LoggerFactory.getLogger(LoggingExecutionTimeAspect.class);
+    private final Logger log = LoggerFactory.getLogger(LoggingExecutionTimeAspect.class);
 
 
     @Around("@annotation(LogExecutionTime)")

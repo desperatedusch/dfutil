@@ -60,6 +60,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow>, PostalObject {
 
     private static void accept(SBRowFormat p, byte[] rowBytes) throws ClassNotFoundException, NoSuchMethodException {
         myAccessor.setPropertyValue(StringUtils.capitalize(StringHelper.convertSnakeToCamelCase(p.paramName())), Arrays.copyOfRange(rowBytes, p.startingPos(), p.endingPos()));
+
     }
 
     public SBRow parseFrom(byte[] rowBytes) {

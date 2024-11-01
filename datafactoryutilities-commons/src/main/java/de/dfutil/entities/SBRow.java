@@ -15,7 +15,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Table(name = "sbrow")
-public class SBRow implements AbstractDataFactoryRow<SBRow>, PostalObject {
+public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, PostalObject {
 
     @jakarta.persistence.Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
@@ -55,20 +55,21 @@ public class SBRow implements AbstractDataFactoryRow<SBRow>, PostalObject {
     private String strHnrvonNeu;
     private String strHnrbisNeu;
 
-    @Transient
-    static PropertyAccessor myAccessor = PropertyAccessorFactory.forBeanPropertyAccess(SBRow.class);
+    static PropertyAccessor propertyAccessor = PropertyAccessorFactory.forBeanPropertyAccess(SBRow.class);
 
-    private static void accept(SBRowFormat p, byte[] rowBytes) throws ClassNotFoundException, NoSuchMethodException {
-        myAccessor.setPropertyValue(StringUtils.capitalize(StringHelper.convertSnakeToCamelCase(p.paramName())), Arrays.copyOfRange(rowBytes, p.startingPos(), p.endingPos()));
+    @Override
+    public void accept(SBRowFormat p, byte[] rowBytes) throws ClassNotFoundException, NoSuchMethodException {
+        propertyAccessor.setPropertyValue(StringUtils.capitalize(StringHelper.convertHyphenSnakeToCamelCase(p.paramName())), Arrays.copyOfRange(rowBytes, p.startingPos(), p.endingPos()));
 
     }
 
+    @Override
     public SBRow parseFrom(byte[] rowBytes) {
         for (SBRowFormat sbRowFormat : SBRowFormat.values()) {
             try {
                 accept(sbRowFormat, rowBytes);
             } catch (ClassNotFoundException | NoSuchMethodException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Parsing failed....", e);
             }
         }
         return this;

@@ -34,7 +34,7 @@ public class FileParser {
             }
         } catch (IOException e) {
             log.error(e.getMessage());
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage(), e);
         }
     }
 

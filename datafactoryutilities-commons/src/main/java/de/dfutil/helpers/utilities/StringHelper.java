@@ -2,11 +2,9 @@ package de.dfutil.helpers.utilities;
 
 public class StringHelper {
 
+    //TODO Rework string conversion from stringbuffer to a more efficient way
     public static String convertHyphenSnakeToCamelCase(String input) {
-        if (!input.contains("-")) {
-            throw new IllegalArgumentException("Invalid input");
-        }
-        StringBuilder sb = new StringBuilder();
+        StringBuffer sb = new StringBuffer(input.toLowerCase());
         String[] words = input.split("-");
         for (int j = 0; j < words.length; j++) {
             for (int i = 0; i < words[j].length(); i++) {

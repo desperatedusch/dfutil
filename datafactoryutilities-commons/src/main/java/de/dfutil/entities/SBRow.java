@@ -26,10 +26,6 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     private Date version;
 
     private final static RowType rowType = RowType.SB;
-    //"SB9410001" für die erste Version der STRA-DB im Oktober 1994
-    private String dataSchemeVersion;
-    //= "SB" für alle Sätze der Datei STRA-DB
-    private static final String DATEIKENNUNG = "SB";
     private String strDatum;
     private String strAlOrt;
     private String strSchluessel;
@@ -93,14 +89,6 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
 
     public RowType getRowType() {
         return rowType;
-    }
-
-    public String getDataSchemeVersion() {
-        return dataSchemeVersion;
-    }
-
-    public void setDataSchemeVersion(String dataSchemeVersion) {
-        this.dataSchemeVersion = dataSchemeVersion;
     }
 
     public String getStrDatum() {

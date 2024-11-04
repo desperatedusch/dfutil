@@ -12,5 +12,7 @@ public interface RowFormat<RF> {
 
     public int endingPos();
 
+    public boolean isParseableContent();
+
     public List<RF> paramList();
 }

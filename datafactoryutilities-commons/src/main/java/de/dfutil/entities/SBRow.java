@@ -2,13 +2,10 @@ package de.dfutil.entities;
 
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.format.SBRowFormat;
-import de.dfutil.helpers.utilities.StringHelper;
 import jakarta.persistence.*;
 import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.PropertyAccessorFactory;
-import org.springframework.util.StringUtils;
 
-import java.util.Arrays;
 import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
@@ -51,19 +48,17 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     private String strHnrvonNeu;
     private String strHnrbisNeu;
 
-    static PropertyAccessor propertyAccessor = PropertyAccessorFactory.forBeanPropertyAccess(SBRow.class);
-
     @Override
-    public void accept(SBRowFormat p, byte[] rowBytes) throws ClassNotFoundException, NoSuchMethodException {
-        propertyAccessor.setPropertyValue(StringUtils.capitalize(StringHelper.convertHyphenSnakeToCamelCase(p.paramName())), Arrays.copyOfRange(rowBytes, p.startingPos(), p.endingPos()));
-
+    public PropertyAccessor propertyAccessor() {
+        return PropertyAccessorFactory.forBeanPropertyAccess(SBRow.class);
     }
 
     @Override
     public SBRow parseFrom(byte[] rowBytes) {
         for (SBRowFormat sbRowFormat : SBRowFormat.values()) {
             try {
-                accept(sbRowFormat, rowBytes);
+                if (sbRowFormat.isParseableContent())
+                    accept(sbRowFormat, rowBytes);
             } catch (ClassNotFoundException | NoSuchMethodException e) {
                 throw new RuntimeException("Parsing failed....", e);
             }

@@ -50,15 +50,15 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
 
     @Override
     public PropertyAccessor propertyAccessor() {
-        return PropertyAccessorFactory.forBeanPropertyAccess(SBRow.class);
+        return PropertyAccessorFactory.forBeanPropertyAccess(getClass());
     }
 
     @Override
     public SBRow parseFrom(byte[] rowBytes) {
-        for (SBRowFormat sbRowFormat : SBRowFormat.values()) {
+        for (SBRowFormat token : SBRowFormat.values()) {
             try {
-                if (sbRowFormat.isParseableContent())
-                    accept(sbRowFormat, rowBytes);
+                if (token.isParseableContent())
+                    applyRowFormatTokenOnRowBytes(token, rowBytes);
             } catch (ClassNotFoundException | NoSuchMethodException e) {
                 throw new RuntimeException("Parsing failed....", e);
             }

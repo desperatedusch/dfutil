@@ -10,14 +10,15 @@ import java.util.Arrays;
 
 public interface AbstractDataFactoryRow<T extends PostalObject, RF extends RowFormat<?>> {
 
-    default void accept(RF p, byte[] rowBytes) throws ClassNotFoundException, NoSuchMethodException {
+    default void applyRowFormatTokenOnRowBytes(RF token, byte[] rowBytes) throws ClassNotFoundException, NoSuchMethodException {
         PropertyAccessor propertyAccessor = propertyAccessor();
-        propertyAccessor.setPropertyValue(StringUtils.capitalize(StringHelper.convertHyphenSnakeToCamelCase(p.paramName())), Arrays.copyOfRange(rowBytes, p.startingPos(), p.endingPos()));
+        propertyAccessor.setPropertyValue(StringUtils.capitalize(
+                StringHelper.convertHyphenSnakeToCamelCase(
+                        token.paramName())), Arrays.copyOfRange(rowBytes, token.startingPos(), token.endingPos()));
     }
 
     PropertyAccessor propertyAccessor();
 
     T parseFrom(byte[] rowBytes);
-
 
 }

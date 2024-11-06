@@ -3,8 +3,6 @@ package de.dfutil.entities;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.format.SBRowFormat;
 import jakarta.persistence.*;
-import org.springframework.beans.PropertyAccessor;
-import org.springframework.beans.PropertyAccessorFactory;
 
 import java.util.Date;
 
@@ -49,17 +47,12 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     private String strHnrbisNeu;
 
     @Override
-    public PropertyAccessor propertyAccessor() {
-        return PropertyAccessorFactory.forBeanPropertyAccess(getClass());
-    }
-
-    @Override
     public SBRow parseFrom(byte[] rowBytes) {
         for (SBRowFormat token : SBRowFormat.values()) {
             try {
                 if (token.isParseableContent())
-                    applyRowFormatTokenOnRowBytes(token, rowBytes);
-            } catch (ClassNotFoundException | NoSuchMethodException e) {
+                    applyRowFormatTokenOnRowBytes(token, rowBytes, this);
+            } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException e) {
                 throw new RuntimeException("Parsing failed....", e);
             }
         }

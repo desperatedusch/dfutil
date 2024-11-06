@@ -9,8 +9,10 @@ public class SBRowBytes2ObjectTest {
 
     @Test
     public void parseSBRowBytes2Object() {
-        SBRow expectedSBRow = new SBRow().parseFrom(ALPENSTRASSE);
-        expectedSBRow.toString();
+        SBRow parsedSBRow = new SBRow().parseFrom(ALPENSTRASSE);
+        parsedSBRow.toString();
+        SBRow expectedSBRow = new SBRow();
+
     }
 
 }

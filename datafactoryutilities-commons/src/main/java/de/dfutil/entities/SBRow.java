@@ -33,8 +33,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     private String strName46;
     private String strName22;
     private String strReserve;
-    @Enumerated(EnumType.STRING)
-    private HouseNumbersType strHnrTyp;
+    private String strHnrTyp;
     private String strPlz;
     private String strCode;
     private String strOtlSchl;
@@ -167,11 +166,11 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
         this.strReserve = strReserve;
     }
 
-    public HouseNumbersType getStrHnrTyp() {
+    public String getStrHnrTyp() {
         return strHnrTyp;
     }
 
-    public void setStrHnrTyp(HouseNumbersType strHnrTyp) {
+    public void setStrHnrTyp(String strHnrTyp) {
         this.strHnrTyp = strHnrTyp;
     }
 

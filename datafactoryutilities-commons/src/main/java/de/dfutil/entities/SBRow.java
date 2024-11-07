@@ -28,8 +28,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     private String strBundLfdnr;
     private String strHnrVon;
     private String strHnrBis;
-    @Enumerated(EnumType.STRING)
-    private ArchivingStatus status;
+    private String strStatus;
     private String strName46;
     private String strName22;
     private String strReserve;
@@ -134,12 +133,12 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
         this.strHnrBis = strHnrBis;
     }
 
-    public ArchivingStatus getStatus() {
-        return status;
+    public String getStrStatus() {
+        return strStatus;
     }
 
-    public void setStatus(ArchivingStatus status) {
-        this.status = status;
+    public void setStrStatus(String strStatus) {
+        this.strStatus = strStatus;
     }
 
     public String getStrName46() {

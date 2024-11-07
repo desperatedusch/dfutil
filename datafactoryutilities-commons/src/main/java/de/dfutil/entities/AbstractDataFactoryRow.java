@@ -13,7 +13,6 @@ import java.util.Objects;
 public interface AbstractDataFactoryRow<T extends PostalObject, RF extends RowFormat<?>> {
 
     default void applyRowFormatTokenOnRowBytes(RF token, byte[] rowBytes, T containingPostalObject) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException {
-
         Field field = ReflectionUtils.findField(containingPostalObject.getClass(), StringHelper.convertHyphenSnakeToCamelCase(token.paramName()));
         if (Objects.nonNull(field)) {
             ReflectionUtils.makeAccessible(field);
@@ -21,7 +20,7 @@ public interface AbstractDataFactoryRow<T extends PostalObject, RF extends RowFo
                     containingPostalObject,
                     new String(Arrays.copyOfRange(
                             rowBytes,
-                            token.startingPos(),
+                            token.startingPos() - 1,
                             token.endingPos()),
                             StandardCharsets.UTF_8
                     ));

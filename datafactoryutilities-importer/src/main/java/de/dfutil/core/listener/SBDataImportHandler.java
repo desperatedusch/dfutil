@@ -36,9 +36,8 @@ public class SBDataImportHandler implements DataImportHandler {
 
     @Override
     public void persistEventContent2DataSources(RowParsedEvent event) {
-        event.row();
-        SBRow sbRow = jpaDao.save(new SBRow().parseFrom(event.row()));
-//        redisDao.save(event.getContent());
+        SBRow sbRowJpa = jpaDao.save(new SBRow().parseFrom(event.row()));
+        SBRow sbRowRedis = redisDao.save(new SBRow().parseFrom(event.row()));
     }
 }
 

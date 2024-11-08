@@ -73,7 +73,7 @@ public enum SBRowFormat implements RowFormat<SBRowFormat> {
         return endingPos;
     }
 
-    public boolean isParseableContent() {
+    public boolean parseableContent() {
         return parseableProperty;
     }
 

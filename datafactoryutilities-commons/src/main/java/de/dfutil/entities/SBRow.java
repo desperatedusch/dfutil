@@ -48,7 +48,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     public SBRow parseFrom(byte[] rowBytes) {
         for (SBRowFormat token : SBRowFormat.values()) {
             try {
-                if (token.isParseableContent())
+                if (token.parseableContent())
                     applyRowFormatTokenOnRowBytes(token, rowBytes, this);
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException e) {
                 throw new RuntimeException("Parsing failed....", e);
@@ -252,6 +252,8 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Postal
     public void setStrHnrbisNeu(String strHnrbisNeu) {
         this.strHnrbisNeu = strHnrbisNeu;
     }
+
+
 }
 
 

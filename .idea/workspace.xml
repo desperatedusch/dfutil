@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Using spring's ReflectionUtils inside Token processing">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PostalObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PostalObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/SBRowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/SBRowFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +88,7 @@
     <option name="packageCheck" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -116,12 +114,16 @@
     &quot;JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StringHelperTest.executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-adressinformationprovider [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-aggregator-parent [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-aggregator-parent [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-aggregator-parent [install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-aggregator-parent [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-aggregator-parent [test].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-aggregator-parent [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-commons [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-commons [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-importer [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-importer [install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities-importer [package].executor&quot;: &quot;Run&quot;,
@@ -147,7 +149,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.29663607&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -359,7 +361,13 @@
       <workItem from="1730880416928" duration="340000" />
       <workItem from="1730903663710" duration="9227000" />
       <workItem from="1730962690758" duration="15439000" />
-      <workItem from="1731046105553" duration="11327000" />
+      <workItem from="1731046105553" duration="12579000" />
+      <workItem from="1731326296510" duration="2409000" />
+      <workItem from="1731425039571" duration="3766000" />
+      <workItem from="1731480660819" duration="488000" />
+      <workItem from="1731481265721" duration="420000" />
+      <workItem from="1731482023403" duration="2597000" />
+      <workItem from="1731493284726" duration="920000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -593,7 +601,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731001420829</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence">
+      <option name="closed" value="true" />
+      <created>1731092563176</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1731092563176</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +653,8 @@
     <MESSAGE value="Adds new object parsing test TBC" />
     <MESSAGE value="Renamings in postal objects" />
     <MESSAGE value="Using spring's ReflectionUtils inside Token processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Using spring's ReflectionUtils inside Token processing" />
+    <MESSAGE value="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence" />
+    <option name="LAST_COMMIT_MESSAGE" value="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

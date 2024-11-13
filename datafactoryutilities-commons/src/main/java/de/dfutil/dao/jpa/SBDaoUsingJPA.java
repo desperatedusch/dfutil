@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Repository
@@ -20,36 +21,42 @@ public class SBDaoUsingJPA  implements CrudRepository<SBRow, Long> {
 
     @Override
     public <S extends SBRow> S save(S entity) {
-        return null;
+        return entityManager.merge(entity);
     }
 
     @Override
     public <S extends SBRow> Iterable<S> saveAll(Iterable<S> entities) {
-        return null;
+        if (Objects.nonNull(entities)) {
+            for (S entity : entities) {
+                entityManager.merge(entity);
+            }
+        }
+        return entities;
     }
 
     @Override
     public Optional<SBRow> findById(Long aLong) {
-        return Optional.empty();
+        return Optional.ofNullable(entityManager.find(SBRow.class, aLong));
     }
 
     @Override
     public boolean existsById(Long aLong) {
-        return false;
+        return entityManager.find(SBRow.class, aLong) != null;
     }
 
     @Override
     public Iterable<SBRow> findAll() {
-        return null;
+        return entityManager.createQuery("SELECT b FROM SBRow b").getResultList();
     }
 
     @Override
     public Iterable<SBRow> findAllById(Iterable<Long> longs) {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet. Use findById(Long aLong) or findAll() instead...");
     }
 
     @Override
     public long count() {
+
         return 0;
     }
 

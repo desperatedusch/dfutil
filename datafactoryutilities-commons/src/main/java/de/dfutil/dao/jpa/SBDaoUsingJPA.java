@@ -1,7 +1,9 @@
 package de.dfutil.dao.jpa;
 
+import com.google.common.collect.Iterables;
 import de.dfutil.entities.SBRow;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -51,37 +53,39 @@ public class SBDaoUsingJPA  implements CrudRepository<SBRow, Long> {
 
     @Override
     public Iterable<SBRow> findAllById(Iterable<Long> longs) {
-        throw new UnsupportedOperationException("Not supported yet. Use findById(Long aLong) or findAll() instead...");
+        throw new UnsupportedOperationException("Not supported yet. Use findById(Long aLong) or findAll() instead.");
     }
 
     @Override
     public long count() {
-
-        return 0;
+        return Iterables.size(findAll());
     }
 
     @Override
     public void deleteById(Long aLong) {
-
+        entityManager.remove(findById(aLong).orElseThrow(() -> new RuntimeException("")));
     }
 
     @Override
     public void delete(SBRow entity) {
-
+        entityManager.remove(entity);
     }
 
     @Override
     public void deleteAllById(Iterable<? extends Long> longs) {
-
+        throw new UnsupportedOperationException("Not supported yet. Use deleteById(Long aLong) or deleteAll() instead.");
     }
 
     @Override
     public void deleteAll(Iterable<? extends SBRow> entities) {
-
+        throw new UnsupportedOperationException("Not supported yet. Use deleteById(Long aLong) or deleteAll() instead.");
     }
 
     @Override
     public void deleteAll() {
-
+        entityManager.clear();
+        entityManager.flush();
+        Query query = entityManager.createQuery("DELETE SBRow sb");
+        query.executeUpdate();
     }
 }

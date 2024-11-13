@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -367,7 +365,8 @@
       <workItem from="1731480660819" duration="488000" />
       <workItem from="1731481265721" duration="420000" />
       <workItem from="1731482023403" duration="2597000" />
-      <workItem from="1731493284726" duration="920000" />
+      <workItem from="1731493284726" duration="1718000" />
+      <workItem from="1731517649222" duration="2812000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -609,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731092563176</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence">
+      <option name="closed" value="true" />
+      <created>1731506636882</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1731506636882</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

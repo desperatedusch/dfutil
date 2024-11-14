@@ -10,7 +10,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Table(name = "sbrow")
-public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, PostalObject {
+public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, SerializablePostalObject {
 
     @jakarta.persistence.Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")

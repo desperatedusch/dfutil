@@ -6,13 +6,14 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
 import java.util.Objects;
 import java.util.Optional;
 
 @Repository
-public class SBDaoUsingJPA  implements CrudRepository<SBRow, Long> {
+public class SBDaoUsingJPA implements CrudRepository<SBRow, Long> {
 
     @Autowired
     private final EntityManager entityManager;
@@ -22,7 +23,7 @@ public class SBDaoUsingJPA  implements CrudRepository<SBRow, Long> {
     }
 
     @Override
-    public <S extends SBRow> S save(S entity) {
+    public <S extends SBRow> S save(@NonNull S entity) {
         return entityManager.merge(entity);
     }
 
@@ -37,12 +38,12 @@ public class SBDaoUsingJPA  implements CrudRepository<SBRow, Long> {
     }
 
     @Override
-    public Optional<SBRow> findById(Long aLong) {
+    public Optional<SBRow> findById(@NonNull Long aLong) {
         return Optional.ofNullable(entityManager.find(SBRow.class, aLong));
     }
 
     @Override
-    public boolean existsById(Long aLong) {
+    public boolean existsById(@NonNull Long aLong) {
         return entityManager.find(SBRow.class, aLong) != null;
     }
 
@@ -62,8 +63,8 @@ public class SBDaoUsingJPA  implements CrudRepository<SBRow, Long> {
     }
 
     @Override
-    public void deleteById(Long aLong) {
-        entityManager.remove(findById(aLong).orElseThrow(() -> new RuntimeException("")));
+    public void deleteById(@NonNull Long aLong) {
+        entityManager.remove(findById(aLong).orElseThrow(() -> new RuntimeException(String.format("No sbrow entity to delete found for given id: {} ", aLong))));
     }
 
     @Override

@@ -31,13 +31,12 @@ public class SBDataImportHandler implements DataImportHandler {
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.info("event {} of type {} received", event.getSource(), event.rowType());
         persistEventContent2DataSources(event);
-
     }
 
     @Override
     public void persistEventContent2DataSources(RowParsedEvent event) {
         SBRow sbRowJpa = jpaDao.save(new SBRow().parseFrom(event.row()));
-        SBRow sbRowRedis = redisDao.save(new SBRow().parseFrom(event.row()));
+        //SBRow sbRowRedis = redisDao.save(new SBRow().parseFrom(event.row()));
     }
 }
 

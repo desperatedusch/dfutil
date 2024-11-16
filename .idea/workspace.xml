@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="SbJpaDao implementation completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/AbstractDataFactoryRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/AbstractDataFactoryRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PostalObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SerializablePostalObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/FileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/FileParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/FileParserTestConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTestConfiguration.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,60 +110,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "JUnit.DataFactoryFileParserTest.executor": "Debug",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor": "Run",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor": "Debug",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor": "Run",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor": "Run",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor": "Run",
-    "JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor": "Debug",
-    "JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor": "Run",
-    "JUnit.StringHelperTest.executor": "Run",
-    "Maven.datafactoryutilities [package].executor": "Run",
-    "Maven.datafactoryutilities-adressinformationprovider [clean].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [clean].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [compile].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [install].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [package].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [test].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [verify].executor": "Run",
-    "Maven.datafactoryutilities-commons [clean].executor": "Run",
-    "Maven.datafactoryutilities-commons [install].executor": "Run",
-    "Maven.datafactoryutilities-importer [clean].executor": "Run",
-    "Maven.datafactoryutilities-importer [compile].executor": "Run",
-    "Maven.datafactoryutilities-importer [install].executor": "Run",
-    "Maven.datafactoryutilities-importer [package].executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DoNotAsk-Database detector": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AddressInformationProviderApplication.executor": "Run",
-    "Spring Boot.AdressInformationProviderApplication.executor": "Run",
-    "Spring Boot.DatafactoryImporterApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/utilities",
-    "last_opened_file_path": "D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.build",
-    "settings.editor.splitter.proportion": "0.29663607",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StringHelperTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-adressinformationprovider [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-commons [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-commons [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [package].executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AddressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AdressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DatafactoryImporterApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil/helpers/utilities&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.29663607&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -207,12 +205,18 @@
       <recent name="de.dfutil.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.AddressInformationProviderApplication">
-    <configuration name="FileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FileParserTest.parseDataFactoryFileSBRow">
+    <configuration name="FileParserTest.parseDataFactoryFileSBRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-importer" />
-      <option name="PACKAGE_NAME" value="de.dfutil.core.services" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.services.FileParserTest" />
-      <option name="METHOD_NAME" value="testParseDataFactoryFileSBRowWithAsynchronousileChannel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.dfutil.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.dfutil.core" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.FileParserTest" />
+      <option name="METHOD_NAME" value="parseDataFactoryFileSBRow" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -291,6 +295,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileParserTest.parseDataFactoryFileSBRow" />
         <item itemvalue="JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object" />
         <item itemvalue="JUnit.StringHelperTest" />
         <item itemvalue="JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest" />
@@ -383,7 +388,11 @@
       <workItem from="1731517649222" duration="2852000" />
       <workItem from="1731522050541" duration="52000" />
       <workItem from="1731574459734" duration="6877000" />
-      <workItem from="1731607848104" duration="1168000" />
+      <workItem from="1731607848104" duration="1331000" />
+      <workItem from="1731663223701" duration="2033000" />
+      <workItem from="1731673256467" duration="19000" />
+      <workItem from="1731683583885" duration="684000" />
+      <workItem from="1731748968447" duration="4618000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -641,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731522031685</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="SbJpaDao implementation completed">
+      <option name="closed" value="true" />
+      <created>1731609103447</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1731609103447</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +703,8 @@
     <MESSAGE value="Renamings in postal objects" />
     <MESSAGE value="Using spring's ReflectionUtils inside Token processing" />
     <MESSAGE value="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence" />
-    <option name="LAST_COMMIT_MESSAGE" value="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence" />
+    <MESSAGE value="SbJpaDao implementation completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="SbJpaDao implementation completed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -716,7 +734,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTest.java</url>
-          <line>13</line>
+          <line>14</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

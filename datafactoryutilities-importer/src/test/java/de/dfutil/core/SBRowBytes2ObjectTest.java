@@ -2,6 +2,7 @@ package de.dfutil.core;
 
 import de.dfutil.entities.SBRow;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.TestConfiguration;
 
 public class SBRowBytes2ObjectTest {
 
@@ -15,4 +16,8 @@ public class SBRowBytes2ObjectTest {
 
     }
 
+}
+
+@TestConfiguration
+class SBRowBytes2ObjectTestConfiguration {
 }

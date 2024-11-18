@@ -1,6 +1,7 @@
 package de.dfutil.dao.jpa;
 
 import com.google.common.collect.Iterables;
+import de.dfutil.dao.SbDao;
 import de.dfutil.entities.SBRow;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -13,7 +14,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Repository
-public class SBDaoUsingJPA implements CrudRepository<SBRow, Long> {
+public class SBDaoUsingJPA implements CrudRepository<SBRow, Long>, SbDao {
 
     @Autowired
     private final EntityManager entityManager;

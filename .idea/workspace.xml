@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="SbJpaDao implementation completed">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Integrated H2 Server into Unit Test (not finished)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/FileParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/FileParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/FileParserTestConfiguration.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTestConfiguration.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +111,7 @@
     &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FileParserTest.parseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StringHelperTest.executor&quot;: &quot;Run&quot;,
@@ -392,7 +385,8 @@
       <workItem from="1731663223701" duration="2033000" />
       <workItem from="1731673256467" duration="19000" />
       <workItem from="1731683583885" duration="684000" />
-      <workItem from="1731748968447" duration="4618000" />
+      <workItem from="1731748968447" duration="4959000" />
+      <workItem from="1731912968404" duration="4739000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -658,7 +652,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731609103447</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Integrated H2 Server into Unit Test (not finished)">
+      <option name="closed" value="true" />
+      <created>1731754430801</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1731754430801</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +706,8 @@
     <MESSAGE value="Using spring's ReflectionUtils inside Token processing" />
     <MESSAGE value="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence" />
     <MESSAGE value="SbJpaDao implementation completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="SbJpaDao implementation completed" />
+    <MESSAGE value="Integrated H2 Server into Unit Test (not finished)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrated H2 Server into Unit Test (not finished)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

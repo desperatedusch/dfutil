@@ -13,11 +13,11 @@ public class SBRowBytes2ObjectTest {
         SBRow parsedSBRow = new SBRow().parseFrom(ALPENSTRASSE);
         parsedSBRow.toString();
         SBRow expectedSBRow = new SBRow();
-
     }
 
 }
 
 @TestConfiguration
 class SBRowBytes2ObjectTestConfiguration {
+
 }

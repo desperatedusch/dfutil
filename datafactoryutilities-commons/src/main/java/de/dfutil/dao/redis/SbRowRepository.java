@@ -1,36 +1,37 @@
 package de.dfutil.dao.redis;
 
-import de.dfutil.entities.SBRow;
+import de.dfutil.entities.redis.SbRow;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Profile({"redis", "!jpa"})
 @Repository
-public class SBDaoPersistingIntoRedis implements CrudRepository<SBRow,Long> {
-
+public class SbRowRepository implements CrudRepository<SbRow, Long> {
 
     @Autowired
-    RedisTemplate<String, SBRow> redisTemplate;
+    RedisTemplate<String, SbRow> redisTemplate;
 
-    public SBDaoPersistingIntoRedis(RedisTemplate<String, SBRow> template) {
+    public SbRowRepository(RedisTemplate<String, SbRow> template) {
         this.redisTemplate = template;
     }
 
     @Override
-    public <S extends SBRow> S save(S entity) {
+    public <S extends SbRow> S save(S entity) {
         return null;
     }
 
     @Override
-    public <S extends SBRow> Iterable<S> saveAll(Iterable<S> entities) {
+    public <S extends SbRow> Iterable<S> saveAll(Iterable<S> entities) {
         return null;
     }
 
     @Override
-    public Optional<SBRow> findById(Long aLong) {
+    public Optional<SbRow> findById(Long aLong) {
         return Optional.empty();
     }
 
@@ -40,12 +41,12 @@ public class SBDaoPersistingIntoRedis implements CrudRepository<SBRow,Long> {
     }
 
     @Override
-    public Iterable<SBRow> findAll() {
+    public Iterable<SbRow> findAll() {
         return null;
     }
 
     @Override
-    public Iterable<SBRow> findAllById(Iterable<Long> longs) {
+    public Iterable<SbRow> findAllById(Iterable<Long> longs) {
         return null;
     }
 
@@ -60,7 +61,7 @@ public class SBDaoPersistingIntoRedis implements CrudRepository<SBRow,Long> {
     }
 
     @Override
-    public void delete(SBRow entity) {
+    public void delete(SbRow entity) {
 
     }
 
@@ -70,7 +71,7 @@ public class SBDaoPersistingIntoRedis implements CrudRepository<SBRow,Long> {
     }
 
     @Override
-    public void deleteAll(Iterable<? extends SBRow> entities) {
+    public void deleteAll(Iterable<? extends SbRow> entities) {
 
     }
 

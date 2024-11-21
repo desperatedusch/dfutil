@@ -1,4 +1,4 @@
-package de.dfutil.core.config;
+package de.dfutil.events;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.scheduling.support.TaskUtils;
 
 @Configuration
-public class EventConfig {
+public class Config {
 
     @Bean(name = "applicationEventMulticaster")
     public ApplicationEventMulticaster simpleApplicationEventMulticaster() {

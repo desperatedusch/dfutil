@@ -1,16 +1,20 @@
-package de.dfutil.entities;
+package de.dfutil.entities.jpa;
 
+import de.dfutil.entities.AbstractDataFactoryRow;
+import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.format.SBRowFormat;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Version;
+import org.springframework.data.redis.core.RedisHash;
 
 import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
-@Entity
-@Table(name = "sbrow")
-public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, SerializablePostalObject {
+@RedisHash()
+public class SbRow implements AbstractDataFactoryRow<SbRow, SBRowFormat>, SerializablePostalObject {
 
     @jakarta.persistence.Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
@@ -45,7 +49,7 @@ public class SBRow implements AbstractDataFactoryRow<SBRow, SBRowFormat>, Serial
     private String strHnrbisNeu;
 
     @Override
-    public SBRow parseFrom(byte[] rowBytes) {
+    public SbRow parseFrom(byte[] rowBytes) {
         for (SBRowFormat token : SBRowFormat.values()) {
             try {
                 if (token.parseableContent())

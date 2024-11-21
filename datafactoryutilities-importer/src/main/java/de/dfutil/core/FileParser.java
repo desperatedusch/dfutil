@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -29,7 +28,7 @@ public class FileParser {
             String line;
             while ((line = br.readLine()) != null) {
                 // Publish each line to event handling if row is not empty
-                if (!ObjectUtils.isEmpty(line))
+                if (!line.isEmpty())
                     eventPublisher.publishEvent(new RowParsedEvent(line));
             }
         } catch (IOException e) {

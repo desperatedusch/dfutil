@@ -1,8 +1,7 @@
 package de.dfutil.core.listener;
 
-import de.dfutil.dao.jpa.SBDaoUsingJPA;
-import de.dfutil.dao.redis.SBDaoPersistingIntoRedis;
-import de.dfutil.entities.SBRow;
+import de.dfutil.dao.jpa.SbRowRepository;
+import de.dfutil.entities.jpa.SbRow;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,14 +16,10 @@ public class SBDataImportHandler implements DataImportHandler {
     private static final Logger log = LoggerFactory.getLogger(SBDataImportHandler.class);
 
     @Autowired
-    private SBDaoUsingJPA jpaDao;
+    private SbRowRepository jpaDao;
 
-    @Autowired
-    private SBDaoPersistingIntoRedis redisDao;
-
-    public SBDataImportHandler(SBDaoUsingJPA jpaDao, SBDaoPersistingIntoRedis redisDao) {
+    public SBDataImportHandler(SbRowRepository jpaDao) {
         this.jpaDao = jpaDao;
-        this.redisDao = redisDao;
     }
 
     @EventListener(condition = "#event.rowType.name().contains('SB')")
@@ -35,8 +30,7 @@ public class SBDataImportHandler implements DataImportHandler {
 
     @Override
     public void persistEventContent2DataSources(RowParsedEvent event) {
-        SBRow sbRowJpa = jpaDao.save(new SBRow().parseFrom(event.row()));
-        //SBRow sbRowRedis = redisDao.save(new SBRow().parseFrom(event.row()));
+        SbRow sbRowJpa = jpaDao.save(new SbRow().parseFrom(event.row()));
     }
 }
 

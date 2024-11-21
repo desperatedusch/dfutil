@@ -1,6 +1,6 @@
 package de.dfutil.core;
 
-import de.dfutil.entities.SBRow;
+import de.dfutil.entities.jpa.SbRow;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.TestConfiguration;
 
@@ -10,9 +10,9 @@ public class SBRowBytes2ObjectTest {
 
     @Test
     public void parseSBRowBytes2Object() {
-        SBRow parsedSBRow = new SBRow().parseFrom(ALPENSTRASSE);
-        parsedSBRow.toString();
-        SBRow expectedSBRow = new SBRow();
+        SbRow parsedSbRow = new SbRow().parseFrom(ALPENSTRASSE);
+        parsedSbRow.toString();
+        SbRow expectedSbRow = new SbRow();
     }
 
 }

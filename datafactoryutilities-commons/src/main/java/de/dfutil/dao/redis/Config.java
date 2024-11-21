@@ -1,14 +1,18 @@
 package de.dfutil.dao.redis;
 
-import de.dfutil.entities.SBRow;
+import de.dfutil.entities.jpa.SbRow;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 
+@Profile({"redis", "!jpa"})
 @Configuration
-public class RedisConfig {
+@EnableRedisRepositories
+public class Config {
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
@@ -16,8 +20,8 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate<String, SBRow> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        RedisTemplate<String, SBRow> template = new RedisTemplate<>();
+    public RedisTemplate<String, SbRow> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate<String, SbRow> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory());
         return template;
     }

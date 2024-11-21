@@ -1,9 +1,8 @@
-package de.dfutil.dao.jpa;
+package de.dfutil.services;
 
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
-public class JPAConfig {
+public class ServiceConfig {
 
 }

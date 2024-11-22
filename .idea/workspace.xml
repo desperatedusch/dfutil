@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds profiles for development and different modes of persistence [redis, jpa]">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds profiles for development and different modes of persistence [redis, jpa]" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -402,7 +398,7 @@
       <workItem from="1731748968447" duration="4959000" />
       <workItem from="1731912968404" duration="4739000" />
       <workItem from="1732193915341" duration="10274000" />
-      <workItem from="1732262907358" duration="7495000" />
+      <workItem from="1732262907358" duration="7864000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -684,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732204595627</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Adds profiles for development and different modes of persistence [redis, jpa]">
+      <option name="closed" value="true" />
+      <created>1732273230681</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1732273230681</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

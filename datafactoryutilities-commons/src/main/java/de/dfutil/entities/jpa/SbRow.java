@@ -5,15 +5,15 @@ import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.format.SBRowFormat;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Version;
-import org.springframework.data.redis.core.RedisHash;
 
 import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
-@RedisHash()
+@Entity
 public class SbRow implements AbstractDataFactoryRow<SbRow, SBRowFormat>, SerializablePostalObject {
 
     @jakarta.persistence.Id

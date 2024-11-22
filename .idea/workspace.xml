@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds profiles for development and different modes of persistence [redis, jpa]">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/services/ServiceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SbRowRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/redis/SbRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/services/MunicipalityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/services/MunicipalityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/SbDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SBDaoUsingJPA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/SBDaoPersistingIntoRedis.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/redis/SbRowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/SBRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/FileParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/config/EventConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/listener/SBDataImportHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/SBRowBytes2ObjectTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +83,9 @@
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13-sources.jar!/org/springframework/beans/PropertyAccessor.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13-sources.jar!/org/springframework/beans/PropertyValue.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
   <component name="MaliciousPackageCheckinHandlerState">
     <option name="packageCheck" value="true" />
   </component>
@@ -115,61 +106,61 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "JUnit.DataFactoryFileParserTest.executor": "Debug",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor": "Run",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor": "Debug",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor": "Run",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor": "Run",
-    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor": "Run",
-    "JUnit.FileParserTest.parseDataFactoryFileSBRow.executor": "Run",
-    "JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor": "Debug",
-    "JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor": "Run",
-    "JUnit.StringHelperTest.executor": "Run",
-    "Maven.datafactoryutilities [package].executor": "Run",
-    "Maven.datafactoryutilities-adressinformationprovider [clean].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [clean].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [compile].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [install].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [package].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [test].executor": "Run",
-    "Maven.datafactoryutilities-aggregator-parent [verify].executor": "Run",
-    "Maven.datafactoryutilities-commons [clean].executor": "Run",
-    "Maven.datafactoryutilities-commons [install].executor": "Run",
-    "Maven.datafactoryutilities-importer [clean].executor": "Run",
-    "Maven.datafactoryutilities-importer [compile].executor": "Run",
-    "Maven.datafactoryutilities-importer [install].executor": "Run",
-    "Maven.datafactoryutilities-importer [package].executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DoNotAsk-Database detector": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AddressInformationProviderApplication.executor": "Run",
-    "Spring Boot.AdressInformationProviderApplication.executor": "Run",
-    "Spring Boot.DatafactoryImporterApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil",
-    "last_opened_file_path": "D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "spring",
-    "settings.editor.splitter.proportion": "0.29663607",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FileParserTest.parseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StringHelperTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-adressinformationprovider [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-aggregator-parent [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-commons [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-commons [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.datafactoryutilities-importer [package].executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AddressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AdressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DatafactoryImporterApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;spring&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.29663607&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -410,7 +401,8 @@
       <workItem from="1731683583885" duration="684000" />
       <workItem from="1731748968447" duration="4959000" />
       <workItem from="1731912968404" duration="4739000" />
-      <workItem from="1732193915341" duration="9530000" />
+      <workItem from="1732193915341" duration="10274000" />
+      <workItem from="1732262907358" duration="7495000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -684,7 +676,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731754430801</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Adds profiles for development and different modes of persistence [redis, jpa]">
+      <option name="closed" value="true" />
+      <created>1732204595627</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1732204595627</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

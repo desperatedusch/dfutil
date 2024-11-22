@@ -2,7 +2,6 @@ package de.dfutil.core;
 
 import de.dfutil.entities.jpa.SbRow;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.TestConfiguration;
 
 public class SBRowBytes2ObjectTest {
 
@@ -14,10 +13,5 @@ public class SBRowBytes2ObjectTest {
         parsedSbRow.toString();
         SbRow expectedSbRow = new SbRow();
     }
-
-}
-
-@TestConfiguration
-class SBRowBytes2ObjectTestConfiguration {
 
 }

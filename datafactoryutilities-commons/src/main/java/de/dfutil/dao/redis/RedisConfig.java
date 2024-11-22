@@ -12,7 +12,7 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @Profile({"redis", "!jpa"})
 @Configuration
 @EnableRedisRepositories
-public class Config {
+public class RedisConfig {
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {

@@ -6,6 +6,6 @@ import org.springframework.context.annotation.Profile;
 
 @Profile({"jpa", "!redis"})
 @Configuration
-public class Config {
+public class JPAConfig {
 
 }

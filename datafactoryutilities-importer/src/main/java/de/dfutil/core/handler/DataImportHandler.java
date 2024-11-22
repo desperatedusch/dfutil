@@ -1,4 +1,4 @@
-package de.dfutil.core.listener;
+package de.dfutil.core.handler;
 
 import de.dfutil.events.RowParsedEvent;
 

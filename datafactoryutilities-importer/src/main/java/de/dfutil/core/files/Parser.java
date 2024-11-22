@@ -1,4 +1,4 @@
-package de.dfutil.core;
+package de.dfutil.core.files;
 
 import de.dfutil.events.RowParsedEvent;
 import de.dfutil.helpers.measurement.LogExecutionTime;
@@ -13,14 +13,15 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @Service
-public class FileParser {
+public class Parser {
 
-    private static final Logger log = LoggerFactory.getLogger(FileParser.class);
+    private static final Logger log = LoggerFactory.getLogger(Parser.class);
 
     @Autowired
     private ApplicationEventPublisher eventPublisher;
 
-    public FileParser() {}
+    public Parser() {
+    }
 
     @LogExecutionTime
     public void parseFileWithBufferedReader(String path) {

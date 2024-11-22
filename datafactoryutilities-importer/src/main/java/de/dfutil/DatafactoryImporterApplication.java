@@ -2,9 +2,8 @@ package de.dfutil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
 
 @SpringBootApplication
 public class DatafactoryImporterApplication {
@@ -14,10 +13,13 @@ public class DatafactoryImporterApplication {
 	public static void main(String[] args) {
 
 		log.info("Importer app started...");
-		new SpringApplicationBuilder(DatafactoryImporterApplication.class)
-				.beanNameGenerator(new FullyQualifiedAnnotationBeanNameGenerator()).build().run(args);
-		//TODO implement serious parameter handling
+		printPropertiesAndArguments();
+		SpringApplication.run(DatafactoryImporterApplication.class, args);
+
 		//new DataFactoryFileParser().parseFile
 		log.info("Importer app stopped...");
+	}
+
+	private static void printPropertiesAndArguments() {
 	}
 }

@@ -13,7 +13,6 @@ public class LoggingExecutionTimeAspect {
 
     private final Logger log = LoggerFactory.getLogger(LoggingExecutionTimeAspect.class);
 
-
     @Around("@annotation(LogExecutionTime)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();

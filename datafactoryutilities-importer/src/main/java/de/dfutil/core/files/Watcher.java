@@ -5,10 +5,9 @@ import java.util.List;
 
 public class Watcher {
 
-    public List<String> scanForInput() {
+    public List<String> scanForInputFiles() {
         List<String> paths = new ArrayList<>();
-        return paths;
+        throw new UnsupportedOperationException("implement me...");
     }
-
 
 }

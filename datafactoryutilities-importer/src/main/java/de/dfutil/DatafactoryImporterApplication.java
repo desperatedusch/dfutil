@@ -13,13 +13,9 @@ public class DatafactoryImporterApplication {
 	public static void main(String[] args) {
 
 		log.info("Importer app started...");
-		printPropertiesAndArguments();
 		SpringApplication.run(DatafactoryImporterApplication.class, args);
-
 		//new DataFactoryFileParser().parseFile
 		log.info("Importer app stopped...");
 	}
 
-	private static void printPropertiesAndArguments() {
-	}
 }

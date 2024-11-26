@@ -9,11 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AddressInformationProviderApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(AddressInformationProviderApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(AddressInformationProviderApplication.class);
 
-	public static void main(String[] args) {
-		log.info("AddressInformationProviderApplication started...");
-		SpringApplication.run(AddressInformationProviderApplication.class, args);
+    public static void main(String[] args) {
+        log.info("AddressInformationProviderApplication started...");
+        SpringApplication.run(AddressInformationProviderApplication.class, args);
 
-	}
+    }
 }

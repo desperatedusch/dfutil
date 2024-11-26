@@ -22,6 +22,7 @@ public class SBDataImportHandler implements DataImportHandler {
         this.jpaDao = jpaDao;
     }
 
+    //@Async
     @EventListener(condition = "#event.rowType.name().contains('SB')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.info("event {} of type {} received", event.getSource(), event.rowType());

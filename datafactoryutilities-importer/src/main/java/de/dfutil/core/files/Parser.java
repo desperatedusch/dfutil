@@ -24,7 +24,7 @@ public class Parser {
     }
 
     @LogExecutionTime
-    public void parseFileWithBufferedReader(String path) {
+    public void parseInputFile(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {

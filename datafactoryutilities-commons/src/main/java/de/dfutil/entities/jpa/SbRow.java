@@ -50,7 +50,7 @@ public class SbRow implements AbstractDataFactoryRow<SbRow, SBRowFormat>, Serial
 
     @Override
     public SbRow parseFrom(byte[] rowBytes) {
-        for (SBRowFormat token : SBRowFormat.values()) {
+        for (var token : SBRowFormat.values()) {
             try {
                 if (token.parseableContent())
                     applyRowFormatTokenOnRowBytes(token, rowBytes, this);

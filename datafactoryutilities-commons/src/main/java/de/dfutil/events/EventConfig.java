@@ -26,10 +26,10 @@ public class EventConfig {
 
     @Bean(name = "taskExecutor")
     public TaskExecutor taskExecutor() {
-        ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
+        var threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         threadPoolTaskExecutor.setThreadNamePrefix("Async-");
         threadPoolTaskExecutor.setCorePoolSize(2);
-        threadPoolTaskExecutor.setMaxPoolSize(4);
+        threadPoolTaskExecutor.setMaxPoolSize(8);
         threadPoolTaskExecutor.setKeepAliveSeconds(60);
         threadPoolTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
         threadPoolTaskExecutor.setQueueCapacity(100);

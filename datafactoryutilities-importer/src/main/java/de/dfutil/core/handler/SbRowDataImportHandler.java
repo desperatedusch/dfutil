@@ -11,14 +11,14 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SBDataImportHandler implements DataImportHandler {
+public class SbRowDataImportHandler implements DataImportHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(SBDataImportHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(SbRowDataImportHandler.class);
 
     @Autowired
     private SbRowRepository jpaDao;
 
-    public SBDataImportHandler(SbRowRepository jpaDao) {
+    public SbRowDataImportHandler(SbRowRepository jpaDao) {
         this.jpaDao = jpaDao;
     }
 

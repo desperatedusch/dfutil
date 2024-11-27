@@ -4,7 +4,6 @@ package de.dfutil.helpers.utilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,7 @@ public class ContextRefreshedEventPropertiesPrinter {
 
     private final Logger log = LoggerFactory.getLogger(ContextRefreshedEventPropertiesPrinter.class);
 
-    @EventListener
+    //@EventListener
     public void handleContextRefreshed(ContextRefreshedEvent event) {
         ConfigurableEnvironment env = (ConfigurableEnvironment) event.getApplicationContext().getEnvironment();
         env.getPropertySources()

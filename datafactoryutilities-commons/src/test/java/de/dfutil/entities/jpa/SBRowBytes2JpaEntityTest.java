@@ -11,7 +11,6 @@ public class SBRowBytes2JpaEntityTest {
         SbRow parsedSbRow = new SbRow().parseFrom(ALPENSTRASSE);
         parsedSbRow.toString();
         SbRow expectedSbRow = new SbRow();
-
     }
 
 }

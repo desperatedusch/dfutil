@@ -16,7 +16,7 @@ import java.io.IOException;
 @ExtendWith(SpringExtension.class)
 @Import(TestConfig.class)
 @SpringBootTest
-@ActiveProfiles({"jpa", "dev"})
+@ActiveProfiles({"dev"})
 public class ParserTest {
 
     @Autowired

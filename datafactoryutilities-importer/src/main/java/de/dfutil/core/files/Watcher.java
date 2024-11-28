@@ -13,8 +13,8 @@ public class Watcher {
 
     public List<String> scanForInputFiles() {
         var paths = new ArrayList<>();
-        Path startPath = Paths.get("/pfad/zum/startordner");
-        String pattern = "glob:*.txt"; // Beispiel: Suche nach allen .txt Dateien
+        var startPath = Paths.get("/pfad/zum/startordner");
+        var pattern = "glob:*.txt"; // Beispiel: Suche nach allen .txt Dateien
 
         List<Path> result = null;
         try {
@@ -29,8 +29,8 @@ public class Watcher {
 
 
     private List<Path> searchFiles(Path startPath, String pattern) throws IOException {
-        final PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
-        final List<Path> result = new ArrayList<>();
+        final var pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
+        final var result = new ArrayList<Path>();
 
         Files.walkFileTree(startPath, new SimpleFileVisitor<Path>() {
             @Override

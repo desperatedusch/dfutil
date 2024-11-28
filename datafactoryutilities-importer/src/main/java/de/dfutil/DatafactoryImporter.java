@@ -20,6 +20,8 @@ public class DatafactoryImporter implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("DatafactoryImporter.run() ...");
+        log.info("DatafactoryImporter.run() invoked with following arguments: {}", args);
+
+
     }
 }

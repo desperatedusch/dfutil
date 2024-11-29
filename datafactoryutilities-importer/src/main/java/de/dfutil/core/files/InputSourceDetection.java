@@ -3,6 +3,7 @@ package de.dfutil.core.files;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -18,8 +19,10 @@ public class InputSourceDetection {
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
 
     @Value("${app.importer.inputsource.folders}")
+    @NonNull
     private String inputFolders;
     @Value("${app.importer.inputsource.filenamemask}")
+    @NonNull
     private String inputFilenameMask;
 
     public InputSourceDetection() {

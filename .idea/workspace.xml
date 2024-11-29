@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Basic Watcher implementation">
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/files/InputDataDetectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Watcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Watcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Watcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/files/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/files/TestConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +28,7 @@
         <option value="AnnotationType" />
         <option value="Record" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -82,6 +91,11 @@
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13-sources.jar!/org/springframework/beans/PropertyAccessor.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13-sources.jar!/org/springframework/beans/PropertyValue.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="InputDataDetectionTest" />
+    </enabled-run-configurations>
+  </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -112,66 +126,72 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;JUnit.DataFactoryFileParserTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FileParserTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FileParserTest.parseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ParserTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StringHelperTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-adressinformationprovider [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-adressinformationprovider [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-aggregator-parent [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-aggregator-parent [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-aggregator-parent [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-aggregator-parent [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-aggregator-parent [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-aggregator-parent [verify].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-commons [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-commons [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-importer [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-importer [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-importer [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.datafactoryutilities-importer [package].executor&quot;: &quot;Run&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AddressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AdressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DatafactoryImporter.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DatafactoryImporterApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;D:/IdeaProjects/df-util/datafactoryutilities-commons/src/test/java/de/dfutil&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/main/java/de/dfutil&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.29663607&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.DataFactoryFileParserTest.executor": "Debug",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRow.executor": "Run",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowViaRandomAccessFile.executor": "Debug",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithAsynchronousileChannel.executor": "Run",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithCompletionHandler.executor": "Run",
+    "JUnit.DataFactoryFileParserTest.testParseDataFactoryFileSBRowWithFileChannel.executor": "Run",
+    "JUnit.FileParserTest.executor": "Run",
+    "JUnit.FileParserTest.parseDataFactoryFileSBRow.executor": "Run",
+    "JUnit.InputDataDetectionTest.executor": "Debug",
+    "JUnit.InputDataDetectionTest.findInputFiles.executor": "Run",
+    "JUnit.ParserTest.executor": "Run",
+    "JUnit.ParserTest.parseInputFile.executor": "Run",
+    "JUnit.ParserTest.parseInputFileViaStream.executor": "Debug",
+    "JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor": "Debug",
+    "JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor": "Run",
+    "JUnit.StringHelperTest.executor": "Run",
+    "Maven.datafactoryutilities [package].executor": "Run",
+    "Maven.datafactoryutilities-adressinformationprovider [clean].executor": "Run",
+    "Maven.datafactoryutilities-adressinformationprovider [install].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [clean].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [compile].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [install].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [package].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [test].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [verify].executor": "Run",
+    "Maven.datafactoryutilities-commons [clean].executor": "Run",
+    "Maven.datafactoryutilities-commons [install].executor": "Run",
+    "Maven.datafactoryutilities-importer [clean].executor": "Run",
+    "Maven.datafactoryutilities-importer [compile].executor": "Run",
+    "Maven.datafactoryutilities-importer [install].executor": "Run",
+    "Maven.datafactoryutilities-importer [package].executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AddressInformationProviderApplication.executor": "Run",
+    "Spring Boot.AdressInformationProviderApplication.executor": "Run",
+    "Spring Boot.DatafactoryImporter.executor": "Run",
+    "Spring Boot.DatafactoryImporterApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/IdeaProjects/df-util/datafactoryutilities-commons/src/test/java/de/dfutil",
+    "last_opened_file_path": "D:/ideaWorkspaces/dfutil/datafactoryutilities-importer/src/test/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.splitter.proportion": "0.29663607",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -184,23 +204,27 @@
       <recent name="de.dfutil.core.entities.format" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-importer\src\test\resources" />
       <recent name="D:\idea-workspaces\dfutil\commons\src" />
       <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\resources" />
       <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-importer\src\test\resources\de\dfutil\core\files" />
       <recent name="D:\idea-workspaces\dfutil\commons\src\main\java" />
       <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\test\resources\files2import" />
       <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\resources" />
       <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\java\de\dfutil" />
-      <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\main\java\de\dfutil" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="de.dfutil.entities.format.v2308213" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="de.dfutil.entities.jpa" />
       <recent name="de.dfutil.core.files" />
+      <recent name="de.dfutil.entities.jpa" />
       <recent name="de.dfutil.events" />
       <recent name="de.dfutil.helpers.utilities" />
       <recent name="" />
@@ -209,13 +233,16 @@
       <recent name="de.dfutil.core.services" />
       <recent name="de.dfutil.entities" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="de.dfutil.core.files" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="de.dfutil.dao.jpa" />
       <recent name="de.dfutil.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
-    <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.InputDataDetectionTest">
+    <configuration name="InputDataDetectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-importer" />
       <extension name="coverage">
         <pattern>
@@ -223,72 +250,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="de.dfutil.core" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.ParserTest" />
+      <option name="PACKAGE_NAME" value="de.dfutil.core.files" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.files.InputDataDetectionTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParserTest.parseDataFactoryFileSBRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryutilities-importer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.dfutil.core.files.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.dfutil.core" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.ParserTest" />
-      <option name="METHOD_NAME" value="parseDataFactoryFileSBRow" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SBRowBytes2ObjectTest.parseSBRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryutilities-importer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.dfutil.core.files.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.SBRowBytes2ObjectTest" />
-      <option name="METHOD_NAME" value="parseSBRowBytes2Object" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StringHelperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryutilities-commons" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.dfutil.helpers.utilities.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.dfutil.helpers.utilities" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.helpers.utilities.StringHelperTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StringHelperTest.convertHyphenSnakeToCamelCaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryutilities-commons" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.dfutil.helpers.utilities.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.dfutil.helpers.utilities" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.helpers.utilities.StringHelperTest" />
-      <option name="METHOD_NAME" value="convertHyphenSnakeToCamelCaseTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -309,20 +273,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ParserTest" />
-      <item itemvalue="JUnit.ParserTest.parseDataFactoryFileSBRow" />
-      <item itemvalue="JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object" />
-      <item itemvalue="JUnit.StringHelperTest" />
-      <item itemvalue="JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest" />
+      <item itemvalue="JUnit.InputDataDetectionTest" />
       <item itemvalue="Spring Boot.AddressInformationProviderApplication" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ParserTest" />
-        <item itemvalue="JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object" />
-        <item itemvalue="JUnit.StringHelperTest" />
-        <item itemvalue="JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest" />
+        <item itemvalue="JUnit.InputDataDetectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -435,6 +392,8 @@
       <workItem from="1732713113624" duration="1820000" />
       <workItem from="1732733863766" duration="924000" />
       <workItem from="1732781621309" duration="7317000" />
+      <workItem from="1732861767512" duration="5444000" />
+      <workItem from="1732883438497" duration="14669000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -835,6 +794,21 @@
           <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SBRowBytes2JpaEntityTest.java</url>
           <line>12</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/files/InputDataDetectionTest.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 
 @Service
 public class Parser {
@@ -24,8 +25,8 @@ public class Parser {
     }
 
     @LogExecutionTime
-    public void parseInputFile(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+    public void parseInputFile(Path path) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = br.readLine()) != null) {
                 // Publish each line to event handling if row is not empty

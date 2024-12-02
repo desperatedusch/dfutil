@@ -25,7 +25,7 @@ public class ContextRefreshedEventPropertiesPrinter {
                 .flatMap(Collection::stream)
                 .distinct()
                 .sorted()
-                .forEach(key -> log.info("{}={}", key, env.getProperty(key)));
+                .forEach(key -> log.debug("{}={}", key, env.getProperty(key)));
     }
 
 }

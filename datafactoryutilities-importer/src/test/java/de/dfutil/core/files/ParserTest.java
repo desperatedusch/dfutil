@@ -27,7 +27,7 @@ public class ParserTest {
 
     @Test
     public void parseInputFile() throws IOException {
-        cut.parseInputFile(
+        cut.fromFile(
                 resourceLoader.getResource(
                         "classpath:files2Import/Streetcode_Stand_2024-01/B2401001.DAT").getFile().toPath());
     }

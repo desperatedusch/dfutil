@@ -28,7 +28,16 @@ public class InputSourceDetection {
     public InputSourceDetection() {
     }
 
-    public List<Path> inputSourceFolders() {
+    public List<Path> findFiles() throws IOException {
+        var folders = inputSourceFolders();
+        var result = new ArrayList<Path>();
+        for (var folder : folders) {
+            result.addAll(searchFilesIn(folder));
+        }
+        return result;
+    }
+
+    private List<Path> inputSourceFolders() {
         var folders2Scan = new ArrayList<Path>();
         var stringTokenizer = new StringTokenizer(inputFolders, ";", false);
         while (stringTokenizer.hasMoreTokens()) {
@@ -37,20 +46,10 @@ public class InputSourceDetection {
         return folders2Scan;
     }
 
-    public List<Path> findInputFiles(Path root) {
+    private List<Path> searchFilesIn(Path startPath) throws IOException {
         var pattern = "glob:" + inputFilenameMask;
-        try {
-            return searchFiles(root, pattern);
-        } catch (IOException e) {
-            log.error(e.getMessage());
-            throw new RuntimeException(e.getMessage(), e);
-        }
-    }
-
-    private List<Path> searchFiles(Path startPath, String pattern) throws IOException {
         final var pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
         final var paths = new ArrayList<Path>();
-
         Files.walkFileTree(startPath, new SimpleFileVisitor<>() {
 
             @Override
@@ -70,4 +69,5 @@ public class InputSourceDetection {
         });
         return paths;
     }
+
 }

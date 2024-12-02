@@ -9,6 +9,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +30,9 @@ public class InputSourceDetectionTest {
     private InputSourceDetection cut;
 
     @Test
-    public void findInputFiles() {
+    public void findInputFiles() throws IOException {
         List<Path> inputFiles = new ArrayList<>();
-        List<Path> inputSourceFolders = cut.inputSourceFolders();
-        for (Path path : inputSourceFolders) {
-            inputFiles.addAll(cut.findInputFiles(path));
-        }
+        inputFiles.addAll(cut.findFiles());
     }
 
 }

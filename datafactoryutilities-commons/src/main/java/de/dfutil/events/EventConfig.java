@@ -43,6 +43,7 @@ public class EventConfig {
                     }
                 }
         );
+        threadPoolTaskExecutor.setVirtualThreads(true);
         threadPoolTaskExecutor.initialize();
         return threadPoolTaskExecutor;
     }

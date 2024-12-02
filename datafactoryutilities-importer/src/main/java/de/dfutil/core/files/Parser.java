@@ -25,11 +25,12 @@ public class Parser {
     }
 
     @LogExecutionTime
-    public void parseInputFile(Path path) {
+    public void fromFile(Path path) {
+        log.debug("Parsing file: {}", path);
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Publish each line to event handling if row is not empty
+                // Publish each line to event handler until Reader is empty
                 if (!line.isEmpty())
                     eventPublisher.publishEvent(new RowParsedEvent(line));
             }

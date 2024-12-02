@@ -12,7 +12,7 @@ public class AddressInformationProviderApplication {
     private static final Logger log = LoggerFactory.getLogger(AddressInformationProviderApplication.class);
 
     public static void main(String[] args) {
-        log.info("AddressInformationProviderApplication started...");
+        log.debug("AddressInformationProviderApplication started...");
         SpringApplication.run(AddressInformationProviderApplication.class, args);
 
     }

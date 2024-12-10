@@ -34,6 +34,7 @@ public class InputSourceDetection {
         for (var folder : folders) {
             result.addAll(searchFilesIn(folder));
         }
+        log.info("Following files are detected as input sources:\n{}", result);
         return result;
     }
 
@@ -41,8 +42,10 @@ public class InputSourceDetection {
         var folders2Scan = new ArrayList<Path>();
         var stringTokenizer = new StringTokenizer(inputFolders, ";", false);
         while (stringTokenizer.hasMoreTokens()) {
-            folders2Scan.add(Paths.get(stringTokenizer.nextToken()));
+            String token = stringTokenizer.nextToken();
+            folders2Scan.add(Paths.get(token));
         }
+        log.info("Following folders are scanned for input sources: \n{}", folders2Scan.toString());
         return folders2Scan;
     }
 

@@ -31,10 +31,13 @@ public class InputSourceDetection {
     public List<Path> findFiles() throws IOException {
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
+        log.info("Following files are detected as input sources:\n");
         for (var folder : folders) {
-            result.addAll(searchFilesIn(folder));
+            List<Path> files = searchFilesIn(folder);
+            result.addAll(files);
+
         }
-        log.info("Following files are detected as input sources:\n{}", result);
+
         return result;
     }
 
@@ -59,6 +62,7 @@ public class InputSourceDetection {
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
                 if (attrs.isRegularFile()) {
                     if (pathMatcher.matches(file.getFileName())) {
+                        log.info("Found file: {}", file.getFileName());
                         paths.add(file);
                     }
                 }

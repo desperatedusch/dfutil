@@ -33,4 +33,5 @@ public class DatafactoryImporter implements CommandLineRunner {
     public void run(String... args) throws Exception {
         inputSourceDetection.findFiles().forEach(parser::fromFile);
     }
+
 }

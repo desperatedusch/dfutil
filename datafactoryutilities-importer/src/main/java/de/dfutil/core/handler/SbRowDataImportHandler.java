@@ -30,7 +30,7 @@ public class SbRowDataImportHandler implements DataImportHandler {
 
     @Override
     public void persistEventContent2DataSources(RowParsedEvent event) {
-        jpaDao.save(new SbRow().parseFrom(event.row()));
+        SbRow sbRow = jpaDao.save(new SbRow().parseFrom(event.row()));
     }
 
 }

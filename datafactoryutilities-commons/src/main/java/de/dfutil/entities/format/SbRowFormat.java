@@ -2,7 +2,7 @@ package de.dfutil.entities.format;
 
 import java.util.List;
 
-public enum SBRowFormat implements RowFormat<SBRowFormat> {
+public enum SbRowFormat implements RowFormat<SbRowFormat> {
 
     ST01a("VERSION-DATEIKENNUNG", 2, 1, 2),
     ST01b("VERSION-DATUM", 4, 3, 6),
@@ -41,7 +41,7 @@ public enum SBRowFormat implements RowFormat<SBRowFormat> {
 
     private final RowType type = RowType.SB;
 
-    private SBRowFormat(String desc, int length, int start, int end) {
+    private SbRowFormat(String desc, int length, int start, int end) {
         this.paramName = desc;
         this.fieldLength = length;
         this.startingPos = start;
@@ -49,7 +49,7 @@ public enum SBRowFormat implements RowFormat<SBRowFormat> {
         this.parseableProperty = false;
     }
 
-    private SBRowFormat(String desc, int length, int start, int end, boolean parseableProperty) {
+    private SbRowFormat(String desc, int length, int start, int end, boolean parseableProperty) {
         this.paramName = desc;
         this.fieldLength = length;
         this.startingPos = start;
@@ -78,8 +78,8 @@ public enum SBRowFormat implements RowFormat<SBRowFormat> {
     }
 
     @Override
-    public List<SBRowFormat> paramList() {
-        return List.of(SBRowFormat.values());
+    public List<SbRowFormat> paramList() {
+        return List.of(SbRowFormat.values());
     }
 }
 

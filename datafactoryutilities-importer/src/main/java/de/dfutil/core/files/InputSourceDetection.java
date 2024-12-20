@@ -31,7 +31,7 @@ public class InputSourceDetection {
     public List<Path> findFiles() throws IOException {
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
-        log.info("Following files are detected as input sources:\n");
+        log.info("Following files are detected as input sources:");
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
             result.addAll(files);
@@ -48,7 +48,8 @@ public class InputSourceDetection {
             String token = stringTokenizer.nextToken();
             folders2Scan.add(Paths.get(token));
         }
-        log.info("Following folders are scanned for input sources: \n{}", folders2Scan.toString());
+        log.info("Following folders are scanned for input sources:");
+        folders2Scan.forEach(f -> log.info(f.toString()));
         return folders2Scan;
     }
 
@@ -62,7 +63,7 @@ public class InputSourceDetection {
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
                 if (attrs.isRegularFile()) {
                     if (pathMatcher.matches(file.getFileName())) {
-                        log.info("Found file: {}", file.getFileName());
+                        log.info(file.getFileName().toString());
                         paths.add(file);
                     }
                 }

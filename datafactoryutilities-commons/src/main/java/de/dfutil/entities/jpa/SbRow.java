@@ -3,7 +3,7 @@ package de.dfutil.entities.jpa;
 import de.dfutil.entities.AbstractDataFactoryRow;
 import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.RowType;
-import de.dfutil.entities.format.SBRowFormat;
+import de.dfutil.entities.format.SbRowFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +14,7 @@ import java.util.Date;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
-public class SbRow implements AbstractDataFactoryRow<SbRow, SBRowFormat>, SerializablePostalObject {
+public class SbRow implements AbstractDataFactoryRow<SbRow, SbRowFormat>, SerializablePostalObject {
 
     @jakarta.persistence.Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
@@ -50,7 +50,7 @@ public class SbRow implements AbstractDataFactoryRow<SbRow, SBRowFormat>, Serial
 
     @Override
     public SbRow parseFrom(byte[] rowBytes) {
-        for (var token : SBRowFormat.values()) {
+        for (var token : SbRowFormat.values()) {
             try {
                 if (token.parseableContent())
                     applyRowFormatTokenOnRowBytes(token, rowBytes, this);

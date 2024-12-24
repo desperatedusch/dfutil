@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Basic InputSourceDetection">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Or and Ol implementation">
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/KgRowRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/ObRowRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/KgRowFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/ObRowFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowBytes2JpaEntityTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowBytes2JpaEntityTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowDataImportHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowDataImportHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/PlRowFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/PlRowFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowBytes2JpaEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowBytes2JpaEntityTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,17 +87,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/desperatedusch/dfutil.git&quot;,
-    &quot;accountId&quot;: &quot;730b1197-a0e3-48fd-8c7e-7c5173e8effc&quot;
+    &quot;accountId&quot;: &quot;8bb5c486-af9d-4c1a-9a8f-7ae2176c6ce3&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13-sources.jar!/org/springframework/beans/PropertyAccessor.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13-sources.jar!/org/springframework/beans/PropertyValue.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="JavaAutoRunManager">
-    <enabled-run-configurations>
-      <run-configuration type="JUnit" name="InputDataDetectionTest" />
-    </enabled-run-configurations>
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -108,7 +112,7 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -133,9 +137,13 @@
     "JUnit.FileParserTest.parseDataFactoryFileSBRow.executor": "Run",
     "JUnit.InputDataDetectionTest.executor": "Debug",
     "JUnit.InputDataDetectionTest.findInputFiles.executor": "Run",
+    "JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object.executor": "Debug",
+    "JUnit.ObRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor": "Debug",
+    "JUnit.OrRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor": "Debug",
     "JUnit.ParserTest.executor": "Run",
     "JUnit.ParserTest.parseInputFile.executor": "Run",
     "JUnit.ParserTest.parseInputFileViaStream.executor": "Debug",
+    "JUnit.PlRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor": "Debug",
     "JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor": "Debug",
     "JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor": "Run",
     "JUnit.StringHelperTest.executor": "Run",
@@ -158,8 +166,8 @@
     "Notification.DoNotAsk-Database detector": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth0": "15",
+    "RequestMappingsPanelWidth1": "15",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AddressInformationProviderApplication.executor": "Run",
@@ -172,7 +180,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/IdeaProjects/df-util/datafactoryutilities-commons/src/test/java/de/dfutil",
-    "last_opened_file_path": "D:/ideaWorkspaces/dfutil/datafactoryutilities-importer/src/test/resources",
+    "last_opened_file_path": "D:/IdeaProjects/dfutil",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -181,7 +189,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "MavenSettings",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   }
@@ -231,11 +239,14 @@
       <recent name="de.dfutil.core.files" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.dfutil.core.handler" />
+      <recent name="de.dfutil.entities.jpa" />
       <recent name="de.dfutil.dao.jpa" />
+      <recent name="de.dfutil.entities.format" />
       <recent name="de.dfutil.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.InputSourceDetectionTest">
+  <component name="RunManager" selected="JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object">
     <configuration name="InputSourceDetectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-importer" />
       <extension name="coverage">
@@ -247,6 +258,54 @@
       <option name="PACKAGE_NAME" value="de.dfutil.core.files" />
       <option name="MAIN_CLASS_NAME" value="de.dfutil.core.files.InputSourceDetectionTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ObRowBytes2JpaEntityTest.parseObRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="datafactoryutilities-commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.dfutil.entities.jpa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.ObRowBytes2JpaEntityTest" />
+      <option name="METHOD_NAME" value="parseObRowBytes2Object" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrRowBytes2JpaEntityTest.parseOrRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="datafactoryutilities-commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.dfutil.entities.jpa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.OrRowBytes2JpaEntityTest" />
+      <option name="METHOD_NAME" value="parseOrRowBytes2Object" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlRowBytes2JpaEntityTest.parsePlRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="datafactoryutilities-commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.dfutil.entities.jpa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.PlRowBytes2JpaEntityTest" />
+      <option name="METHOD_NAME" value="parsePlRowBytes2Object" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -267,12 +326,18 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object" />
+      <item itemvalue="JUnit.OrRowBytes2JpaEntityTest.parseOrRowBytes2Object" />
+      <item itemvalue="JUnit.PlRowBytes2JpaEntityTest.parsePlRowBytes2Object" />
       <item itemvalue="JUnit.InputSourceDetectionTest" />
       <item itemvalue="Spring Boot.AddressInformationProviderApplication" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object" />
+        <item itemvalue="JUnit.OrRowBytes2JpaEntityTest.parseOrRowBytes2Object" />
+        <item itemvalue="JUnit.PlRowBytes2JpaEntityTest.parsePlRowBytes2Object" />
         <item itemvalue="JUnit.InputSourceDetectionTest" />
       </list>
     </recent_temporary>
@@ -280,8 +345,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
       </set>
     </attachedChunks>
   </component>
@@ -388,6 +453,13 @@
       <workItem from="1732781621309" duration="7317000" />
       <workItem from="1732861767512" duration="5444000" />
       <workItem from="1732883438497" duration="16861000" />
+      <workItem from="1734718446375" duration="17044000" />
+      <workItem from="1734956408751" duration="14000" />
+      <workItem from="1734956429768" duration="748000" />
+      <workItem from="1734972893573" duration="620000" />
+      <workItem from="1734995407150" duration="300000" />
+      <workItem from="1734998562341" duration="9211000" />
+      <workItem from="1735031871710" duration="2469000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -725,7 +797,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732902579018</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Basic InputSourceDetection">
+      <option name="closed" value="true" />
+      <created>1734736047038</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1734736047038</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Or and Ol implementation">
+      <option name="closed" value="true" />
+      <created>1735032211226</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1735032211226</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -788,7 +876,8 @@
     <MESSAGE value="Several renamings" />
     <MESSAGE value="Basic Watcher implementation" />
     <MESSAGE value="Basic InputSourceDetection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic InputSourceDetection" />
+    <MESSAGE value="Or and Ol implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Or and Ol implementation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -802,7 +891,7 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SBRowBytes2JpaEntityTest.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowBytes2JpaEntityTest.java</url>
           <line>12</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
@@ -815,6 +904,31 @@
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/files/InputSourceDetectionTest.java</url>
           <line>21</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandler.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandler.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/PlRowBytes2JpaEntityTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowBytes2JpaEntityTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowBytes2JpaEntityTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

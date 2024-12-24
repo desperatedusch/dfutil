@@ -37,7 +37,7 @@ public enum PlRowFormat implements RowFormat<PlRowFormat> {
     private final int endingPos;
     private final boolean parseableProperty;
 
-    private final RowType type = RowType.SB;
+    private final RowType type = RowType.PL;
 
     private PlRowFormat(String desc, int length, int start, int end) {
         this.paramName = desc;

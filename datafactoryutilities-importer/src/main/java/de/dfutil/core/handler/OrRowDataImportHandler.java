@@ -1,7 +1,7 @@
 package de.dfutil.core.handler;
 
-import de.dfutil.dao.jpa.PlRowRepository;
-import de.dfutil.entities.jpa.PlRow;
+import de.dfutil.dao.jpa.OrRowRepository;
+import de.dfutil.entities.jpa.OrRow;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,18 +11,18 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PlzRowDataImportHandler implements DataImportHandler {
+public class OrRowDataImportHandler implements DataImportHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(PlzRowDataImportHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(OrRowDataImportHandler.class);
 
     @Autowired
-    private PlRowRepository jpaDao;
+    private OrRowRepository jpaDao;
 
-    public PlzRowDataImportHandler(PlRowRepository jpaDao) {
+    public OrRowDataImportHandler(OrRowRepository jpaDao) {
         this.jpaDao = jpaDao;
     }
 
-    @EventListener(condition = "#event.rowType.name().contains('PL')")
+    @EventListener(condition = "#event.rowType.name().contains('OR')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.debug("event '{}' of type '{}' received", event.getSource(), event.rowType());
         persistEventContent2DataSources(event);
@@ -30,7 +30,7 @@ public class PlzRowDataImportHandler implements DataImportHandler {
 
     @Override
     public void persistEventContent2DataSources(RowParsedEvent event) {
-        jpaDao.save(new PlRow().parseFrom(event.row()));
+        jpaDao.save(new OrRow().parseFrom(event.row()));
     }
 
 }

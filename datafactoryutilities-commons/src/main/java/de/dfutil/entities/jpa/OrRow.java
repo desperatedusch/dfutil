@@ -25,6 +25,19 @@ public class OrRow implements AbstractDataFactoryRow<OrRow, OrRowFormat>, Serial
     @Column(name = "version")
     private Date version;
 
+
+    private String ortDatum;
+    private String ortALORT;
+    private String ortSTATUS;
+    private String ortOname;
+    private String ortOnamePost;
+    private String ortOzusatz;
+    private String ortArtOzusatz;
+    private String ortOname24;
+    private String ortKgs;
+    private String ortANeu;
+
+
     @Override
     public OrRow parseFrom(byte[] rowBytes) {
         for (var token : OrRowFormat.values()) {
@@ -56,6 +69,86 @@ public class OrRow implements AbstractDataFactoryRow<OrRow, OrRowFormat>, Serial
 
     public RowType getRowType() {
         return rowType;
+    }
+
+    public String getOrtANeu() {
+        return ortANeu;
+    }
+
+    public void setOrtANeu(String ortANeu) {
+        this.ortANeu = ortANeu;
+    }
+
+    public String getOrtKgs() {
+        return ortKgs;
+    }
+
+    public void setOrtKgs(String ortKgs) {
+        this.ortKgs = ortKgs;
+    }
+
+    public String getOrtOname24() {
+        return ortOname24;
+    }
+
+    public void setOrtOname24(String ortOname24) {
+        this.ortOname24 = ortOname24;
+    }
+
+    public String getOrtArtOzusatz() {
+        return ortArtOzusatz;
+    }
+
+    public void setOrtArtOzusatz(String ortArtOzusatz) {
+        this.ortArtOzusatz = ortArtOzusatz;
+    }
+
+    public String getOrtOzusatz() {
+        return ortOzusatz;
+    }
+
+    public void setOrtOzusatz(String ortOzusatz) {
+        this.ortOzusatz = ortOzusatz;
+    }
+
+    public String getOrtOnamePost() {
+        return ortOnamePost;
+    }
+
+    public void setOrtOnamePost(String ortOnamePost) {
+        this.ortOnamePost = ortOnamePost;
+    }
+
+    public String getOrtOname() {
+        return ortOname;
+    }
+
+    public void setOrtOname(String ortOname) {
+        this.ortOname = ortOname;
+    }
+
+    public String getOrtSTATUS() {
+        return ortSTATUS;
+    }
+
+    public void setOrtSTATUS(String ortSTATUS) {
+        this.ortSTATUS = ortSTATUS;
+    }
+
+    public String getOrtALORT() {
+        return ortALORT;
+    }
+
+    public void setOrtALORT(String ortALORT) {
+        this.ortALORT = ortALORT;
+    }
+
+    public String getOrtDatum() {
+        return ortDatum;
+    }
+
+    public void setOrtDatum(String ortDatum) {
+        this.ortDatum = ortDatum;
     }
 
 

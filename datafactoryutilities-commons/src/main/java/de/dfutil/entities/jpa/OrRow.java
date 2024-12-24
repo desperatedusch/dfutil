@@ -27,8 +27,8 @@ public class OrRow implements AbstractDataFactoryRow<OrRow, OrRowFormat>, Serial
 
 
     private String ortDatum;
-    private String ortALORT;
-    private String ortSTATUS;
+    private String ortAlort;
+    private String ortStatus;
     private String ortOname;
     private String ortOnamePost;
     private String ortOzusatz;
@@ -128,19 +128,19 @@ public class OrRow implements AbstractDataFactoryRow<OrRow, OrRowFormat>, Serial
     }
 
     public String getOrtSTATUS() {
-        return ortSTATUS;
+        return ortStatus;
     }
 
-    public void setOrtSTATUS(String ortSTATUS) {
-        this.ortSTATUS = ortSTATUS;
+    public void setOrtSTATUS(String ortStatus) {
+        this.ortStatus = ortStatus;
     }
 
-    public String getOrtALORT() {
-        return ortALORT;
+    public String getOrtAlort() {
+        return ortAlort;
     }
 
-    public void setOrtALORT(String ortALORT) {
-        this.ortALORT = ortALORT;
+    public void setOrtAlort(String ortAlort) {
+        this.ortAlort = ortAlort;
     }
 
     public String getOrtDatum() {
@@ -150,7 +150,6 @@ public class OrRow implements AbstractDataFactoryRow<OrRow, OrRowFormat>, Serial
     public void setOrtDatum(String ortDatum) {
         this.ortDatum = ortDatum;
     }
-
 
 }
 

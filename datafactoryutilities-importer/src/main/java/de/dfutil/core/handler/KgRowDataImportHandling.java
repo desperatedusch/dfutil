@@ -1,7 +1,7 @@
 package de.dfutil.core.handler;
 
-import de.dfutil.dao.jpa.ObRowRepository;
-import de.dfutil.entities.jpa.ObRow;
+import de.dfutil.dao.jpa.KgRowRepository;
+import de.dfutil.entities.jpa.KgRow;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,18 +11,18 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ObRowDataImportHandler implements DataImportHandler {
+public class KgRowDataImportHandling implements DataImportHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(ObRowDataImportHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(KgRowDataImportHandling.class);
 
     @Autowired
-    private ObRowRepository jpaDao;
+    private KgRowRepository jpaDao;
 
-    public ObRowDataImportHandler(ObRowRepository jpaDao) {
+    public KgRowDataImportHandling(KgRowRepository jpaDao) {
         this.jpaDao = jpaDao;
     }
 
-    @EventListener(condition = "#event.rowType.name().contains('OB')")
+    @EventListener(condition = "#event.rowType.name().contains('KG')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.debug("event '{}' of type '{}' received", event.getSource(), event.rowType());
         persistEventContent2DataSources(event);
@@ -30,7 +30,7 @@ public class ObRowDataImportHandler implements DataImportHandler {
 
     @Override
     public void persistEventContent2DataSources(RowParsedEvent event) {
-        jpaDao.save(new ObRow().parseFrom(event.row()));
+        jpaDao.save(new KgRow().parseFrom(event.row()));
     }
 
 }

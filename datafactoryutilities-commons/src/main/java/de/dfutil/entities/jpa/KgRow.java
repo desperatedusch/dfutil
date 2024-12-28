@@ -13,6 +13,9 @@ import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
+/**
+ * Repräsentiert Bundesländer, Regierungsbezirke und Kreise
+ */
 @Entity
 public class KgRow implements AbstractDataFactoryRow<KgRow, KgRowFormat>, SerializablePostalObject {
 

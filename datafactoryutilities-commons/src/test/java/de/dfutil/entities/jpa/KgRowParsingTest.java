@@ -2,7 +2,7 @@ package de.dfutil.entities.jpa;
 
 import org.junit.jupiter.api.Test;
 
-public class KgRowBytes2JpaEntityTest {
+public class KgRowParsingTest {
 
     private static final byte[] FLENSBURG_STADT = "KG23092442023073101001000KFlensburg, Stadt                        $                                                                                                                                                                                                                                                                 \n".getBytes();
 

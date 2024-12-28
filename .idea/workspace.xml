@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Or and Ol implementation">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Minor bugfixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowBytes2JpaEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowParsingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowBytes2JpaEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowParsingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowBytes2JpaEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowParsingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/PlRowBytes2JpaEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/PlRowParsingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowBytes2JpaEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowParsingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Parsing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/files/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/core/files/ParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +143,7 @@
     &quot;JUnit.FileParserTest.parseDataFactoryFileSBRow.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.InputDataDetectionTest.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.InputDataDetectionTest.findInputFiles.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KgRowBytes2JpaEntityTest.parseKgRowBytes2Object.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.ObRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.OrRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor&quot;: &quot;Debug&quot;,
@@ -235,23 +253,8 @@
       <recent name="de.dfutil.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KgRowBytes2JpaEntityTest">
-    <configuration name="InputSourceDetectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="datafactoryutilities-importer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.dfutil.core.files.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.dfutil.core.files" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.core.files.InputSourceDetectionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KgRowBytes2JpaEntityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
+    <configuration name="KgRowParsingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
         <pattern>
@@ -260,13 +263,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.KgRowBytes2JpaEntityTest" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.KgRowParsingTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObRowBytes2JpaEntityTest.parseObRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KgRowParsingTest.parseKgRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
         <pattern>
@@ -275,14 +278,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.ObRowBytes2JpaEntityTest" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.KgRowParsingTest" />
+      <option name="METHOD_NAME" value="parseKgRowBytes2Object" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ObRowParsingTest.parseObRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="datafactoryutilities-commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.dfutil.entities.jpa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.ObRowParsingTest" />
       <option name="METHOD_NAME" value="parseObRowBytes2Object" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrRowBytes2JpaEntityTest.parseOrRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrRowParsingTest.parseOrRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
         <pattern>
@@ -291,14 +310,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.OrRowBytes2JpaEntityTest" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.OrRowParsingTest" />
       <option name="METHOD_NAME" value="parseOrRowBytes2Object" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlRowBytes2JpaEntityTest.parsePlRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlRowParsingTest.parsePlRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
         <pattern>
@@ -307,7 +326,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.PlRowBytes2JpaEntityTest" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.PlRowParsingTest" />
       <option name="METHOD_NAME" value="parsePlRowBytes2Object" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -330,21 +349,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.KgRowBytes2JpaEntityTest" />
-      <item itemvalue="JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object" />
-      <item itemvalue="JUnit.OrRowBytes2JpaEntityTest.parseOrRowBytes2Object" />
-      <item itemvalue="JUnit.PlRowBytes2JpaEntityTest.parsePlRowBytes2Object" />
-      <item itemvalue="JUnit.InputSourceDetectionTest" />
+      <item itemvalue="JUnit.KgRowParsingTest" />
+      <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
+      <item itemvalue="JUnit.ObRowParsingTest.parseObRowBytes2Object" />
+      <item itemvalue="JUnit.OrRowParsingTest.parseOrRowBytes2Object" />
+      <item itemvalue="JUnit.PlRowParsingTest.parsePlRowBytes2Object" />
       <item itemvalue="Spring Boot.AddressInformationProviderApplication" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KgRowBytes2JpaEntityTest" />
-        <item itemvalue="JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object" />
-        <item itemvalue="JUnit.OrRowBytes2JpaEntityTest.parseOrRowBytes2Object" />
-        <item itemvalue="JUnit.PlRowBytes2JpaEntityTest.parsePlRowBytes2Object" />
-        <item itemvalue="JUnit.InputSourceDetectionTest" />
+        <item itemvalue="JUnit.ObRowParsingTest.parseObRowBytes2Object" />
+        <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
+        <item itemvalue="JUnit.KgRowParsingTest" />
+        <item itemvalue="JUnit.OrRowParsingTest.parseOrRowBytes2Object" />
+        <item itemvalue="JUnit.PlRowParsingTest.parsePlRowBytes2Object" />
       </list>
     </recent_temporary>
   </component>
@@ -466,7 +485,8 @@
       <workItem from="1734995407150" duration="300000" />
       <workItem from="1734998562341" duration="9211000" />
       <workItem from="1735031871710" duration="2469000" />
-      <workItem from="1735036938870" duration="482000" />
+      <workItem from="1735036938870" duration="1745000" />
+      <workItem from="1735161864470" duration="5108000" />
     </task>
     <task id="LOCAL-00001" summary="Some basic stuff">
       <option name="closed" value="true" />
@@ -820,7 +840,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735032211226</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Minor bugfixes">
+      <option name="closed" value="true" />
+      <created>1735037726001</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1735037726002</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -884,7 +912,8 @@
     <MESSAGE value="Basic Watcher implementation" />
     <MESSAGE value="Basic InputSourceDetection" />
     <MESSAGE value="Or and Ol implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Or and Ol implementation" />
+    <MESSAGE value="Minor bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor bugfixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -898,7 +927,7 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowBytes2JpaEntityTest.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowParsingTest.java</url>
           <line>12</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
@@ -913,29 +942,34 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandler.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandling.java</url>
           <line>27</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandler.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandling.java</url>
           <line>32</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/PlRowBytes2JpaEntityTest.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/PlRowParsingTest.java</url>
           <line>11</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowBytes2JpaEntityTest.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowParsingTest.java</url>
           <line>11</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowBytes2JpaEntityTest.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowParsingTest.java</url>
           <line>11</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowParsingTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

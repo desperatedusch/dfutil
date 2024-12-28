@@ -2,7 +2,7 @@ package de.dfutil.entities.jpa;
 
 import org.junit.jupiter.api.Test;
 
-public class OrRowBytes2JpaEntityTest {
+public class OrRowParsingTest {
 
     private static final byte[] HOPSTENBAUERSCHAFT = "OR23092441978010100000500SAa-Bauerschaft                          Hopsten                                                                Aa-Bauerschaft                  26631500$                                                                                                                                                  \n".getBytes();
 

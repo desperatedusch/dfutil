@@ -13,6 +13,9 @@ import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
+/**
+ * Repräsentiert Strassen
+ */
 @Entity
 public class SbRow implements AbstractDataFactoryRow<SbRow, SbRowFormat>, SerializablePostalObject {
 

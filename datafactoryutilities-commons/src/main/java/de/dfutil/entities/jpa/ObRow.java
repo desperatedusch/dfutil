@@ -13,6 +13,9 @@ import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
+/**
+ * Repräsentiert Ortsteile
+ */
 @Entity
 public class ObRow implements AbstractDataFactoryRow<ObRow, ObRowFormat>, SerializablePostalObject {
 

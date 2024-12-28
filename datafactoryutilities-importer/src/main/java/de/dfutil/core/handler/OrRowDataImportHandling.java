@@ -11,14 +11,14 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrRowDataImportHandler implements DataImportHandler {
+public class OrRowDataImportHandling implements DataImportHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(OrRowDataImportHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(OrRowDataImportHandling.class);
 
     @Autowired
     private OrRowRepository jpaDao;
 
-    public OrRowDataImportHandler(OrRowRepository jpaDao) {
+    public OrRowDataImportHandling(OrRowRepository jpaDao) {
         this.jpaDao = jpaDao;
     }
 

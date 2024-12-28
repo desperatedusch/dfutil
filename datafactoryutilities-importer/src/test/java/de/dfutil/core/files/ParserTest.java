@@ -20,7 +20,7 @@ import java.io.IOException;
 public class ParserTest {
 
     @Autowired
-    private Parser cut;
+    private Parsing cut;
 
     @Autowired
     private ResourceLoader resourceLoader;

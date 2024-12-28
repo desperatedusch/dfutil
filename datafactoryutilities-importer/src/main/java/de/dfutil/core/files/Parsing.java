@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 @Service
-public class Parser {
+public class Parsing {
 
-    private static final Logger log = LoggerFactory.getLogger(Parser.class);
+    private static final Logger log = LoggerFactory.getLogger(Parsing.class);
 
     @Autowired
     private ApplicationEventPublisher eventPublisher;
 
-    public Parser() {
+    public Parsing() {
     }
 
     public void fromFile(Path path) {

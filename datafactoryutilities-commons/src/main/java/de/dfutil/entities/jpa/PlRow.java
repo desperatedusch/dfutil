@@ -13,6 +13,9 @@ import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
+/**
+ * Repräsentiert einzelne Postleitzahlbereiche
+ */
 @Entity
 public class PlRow implements AbstractDataFactoryRow<PlRow, PlRowFormat>, SerializablePostalObject {
 

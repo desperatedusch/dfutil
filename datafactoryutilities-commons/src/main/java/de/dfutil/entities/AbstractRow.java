@@ -9,8 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Objects;
 
-
-public interface AbstractDataFactoryRow<T extends SerializablePostalObject, RF extends RowFormat<?>> {
+public interface AbstractRow<T extends SerializablePostalObject, RF extends RowFormat<?>> {
 
     default void applyRowFormatTokenOnRowBytes(RF token, byte[] rowBytes, T containingPostalObject) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException {
         Field field = ReflectionUtils.findField(containingPostalObject.getClass(), StringHelper.convertHyphenSnakeToCamelCase(token.paramName()));

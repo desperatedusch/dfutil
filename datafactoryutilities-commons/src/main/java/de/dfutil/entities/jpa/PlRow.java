@@ -1,6 +1,6 @@
 package de.dfutil.entities.jpa;
 
-import de.dfutil.entities.AbstractDataFactoryRow;
+import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.PlRowFormat;
 import de.dfutil.entities.format.RowType;
@@ -17,7 +17,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
  * Repräsentiert einzelne Postleitzahlbereiche
  */
 @Entity
-public class PlRow implements AbstractDataFactoryRow<PlRow, PlRowFormat>, SerializablePostalObject {
+public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.PL;
     @jakarta.persistence.Id
@@ -30,8 +30,8 @@ public class PlRow implements AbstractDataFactoryRow<PlRow, PlRowFormat>, Serial
     private String plzDatum;
     private String plzPlz;
     private String plzAlOrt;
-    private String plzArtkardinalität;
-    private String plzArtauslierferung;
+    private String plzArtKardinalität;
+    private String plzArtAuslierferung;
     private String plzStverz;
     private String plzPfverz;
     private String plzOname;
@@ -44,7 +44,7 @@ public class PlRow implements AbstractDataFactoryRow<PlRow, PlRowFormat>, Serial
     private String plzKgs;
     private String plzOrtCode;
     private String plzLeitcodeMax;
-    private String plzRabattInfoschwer;
+    private String plzRabattInfoSchwer;
     private String plzReserve;
     private String plzFzNr;
     private String plzBzNr;
@@ -107,20 +107,20 @@ public class PlRow implements AbstractDataFactoryRow<PlRow, PlRowFormat>, Serial
         this.plzAlOrt = plzAlOrt;
     }
 
-    public String getPlzArtkardinalität() {
-        return plzArtkardinalität;
+    public String getPlzArtKardinalität() {
+        return plzArtKardinalität;
     }
 
-    public void setPlzArtkardinalität(String plzArtKardinalität) {
-        this.plzArtkardinalität = plzArtKardinalität;
+    public void setPlzArtKardinalität(String plzArtKardinalität) {
+        this.plzArtKardinalität = plzArtKardinalität;
     }
 
-    public String getPlzArtauslierferung() {
-        return plzArtauslierferung;
+    public String getPlzArtAuslierferung() {
+        return plzArtAuslierferung;
     }
 
-    public void setPlzArtauslierferung(String plzArtAuslierferung) {
-        this.plzArtauslierferung = plzArtAuslierferung;
+    public void setPlzArtAuslierferung(String plzArtAuslierferung) {
+        this.plzArtAuslierferung = plzArtAuslierferung;
     }
 
     public String getPlzStverz() {
@@ -219,12 +219,12 @@ public class PlRow implements AbstractDataFactoryRow<PlRow, PlRowFormat>, Serial
         this.plzLeitcodeMax = plzLeitcodeMax;
     }
 
-    public String getPlzRabattInfoschwer() {
-        return plzRabattInfoschwer;
+    public String getPlzRabattInfoSchwer() {
+        return plzRabattInfoSchwer;
     }
 
-    public void setPlzRabattInfoschwer(String plzRabattInfoschwer) {
-        this.plzRabattInfoschwer = plzRabattInfoschwer;
+    public void setPlzRabattInfoSchwer(String plzRabattInfoSchwer) {
+        this.plzRabattInfoSchwer = plzRabattInfoSchwer;
     }
 
     public String getPlzReserve() {

@@ -22,14 +22,14 @@ public class PlRowDataImportHandling implements DataImportHandler {
         this.jpaDao = jpaDao;
     }
 
-    @EventListener(condition = "#event.rowType.name().contains('PL')")
+    @EventListener(condition = "#event.rowType.name().startsWith('PL')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.debug("event '{}' of type '{}' received", event.getSource(), event.rowType());
-        persistEventContent2DataSources(event);
+        persistEventContent(event);
     }
 
     @Override
-    public void persistEventContent2DataSources(RowParsedEvent event) {
+    public void persistEventContent(RowParsedEvent event) {
         jpaDao.save(new PlRow().parseFrom(event.row()));
     }
 

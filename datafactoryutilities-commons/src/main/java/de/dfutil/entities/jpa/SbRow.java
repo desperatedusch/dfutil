@@ -1,7 +1,7 @@
 package de.dfutil.entities.jpa;
 
-import de.dfutil.entities.AbstractDataFactoryRow;
-import de.dfutil.entities.SerializablePostalObject;
+import de.dfutil.entities.AbstractRow;
+import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.format.SbRowFormat;
 import jakarta.persistence.Column;
@@ -17,7 +17,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
  * Repräsentiert Strassen
  */
 @Entity
-public class SbRow implements AbstractDataFactoryRow<SbRow, SbRowFormat>, SerializablePostalObject {
+public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalObject {
 
     @jakarta.persistence.Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")

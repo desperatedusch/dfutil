@@ -9,6 +9,10 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
+import java.nio.file.Path;
+import java.util.Comparator;
+import java.util.List;
+
 @SpringBootApplication
 public class DatafactoryImporter implements CommandLineRunner {
 
@@ -31,7 +35,9 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        inputSourceDetection.findFiles().forEach(parser::fromFile);
+        List<Path> files = inputSourceDetection.findFiles();
+        files.sort(Comparator.comparing(Path::getFileName));
+        files.forEach(parser::fromFile);
     }
 
 }

@@ -1,7 +1,7 @@
 package de.dfutil.entities.jpa;
 
-import de.dfutil.entities.AbstractDataFactoryRow;
-import de.dfutil.entities.SerializablePostalObject;
+import de.dfutil.entities.AbstractRow;
+import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.ObRowFormat;
 import de.dfutil.entities.format.RowType;
 import jakarta.persistence.Column;
@@ -17,7 +17,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
  * Repräsentiert Ortsteile
  */
 @Entity
-public class ObRow implements AbstractDataFactoryRow<ObRow, ObRowFormat>, SerializablePostalObject {
+public class ObRow implements AbstractRow<ObRow, ObRowFormat>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OB;
     @jakarta.persistence.Id

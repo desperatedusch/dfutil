@@ -22,14 +22,14 @@ public class OrRowDataImportHandling implements DataImportHandler {
         this.jpaDao = jpaDao;
     }
 
-    @EventListener(condition = "#event.rowType.name().contains('OR')")
+    @EventListener(condition = "#event.rowType.name().startsWith('OR')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.debug("event '{}' of type '{}' received", event.getSource(), event.rowType());
-        persistEventContent2DataSources(event);
+        persistEventContent(event);
     }
 
     @Override
-    public void persistEventContent2DataSources(RowParsedEvent event) {
+    public void persistEventContent(RowParsedEvent event) {
         jpaDao.save(new OrRow().parseFrom(event.row()));
     }
 

@@ -1,6 +1,6 @@
 package de.dfutil.entities.jpa;
 
-import de.dfutil.entities.AbstractDataFactoryRow;
+import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.KgRowFormat;
 import de.dfutil.entities.format.RowType;
@@ -14,10 +14,14 @@ import java.util.Date;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 /**
- * Repräsentiert Bundesländer, Regierungsbezirke und Kreise
+ * In der Kreisgemeindedatei KGS-DA stehen die amtlichen Namen der Gemeinden, Kreise, kreisfreien Städte,
+ * Regierungsbezirke und Bundesländer zusammen mit dem achtstelligen Kreisgemeindeschlüssel. Diese Daten
+ * werden vom Statistischen Bundesamt in Wiesbaden übernommen und aufgrund der Angaben der statistischen
+ * Landesämter erweitert. Mit Hilfe dieses Schlüssels wird die staatliche Gliederung in den Dateien ORT-DA,
+ * STRA-DB, OTL-DB und PLZ-DA dargestellt.
  */
 @Entity
-public class KgRow implements AbstractDataFactoryRow<KgRow, KgRowFormat>, SerializablePostalObject {
+public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.KG;
     @jakarta.persistence.Id

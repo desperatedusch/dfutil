@@ -22,14 +22,14 @@ public class SbRowDataImportHandling implements DataImportHandler {
         this.jpaDao = jpaDao;
     }
 
-    @EventListener(condition = "#event.rowType.name().contains('SB')")
+    @EventListener(condition = "#event.rowType.name().startsWith('SB')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.debug("event '{}' of type '{}' received", event.getSource(), event.rowType());
-        persistEventContent2DataSources(event);
+        persistEventContent(event);
     }
 
     @Override
-    public void persistEventContent2DataSources(RowParsedEvent event) {
+    public void persistEventContent(RowParsedEvent event) {
         SbRow sbRow = jpaDao.save(new SbRow().parseFrom(event.row()));
     }
 

@@ -4,10 +4,8 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.OrRowFormat;
 import de.dfutil.entities.format.RowType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Version;
+import de.dfutil.entities.jpa.ids.OrRowId;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -27,10 +25,12 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
     @Version
     @Column(name = "version")
     private Date version;
-
-
     private String ortDatum;
+    @EmbeddedId
+    private OrRowId orRowId;
+    @Transient
     private String ortAlort;
+    @Transient
     private String ortStatus;
     private String ortOname;
     private String ortOnamePost;
@@ -51,6 +51,7 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
                 throw new RuntimeException("Parsing failed....", e);
             }
         }
+        this.orRowId = new OrRowId(ortAlort, ortStatus);
         return this;
     }
 
@@ -154,6 +155,13 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
         this.ortDatum = ortDatum;
     }
 
+    public OrRowId orRowId() {
+        return orRowId;
+    }
+
+    public void setOrRowId(OrRowId orRowId) {
+        this.orRowId = orRowId;
+    }
 }
 
 

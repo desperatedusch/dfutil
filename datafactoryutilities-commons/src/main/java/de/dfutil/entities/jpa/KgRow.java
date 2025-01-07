@@ -4,14 +4,10 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.KgRowFormat;
 import de.dfutil.entities.format.RowType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Version;
+import de.dfutil.entities.jpa.ids.KgRowId;
+import jakarta.persistence.*;
 
 import java.util.Date;
-
-import static jakarta.persistence.GenerationType.SEQUENCE;
 
 /**
  * In der Kreisgemeindedatei KGS-DA stehen die amtlichen Namen der Gemeinden, Kreise, kreisfreien Städte,
@@ -24,18 +20,19 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.KG;
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
-    @Column(name = "id")
-    private Long id;
     @Version
     @Column(name = "version")
     private Date version;
-
-
     private String kgDatum;
+
+    @EmbeddedId
+    private KgRowId kgId;
+
+    @Transient
     private String kgSchluessel;
+    @Transient
     private String kgSatzart;
+
     private String kgName;
 
     @Override
@@ -48,15 +45,8 @@ public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePosta
                 throw new RuntimeException("Parsing failed....", e);
             }
         }
+        this.kgId = new KgRowId(kgSchluessel, kgSatzart);
         return this;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Date getVersion() {
@@ -67,9 +57,6 @@ public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePosta
         this.version = version;
     }
 
-    public RowType getRowType() {
-        return rowType;
-    }
 
     public String getKgDatum() {
         return kgDatum;
@@ -79,22 +66,6 @@ public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePosta
         this.kgDatum = kgDatum;
     }
 
-    public String getKgSchluessel() {
-        return kgSchluessel;
-    }
-
-    public void setKgSchluessel(String kgSchluessel) {
-        this.kgSchluessel = kgSchluessel;
-    }
-
-    public String getKgSatzart() {
-        return kgSatzart;
-    }
-
-    public void setKgSatzart(String kgSatzart) {
-        this.kgSatzart = kgSatzart;
-    }
-
     public String getKgName() {
         return kgName;
     }
@@ -102,6 +73,27 @@ public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePosta
     public void setKgName(String kgName) {
         this.kgName = kgName;
     }
+
+    public String kgSchluessel() {
+        return kgSchluessel;
+    }
+
+    public void setKgSchluessel(String kgSchluessel) {
+        this.kgSchluessel = kgSchluessel;
+    }
+
+    public String kgSatzart() {
+        return kgSatzart;
+    }
+
+    public void setKgSatzart(String kgSatzart) {
+        this.kgSatzart = kgSatzart;
+    }
+
+    public RowType getRowType() {
+        return rowType;
+    }
+
 }
 
 

@@ -72,6 +72,7 @@ public class InputSourceDetection {
 
             @Override
             public FileVisitResult visitFileFailed(Path file, IOException exc) {
+                log.error("Visiting file failed...", exc);
                 return FileVisitResult.CONTINUE;
             }
         });

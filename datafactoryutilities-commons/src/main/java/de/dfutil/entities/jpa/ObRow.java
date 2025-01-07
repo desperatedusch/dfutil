@@ -4,14 +4,10 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.ObRowFormat;
 import de.dfutil.entities.format.RowType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Version;
+import de.dfutil.entities.jpa.ids.ObRowId;
+import jakarta.persistence.*;
 
 import java.util.Date;
-
-import static jakarta.persistence.GenerationType.SEQUENCE;
 
 /**
  * Repräsentiert Ortsteile
@@ -20,18 +16,23 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 public class ObRow implements AbstractRow<ObRow, ObRowFormat>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OB;
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
-    @Column(name = "id")
-    private Long id;
+
     @Version
     @Column(name = "version")
     private Date version;
 
     private String otlDatum;
+
+    @EmbeddedId
+    private ObRowId obRowId;
+
+    @Transient
     private String otlAlort;
+    @Transient
     private String otlSchl;
+    @Transient
     private String otlPlz;
+    @Transient
     private String otlStatus;
     private String otlStverz;
     private String otlName;
@@ -47,15 +48,8 @@ public class ObRow implements AbstractRow<ObRow, ObRowFormat>, ArchivablePostalO
                 throw new RuntimeException("Parsing failed....", e);
             }
         }
+        this.obRowId = new ObRowId(otlAlort, otlSchl, otlPlz, otlStatus);
         return this;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Date getVersion() {

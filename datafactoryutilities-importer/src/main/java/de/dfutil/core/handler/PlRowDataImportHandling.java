@@ -11,7 +11,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PlRowDataImportHandling implements DataImportHandler {
+public class PlRowDataImportHandling implements DataImportHandling {
 
     private static final Logger log = LoggerFactory.getLogger(PlRowDataImportHandling.class);
 

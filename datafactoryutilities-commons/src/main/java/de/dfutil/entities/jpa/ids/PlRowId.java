@@ -18,4 +18,19 @@ public class PlRowId implements Serializable {
         this.plzAlOrt = plzAlOrt;
     }
 
+    public String plzPlz() {
+        return plzPlz;
+    }
+
+    public void setPlzPlz(String plzPlz) {
+        this.plzPlz = plzPlz;
+    }
+
+    public String plzAlOrt() {
+        return plzAlOrt;
+    }
+
+    public void setPlzAlOrt(String plzAlOrt) {
+        this.plzAlOrt = plzAlOrt;
+    }
 }

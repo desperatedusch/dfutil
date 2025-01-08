@@ -29,4 +29,68 @@ public class SbRowId implements Serializable {
         this.strStatus = strStatus;
         this.strHnr1000 = strHnr1000;
     }
+
+    public String strAlOrt() {
+        return strAlOrt;
+    }
+
+    public void setStrAlOrt(String strAlOrt) {
+        this.strAlOrt = strAlOrt;
+    }
+
+    public String strSchluessel() {
+        return strSchluessel;
+    }
+
+    public void setStrSchluessel(String strSchluessel) {
+        this.strSchluessel = strSchluessel;
+    }
+
+    public String strNamenSchl() {
+        return strNamenSchl;
+    }
+
+    public void setStrNamenSchl(String strNamenSchl) {
+        this.strNamenSchl = strNamenSchl;
+    }
+
+    public String strBundLfdnr() {
+        return strBundLfdnr;
+    }
+
+    public void setStrBundLfdnr(String strBundLfdnr) {
+        this.strBundLfdnr = strBundLfdnr;
+    }
+
+    public String strHnrVon() {
+        return strHnrVon;
+    }
+
+    public void setStrHnrVon(String strHnrVon) {
+        this.strHnrVon = strHnrVon;
+    }
+
+    public String strHnrBis() {
+        return strHnrBis;
+    }
+
+    public void setStrHnrBis(String strHnrBis) {
+        this.strHnrBis = strHnrBis;
+    }
+
+    public String strStatus() {
+        return strStatus;
+    }
+
+    public void setStrStatus(String strStatus) {
+        this.strStatus = strStatus;
+    }
+
+    public String strHnr1000() {
+        return strHnr1000;
+    }
+
+    public void setStrHnr1000(String strHnr1000) {
+        this.strHnr1000 = strHnr1000;
+    }
 }

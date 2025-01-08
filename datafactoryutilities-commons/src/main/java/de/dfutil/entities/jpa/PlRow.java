@@ -4,14 +4,10 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.PlRowFormat;
 import de.dfutil.entities.format.RowType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Version;
+import de.dfutil.entities.jpa.ids.PlRowId;
+import jakarta.persistence.*;
 
 import java.util.Date;
-
-import static jakarta.persistence.GenerationType.SEQUENCE;
 
 /**
  * Repräsentiert einzelne Postleitzahlbereiche
@@ -20,15 +16,15 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.PL;
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
-    @Column(name = "id")
-    private Long id;
     @Version
     @Column(name = "version")
     private Date version;
     private String plzDatum;
+    @EmbeddedId
+    private PlRowId plRowId;
+    @Transient
     private String plzPlz;
+    @Transient
     private String plzAlOrt;
     private String plzArtKardinalität;
     private String plzArtAuslierferung;
@@ -60,15 +56,8 @@ public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePosta
                 throw new RuntimeException("Parsing failed....", e);
             }
         }
+        this.plRowId = new PlRowId(plzPlz, plzAlOrt);
         return this;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Date getVersion() {

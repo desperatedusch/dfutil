@@ -4,14 +4,10 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.format.SbRowFormat;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Version;
+import de.dfutil.entities.jpa.ids.SbRowId;
+import jakarta.persistence.*;
 
 import java.util.Date;
-
-import static jakarta.persistence.GenerationType.SEQUENCE;
 
 /**
  * Repräsentiert Strassen
@@ -19,23 +15,32 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @Entity
 public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalObject {
 
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
-    @Column(name = "id")
-    private Long id;
     @Version
     @Column(name = "version")
     private Date version;
 
     private final static RowType rowType = RowType.SB;
     private String strDatum;
+    @EmbeddedId
+    private SbRowId sbRowId;
+    @Transient
     private String strAlOrt;
+    @Transient
     private String strSchluessel;
+    @Transient
     private String strNamenSchl;
+    @Transient
     private String strBundLfdnr;
+    @Transient
     private String strHnrVon;
+    @Transient
     private String strHnrBis;
+    @Transient
     private String strStatus;
+    @Transient
+    private String strHnr1000;
+    private String strStverz;
+    private String strNameSort;
     private String strName46;
     private String strName22;
     private String strReserve;
@@ -61,15 +66,8 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
                 throw new RuntimeException("Parsing failed....", e);
             }
         }
+        this.sbRowId = new SbRowId(strAlOrt, strSchluessel, strNamenSchl, strBundLfdnr, strHnrVon, strHnrBis, strStatus, strHnr1000);
         return this;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Date getVersion() {
@@ -146,6 +144,30 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
 
     public void setStrStatus(String strStatus) {
         this.strStatus = strStatus;
+    }
+
+    public String strHnr1000() {
+        return strHnr1000;
+    }
+
+    public void setStrHnr1000(String strHnr1000) {
+        this.strHnr1000 = strHnr1000;
+    }
+
+    public String strStverz() {
+        return strStverz;
+    }
+
+    public void setStrStverz(String strStverz) {
+        this.strStverz = strStverz;
+    }
+
+    public String strNameSort() {
+        return strNameSort;
+    }
+
+    public void setStrNameSort(String strNameSort) {
+        this.strNameSort = strNameSort;
     }
 
     public String getStrName46() {

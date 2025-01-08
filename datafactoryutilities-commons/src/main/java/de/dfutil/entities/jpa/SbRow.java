@@ -52,7 +52,7 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
     private String strKgs;
     private String strAlortNeu;
     private String strNamenSchlNeu;
-    private String strBundLfdnrNNeu;
+    private String strBundLfdnrNeu;
     private String strHnrvonNeu;
     private String strHnrbisNeu;
 
@@ -258,12 +258,12 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
         this.strNamenSchlNeu = strNamenSchlNeu;
     }
 
-    public String getStrBundLfdnrNNeu() {
-        return strBundLfdnrNNeu;
+    public String getStrBundLfdnrNeu() {
+        return strBundLfdnrNeu;
     }
 
-    public void setStrBundLfdnrNNeu(String strBundLfdnrNNeu) {
-        this.strBundLfdnrNNeu = strBundLfdnrNNeu;
+    public void setStrBundLfdnrNeu(String strBundLfdnrNNeu) {
+        this.strBundLfdnrNeu = strBundLfdnrNNeu;
     }
 
     public String getStrHnrvonNeu() {

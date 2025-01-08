@@ -8,7 +8,7 @@ import java.nio.file.Path;
 public class Postprocessing {
 
     public void markInputSourceAsProcessed(Path inputSource) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
     }
 
 }

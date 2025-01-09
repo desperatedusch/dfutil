@@ -5,7 +5,10 @@ import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.KgRowFormat;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.jpa.ids.KgRowId;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 
 import java.util.Date;
 
@@ -20,19 +23,15 @@ import java.util.Date;
 public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.KG;
+
     @Version
     @Column(name = "version")
     private Date version;
     private String kgDatum;
-
     @EmbeddedId
     private KgRowId kgId;
-
-    @Transient
     private String kgSchluessel;
-    @Transient
     private String kgSatzart;
-
     private String kgName;
 
     @Override

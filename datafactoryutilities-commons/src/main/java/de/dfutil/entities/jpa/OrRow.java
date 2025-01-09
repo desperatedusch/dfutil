@@ -5,11 +5,12 @@ import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.OrRowFormat;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.jpa.ids.OrRowId;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 
 import java.util.Date;
-
-import static jakarta.persistence.GenerationType.SEQUENCE;
 
 /**
  * Repräsentiert Orte
@@ -18,19 +19,14 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OR;
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "ID_SEQ")
-    @Column(name = "id")
-    private Long id;
+
     @Version
     @Column(name = "version")
     private Date version;
     private String ortDatum;
     @EmbeddedId
     private OrRowId orRowId;
-    @Transient
     private String ortAlort;
-    @Transient
     private String ortStatus;
     private String ortOname;
     private String ortOnamePost;
@@ -53,14 +49,6 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
         }
         this.orRowId = new OrRowId(ortAlort, ortStatus);
         return this;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Date getVersion() {

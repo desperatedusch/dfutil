@@ -16,6 +16,7 @@ import java.util.Date;
 public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.PL;
+
     @Version
     @Column(name = "version")
     private Date version;

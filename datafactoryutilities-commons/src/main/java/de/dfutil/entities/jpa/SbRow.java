@@ -15,11 +15,11 @@ import java.util.Date;
 @Entity
 public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalObject {
 
+    private final static RowType rowType = RowType.SB;
+
     @Version
     @Column(name = "version")
     private Date version;
-
-    private final static RowType rowType = RowType.SB;
     private String strDatum;
     @EmbeddedId
     private SbRowId sbRowId;

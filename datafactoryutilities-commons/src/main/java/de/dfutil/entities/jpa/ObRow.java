@@ -5,7 +5,10 @@ import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.ObRowFormat;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.jpa.ids.ObRowId;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 
 import java.util.Date;
 
@@ -20,19 +23,12 @@ public class ObRow implements AbstractRow<ObRow, ObRowFormat>, ArchivablePostalO
     @Version
     @Column(name = "version")
     private Date version;
-
     private String otlDatum;
-
     @EmbeddedId
     private ObRowId obRowId;
-
-    @Transient
     private String otlAlort;
-    @Transient
     private String otlSchl;
-    @Transient
     private String otlPlz;
-    @Transient
     private String otlStatus;
     private String otlStverz;
     private String otlName;

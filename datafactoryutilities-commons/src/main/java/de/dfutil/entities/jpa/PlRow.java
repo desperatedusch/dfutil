@@ -240,6 +240,7 @@ public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePosta
     public void setPlzBzNr(String plzBzNr) {
         this.plzBzNr = plzBzNr;
     }
+
 }
 
 

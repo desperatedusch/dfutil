@@ -18,4 +18,5 @@ public class StringHelper {
         }
         return sb.toString();
     }
+
 }

@@ -10,7 +10,6 @@ public class SbRowParsingTest {
     public void parseSBRowBytes2Object() {
         SbRow parsedSbRow = new SbRow().parseFrom(ALPENSTRASSE);
         parsedSbRow.toString();
-        SbRow expectedSbRow = new SbRow();
     }
 
 }

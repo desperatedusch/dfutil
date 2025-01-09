@@ -33,4 +33,5 @@ public class PlRowId implements Serializable {
     public void setPlzAlOrt(String plzAlOrt) {
         this.plzAlOrt = plzAlOrt;
     }
+
 }

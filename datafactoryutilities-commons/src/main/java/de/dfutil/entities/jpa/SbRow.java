@@ -282,7 +282,6 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
         this.strHnrbisNeu = strHnrbisNeu;
     }
 
-
 }
 
 

@@ -150,6 +150,7 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
     public void setOrRowId(OrRowId orRowId) {
         this.orRowId = orRowId;
     }
+
 }
 
 

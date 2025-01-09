@@ -93,4 +93,5 @@ public class SbRowId implements Serializable {
     public void setStrHnr1000(String strHnr1000) {
         this.strHnr1000 = strHnr1000;
     }
+
 }

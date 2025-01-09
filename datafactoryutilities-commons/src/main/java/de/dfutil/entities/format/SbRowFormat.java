@@ -81,5 +81,6 @@ public enum SbRowFormat implements RowFormat<SbRowFormat> {
     public List<SbRowFormat> paramList() {
         return List.of(SbRowFormat.values());
     }
+
 }
 

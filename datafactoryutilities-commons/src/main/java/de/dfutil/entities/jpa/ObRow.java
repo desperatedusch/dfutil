@@ -123,6 +123,7 @@ public class ObRow implements AbstractRow<ObRow, ObRowFormat>, ArchivablePostalO
     public void setOtlKgs(String otlKgs) {
         this.otlKgs = otlKgs;
     }
+
 }
 
 

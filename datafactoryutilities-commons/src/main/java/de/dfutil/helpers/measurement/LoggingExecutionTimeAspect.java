@@ -21,4 +21,5 @@ public class LoggingExecutionTimeAspect {
         log.debug("{} executed in {}ms <--------------", joinPoint.getSignature(), endTime - startTime);
         return proceed;
     }
+
 }

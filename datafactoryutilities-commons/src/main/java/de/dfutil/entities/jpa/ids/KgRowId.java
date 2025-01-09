@@ -34,4 +34,5 @@ public class KgRowId implements Serializable {
     public void setKgSatzart(String kgSatzart) {
         this.kgSatzart = kgSatzart;
     }
+
 }

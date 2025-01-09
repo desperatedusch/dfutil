@@ -29,7 +29,7 @@ public class ParserTest {
     public void parseInputFile() throws IOException {
         cut.fromFile(
                 resourceLoader.getResource(
-                        "classpath:files2Import/Streetcode_Stand_2024-01/B2401001.DAT").getFile().toPath());
+                        "D:/Stuff/Datafactory/2024/B2401001.DAT").getFile().toPath());
     }
 
 }

@@ -10,7 +10,6 @@ public class PlRowParsingTest {
     public void parsePlRowBytes2Object() {
         PlRow parsedPlRow = new PlRow().parseFrom(HAMBURGERPLZ);
         parsedPlRow.toString();
-
     }
 
 }

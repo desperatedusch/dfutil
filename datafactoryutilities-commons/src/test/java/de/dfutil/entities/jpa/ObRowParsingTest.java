@@ -10,7 +10,6 @@ public class ObRowParsingTest {
     public void parseObRowBytes2Object() {
         ObRow parsedObRow = new ObRow().parseFrom(LAURENSBERG);
         parsedObRow.toString();
-
     }
 
 }

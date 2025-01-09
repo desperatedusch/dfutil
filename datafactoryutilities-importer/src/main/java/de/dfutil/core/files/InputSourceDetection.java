@@ -35,9 +35,7 @@ public class InputSourceDetection {
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
             result.addAll(files);
-
         }
-
         return result;
     }
 

@@ -21,4 +21,5 @@ public class EntitySplitEvent extends ApplicationEvent {
     public byte[] row() {
         return row;
     }
+
 }

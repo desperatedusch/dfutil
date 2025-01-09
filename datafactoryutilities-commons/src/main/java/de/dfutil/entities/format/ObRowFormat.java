@@ -4,7 +4,6 @@ import java.util.List;
 
 public enum ObRowFormat implements RowFormat<ObRowFormat> {
 
-
     OB01a("VERSION￾DATEIKENNUNG", 2, 1, 2),
     OB01b("VERSION-DATUM", 4, 3, 6),
     OB01c("VERSION-NR", 3, 7, 9),
@@ -25,7 +24,6 @@ public enum ObRowFormat implements RowFormat<ObRowFormat> {
     private final boolean parseableProperty;
 
     private final RowType type = RowType.OB;
-
 
     private ObRowFormat(String desc, int length, int start, int end) {
         this.paramName = desc;
@@ -67,5 +65,6 @@ public enum ObRowFormat implements RowFormat<ObRowFormat> {
     public List<ObRowFormat> paramList() {
         return List.of(ObRowFormat.values());
     }
+
 }
 

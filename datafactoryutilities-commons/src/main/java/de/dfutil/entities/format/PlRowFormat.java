@@ -30,7 +30,6 @@ public enum PlRowFormat implements RowFormat<PlRowFormat> {
     PL20("PLZ-BZ-NR", 2, 166, 167, true),
     PL21("SATZENDE", 1, 168, 168);
 
-
     private final String paramName;
     private final int fieldLength;
     private final int startingPos;
@@ -79,5 +78,6 @@ public enum PlRowFormat implements RowFormat<PlRowFormat> {
     public List<PlRowFormat> paramList() {
         return List.of(PlRowFormat.values());
     }
+
 }
 

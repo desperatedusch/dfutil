@@ -33,4 +33,5 @@ public class OrRowId implements Serializable {
     public void setOrtStatus(String ortStatus) {
         this.ortStatus = ortStatus;
     }
+
 }

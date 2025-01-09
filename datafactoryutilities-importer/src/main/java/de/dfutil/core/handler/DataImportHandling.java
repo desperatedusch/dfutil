@@ -5,4 +5,5 @@ import de.dfutil.events.RowParsedEvent;
 public interface DataImportHandling {
 
     void persistEventContent(RowParsedEvent event);
+
 }

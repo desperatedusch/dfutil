@@ -66,4 +66,5 @@ public class ArchivingInformation {
     public void setSchluesselNeu(String schluesselNeu) {
         this.schluesselNeu = schluesselNeu;
     }
+
 }

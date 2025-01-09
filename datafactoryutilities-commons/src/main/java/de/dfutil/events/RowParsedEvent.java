@@ -21,4 +21,5 @@ public class RowParsedEvent extends ApplicationEvent {
     public byte[] row() {
         return row;
     }
+
 }

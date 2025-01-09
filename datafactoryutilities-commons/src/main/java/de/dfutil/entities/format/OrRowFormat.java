@@ -28,7 +28,6 @@ public enum OrRowFormat implements RowFormat<OrRowFormat> {
 
     private final RowType type = RowType.OR;
 
-
     private OrRowFormat(String desc, int length, int start, int end) {
         this.paramName = desc;
         this.fieldLength = length;
@@ -69,5 +68,6 @@ public enum OrRowFormat implements RowFormat<OrRowFormat> {
     public List<OrRowFormat> paramList() {
         return List.of(OrRowFormat.values());
     }
-    }
+
+}
 

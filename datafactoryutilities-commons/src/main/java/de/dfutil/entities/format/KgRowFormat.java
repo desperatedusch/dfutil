@@ -4,7 +4,6 @@ import java.util.List;
 
 public enum KgRowFormat implements RowFormat<KgRowFormat> {
 
-
     KG01a("VERSION￾DATEIKENNUNG", 2, 1, 2),
     KG01b("VERSION-DATUM", 4, 3, 6),
     KG01c("VERSION-NR", 3, 7, 9),
@@ -21,7 +20,6 @@ public enum KgRowFormat implements RowFormat<KgRowFormat> {
     private final boolean parseableProperty;
 
     private final RowType type = RowType.KG;
-
 
     private KgRowFormat(String desc, int length, int start, int end) {
         this.paramName = desc;
@@ -63,5 +61,6 @@ public enum KgRowFormat implements RowFormat<KgRowFormat> {
     public List<KgRowFormat> paramList() {
         return List.of(KgRowFormat.values());
     }
+
 }
 

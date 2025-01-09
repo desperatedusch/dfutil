@@ -10,7 +10,6 @@ public class OrRowParsingTest {
     public void parseOrRowBytes2Object() {
         OrRow parsedOrRow = new OrRow().parseFrom(HOPSTENBAUERSCHAFT);
         parsedOrRow.toString();
-
     }
 
 }

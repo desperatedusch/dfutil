@@ -21,7 +21,7 @@ import java.util.List;
 @TestPropertySource(
         properties =
                 """
-                            app.importer.inputsource.folders=D:/ideaWorkspaces/dfutil/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-01;D:/ideaWorkspaces/dfutil/datafactoryutilities-importer/src/test/resources/files2Import/Streetcode_Stand_2024-10
+                            app.importer.inputsource.folders=D:/Stuff/Datafactory/2024/
                             app.importer.inputsource.filenamemask=B*.DAT
                         """)
 public class InputSourceDetectionTest {

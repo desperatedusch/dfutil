@@ -15,4 +15,5 @@ public interface RowFormat<RF> {
     public boolean parseableContent();
 
     public List<RF> paramList();
+
 }

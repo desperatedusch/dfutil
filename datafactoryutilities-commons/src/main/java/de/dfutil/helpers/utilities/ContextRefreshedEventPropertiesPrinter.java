@@ -15,7 +15,6 @@ public class ContextRefreshedEventPropertiesPrinter {
 
     private final Logger log = LoggerFactory.getLogger(ContextRefreshedEventPropertiesPrinter.class);
 
-    //@EventListener
     public void handleContextRefreshed(ContextRefreshedEvent event) {
         ConfigurableEnvironment env = (ConfigurableEnvironment) event.getApplicationContext().getEnvironment();
         env.getPropertySources()

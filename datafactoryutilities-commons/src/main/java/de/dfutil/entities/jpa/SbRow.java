@@ -5,7 +5,10 @@ import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.format.SbRowFormat;
 import de.dfutil.entities.jpa.ids.SbRowId;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 
 import java.util.Date;
 
@@ -23,21 +26,13 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
     private String strDatum;
     @EmbeddedId
     private SbRowId sbRowId;
-    @Transient
     private String strAlOrt;
-    @Transient
     private String strSchluessel;
-    @Transient
     private String strNamenSchl;
-    @Transient
     private String strBundLfdnr;
-    @Transient
     private String strHnrVon;
-    @Transient
     private String strHnrBis;
-    @Transient
     private String strStatus;
-    @Transient
     private String strHnr1000;
     private String strStverz;
     private String strNameSort;

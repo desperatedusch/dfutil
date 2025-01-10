@@ -5,7 +5,10 @@ import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.format.PlRowFormat;
 import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.jpa.ids.PlRowId;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 
 import java.util.Date;
 
@@ -23,9 +26,7 @@ public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePosta
     private String plzDatum;
     @EmbeddedId
     private PlRowId plRowId;
-    @Transient
     private String plzPlz;
-    @Transient
     private String plzAlOrt;
     private String plzArtKardinalität;
     private String plzArtAuslierferung;

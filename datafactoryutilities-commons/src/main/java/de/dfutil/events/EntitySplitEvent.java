@@ -1,6 +1,6 @@
 package de.dfutil.events;
 
-import de.dfutil.entities.format.RowType;
+import de.dfutil.entities.RowType;
 import org.springframework.context.ApplicationEvent;
 
 public class EntitySplitEvent extends ApplicationEvent {

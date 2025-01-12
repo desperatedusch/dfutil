@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class SbRowId implements Serializable {
 
     private String strAlOrt;
-    private String strSchluessel;
     private String strNamenSchl;
     private String strBundLfdnr;
     private String strHnrVon;
@@ -19,9 +18,8 @@ public class SbRowId implements Serializable {
     public SbRowId() {
     }
 
-    public SbRowId(String strAlOrt, String strSchluessel, String strNamenSchl, String strBundLfdnr, String strHnrVon, String strHnrBis, String strStatus, String strHnr1000) {
+    public SbRowId(String strAlOrt, String strNamenSchl, String strBundLfdnr, String strHnrVon, String strHnrBis, String strStatus, String strHnr1000) {
         this.strAlOrt = strAlOrt;
-        this.strSchluessel = strSchluessel;
         this.strNamenSchl = strNamenSchl;
         this.strBundLfdnr = strBundLfdnr;
         this.strHnrVon = strHnrVon;
@@ -36,14 +34,6 @@ public class SbRowId implements Serializable {
 
     public void setStrAlOrt(String strAlOrt) {
         this.strAlOrt = strAlOrt;
-    }
-
-    public String strSchluessel() {
-        return strSchluessel;
-    }
-
-    public void setStrSchluessel(String strSchluessel) {
-        this.strSchluessel = strSchluessel;
     }
 
     public String strNamenSchl() {

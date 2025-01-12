@@ -8,7 +8,7 @@ public class SbRowParsingTest {
 
     @Test
     public void parseSBRowBytes2Object() {
-        SbRow parsedSbRow = new SbRow().parseFrom(ALPENSTRASSE);
+        SbRow parsedSbRow = SbRow.parseFrom(ALPENSTRASSE);
         parsedSbRow.toString();
     }
 

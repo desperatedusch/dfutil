@@ -2,21 +2,21 @@ package de.dfutil.entities.jpa;
 
 import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
-import de.dfutil.entities.format.OrRowFormat;
-import de.dfutil.entities.format.RowType;
+import de.dfutil.entities.RowType;
 import de.dfutil.entities.jpa.ids.OrRowId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
  * Repräsentiert Orte
  */
 @Entity
-public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalObject {
+public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OR;
 
@@ -26,8 +26,6 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
     private String ortDatum;
     @EmbeddedId
     private OrRowId orRowId;
-    private String ortAlort;
-    private String ortStatus;
     private String ortOname;
     private String ortOnamePost;
     private String ortOzusatz;
@@ -36,19 +34,18 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
     private String ortKgs;
     private String ortANeu;
 
-
-    @Override
-    public OrRow parseFrom(byte[] rowBytes) {
-        for (var token : OrRowFormat.values()) {
-            try {
-                if (token.parseableContent())
-                    applyRowFormatTokenOnRowBytes(token, rowBytes, this);
-            } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException e) {
-                throw new RuntimeException("Parsing failed....", e);
-            }
-        }
-        this.orRowId = new OrRowId(ortAlort, ortStatus);
-        return this;
+    public static OrRow parseFrom(byte[] rowBytes) {
+        OrRow row = new OrRow();
+        row.ortDatum = Arrays.toString(rowBytes).substring(9, 17);
+        row.ortOname = Arrays.toString(rowBytes).substring(26, 66);
+        row.ortOnamePost = Arrays.toString(rowBytes).substring(66, 106);
+        row.ortOzusatz = Arrays.toString(rowBytes).substring(106, 136);
+        row.ortArtOzusatz = Arrays.toString(rowBytes).substring(136, 137);
+        row.ortOname24 = Arrays.toString(rowBytes).substring(137, 161);
+        row.ortKgs = Arrays.toString(rowBytes).substring(161, 169);
+        row.ortANeu = Arrays.toString(rowBytes).substring(169, 177);
+        row.orRowId = new OrRowId(Arrays.toString(rowBytes).substring(25, 26), Arrays.toString(rowBytes).substring(26, 27));
+        return row;
     }
 
     public Date getVersion() {
@@ -117,22 +114,6 @@ public class OrRow implements AbstractRow<OrRow, OrRowFormat>, ArchivablePostalO
 
     public void setOrtOname(String ortOname) {
         this.ortOname = ortOname;
-    }
-
-    public String getOrtSTATUS() {
-        return ortStatus;
-    }
-
-    public void setOrtSTATUS(String ortStatus) {
-        this.ortStatus = ortStatus;
-    }
-
-    public String getOrtAlort() {
-        return ortAlort;
-    }
-
-    public void setOrtAlort(String ortAlort) {
-        this.ortAlort = ortAlort;
     }
 
     public String getOrtDatum() {

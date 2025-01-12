@@ -2,21 +2,21 @@ package de.dfutil.entities.jpa;
 
 import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
-import de.dfutil.entities.format.RowType;
-import de.dfutil.entities.format.SbRowFormat;
+import de.dfutil.entities.RowType;
 import de.dfutil.entities.jpa.ids.SbRowId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
  * Repräsentiert Strassen
  */
 @Entity
-public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalObject {
+public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.SB;
 
@@ -26,14 +26,6 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
     private String strDatum;
     @EmbeddedId
     private SbRowId sbRowId;
-    private String strAlOrt;
-    private String strSchluessel;
-    private String strNamenSchl;
-    private String strBundLfdnr;
-    private String strHnrVon;
-    private String strHnrBis;
-    private String strStatus;
-    private String strHnr1000;
     private String strStverz;
     private String strNameSort;
     private String strName46;
@@ -51,18 +43,27 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
     private String strHnrvonNeu;
     private String strHnrbisNeu;
 
-    @Override
-    public SbRow parseFrom(byte[] rowBytes) {
-        for (var token : SbRowFormat.values()) {
-            try {
-                if (token.parseableContent())
-                    applyRowFormatTokenOnRowBytes(token, rowBytes, this);
-            } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException e) {
-                throw new RuntimeException("Parsing failed....", e);
-            }
-        }
-        this.sbRowId = new SbRowId(strAlOrt, strSchluessel, strNamenSchl, strBundLfdnr, strHnrVon, strHnrBis, strStatus, strHnr1000);
-        return this;
+    public static SbRow parseFrom(byte[] rowBytes) {
+        SbRow row = new SbRow();
+        row.strDatum = Arrays.toString(rowBytes).substring(9, 17);
+        row.strStverz = Arrays.toString(rowBytes).substring(54, 55);
+        row.strNameSort = Arrays.toString(rowBytes).substring(55, 101);
+        row.strName46 = Arrays.toString(rowBytes).substring(101, 147);
+        row.strName22 = Arrays.toString(rowBytes).substring(147, 169);
+        row.strReserve = Arrays.toString(rowBytes).substring(169, 170);
+        row.strHnrTyp = Arrays.toString(rowBytes).substring(170, 171);
+        row.strPlz = Arrays.toString(rowBytes).substring(171, 176);
+        row.strCode = Arrays.toString(rowBytes).substring(176, 179);
+        row.strOtlSchl = Arrays.toString(rowBytes).substring(179, 182);
+        row.strAlorgB = Arrays.toString(rowBytes).substring(182, 190);
+        row.strKgs = Arrays.toString(rowBytes).substring(190, 198);
+        row.strAlortNeu = Arrays.toString(rowBytes).substring(198, 206);
+        row.strNamenSchlNeu = Arrays.toString(rowBytes).substring(206, 212);
+        row.strBundLfdnrNeu = Arrays.toString(rowBytes).substring(212, 217);
+        row.strHnrvonNeu = Arrays.toString(rowBytes).substring(217, 225);
+        row.strHnrbisNeu = Arrays.toString(rowBytes).substring(225, 233);
+        row.sbRowId = new SbRowId(Arrays.toString(rowBytes).substring(17, 25), Arrays.toString(rowBytes).substring(25, 31), Arrays.toString(rowBytes).substring(31, 36), Arrays.toString(rowBytes).substring(36, 44), Arrays.toString(rowBytes).substring(44, 52), Arrays.toString(rowBytes).substring(52, 53), Arrays.toString(rowBytes).substring(53, 54));
+        return row;
     }
 
     public Date getVersion() {
@@ -85,69 +86,6 @@ public class SbRow implements AbstractRow<SbRow, SbRowFormat>, ArchivablePostalO
         this.strDatum = strDatum;
     }
 
-    public String getStrAlOrt() {
-        return strAlOrt;
-    }
-
-    public void setStrAlOrt(String strAlOrt) {
-        this.strAlOrt = strAlOrt;
-    }
-
-    public String getStrSchluessel() {
-        return strSchluessel;
-    }
-
-    public void setStrSchluessel(String strSchluessel) {
-        this.strSchluessel = strSchluessel;
-    }
-
-    public String getStrNamenSchl() {
-        return strNamenSchl;
-    }
-
-    public void setStrNamenSchl(String strassennamenschluessel) {
-        this.strNamenSchl = strassennamenschluessel;
-    }
-
-    public String getStrBundLfdnr() {
-        return strBundLfdnr;
-    }
-
-    public void setStrBundLfdnr(String strBundLfdnr) {
-        this.strBundLfdnr = strBundLfdnr;
-    }
-
-    public String getStrHnrVon() {
-        return strHnrVon;
-    }
-
-    public void setStrHnrVon(String strHnrVon) {
-        this.strHnrVon = strHnrVon;
-    }
-
-    public String getStrHnrBis() {
-        return strHnrBis;
-    }
-
-    public void setStrHnrBis(String strHnrBis) {
-        this.strHnrBis = strHnrBis;
-    }
-
-    public String getStrStatus() {
-        return strStatus;
-    }
-
-    public void setStrStatus(String strStatus) {
-        this.strStatus = strStatus;
-    }
-
-    public String strHnr1000() {
-        return strHnr1000;
-    }
-
-    public void setStrHnr1000(String strHnr1000) {
-        this.strHnr1000 = strHnr1000;
-    }
 
     public String strStverz() {
         return strStverz;

@@ -8,7 +8,7 @@ public class PlRowParsingTest {
 
     @Test
     public void parsePlRowBytes2Object() {
-        PlRow parsedPlRow = new PlRow().parseFrom(HAMBURGERPLZ);
+        PlRow parsedPlRow = PlRow.parseFrom(HAMBURGERPLZ);
         parsedPlRow.toString();
     }
 

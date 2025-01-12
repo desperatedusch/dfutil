@@ -1,15 +1,15 @@
 package de.dfutil.entities.jpa;
 
 import de.dfutil.entities.AbstractRow;
+import de.dfutil.entities.RowType;
 import de.dfutil.entities.SerializablePostalObject;
-import de.dfutil.entities.format.KgRowFormat;
-import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.jpa.ids.KgRowId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -20,7 +20,7 @@ import java.util.Date;
  * STRA-DB, OTL-DB und PLZ-DA dargestellt.
  */
 @Entity
-public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePostalObject {
+public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.KG;
 
@@ -29,23 +29,16 @@ public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePosta
     private Date version;
     private String kgDatum;
     @EmbeddedId
-    private KgRowId kgId;
-    private String kgSchluessel;
-    private String kgSatzart;
+    private KgRowId kgRowId;
     private String kgName;
 
-    @Override
-    public KgRow parseFrom(byte[] rowBytes) {
-        for (var token : KgRowFormat.values()) {
-            try {
-                if (token.parseableContent())
-                    applyRowFormatTokenOnRowBytes(token, rowBytes, this);
-            } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException e) {
-                throw new RuntimeException("Parsing failed....", e);
-            }
-        }
-        this.kgId = new KgRowId(kgSchluessel, kgSatzart);
-        return this;
+
+    public static KgRow parseFrom(byte[] rowBytes) {
+        KgRow row = new KgRow();
+        row.kgDatum = Arrays.toString(rowBytes).substring(9, 17);
+        row.kgName = Arrays.toString(rowBytes).substring(26, 66);
+        row.kgRowId = new KgRowId(Arrays.toString(rowBytes).substring(17, 25), Arrays.toString(rowBytes).substring(25, 26));
+        return row;
     }
 
     public Date getVersion() {
@@ -71,22 +64,6 @@ public class KgRow implements AbstractRow<KgRow, KgRowFormat>, SerializablePosta
 
     public void setKgName(String kgName) {
         this.kgName = kgName;
-    }
-
-    public String kgSchluessel() {
-        return kgSchluessel;
-    }
-
-    public void setKgSchluessel(String kgSchluessel) {
-        this.kgSchluessel = kgSchluessel;
-    }
-
-    public String kgSatzart() {
-        return kgSatzart;
-    }
-
-    public void setKgSatzart(String kgSatzart) {
-        this.kgSatzart = kgSatzart;
     }
 
     public RowType getRowType() {

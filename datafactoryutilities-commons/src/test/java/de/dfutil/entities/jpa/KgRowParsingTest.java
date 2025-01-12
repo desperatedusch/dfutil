@@ -8,7 +8,7 @@ public class KgRowParsingTest {
 
     @Test
     public void parseKgRowBytes2Object() {
-        KgRow parsedKgRow = new KgRow().parseFrom(FLENSBURG_STADT);
+        KgRow parsedKgRow = KgRow.parseFrom(FLENSBURG_STADT);
         parsedKgRow.toString();
     }
 

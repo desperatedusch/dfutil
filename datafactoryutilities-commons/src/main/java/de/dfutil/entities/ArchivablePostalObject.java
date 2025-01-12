@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Objekte, die durch Gebietsreformen Aenderungen unterliegen
+ * Objekte, die durch Gebietsreformen moeglichen Aenderungen unterliegen
  */
 public interface ArchivablePostalObject extends SerializablePostalObject {
 

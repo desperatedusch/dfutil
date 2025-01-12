@@ -8,7 +8,7 @@ public class ObRowParsingTest {
 
     @Test
     public void parseObRowBytes2Object() {
-        ObRow parsedObRow = new ObRow().parseFrom(LAURENSBERG);
+        ObRow parsedObRow = ObRow.parseFrom(LAURENSBERG);
         parsedObRow.toString();
     }
 

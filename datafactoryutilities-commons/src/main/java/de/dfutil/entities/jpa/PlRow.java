@@ -1,22 +1,23 @@
 package de.dfutil.entities.jpa;
 
 import de.dfutil.entities.AbstractRow;
+import de.dfutil.entities.RowType;
 import de.dfutil.entities.SerializablePostalObject;
-import de.dfutil.entities.format.PlRowFormat;
-import de.dfutil.entities.format.RowType;
 import de.dfutil.entities.jpa.ids.PlRowId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
+import java.util.Arrays;
 import java.util.Date;
+
 
 /**
  * Repräsentiert einzelne Postleitzahlbereiche
  */
 @Entity
-public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePostalObject {
+public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.PL;
 
@@ -26,8 +27,6 @@ public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePosta
     private String plzDatum;
     @EmbeddedId
     private PlRowId plRowId;
-    private String plzPlz;
-    private String plzAlOrt;
     private String plzArtKardinalität;
     private String plzArtAuslierferung;
     private String plzStverz;
@@ -47,19 +46,29 @@ public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePosta
     private String plzFzNr;
     private String plzBzNr;
 
-
-    @Override
-    public PlRow parseFrom(byte[] rowBytes) {
-        for (var token : PlRowFormat.values()) {
-            try {
-                if (token.parseableContent())
-                    applyRowFormatTokenOnRowBytes(token, rowBytes, this);
-            } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException e) {
-                throw new RuntimeException("Parsing failed....", e);
-            }
-        }
-        this.plRowId = new PlRowId(plzPlz, plzAlOrt);
-        return this;
+    public static PlRow parseFrom(byte[] rowBytes) {
+        PlRow row = new PlRow();
+        row.plzDatum = Arrays.toString(rowBytes).substring(9, 17);
+        row.plzArtKardinalität = Arrays.toString(rowBytes).substring(30, 31);
+        row.plzArtAuslierferung = Arrays.toString(rowBytes).substring(31, 32);
+        row.plzStverz = Arrays.toString(rowBytes).substring(32, 33);
+        row.plzPfverz = Arrays.toString(rowBytes).substring(33, 34);
+        row.plzOname = Arrays.toString(rowBytes).substring(34, 74);
+        row.plzOzusatz = Arrays.toString(rowBytes).substring(74, 104);
+        row.plzArtOzusatz = Arrays.toString(rowBytes).substring(104, 105);
+        row.plzOname24 = Arrays.toString(rowBytes).substring(105, 129);
+        row.plzPostlag = Arrays.toString(rowBytes).substring(129, 130);
+        row.plzLaBrief = Arrays.toString(rowBytes).substring(130, 138);
+        row.plzLaAlort = Arrays.toString(rowBytes).substring(138, 146);
+        row.plzKgs = Arrays.toString(rowBytes).substring(146, 154);
+        row.plzOrtCode = Arrays.toString(rowBytes).substring(154, 157);
+        row.plzLeitcodeMax = Arrays.toString(rowBytes).substring(157, 160);
+        row.plzRabattInfoSchwer = Arrays.toString(rowBytes).substring(160, 161);
+        row.plzReserve = Arrays.toString(rowBytes).substring(161, 163);
+        row.plzFzNr = Arrays.toString(rowBytes).substring(163, 165);
+        row.plzBzNr = Arrays.toString(rowBytes).substring(165, 167);
+        row.plRowId = new PlRowId(Arrays.toString(rowBytes).substring(17, 22), Arrays.toString(rowBytes).substring(22, 30));
+        return row;
     }
 
     public Date getVersion() {
@@ -80,22 +89,6 @@ public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePosta
 
     public void setPlzDatum(String plzDatum) {
         this.plzDatum = plzDatum;
-    }
-
-    public String getPlzPlz() {
-        return plzPlz;
-    }
-
-    public void setPlzPlz(String plzPlz) {
-        this.plzPlz = plzPlz;
-    }
-
-    public String getPlzAlOrt() {
-        return plzAlOrt;
-    }
-
-    public void setPlzAlOrt(String plzAlOrt) {
-        this.plzAlOrt = plzAlOrt;
     }
 
     public String getPlzArtKardinalität() {
@@ -243,5 +236,4 @@ public class PlRow implements AbstractRow<PlRow, PlRowFormat>, SerializablePosta
     }
 
 }
-
 

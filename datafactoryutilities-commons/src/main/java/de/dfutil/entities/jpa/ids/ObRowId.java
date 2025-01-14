@@ -3,6 +3,7 @@ package de.dfutil.entities.jpa.ids;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class ObRowId implements Serializable {
@@ -52,6 +53,19 @@ public class ObRowId implements Serializable {
 
     public void setOtlStatus(String otlStatus) {
         this.otlStatus = otlStatus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ObRowId obRowId = (ObRowId) o;
+        return Objects.equals(otlAlort, obRowId.otlAlort) && Objects.equals(otlSchl, obRowId.otlSchl) && Objects.equals(otlPlz, obRowId.otlPlz) && Objects.equals(otlStatus, obRowId.otlStatus);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(otlAlort, otlSchl, otlPlz, otlStatus);
     }
 
 }

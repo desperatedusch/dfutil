@@ -235,5 +235,12 @@ public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
         this.plzBzNr = plzBzNr;
     }
 
+    public PlRowId getPlRowId() {
+        return plRowId;
+    }
+
+    public void setPlRowId(PlRowId plRowId) {
+        this.plRowId = plRowId;
+    }
 }
 

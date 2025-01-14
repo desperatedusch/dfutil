@@ -3,6 +3,7 @@ package de.dfutil.entities.jpa.ids;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class KgRowId implements Serializable {
@@ -33,6 +34,19 @@ public class KgRowId implements Serializable {
 
     public void setKgSatzart(String kgSatzart) {
         this.kgSatzart = kgSatzart;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KgRowId kgRowId = (KgRowId) o;
+        return Objects.equals(kgSchluessel, kgRowId.kgSchluessel) && Objects.equals(kgSatzart, kgRowId.kgSatzart);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(kgSchluessel, kgSatzart);
     }
 
 }

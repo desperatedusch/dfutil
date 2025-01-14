@@ -30,18 +30,6 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
     private String otlName;
     private String otlKgs;
 
-    /**
-     * OB02("OTL-DATUM", 8, 10, 17, true),
-     * OB03("OTL-ALORT", 8, 18, 25, true),
-     * OB04("OTL-SCHL", 3, 26, 28, true),
-     * OB05("OTL-PLZ", 5, 29, 33, true),
-     * OB06("OTL-STATUS", 1, 34, 34, true),
-     * OB07("OTL-STVERZ", 1, 35, 35, true),
-     * OB08("OTL-NAME", 40, 36, 75, true),
-     * OB09("OTL-KGS", 8, 76, 83, true),
-     * OB10("SATZENDE", 1, 84, 84);
-     */
-
     public static ObRow parseFrom(byte[] rowBytes) {
         ObRow row = new ObRow();
         row.otlDatum = Arrays.toString(rowBytes).substring(9, 17);
@@ -96,6 +84,13 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
         this.otlKgs = otlKgs;
     }
 
+    public ObRowId getObRowId() {
+        return obRowId;
+    }
+
+    public void setObRowId(ObRowId obRowId) {
+        this.obRowId = obRowId;
+    }
 }
 
 

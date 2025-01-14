@@ -70,6 +70,13 @@ public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
         return rowType;
     }
 
+    public KgRowId getKgRowId() {
+        return kgRowId;
+    }
+
+    public void setKgRowId(KgRowId kgRowId) {
+        this.kgRowId = kgRowId;
+    }
 }
 
 

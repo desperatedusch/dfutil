@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Use EmbeddedId annotations for combined natural primary key attributes">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/PlRowId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/SbRowId.java" afterDir="false" />
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="No more reflection based object creation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/JPAConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/KgRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/KgRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/ObRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/ObRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/OrRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/OrRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/PlRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/PlRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/SbRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/SbRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowDataImportHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowDataImportHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowDataImportHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowDataImportHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +69,13 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;history&quot;: [
@@ -79,7 +99,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/desperatedusch/dfutil.git&quot;,
-    &quot;accountId&quot;: &quot;730b1197-a0e3-48fd-8c7e-7c5173e8effc&quot;
+    &quot;accountId&quot;: &quot;8bb5c486-af9d-4c1a-9a8f-7ae2176c6ce3&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -104,7 +124,7 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -218,11 +238,11 @@
       <recent name="de.dfutil.entities.format.v2308213" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil.entities" />
       <recent name="de.dfutil.core.files" />
       <recent name="de.dfutil.entities.jpa" />
       <recent name="de.dfutil.events" />
       <recent name="de.dfutil.helpers.utilities" />
-      <recent name="" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="de.dfutil.core.services" />
@@ -356,8 +376,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
       </set>
     </attachedChunks>
   </component>
@@ -479,14 +499,14 @@
       <workItem from="1736245088080" duration="44000" />
       <workItem from="1736245148748" duration="9436000" />
       <workItem from="1736320267717" duration="1889000" />
-    </task>
-    <task id="LOCAL-00001" summary="Some basic stuff">
-      <option name="closed" value="true" />
-      <created>1725448223776</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1725448223776</updated>
+      <workItem from="1736542360009" duration="1735000" />
+      <workItem from="1736596020664" duration="2780000" />
+      <workItem from="1736604478539" duration="1058000" />
+      <workItem from="1736618571855" duration="59000" />
+      <workItem from="1736701347016" duration="2968000" />
+      <workItem from="1736759122699" duration="1886000" />
+      <workItem from="1736871783722" duration="1905000" />
+      <workItem from="1736882179717" duration="3564000" />
     </task>
     <task id="LOCAL-00002" summary="Some renamings and formating enums reworked">
       <option name="closed" value="true" />
@@ -856,7 +876,31 @@
       <option name="project" value="LOCAL" />
       <updated>1736274230038</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Use EmbeddedId annotations for combined natural primary key attributes">
+      <option name="closed" value="true" />
+      <created>1736545105144</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1736545105144</updated>
+    </task>
+    <task id="LOCAL-00049" summary="No more reflection based object creation">
+      <option name="closed" value="true" />
+      <created>1736702081319</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1736702081319</updated>
+    </task>
+    <task id="LOCAL-00050" summary="No more reflection based object creation">
+      <option name="closed" value="true" />
+      <created>1736702276896</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1736702276896</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -898,7 +942,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Some basic stuff" />
     <MESSAGE value="Some renamings and formating enums reworked" />
     <MESSAGE value="database dependencies in parent-aggregator verschoben" />
     <MESSAGE value="first prototype of event handling and fileparsing" />
@@ -921,8 +964,10 @@
     <MESSAGE value="Basic InputSourceDetection" />
     <MESSAGE value="Or and Ol implementation" />
     <MESSAGE value="Minor bugfixes" />
+    <MESSAGE value="Reformats source code  and changes input data structure" />
     <MESSAGE value="Use EmbeddedId annotations for combined natural primary key attributes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use EmbeddedId annotations for combined natural primary key attributes" />
+    <MESSAGE value="No more reflection based object creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="No more reflection based object creation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -952,12 +997,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandling.java</url>
-          <line>27</line>
+          <line>28</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowDataImportHandling.java</url>
-          <line>32</line>
+          <line>35</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -984,6 +1029,26 @@
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
           <line>38</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

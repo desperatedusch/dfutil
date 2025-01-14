@@ -215,6 +215,21 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
         this.strHnrbisNeu = strHnrbisNeu;
     }
 
+    public SbRowId getSbRowId() {
+        return sbRowId;
+    }
+
+    public void setSbRowId(SbRowId sbRowId) {
+        this.sbRowId = sbRowId;
+    }
+
+    public String getStrStverz() {
+        return strStverz;
+    }
+
+    public String getStrNameSort() {
+        return strNameSort;
+    }
 }
 
 

@@ -3,6 +3,7 @@ package de.dfutil.entities.jpa.ids;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class SbRowId implements Serializable {
@@ -84,4 +85,16 @@ public class SbRowId implements Serializable {
         this.strHnr1000 = strHnr1000;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SbRowId sbRowId = (SbRowId) o;
+        return Objects.equals(strAlOrt, sbRowId.strAlOrt) && Objects.equals(strNamenSchl, sbRowId.strNamenSchl) && Objects.equals(strBundLfdnr, sbRowId.strBundLfdnr) && Objects.equals(strHnrVon, sbRowId.strHnrVon) && Objects.equals(strHnrBis, sbRowId.strHnrBis) && Objects.equals(strStatus, sbRowId.strStatus) && Objects.equals(strHnr1000, sbRowId.strHnr1000);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(strAlOrt, strNamenSchl, strBundLfdnr, strHnrVon, strHnrBis, strStatus, strHnr1000);
+    }
 }

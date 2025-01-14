@@ -30,7 +30,7 @@ public class KgRowDataImportHandling implements DataImportHandling {
 
     @Override
     public void persistEventContent(RowParsedEvent event) {
-        jpaDao.save(new KgRow().parseFrom(event.row()));
+        jpaDao.save(KgRow.parseFrom(event.row()));
     }
 
 }

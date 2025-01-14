@@ -30,7 +30,7 @@ public class ObRowDataImportHandling implements DataImportHandling {
 
     @Override
     public void persistEventContent(RowParsedEvent event) {
-        jpaDao.save(new ObRow().parseFrom(event.row()));
+        jpaDao.save(ObRow.parseFrom(event.row()));
     }
 
 }

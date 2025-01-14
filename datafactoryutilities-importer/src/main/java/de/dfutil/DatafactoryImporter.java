@@ -41,7 +41,7 @@ public class DatafactoryImporter implements CommandLineRunner {
         files.sort(Comparator.comparing(Path::getFileName));
         for (Path file : files) {
             parser.fromFile(file);
-            postprocessing.markInputSourceAsProcessed(file);
+            postprocessing.proccessingSuccessfull(file);
         }
     }
 

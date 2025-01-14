@@ -7,8 +7,11 @@ import java.nio.file.Path;
 @Service
 public class Postprocessing {
 
-    public void markInputSourceAsProcessed(Path inputSource) {
+    public void proccessingSuccessfull(Path inputSource) {
 
     }
 
+    public void proccessingFailed(Path inputSource) {
+
+    }
 }

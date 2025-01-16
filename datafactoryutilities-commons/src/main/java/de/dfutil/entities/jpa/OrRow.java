@@ -135,6 +135,7 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
     public OrRowId getOrRowId() {
         return orRowId;
     }
+
 }
 
 

@@ -91,6 +91,7 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
     public void setObRowId(ObRowId obRowId) {
         this.obRowId = obRowId;
     }
+
 }
 
 

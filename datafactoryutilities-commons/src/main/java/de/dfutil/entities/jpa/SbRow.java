@@ -230,6 +230,7 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
     public String getStrNameSort() {
         return strNameSort;
     }
+
 }
 
 

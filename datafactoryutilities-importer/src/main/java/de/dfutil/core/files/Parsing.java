@@ -35,8 +35,9 @@ public class Parsing {
                     eventPublisher.publishEvent(new RowParsedEvent(line));
             }
             postprocessing.proccessingSuccessfull(path);
+            log.info("Successfully parsed file: {}", path);
         } catch (IOException e) {
-            log.error(e.getMessage());
+            log.error("Parsing file failed: {}", path);
             postprocessing.proccessingFailed(path);
             throw new RuntimeException(e.getMessage(), e);
         }

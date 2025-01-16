@@ -77,6 +77,7 @@ public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
     public void setKgRowId(KgRowId kgRowId) {
         this.kgRowId = kgRowId;
     }
+
 }
 
 

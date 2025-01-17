@@ -33,10 +33,16 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
     public static ObRow parseFrom(byte[] rowBytes) {
         ObRow row = new ObRow();
         row.otlDatum = Arrays.toString(rowBytes).substring(9, 17);
-        row.otlStverz = Arrays.toString(rowBytes).substring(35, 36);
+        row.otlStverz = Arrays.toString(rowBytes).substring(34, 35);
         row.otlName = Arrays.toString(rowBytes).substring(35, 75);
         row.otlKgs = Arrays.toString(rowBytes).substring(75, 83);
-        row.obRowId = new ObRowId(Arrays.toString(rowBytes).substring(17, 25), Arrays.toString(rowBytes).substring(25, 28), Arrays.toString(rowBytes).substring(28, 33), Arrays.toString(rowBytes).substring(34, 35));
+        row.obRowId = new ObRowId
+                (
+                        Arrays.toString(rowBytes).substring(17, 25),
+                        Arrays.toString(rowBytes).substring(25, 28),
+                        Arrays.toString(rowBytes).substring(28, 33),
+                        Arrays.toString(rowBytes).substring(33, 34)
+                );
         return row;
     }
 

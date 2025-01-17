@@ -44,7 +44,11 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
         row.ortOname24 = Arrays.toString(rowBytes).substring(137, 161);
         row.ortKgs = Arrays.toString(rowBytes).substring(161, 169);
         row.ortANeu = Arrays.toString(rowBytes).substring(169, 177);
-        row.orRowId = new OrRowId(Arrays.toString(rowBytes).substring(25, 26), Arrays.toString(rowBytes).substring(26, 27));
+        row.orRowId = new OrRowId
+                (
+                        Arrays.toString(rowBytes).substring(17, 25),
+                        Arrays.toString(rowBytes).substring(26, 27)
+                );
         return row;
     }
 

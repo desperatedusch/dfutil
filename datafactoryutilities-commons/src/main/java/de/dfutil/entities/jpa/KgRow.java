@@ -37,7 +37,11 @@ public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
         KgRow row = new KgRow();
         row.kgDatum = Arrays.toString(rowBytes).substring(9, 17);
         row.kgName = Arrays.toString(rowBytes).substring(26, 66);
-        row.kgRowId = new KgRowId(Arrays.toString(rowBytes).substring(17, 25), Arrays.toString(rowBytes).substring(25, 26));
+        row.kgRowId = new KgRowId
+                (
+                        Arrays.toString(rowBytes).substring(17, 25),
+                        Arrays.toString(rowBytes).substring(25, 26)
+                );
         return row;
     }
 

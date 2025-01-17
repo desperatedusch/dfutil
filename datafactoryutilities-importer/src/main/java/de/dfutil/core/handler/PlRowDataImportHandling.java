@@ -31,8 +31,7 @@ public class PlRowDataImportHandling implements DataImportHandling {
     @Override
     public void persistEventContent(RowParsedEvent event) {
         PlRow entity = PlRow.parseFrom(event.row());
-        if (jpaDao.findById(entity.getPlRowId()).isEmpty())
-            jpaDao.save(entity);
+        jpaDao.save(entity);
     }
 
 }

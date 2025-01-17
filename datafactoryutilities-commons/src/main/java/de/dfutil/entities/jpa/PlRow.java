@@ -67,7 +67,11 @@ public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
         row.plzReserve = Arrays.toString(rowBytes).substring(161, 163);
         row.plzFzNr = Arrays.toString(rowBytes).substring(163, 165);
         row.plzBzNr = Arrays.toString(rowBytes).substring(165, 167);
-        row.plRowId = new PlRowId(Arrays.toString(rowBytes).substring(17, 22), Arrays.toString(rowBytes).substring(22, 30));
+        row.plRowId = new PlRowId
+                (
+                        Arrays.toString(rowBytes).substring(17, 22),
+                        Arrays.toString(rowBytes).substring(22, 30)
+                );
         return row;
     }
 

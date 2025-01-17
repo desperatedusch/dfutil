@@ -62,7 +62,16 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
         row.strBundLfdnrNeu = Arrays.toString(rowBytes).substring(212, 217);
         row.strHnrvonNeu = Arrays.toString(rowBytes).substring(217, 225);
         row.strHnrbisNeu = Arrays.toString(rowBytes).substring(225, 233);
-        row.sbRowId = new SbRowId(Arrays.toString(rowBytes).substring(17, 25), Arrays.toString(rowBytes).substring(25, 31), Arrays.toString(rowBytes).substring(31, 36), Arrays.toString(rowBytes).substring(36, 44), Arrays.toString(rowBytes).substring(44, 52), Arrays.toString(rowBytes).substring(52, 53), Arrays.toString(rowBytes).substring(53, 54));
+        row.sbRowId = new SbRowId
+                (
+                        Arrays.toString(rowBytes).substring(17, 25),
+                        Arrays.toString(rowBytes).substring(25, 31),
+                        Arrays.toString(rowBytes).substring(31, 36),
+                        Arrays.toString(rowBytes).substring(36, 44),
+                        Arrays.toString(rowBytes).substring(44, 52),
+                        Arrays.toString(rowBytes).substring(52, 53),
+                        Arrays.toString(rowBytes).substring(53, 54)
+                );
         return row;
     }
 

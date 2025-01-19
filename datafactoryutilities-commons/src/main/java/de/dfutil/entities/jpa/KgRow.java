@@ -9,7 +9,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
-import java.util.Arrays;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -34,13 +34,14 @@ public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
 
 
     public static KgRow parseFrom(byte[] rowBytes) {
+        String string = new String(rowBytes, StandardCharsets.UTF_8);
         KgRow row = new KgRow();
-        row.kgDatum = Arrays.toString(rowBytes).substring(9, 17);
-        row.kgName = Arrays.toString(rowBytes).substring(26, 66);
+        row.kgDatum = string.substring(9, 17);
+        row.kgName = string.substring(26, 66);
         row.kgRowId = new KgRowId
                 (
-                        Arrays.toString(rowBytes).substring(17, 25),
-                        Arrays.toString(rowBytes).substring(25, 26)
+                        string.substring(17, 25),
+                        string.substring(25, 26)
                 );
         return row;
     }

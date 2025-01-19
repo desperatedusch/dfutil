@@ -9,7 +9,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
-import java.util.Arrays;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 
@@ -47,30 +47,31 @@ public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
     private String plzBzNr;
 
     public static PlRow parseFrom(byte[] rowBytes) {
+        String string = new String(rowBytes, StandardCharsets.UTF_8);
         PlRow row = new PlRow();
-        row.plzDatum = Arrays.toString(rowBytes).substring(9, 17);
-        row.plzArtKardinalität = Arrays.toString(rowBytes).substring(30, 31);
-        row.plzArtAuslierferung = Arrays.toString(rowBytes).substring(31, 32);
-        row.plzStverz = Arrays.toString(rowBytes).substring(32, 33);
-        row.plzPfverz = Arrays.toString(rowBytes).substring(33, 34);
-        row.plzOname = Arrays.toString(rowBytes).substring(34, 74);
-        row.plzOzusatz = Arrays.toString(rowBytes).substring(74, 104);
-        row.plzArtOzusatz = Arrays.toString(rowBytes).substring(104, 105);
-        row.plzOname24 = Arrays.toString(rowBytes).substring(105, 129);
-        row.plzPostlag = Arrays.toString(rowBytes).substring(129, 130);
-        row.plzLaBrief = Arrays.toString(rowBytes).substring(130, 138);
-        row.plzLaAlort = Arrays.toString(rowBytes).substring(138, 146);
-        row.plzKgs = Arrays.toString(rowBytes).substring(146, 154);
-        row.plzOrtCode = Arrays.toString(rowBytes).substring(154, 157);
-        row.plzLeitcodeMax = Arrays.toString(rowBytes).substring(157, 160);
-        row.plzRabattInfoSchwer = Arrays.toString(rowBytes).substring(160, 161);
-        row.plzReserve = Arrays.toString(rowBytes).substring(161, 163);
-        row.plzFzNr = Arrays.toString(rowBytes).substring(163, 165);
-        row.plzBzNr = Arrays.toString(rowBytes).substring(165, 167);
+        row.plzDatum = string.substring(9, 17);
+        row.plzArtKardinalität = string.substring(30, 31);
+        row.plzArtAuslierferung = string.substring(31, 32);
+        row.plzStverz = string.substring(32, 33);
+        row.plzPfverz = string.substring(33, 34);
+        row.plzOname = string.substring(34, 74);
+        row.plzOzusatz = string.substring(74, 104);
+        row.plzArtOzusatz = string.substring(104, 105);
+        row.plzOname24 = string.substring(105, 129);
+        row.plzPostlag = string.substring(129, 130);
+        row.plzLaBrief = string.substring(130, 138);
+        row.plzLaAlort = string.substring(138, 146);
+        row.plzKgs = string.substring(146, 154);
+        row.plzOrtCode = string.substring(154, 157);
+        row.plzLeitcodeMax = string.substring(157, 160);
+        row.plzRabattInfoSchwer = string.substring(160, 161);
+        row.plzReserve = string.substring(161, 163);
+        row.plzFzNr = string.substring(163, 165);
+        row.plzBzNr = string.substring(165, 167);
         row.plRowId = new PlRowId
                 (
-                        Arrays.toString(rowBytes).substring(17, 22),
-                        Arrays.toString(rowBytes).substring(22, 30)
+                        string.substring(17, 22),
+                        string.substring(22, 30)
                 );
         return row;
     }

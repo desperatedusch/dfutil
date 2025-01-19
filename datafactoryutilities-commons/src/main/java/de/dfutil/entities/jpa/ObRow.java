@@ -9,7 +9,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
-import java.util.Arrays;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -31,17 +31,18 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
     private String otlKgs;
 
     public static ObRow parseFrom(byte[] rowBytes) {
+        String string = new String(rowBytes, StandardCharsets.UTF_8);
         ObRow row = new ObRow();
-        row.otlDatum = Arrays.toString(rowBytes).substring(9, 17);
-        row.otlStverz = Arrays.toString(rowBytes).substring(34, 35);
-        row.otlName = Arrays.toString(rowBytes).substring(35, 75);
-        row.otlKgs = Arrays.toString(rowBytes).substring(75, 83);
+        row.otlDatum = string.substring(9, 17);
+        row.otlStverz = string.substring(34, 35);
+        row.otlName = string.substring(35, 75);
+        row.otlKgs = string.substring(75, 83);
         row.obRowId = new ObRowId
                 (
-                        Arrays.toString(rowBytes).substring(17, 25),
-                        Arrays.toString(rowBytes).substring(25, 28),
-                        Arrays.toString(rowBytes).substring(28, 33),
-                        Arrays.toString(rowBytes).substring(33, 34)
+                        string.substring(17, 25),
+                        string.substring(25, 28),
+                        string.substring(28, 33),
+                        string.substring(33, 34)
                 );
         return row;
     }

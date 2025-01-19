@@ -31,9 +31,10 @@ public class SbRowDataImportHandling implements DataImportHandling {
     @Override
     public void persistEventContent(RowParsedEvent event) {
         SbRow entity = SbRow.parseFrom(event.row());
-        if (jpaDao.findById(entity.getSbRowId()).isEmpty()) {
+        if (jpaDao.findById(entity.getSbRowId()).isEmpty())
             jpaDao.save(entity);
-        }
+        else
+            log.info("Entity already exists: {}", entity);
     }
 
 }

@@ -48,7 +48,7 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
         row.orRowId = new OrRowId
                 (
                         string.substring(17, 25),
-                        string.substring(26, 27)
+                        string.substring(25, 26)
                 );
         return row;
     }

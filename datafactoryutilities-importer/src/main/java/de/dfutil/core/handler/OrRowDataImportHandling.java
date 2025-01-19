@@ -31,9 +31,10 @@ public class OrRowDataImportHandling implements DataImportHandling {
     @Override
     public void persistEventContent(RowParsedEvent event) {
         OrRow entity = OrRow.parseFrom(event.row());
-        if (jpaDao.findById(entity.getOrRowId()).isEmpty()) {
+        if (jpaDao.findById(entity.getOrRowId()).isEmpty())
             jpaDao.save(entity);
-        }
+        else
+            log.info("Entity already exists: {}", entity);
     }
 
 }

@@ -31,7 +31,9 @@ public class ObRowDataImportHandling implements DataImportHandling {
     @Override
     public void persistEventContent(RowParsedEvent event) {
         ObRow entity = ObRow.parseFrom(event.row());
-        jpaDao.save(entity);
+        if (jpaDao.findById(entity.getObRowId()).isEmpty()) {
+            jpaDao.save(entity);
+        }
     }
 
 }

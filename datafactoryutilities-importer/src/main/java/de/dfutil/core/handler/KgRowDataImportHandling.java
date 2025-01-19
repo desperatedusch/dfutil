@@ -31,7 +31,9 @@ public class KgRowDataImportHandling implements DataImportHandling {
     @Override
     public void persistEventContent(RowParsedEvent event) {
         KgRow entity = KgRow.parseFrom(event.row());
-        jpaDao.save(entity);
+        if (jpaDao.findById(entity.getKgRowId()).isEmpty()) {
+            jpaDao.save(entity);
+        }
     }
 
 }

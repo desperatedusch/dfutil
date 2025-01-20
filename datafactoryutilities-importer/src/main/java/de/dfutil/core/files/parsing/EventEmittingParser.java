@@ -1,9 +1,12 @@
-package de.dfutil.core.files;
+package de.dfutil.core.files.parsing;
 
+import de.dfutil.core.files.Postprocessing;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -12,16 +15,17 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 @Service
-public class Parsing {
+@Profile({"eventbased-persisting", "!procedural-persisting "})
+public class EventEmittingParser implements Parser {
 
-    private static final Logger log = LoggerFactory.getLogger(Parsing.class);
+    private static final Logger log = LoggerFactory.getLogger(EventEmittingParser.class);
 
-    private final ApplicationEventPublisher eventPublisher;
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
     private final Postprocessing postprocessing;
 
 
-    public Parsing(ApplicationEventPublisher eventPublisher, Postprocessing postprocessing) {
-        this.eventPublisher = eventPublisher;
+    public EventEmittingParser(Postprocessing postprocessing) {
         this.postprocessing = postprocessing;
     }
 

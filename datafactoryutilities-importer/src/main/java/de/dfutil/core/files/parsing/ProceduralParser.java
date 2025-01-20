@@ -3,6 +3,7 @@ package de.dfutil.core.files.parsing;
 import de.dfutil.core.files.Postprocessing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ import java.nio.file.Path;
 public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
+    @Autowired
+    private ProcessingStepChainFacade processing;
+
 
     private final Postprocessing postprocessing;
 
@@ -30,7 +34,7 @@ public class ProceduralParser implements Parser {
             while ((line = br.readLine()) != null) {
                 // Publish each line to event handler until Reader is empty
                 if (!line.isEmpty())
-                    throw new UnsupportedOperationException("No Implement service registry to decide which dao is needed must be implemented");
+                    throw new UnsupportedOperationException("No CoR implemented to decide which dao is needed ");
             }
             postprocessing.proccessingSuccessfull(path);
             log.info("Successfully parsed file: {}", path);

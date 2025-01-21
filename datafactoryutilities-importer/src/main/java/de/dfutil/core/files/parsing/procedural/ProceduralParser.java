@@ -18,9 +18,9 @@ import java.nio.file.Path;
 public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
+
     @Autowired
     private ProcessingStepChainFacade processing;
-
 
     private final Postprocessing postprocessing;
 

@@ -1,0 +1,19 @@
+package de.dfutil.core.files.parsing.procedural;
+
+import org.springframework.context.annotation.Profile;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+@Order(2)
+@Profile({"procedural-persisting ", "!eventbased-persisting"})
+public class KrRowProcessing extends AbstractProcessingStep {
+
+
+    @Override
+    protected Optional<String> processAndApplyNext(String rowContent) {
+        return Optional.empty();
+    }
+}

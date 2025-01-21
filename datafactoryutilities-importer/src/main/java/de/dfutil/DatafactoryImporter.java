@@ -1,5 +1,6 @@
 package de.dfutil;
 
+import com.google.common.base.Stopwatch;
 import de.dfutil.core.files.InputSourceDetection;
 import de.dfutil.core.files.parsing.Parser;
 import de.dfutil.core.files.parsing.eventbased.EmittingParser;
@@ -35,9 +36,13 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        Stopwatch stopwatch = Stopwatch.createStarted();
         List<Path> files = inputSourceDetection.findFiles();
         files.sort(Comparator.comparing(Path::getFileName));
         files.forEach(parsing::fromFile);
+        stopwatch.stop();
+        log.info("Importer ran for {} ms....", stopwatch.elapsed().toMillis());
+
     }
 
 }

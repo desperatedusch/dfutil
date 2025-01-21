@@ -82,7 +82,6 @@ public class ProceduralParser implements Parser {
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Publish each line to event handler until Reader is empty
                 if (!line.isEmpty())
                     persist(line);
             }

@@ -1,6 +1,7 @@
-package de.dfutil.core.files.parsing;
+package de.dfutil.core.files.parsing.procedural;
 
 import de.dfutil.core.files.Postprocessing;
+import de.dfutil.core.files.parsing.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

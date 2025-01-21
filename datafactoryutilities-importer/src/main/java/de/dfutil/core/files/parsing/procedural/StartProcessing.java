@@ -1,4 +1,4 @@
-package de.dfutil.core.files.parsing;
+package de.dfutil.core.files.parsing.procedural;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.annotation.Order;
@@ -13,7 +13,7 @@ public class StartProcessing extends AbstractProcessingStep {
 
 
     @Override
-    protected Optional<String> readAndApplyNext(String row) {
+    protected Optional<String> processAndApplyNext(String rowContent) {
         return Optional.empty();
     }
 }

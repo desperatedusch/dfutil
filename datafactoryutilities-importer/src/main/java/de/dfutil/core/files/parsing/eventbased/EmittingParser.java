@@ -1,6 +1,7 @@
-package de.dfutil.core.files.parsing;
+package de.dfutil.core.files.parsing.eventbased;
 
 import de.dfutil.core.files.Postprocessing;
+import de.dfutil.core.files.parsing.Parser;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,16 +17,15 @@ import java.nio.file.Path;
 
 @Service
 @Profile({"eventbased-persisting", "!procedural-persisting "})
-public class EventEmittingParser implements Parser {
+public class EmittingParser implements Parser {
 
-    private static final Logger log = LoggerFactory.getLogger(EventEmittingParser.class);
+    private static final Logger log = LoggerFactory.getLogger(EmittingParser.class);
 
     @Autowired
     private ApplicationEventPublisher eventPublisher;
     private final Postprocessing postprocessing;
 
-
-    public EventEmittingParser(Postprocessing postprocessing) {
+    public EmittingParser(Postprocessing postprocessing) {
         this.postprocessing = postprocessing;
     }
 

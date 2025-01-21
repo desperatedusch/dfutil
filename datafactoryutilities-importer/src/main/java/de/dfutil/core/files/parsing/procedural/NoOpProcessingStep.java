@@ -1,11 +1,11 @@
-package de.dfutil.core.files.parsing;
+package de.dfutil.core.files.parsing.procedural;
 
 public class NoOpProcessingStep implements ProcessingStep {
 
 
     @Override
-    public String row(String row) {
-        return row;
+    public String outputContent(String inputContent) {
+        return inputContent;
     }
 
     @Override

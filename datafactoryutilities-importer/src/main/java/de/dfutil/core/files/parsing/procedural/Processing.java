@@ -1,4 +1,4 @@
-package de.dfutil.core.files.parsing;
+package de.dfutil.core.files.parsing.procedural;
 
 import org.springframework.context.annotation.Profile;
 

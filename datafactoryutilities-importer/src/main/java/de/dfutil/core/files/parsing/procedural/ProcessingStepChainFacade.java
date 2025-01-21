@@ -1,4 +1,4 @@
-package de.dfutil.core.files.parsing;
+package de.dfutil.core.files.parsing.procedural;
 
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ public class ProcessingStepChainFacade {
     }
 
     public String row(String row) {
-        return chainHead.row(row);
+        return chainHead.outputContent(row);
     }
 
 }

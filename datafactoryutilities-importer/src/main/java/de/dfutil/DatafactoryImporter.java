@@ -1,8 +1,8 @@
 package de.dfutil;
 
 import de.dfutil.core.files.InputSourceDetection;
-import de.dfutil.core.files.parsing.EventEmittingParser;
 import de.dfutil.core.files.parsing.Parser;
+import de.dfutil.core.files.parsing.eventbased.EmittingParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +22,7 @@ public class DatafactoryImporter implements CommandLineRunner {
     private final InputSourceDetection inputSourceDetection;
     private final Parser parsing;
 
-    public DatafactoryImporter(InputSourceDetection inputSourceDetection, EventEmittingParser parsing) {
+    public DatafactoryImporter(InputSourceDetection inputSourceDetection, EmittingParser parsing) {
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
     }

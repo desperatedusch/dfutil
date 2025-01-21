@@ -75,8 +75,6 @@ public class ProceduralParser implements Parser {
 
     }
 
-
-
     public void fromFile(Path path) {
         log.debug("Parsing file: {}", path);
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {

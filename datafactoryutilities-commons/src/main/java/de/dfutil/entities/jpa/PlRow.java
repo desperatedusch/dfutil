@@ -4,10 +4,7 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.RowType;
 import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.jpa.ids.PlRowId;
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -17,6 +14,7 @@ import java.util.Date;
  * Repräsentiert einzelne Postleitzahlbereiche
  */
 @Entity
+@Table(name = "PL")
 public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.PL;

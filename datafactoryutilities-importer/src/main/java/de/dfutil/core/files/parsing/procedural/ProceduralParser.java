@@ -33,7 +33,9 @@ public class ProceduralParser implements Parser {
                             OrRowRepository orRowRepository,
                             PlRowRepository plRowRepository,
                             SbRowRepository sbRowRepository) {
+
         this.postprocessing = postprocessing;
+
         this.kgRowRepository = kgRowRepository;
         this.obRowRepository = obRowRepository;
         this.orRowRepository = orRowRepository;

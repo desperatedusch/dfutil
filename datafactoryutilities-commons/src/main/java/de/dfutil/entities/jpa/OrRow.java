@@ -4,10 +4,7 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.RowType;
 import de.dfutil.entities.jpa.ids.OrRowId;
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -16,6 +13,7 @@ import java.util.Date;
  * Repräsentiert Orte
  */
 @Entity
+@Table(name = "OR")
 public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OR;

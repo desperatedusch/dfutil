@@ -25,7 +25,6 @@ public class ProceduralParser implements Parser {
     private final OrRowRepository orRowRepository;
     private final PlRowRepository plRowRepository;
     private final SbRowRepository sbRowRepository;
-
     private final Postprocessing postprocessing;
 
     public ProceduralParser(Postprocessing postprocessing,

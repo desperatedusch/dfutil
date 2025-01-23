@@ -4,7 +4,10 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.RowType;
 import de.dfutil.entities.SerializablePostalObject;
 import de.dfutil.entities.jpa.ids.KgRowId;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -17,7 +20,6 @@ import java.util.Date;
  * STRA-DB, OTL-DB und PLZ-DA dargestellt.
  */
 @Entity
-@Table(name = "KG")
 public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.KG;

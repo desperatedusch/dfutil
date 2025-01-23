@@ -4,7 +4,10 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.RowType;
 import de.dfutil.entities.jpa.ids.ObRowId;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -13,7 +16,6 @@ import java.util.Date;
  * Repräsentiert Ortsteile
  */
 @Entity
-@Table(name = "OB")
 public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OB;

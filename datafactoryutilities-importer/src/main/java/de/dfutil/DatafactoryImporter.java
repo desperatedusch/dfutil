@@ -29,19 +29,18 @@ public class DatafactoryImporter implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
+        Stopwatch stopwatch = Stopwatch.createStarted();
         log.debug("Importer app started...");
         new SpringApplicationBuilder(DatafactoryImporter.class).web(WebApplicationType.NONE).run(args);
-        log.debug("Importer app stopped...");
+        stopwatch.stop();
+        log.debug("Importer app stopped after {} ms....", stopwatch.elapsed().toMillis());
     }
 
     @Override
     public void run(String... args) throws Exception {
-        Stopwatch stopwatch = Stopwatch.createStarted();
         List<Path> files = inputSourceDetection.findFiles();
         files.sort(Comparator.comparing(Path::getFileName));
         files.forEach(parsing::fromFile);
-        stopwatch.stop();
-        log.info("Importer ran for {} ms....", stopwatch.elapsed().toMillis());
     }
 
 }

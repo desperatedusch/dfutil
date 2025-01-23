@@ -1,24 +1,22 @@
 package de.dfutil.events;
 
 import de.dfutil.entities.RowType;
-import org.springframework.context.ApplicationEvent;
 
-public class RowParsedEvent extends ApplicationEvent {
+public final class RowParsedEvent {
 
     private final RowType rowType;
-    private final byte[] row;
+    private final String row;
 
-    public RowParsedEvent(Object source) {
-        super(source);
-        this.rowType = RowType.fromPrefix(((String) source).substring(0, 2));
-        this.row = String.valueOf(source).getBytes();
+    public RowParsedEvent(String row) {
+        this.rowType = RowType.fromPrefix(row.substring(0, 2));
+        this.row = row;
     }
 
     public RowType rowType() {
         return rowType;
     }
 
-    public byte[] row() {
+    public String row() {
         return row;
     }
 

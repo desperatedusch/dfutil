@@ -20,6 +20,8 @@ public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
 
+    private long counter = 0;
+
     private final KgRowRepository kgRowRepository;
     private final ObRowRepository obRowRepository;
     private final OrRowRepository orRowRepository;
@@ -47,26 +49,26 @@ public class ProceduralParser implements Parser {
         String prefix = line.substring(0, 2);
         switch (prefix) {
             case "KG":
-                KgRow kg = KgRow.parseFrom(line.getBytes());
+                KgRow kg = KgRow.parseFrom(line);
                 if (kgRowRepository.findById(kg.getKgRowId()).isEmpty())
                     kgRowRepository.save(kg);
                 break;
             case "OB":
-                ObRow ob = ObRow.parseFrom(line.getBytes());
+                ObRow ob = ObRow.parseFrom(line);
                 if (obRowRepository.findById(ob.getObRowId()).isEmpty())
                     obRowRepository.save(ob);
                 break;
             case "OR":
-                OrRow or = OrRow.parseFrom(line.getBytes());
+                OrRow or = OrRow.parseFrom(line);
                 if (orRowRepository.findById(or.getOrRowId()).isEmpty())
                     orRowRepository.save(or);
                 break;
             case "PL":
-                PlRow pl = PlRow.parseFrom(line.getBytes());
+                PlRow pl = PlRow.parseFrom(line);
                 if (plRowRepository.findById(pl.getPlRowId()).isEmpty())
                     plRowRepository.save(pl);
             case "SB":
-                SbRow sb = SbRow.parseFrom(line.getBytes());
+                SbRow sb = SbRow.parseFrom(line);
                 if (sbRowRepository.findById(sb.getSbRowId()).isEmpty())
                     sbRowRepository.save(sb);
                 break;
@@ -81,8 +83,10 @@ public class ProceduralParser implements Parser {
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = br.readLine()) != null) {
-                if (!line.isEmpty())
+                if (!line.isEmpty()) {
                     persist(line);
+                    counter++;
+                }
             }
             postprocessing.proccessingSuccessfull(path);
             log.info("Successfully parsed file: {}", path);
@@ -93,4 +97,8 @@ public class ProceduralParser implements Parser {
         }
     }
 
+    @Override
+    public long count() {
+        return counter;
+    }
 }

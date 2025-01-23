@@ -6,4 +6,6 @@ public interface Parser {
 
     void fromFile(Path path);
 
+    long count();
+
 }

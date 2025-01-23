@@ -28,11 +28,11 @@ public class EventConfig {
     public TaskExecutor taskExecutor() {
         var threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         threadPoolTaskExecutor.setThreadNamePrefix("Async-");
-        threadPoolTaskExecutor.setCorePoolSize(2);
+        threadPoolTaskExecutor.setCorePoolSize(4);
         threadPoolTaskExecutor.setMaxPoolSize(8);
         threadPoolTaskExecutor.setKeepAliveSeconds(60);
         threadPoolTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
-        threadPoolTaskExecutor.setQueueCapacity(100);
+        threadPoolTaskExecutor.setQueueCapacity(1000);
         threadPoolTaskExecutor.setRejectedExecutionHandler(
                 (Runnable r, ThreadPoolExecutor executor) ->
                 {

@@ -9,7 +9,6 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -43,35 +42,34 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
     private String strHnrvonNeu;
     private String strHnrbisNeu;
 
-    public static SbRow parseFrom(byte[] rowBytes) {
-        String string = new String(rowBytes, StandardCharsets.UTF_8);
+    public static SbRow parseFrom(String rowBytes) {
         SbRow row = new SbRow();
-        row.strDatum = string.substring(9, 17);
-        row.strStverz = string.substring(54, 55);
-        row.strNameSort = string.substring(55, 101);
-        row.strName46 = string.substring(101, 147);
-        row.strName22 = string.substring(147, 169);
-        row.strReserve = string.substring(169, 170);
-        row.strHnrTyp = string.substring(170, 171);
-        row.strPlz = string.substring(171, 176);
-        row.strCode = string.substring(176, 179);
-        row.strOtlSchl = string.substring(179, 182);
-        row.strAlorgB = string.substring(182, 190);
-        row.strKgs = string.substring(190, 198);
-        row.strAlortNeu = string.substring(198, 206);
-        row.strNamenSchlNeu = string.substring(206, 212);
-        row.strBundLfdnrNeu = string.substring(212, 217);
-        row.strHnrvonNeu = string.substring(217, 225);
-        row.strHnrbisNeu = string.substring(225, 233);
+        row.strDatum = rowBytes.substring(9, 17);
+        row.strStverz = rowBytes.substring(54, 55);
+        row.strNameSort = rowBytes.substring(55, 101);
+        row.strName46 = rowBytes.substring(101, 147);
+        row.strName22 = rowBytes.substring(147, 169);
+        row.strReserve = rowBytes.substring(169, 170);
+        row.strHnrTyp = rowBytes.substring(170, 171);
+        row.strPlz = rowBytes.substring(171, 176);
+        row.strCode = rowBytes.substring(176, 179);
+        row.strOtlSchl = rowBytes.substring(179, 182);
+        row.strAlorgB = rowBytes.substring(182, 190);
+        row.strKgs = rowBytes.substring(190, 198);
+        row.strAlortNeu = rowBytes.substring(198, 206);
+        row.strNamenSchlNeu = rowBytes.substring(206, 212);
+        row.strBundLfdnrNeu = rowBytes.substring(212, 217);
+        row.strHnrvonNeu = rowBytes.substring(217, 225);
+        row.strHnrbisNeu = rowBytes.substring(225, 233);
         row.sbRowId = new SbRowId
                 (
-                        string.substring(17, 25),
-                        string.substring(25, 31),
-                        string.substring(31, 36),
-                        string.substring(36, 44),
-                        string.substring(44, 52),
-                        string.substring(52, 53),
-                        string.substring(53, 54)
+                        rowBytes.substring(17, 25),
+                        rowBytes.substring(25, 31),
+                        rowBytes.substring(31, 36),
+                        rowBytes.substring(36, 44),
+                        rowBytes.substring(44, 52),
+                        rowBytes.substring(52, 53),
+                        rowBytes.substring(53, 54)
                 );
         return row;
     }

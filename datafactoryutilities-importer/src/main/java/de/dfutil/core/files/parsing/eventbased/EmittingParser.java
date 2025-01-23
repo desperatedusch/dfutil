@@ -2,6 +2,7 @@ package de.dfutil.core.files.parsing.eventbased;
 
 import de.dfutil.core.files.Postprocessing;
 import de.dfutil.core.files.parsing.Parser;
+import de.dfutil.events.FileParsingFinishedEvent;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,8 @@ public class EmittingParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(EmittingParser.class);
 
+    private long counter = 0;
+
     private final ApplicationEventPublisher eventPublisher;
     private final Postprocessing postprocessing;
 
@@ -34,9 +37,12 @@ public class EmittingParser implements Parser {
             String line;
             while ((line = br.readLine()) != null) {
                 // Publish each line to event handler until Reader is empty
-                if (!line.isEmpty())
+                if (!line.isEmpty()) {
                     eventPublisher.publishEvent(new RowParsedEvent(line));
+                    counter++;
+                }
             }
+            eventPublisher.publishEvent(new FileParsingFinishedEvent(count()));
             log.info("Successfully parsed file: {}", path);
             postprocessing.proccessingSuccessfull(path);
         } catch (IOException e) {
@@ -46,4 +52,8 @@ public class EmittingParser implements Parser {
         }
     }
 
+    @Override
+    public long count() {
+        return counter;
+    }
 }

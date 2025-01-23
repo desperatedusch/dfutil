@@ -9,7 +9,6 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Version;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -34,21 +33,20 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
     private String ortKgs;
     private String ortANeu;
 
-    public static OrRow parseFrom(byte[] rowBytes) {
-        String string = new String(rowBytes, StandardCharsets.UTF_8);
+    public static OrRow parseFrom(String rowBytes) {
         OrRow row = new OrRow();
-        row.ortDatum = string.substring(9, 17);
-        row.ortOname = string.substring(26, 66);
-        row.ortOnamePost = string.substring(66, 106);
-        row.ortOzusatz = string.substring(106, 136);
-        row.ortArtOzusatz = string.substring(136, 137);
-        row.ortOname24 = string.substring(137, 161);
-        row.ortKgs = string.substring(161, 169);
-        row.ortANeu = string.substring(169, 177);
+        row.ortDatum = rowBytes.substring(9, 17);
+        row.ortOname = rowBytes.substring(26, 66);
+        row.ortOnamePost = rowBytes.substring(66, 106);
+        row.ortOzusatz = rowBytes.substring(106, 136);
+        row.ortArtOzusatz = rowBytes.substring(136, 137);
+        row.ortOname24 = rowBytes.substring(137, 161);
+        row.ortKgs = rowBytes.substring(161, 169);
+        row.ortANeu = rowBytes.substring(169, 177);
         row.orRowId = new OrRowId
                 (
-                        string.substring(17, 25),
-                        string.substring(25, 26)
+                        rowBytes.substring(17, 25),
+                        rowBytes.substring(25, 26)
                 );
         return row;
     }

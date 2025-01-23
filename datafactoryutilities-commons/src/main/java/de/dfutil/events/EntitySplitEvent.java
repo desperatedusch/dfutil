@@ -3,7 +3,7 @@ package de.dfutil.events;
 import de.dfutil.entities.RowType;
 import org.springframework.context.ApplicationEvent;
 
-public class EntitySplitEvent extends ApplicationEvent {
+public final class EntitySplitEvent extends ApplicationEvent {
 
     private final RowType rowType;
     private final byte[] row;

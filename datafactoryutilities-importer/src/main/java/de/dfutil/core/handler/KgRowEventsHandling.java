@@ -26,7 +26,7 @@ public class KgRowEventsHandling implements DataImportHandling {
 
     @EventListener(condition = "#event.rowType.name().startsWith('KG')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
-        log.debug("event '{}' of type '{}' received", event.getSource(), event.rowType());
+        log.debug("event '{}' of type '{}' received", event.row(), event.rowType());
         persistEventContent(event);
     }
 

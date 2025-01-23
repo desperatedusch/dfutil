@@ -42,7 +42,6 @@ public class DatafactoryImporter implements CommandLineRunner {
         files.forEach(parsing::fromFile);
         stopwatch.stop();
         log.info("Importer ran for {} ms....", stopwatch.elapsed().toMillis());
-
     }
 
 }

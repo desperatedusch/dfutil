@@ -40,3 +40,8 @@ build/
 ### Datafactory files ###
 *.dat
 /datafactoryutilities-importer/src/test/resources/files2Import/
+
+### log files ###
+*.log
+*.gz
+

@@ -11,20 +11,20 @@ public class SbRowId implements Serializable {
     private String strAlort;
     private String strNamenSchl;
     private String strBundLfdnr;
-    private String strHnrVon;
-    private String strHnrBis;
+    private String strHnrvon;
+    private String strHnrbis;
     private String strStatus;
     private String strHnr1000;
 
     public SbRowId() {
     }
 
-    public SbRowId(String strAlort, String strNamenSchl, String strBundLfdnr, String strHnrVon, String strHnrBis, String strStatus, String strHnr1000) {
+    public SbRowId(String strAlort, String strNamenSchl, String strBundLfdnr, String strHnrvon, String strHnrbis, String strStatus, String strHnr1000) {
         this.strAlort = strAlort;
         this.strNamenSchl = strNamenSchl;
         this.strBundLfdnr = strBundLfdnr;
-        this.strHnrVon = strHnrVon;
-        this.strHnrBis = strHnrBis;
+        this.strHnrvon = strHnrvon;
+        this.strHnrbis = strHnrbis;
         this.strStatus = strStatus;
         this.strHnr1000 = strHnr1000;
     }
@@ -54,19 +54,19 @@ public class SbRowId implements Serializable {
     }
 
     public String strHnrVon() {
-        return strHnrVon;
+        return strHnrvon;
     }
 
-    public void setStrHnrVon(String strHnrVon) {
-        this.strHnrVon = strHnrVon;
+    public void setStrHnrvon(String strHnrVon) {
+        this.strHnrvon = strHnrVon;
     }
 
     public String strHnrBis() {
-        return strHnrBis;
+        return strHnrbis;
     }
 
-    public void setStrHnrBis(String strHnrBis) {
-        this.strHnrBis = strHnrBis;
+    public void setStrHnrbis(String strHnrBis) {
+        this.strHnrbis = strHnrBis;
     }
 
     public String strStatus() {
@@ -90,12 +90,12 @@ public class SbRowId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SbRowId sbRowId = (SbRowId) o;
-        return Objects.equals(strAlort, sbRowId.strAlort) && Objects.equals(strNamenSchl, sbRowId.strNamenSchl) && Objects.equals(strBundLfdnr, sbRowId.strBundLfdnr) && Objects.equals(strHnrVon, sbRowId.strHnrVon) && Objects.equals(strHnrBis, sbRowId.strHnrBis) && Objects.equals(strStatus, sbRowId.strStatus) && Objects.equals(strHnr1000, sbRowId.strHnr1000);
+        return Objects.equals(strAlort, sbRowId.strAlort) && Objects.equals(strNamenSchl, sbRowId.strNamenSchl) && Objects.equals(strBundLfdnr, sbRowId.strBundLfdnr) && Objects.equals(strHnrvon, sbRowId.strHnrvon) && Objects.equals(strHnrbis, sbRowId.strHnrbis) && Objects.equals(strStatus, sbRowId.strStatus) && Objects.equals(strHnr1000, sbRowId.strHnr1000);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strAlort, strNamenSchl, strBundLfdnr, strHnrVon, strHnrBis, strStatus, strHnr1000);
+        return Objects.hash(strAlort, strNamenSchl, strBundLfdnr, strHnrvon, strHnrbis, strStatus, strHnr1000);
     }
 
 }

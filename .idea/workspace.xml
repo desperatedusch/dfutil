@@ -4,16 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Composite pk rework [unfinished]">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds Postprocessing [basic]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntityMergeEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntityMergeEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntitySplitEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntitySplitEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Parsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Parsing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowDataImportHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowDataImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Postprocessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Postprocessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/eventbased/EmittingParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/eventbased/EmittingParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/procedural/ProceduralParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/procedural/ProceduralParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowEventsHandling.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +34,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="AnnotationType" />
         <option value="Record" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -89,7 +100,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/desperatedusch/dfutil.git&quot;,
-    &quot;accountId&quot;: &quot;8bb5c486-af9d-4c1a-9a8f-7ae2176c6ce3&quot;
+    &quot;accountId&quot;: &quot;730b1197-a0e3-48fd-8c7e-7c5173e8effc&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -124,9 +135,6 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="flattenModules" value="true" />
-    <option name="flattenPackages" value="true" />
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
@@ -151,6 +159,7 @@
     &quot;JUnit.ParserTest.parseInputFileViaStream.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.PlRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.SBRowBytes2ObjectTest.parseSBRowBytes2Object.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SbRowParsingTest.parseSBRowBytes2Object.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.StringHelperTest.convertHyphenSnakeToCamelCaseTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StringHelperTest.executor&quot;: &quot;Run&quot;,
     &quot;Maven.datafactoryutilities [package].executor&quot;: &quot;Run&quot;,
@@ -186,7 +195,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;D:/IdeaProjects/df-util/datafactoryutilities-commons/src/test/java/de/dfutil&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ideaWorkspaces/dfutil/pom.xml&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ideaWorkspaces/hewog-grg_neu&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -195,7 +204,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.29663607&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -205,11 +214,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="de.dfutil.core.files.parsing" />
+      <recent name="de.dfutil.core.files" />
       <recent name="de.dfutil.entities.jpa" />
       <recent name="de.dfutil.core" />
       <recent name="de.dfutil.entities" />
-      <recent name="de.dfutil.core.listener" />
-      <recent name="de.dfutil.events" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-importer\src\test\resources" />
@@ -228,14 +237,15 @@
       <recent name="" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="de.dfutil.dao.jpa" />
       <recent name="de.dfutil.entities.format.v2308213" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil.core.files.parsing.procedural" />
+      <recent name="de.dfutil.core.files.parsing.eventbased" />
+      <recent name="de.dfutil.core.files.parsing" />
       <recent name="de.dfutil.entities" />
       <recent name="de.dfutil.core.files" />
-      <recent name="de.dfutil.entities.jpa" />
-      <recent name="de.dfutil.events" />
-      <recent name="de.dfutil.helpers.utilities" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="de.dfutil.core.services" />
@@ -245,11 +255,11 @@
       <recent name="de.dfutil.core.files" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="de.dfutil.entities.jpa.ids" />
-      <recent name="de.dfutil.entities" />
-      <recent name="de.dfutil.core.handler" />
-      <recent name="de.dfutil.entities.jpa" />
       <recent name="de.dfutil.dao.jpa" />
+      <recent name="de.dfutil.events" />
+      <recent name="de.dfutil.core.files.parsing.procedural" />
+      <recent name="de.dfutil.core.files.parsing" />
+      <recent name="de.dfutil.core.files" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
@@ -316,17 +326,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlRowParsingTest.parsePlRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SbRowParsingTest.parseSBRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="de.dfutil.entities.jpa.ids.*" />
+          <option name="PATTERN" value="de.dfutil.entities.jpa.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="de.dfutil.entities.jpa" />
-      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.PlRowParsingTest" />
-      <option name="METHOD_NAME" value="parsePlRowBytes2Object" />
+      <option name="MAIN_CLASS_NAME" value="de.dfutil.entities.jpa.SbRowParsingTest" />
+      <option name="METHOD_NAME" value="parseSBRowBytes2Object" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -348,29 +358,29 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.SbRowParsingTest.parseSBRowBytes2Object" />
       <item itemvalue="JUnit.KgRowParsingTest" />
       <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
       <item itemvalue="JUnit.ObRowParsingTest.parseObRowBytes2Object" />
       <item itemvalue="JUnit.OrRowParsingTest.parseOrRowBytes2Object" />
-      <item itemvalue="JUnit.PlRowParsingTest.parsePlRowBytes2Object" />
       <item itemvalue="Spring Boot.AddressInformationProviderApplication" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SbRowParsingTest.parseSBRowBytes2Object" />
         <item itemvalue="JUnit.ObRowParsingTest.parseObRowBytes2Object" />
         <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
         <item itemvalue="JUnit.KgRowParsingTest" />
         <item itemvalue="JUnit.OrRowParsingTest.parseOrRowBytes2Object" />
-        <item itemvalue="JUnit.PlRowParsingTest.parsePlRowBytes2Object" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -499,125 +509,24 @@
       <workItem from="1736701347016" duration="2968000" />
       <workItem from="1736759122699" duration="1886000" />
       <workItem from="1736871783722" duration="1905000" />
-      <workItem from="1736882179717" duration="3743000" />
-      <workItem from="1737048993970" duration="3210000" />
-      <workItem from="1737137248311" duration="1687000" />
-      <workItem from="1737142436372" duration="759000" />
-      <workItem from="1737167654488" duration="319000" />
-      <workItem from="1737194403372" duration="1855000" />
-      <workItem from="1737268800238" duration="5232000" />
-    </task>
-    <task id="LOCAL-00004" summary="first prototype of event handling and fileparsing">
-      <option name="closed" value="true" />
-      <created>1726597008331</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1726597008331</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Move rowobjects to commons and merge them with contrete postal implementations Some renamings&#10;Further work on event handling">
-      <option name="closed" value="true" />
-      <created>1727169016607</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1727169016607</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Move rowobjects to commons and merge them with contrete postal implementations Some renamings&#10;Further work on event handling">
-      <option name="closed" value="true" />
-      <created>1727267083787</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1727267083787</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Move rowobjects to commons and merge them with contrete postal implementations Some renamings&#10;Further work on event handling">
-      <option name="closed" value="true" />
-      <created>1727270975122</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1727270975122</updated>
-    </task>
-    <task id="LOCAL-00008" summary="change JDK version">
-      <option name="closed" value="true" />
-      <created>1727279417625</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1727279417625</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Modules java version">
-      <option name="closed" value="true" />
-      <created>1727867123788</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1727867123788</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1728923510156</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1728923510156</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1728925851143</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1728925851143</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1729325683540</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1729325683540</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1729325996461</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1729325996461</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1729326350401</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1729326350401</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1729328923989</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1729328923989</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1729331834184</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1729331834184</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Adds basic redis configuration">
-      <option name="closed" value="true" />
-      <created>1729333291993</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1729333291993</updated>
+      <workItem from="1736882179717" duration="3564000" />
+      <workItem from="1736932140890" duration="1204000" />
+      <workItem from="1737011270762" duration="986000" />
+      <workItem from="1737012463735" duration="2492000" />
+      <workItem from="1737015706228" duration="3400000" />
+      <workItem from="1737093071868" duration="3929000" />
+      <workItem from="1737116794879" duration="16000" />
+      <workItem from="1737351923531" duration="5196000" />
+      <workItem from="1737361911121" duration="15184000" />
+      <workItem from="1737437655926" duration="6034000" />
+      <workItem from="1737451608751" duration="3614000" />
+      <workItem from="1737460843017" duration="4321000" />
+      <workItem from="1737469553660" duration="308000" />
+      <workItem from="1737523133604" duration="7310000" />
+      <workItem from="1737547798657" duration="1239000" />
+      <workItem from="1737550226737" duration="4142000" />
+      <workItem from="1737608227425" duration="28238000" />
+      <workItem from="1737697675447" duration="5134000" />
     </task>
     <task id="LOCAL-00018" summary="Reworks event handling and remove central importer instance">
       <option name="closed" value="true" />
@@ -883,23 +792,135 @@
       <option name="project" value="LOCAL" />
       <updated>1736702276896</updated>
     </task>
-    <task id="LOCAL-00051" summary="Composite pk rework [unfinished]">
+    <task id="LOCAL-00051" summary="Minor refactorings">
       <option name="closed" value="true" />
-      <created>1736886282064</created>
+      <created>1737015899476</created>
       <option name="number" value="00051" />
       <option name="presentableId" value="LOCAL-00051" />
       <option name="project" value="LOCAL" />
-      <updated>1736886282065</updated>
+      <updated>1737015899476</updated>
     </task>
-    <task id="LOCAL-00052" summary="Composite pk rework [unfinished]">
+    <task id="LOCAL-00052" summary="Minor refactorings">
       <option name="closed" value="true" />
-      <created>1737138219915</created>
+      <created>1737017701932</created>
       <option name="number" value="00052" />
       <option name="presentableId" value="LOCAL-00052" />
       <option name="project" value="LOCAL" />
-      <updated>1737138219915</updated>
+      <updated>1737017701932</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Profilebased persistence (eventbased vs. procedural) is available">
+      <option name="closed" value="true" />
+      <created>1737377382038</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1737377382039</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Implements CoR Pattern for prodecural presistence [UNFINISHED]">
+      <option name="closed" value="true" />
+      <created>1737392396440</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1737392396440</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Implements CoR Pattern for prodecural presistence [UNFINISHED]">
+      <option name="closed" value="true" />
+      <created>1737446661894</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1737446661895</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Implements CoR Pattern for prodecural presistence [UNFINISHED]">
+      <option name="closed" value="true" />
+      <created>1737449503641</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1737449503641</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Implements prodecural persistence">
+      <option name="closed" value="true" />
+      <created>1737458447393</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1737458447393</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Implements prodecural persistence">
+      <option name="closed" value="true" />
+      <created>1737461071039</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1737461071040</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Implements prodecural persistence">
+      <option name="closed" value="true" />
+      <created>1737465680928</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1737465680928</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Adds Google stopwatch to importer run(String... args)">
+      <option name="closed" value="true" />
+      <created>1737465940537</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1737465940537</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Adds Google stopwatch to importer run(String... args)">
+      <option name="closed" value="true" />
+      <created>1737541378642</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1737541378643</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Adds @taqble anotations to entity classes">
+      <option name="closed" value="true" />
+      <created>1737557391754</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1737557391754</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Some minor jpa properties changed">
+      <option name="closed" value="true" />
+      <created>1737611377247</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1737611377247</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Minor changes inside entity classes (@table annotation didnt work properly)">
+      <option name="closed" value="true" />
+      <created>1737624134457</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1737624134457</updated>
+    </task>
+    <task id="LOCAL-00065" summary="FileParsingFinishedEvent Handling [unfinished]">
+      <option name="closed" value="true" />
+      <created>1737645312410</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1737645312410</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Adds Postprocessing [basic]">
+      <option name="closed" value="true" />
+      <created>1737648726693</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1737648726693</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -941,15 +962,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="database dependencies in parent-aggregator verschoben" />
-    <MESSAGE value="first prototype of event handling and fileparsing" />
-    <MESSAGE value="Move rowobjects to commons and merge them with contrete postal implementations Some renamings&#10;Further work on event handling" />
-    <MESSAGE value="change JDK version" />
-    <MESSAGE value="Modules java version" />
-    <MESSAGE value="Adds basic redis configuration" />
-    <MESSAGE value="Reworks event handling and remove central importer instance" />
-    <MESSAGE value="Eventhandling works now to the  SBDataImportHandler, but step to database still open" />
-    <MESSAGE value="Adds new object parsing test TBC" />
     <MESSAGE value="Renamings in postal objects" />
     <MESSAGE value="Using spring's ReflectionUtils inside Token processing" />
     <MESSAGE value="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence" />
@@ -965,8 +977,17 @@
     <MESSAGE value="Reformats source code  and changes input data structure" />
     <MESSAGE value="Use EmbeddedId annotations for combined natural primary key attributes" />
     <MESSAGE value="No more reflection based object creation" />
-    <MESSAGE value="Composite pk rework [unfinished]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Composite pk rework [unfinished]" />
+    <MESSAGE value="Minor refactorings" />
+    <MESSAGE value="Profilebased persistence (eventbased vs. procedural) is available" />
+    <MESSAGE value="Implements CoR Pattern for prodecural presistence [UNFINISHED]" />
+    <MESSAGE value="Implements prodecural persistence" />
+    <MESSAGE value="Adds Google stopwatch to importer run(String... args)" />
+    <MESSAGE value="Adds @taqble anotations to entity classes" />
+    <MESSAGE value="Some minor jpa properties changed" />
+    <MESSAGE value="Minor changes inside entity classes (@table annotation didnt work properly)" />
+    <MESSAGE value="FileParsingFinishedEvent Handling [unfinished]" />
+    <MESSAGE value="Adds Postprocessing [basic]" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds Postprocessing [basic]" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -980,13 +1001,8 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowParsingTest.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java</url>
-          <line>41</line>
+          <line>42</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1016,23 +1032,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
-          <line>36</line>
+          <line>35</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java</url>
-          <line>36</line>
+          <line>30</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java</url>
-          <line>40</line>
+          <line>34</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowParsingTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,10 +4,7 @@ import de.dfutil.entities.AbstractRow;
 import de.dfutil.entities.ArchivablePostalObject;
 import de.dfutil.entities.RowType;
 import de.dfutil.entities.jpa.ids.SbRowId;
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -15,6 +12,7 @@ import java.util.Date;
  * Repräsentiert Strassen
  */
 @Entity
+@Table(name = "STRASSE")
 public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.SB;

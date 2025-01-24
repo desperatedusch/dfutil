@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationEvent;
 public final class EntityMergeEvent extends ApplicationEvent {
 
     private final RowType rowType;
+
     private final byte[] row;
 
     public EntityMergeEvent(Object source) {

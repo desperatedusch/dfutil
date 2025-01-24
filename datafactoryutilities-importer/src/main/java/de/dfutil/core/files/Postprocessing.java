@@ -16,11 +16,11 @@ public class Postprocessing {
         this.importResultRepository = importResultRepository;
     }
 
-    public void proccessingSuccessfull(Path inputSource) {
+    public void parsedSuccessfully(Path inputSource) {
         importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDate.now(), true));
     }
 
-    public void proccessingFailed(Path inputSource) {
+    public void parsingFailed(Path inputSource) {
         importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDate.now(), false));
     }
 

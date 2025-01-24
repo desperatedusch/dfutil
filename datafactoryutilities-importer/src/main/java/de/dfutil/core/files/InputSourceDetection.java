@@ -21,6 +21,7 @@ public class InputSourceDetection {
     @Value("${app.importer.inputsource.folders}")
     @NonNull
     private String inputFolders;
+
     @Value("${app.importer.inputsource.filenamemask}")
     @NonNull
     private String inputFilenameMask;
@@ -31,7 +32,7 @@ public class InputSourceDetection {
     public List<Path> findFiles() throws IOException {
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
-        log.info("Following files are detected as input sources:");
+        log.info("Following input sources are detected:");
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
             result.addAll(files);

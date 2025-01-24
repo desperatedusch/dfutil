@@ -1,6 +1,5 @@
 package de.dfutil;
 
-import com.google.common.base.Stopwatch;
 import de.dfutil.core.files.InputSourceDetection;
 import de.dfutil.core.files.parsing.Parser;
 import de.dfutil.core.files.parsing.eventbased.EmittingParser;
@@ -21,6 +20,7 @@ public class DatafactoryImporter implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(DatafactoryImporter.class);
 
     private final InputSourceDetection inputSourceDetection;
+
     private final Parser parsing;
 
     public DatafactoryImporter(InputSourceDetection inputSourceDetection, EmittingParser parsing) {
@@ -29,10 +29,7 @@ public class DatafactoryImporter implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        Stopwatch stopwatch = Stopwatch.createStarted();
         new SpringApplicationBuilder(DatafactoryImporter.class).web(WebApplicationType.NONE).run(args);
-        stopwatch.stop();
-        log.info("----------> Importer app finished after {} ms ....", stopwatch.elapsed().toMillis());
     }
 
     @Override

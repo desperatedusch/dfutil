@@ -21,9 +21,10 @@ public class EmittingParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(EmittingParser.class);
 
-    private long counter = 0;
+    private long lineCounter = 0;
 
     private final ApplicationEventPublisher eventPublisher;
+
     private final Postprocessing postprocessing;
 
     public EmittingParser(Postprocessing postprocessing, ApplicationEventPublisher eventPublisher) {
@@ -39,21 +40,21 @@ public class EmittingParser implements Parser {
                 // Publish each line to event handler until Reader is empty
                 if (!line.isEmpty()) {
                     eventPublisher.publishEvent(new RowParsedEvent(line));
-                    counter++;
+                    lineCounter++;
                 }
             }
-            eventPublisher.publishEvent(new FileParsingFinishedEvent(count()));
+            eventPublisher.publishEvent(new FileParsingFinishedEvent(rowCount()));
             log.info("Successfully parsed file: {}", path);
-            postprocessing.proccessingSuccessfull(path);
+            postprocessing.parsedSuccessfully(path);
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
-            postprocessing.proccessingFailed(path);
+            postprocessing.parsingFailed(path);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
 
     @Override
-    public long count() {
-        return counter;
+    public long rowCount() {
+        return lineCounter;
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationEvent;
 public final class EntitySplitEvent extends ApplicationEvent {
 
     private final RowType rowType;
+
     private final byte[] row;
 
     public EntitySplitEvent(Object source) {

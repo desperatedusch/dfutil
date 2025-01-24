@@ -1,5 +1,6 @@
 package de.dfutil.core.files.parsing.procedural;
 
+import com.google.common.base.Stopwatch;
 import de.dfutil.core.files.Postprocessing;
 import de.dfutil.core.files.parsing.Parser;
 import de.dfutil.dao.jpa.*;
@@ -20,13 +21,14 @@ public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
 
-    private long counter = 0;
+    private long lineCounter = 0;
 
     private final KgRowRepository kgRowRepository;
     private final ObRowRepository obRowRepository;
     private final OrRowRepository orRowRepository;
     private final PlRowRepository plRowRepository;
     private final SbRowRepository sbRowRepository;
+
     private final Postprocessing postprocessing;
 
     public ProceduralParser(Postprocessing postprocessing,
@@ -79,26 +81,27 @@ public class ProceduralParser implements Parser {
     }
 
     public void fromFile(Path path) {
-        log.debug("Parsing file: {}", path);
+        Stopwatch stopwatch = Stopwatch.createStarted();
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
                     persist(line);
-                    counter++;
+                    lineCounter++;
                 }
             }
-            postprocessing.proccessingSuccessfull(path);
-            log.info("Successfully parsed file: {}", path);
+            postprocessing.parsedSuccessfully(path);
+            stopwatch.stop();
+            log.info("Successfully parsed file {} within {} ms", path, stopwatch.elapsed().toMillis());
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
-            postprocessing.proccessingFailed(path);
+            postprocessing.parsingFailed(path);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
 
     @Override
-    public long count() {
-        return counter;
+    public long rowCount() {
+        return lineCounter;
     }
 }

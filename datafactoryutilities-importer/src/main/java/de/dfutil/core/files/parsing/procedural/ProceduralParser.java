@@ -77,14 +77,12 @@ public class ProceduralParser implements Parser {
             default:
                 log.warn("Unsupported prefix : {}", prefix);
         }
-
     }
 
     public void fromFile(Path path) {
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        stopwatch.start();
-        long duration;
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
+            Stopwatch stopwatch = Stopwatch.createStarted();
+            long duration;
             String line;
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
@@ -98,8 +96,7 @@ public class ProceduralParser implements Parser {
             postprocessing.parsedSuccessfully(path, duration);
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
-            duration = stopwatch.elapsed().toMillis();
-            postprocessing.parsingFailed(path, duration);
+            postprocessing.parsingFailed(path, null);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -108,4 +105,5 @@ public class ProceduralParser implements Parser {
     public long rowCount() {
         return lineCounter;
     }
+
 }

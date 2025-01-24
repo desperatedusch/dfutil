@@ -12,7 +12,8 @@ import java.util.Date;
  * Repräsentiert Strassen
  */
 @Entity
-@Table(name = "STRASSE", indexes = @Index(columnList = "STRALORT,STRNAMENSCHL,STRBUNDLFDNR,STRHNRVON,STRHNRBIS,STRSTATUS,STRHNR1000"))
+@Table(name = "STRASSE")
+//, indexes = @Index(columnList = "STRALORT,STRNAMENSCHL,STRBUNDLFDNR,STRHNRVON,STRHNRBIS,STRSTATUS,STRHNR1000"))
 public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
 
     private final static RowType rowType = RowType.SB;

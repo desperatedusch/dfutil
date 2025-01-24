@@ -35,7 +35,6 @@ public class EmittingParser implements Parser {
 
     public void fromFile(Path path) {
         Stopwatch stopwatch = Stopwatch.createStarted();
-        stopwatch.start();
         long duration;
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             log.debug("Parsing file: {}", path);
@@ -54,8 +53,7 @@ public class EmittingParser implements Parser {
             postprocessing.parsedSuccessfully(path, duration);
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
-            duration = stopwatch.elapsed().toMillis();
-            postprocessing.parsingFailed(path, duration);
+            postprocessing.parsingFailed(path, null);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -64,4 +62,5 @@ public class EmittingParser implements Parser {
     public long rowCount() {
         return lineCounter;
     }
+
 }

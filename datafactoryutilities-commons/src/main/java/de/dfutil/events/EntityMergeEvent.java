@@ -1,25 +1,23 @@
 package de.dfutil.events;
 
 import de.dfutil.entities.RowType;
-import org.springframework.context.ApplicationEvent;
 
-public final class EntityMergeEvent extends ApplicationEvent {
+public final class EntityMergeEvent {
 
     private final RowType rowType;
 
-    private final byte[] row;
+    private final String row;
 
-    public EntityMergeEvent(Object source) {
-        super(source);
-        this.rowType = RowType.fromPrefix(((String) source).substring(0, 2));
-        this.row = String.valueOf(source).getBytes();
+    public EntityMergeEvent(String row) {
+        this.row = row;
+        this.rowType = RowType.fromPrefix(row.substring(0, 2));
     }
 
     public RowType rowType() {
         return rowType;
     }
 
-    public byte[] row() {
+    public String row() {
         return row;
     }
 

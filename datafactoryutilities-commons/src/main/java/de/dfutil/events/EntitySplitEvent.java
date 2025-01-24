@@ -1,26 +1,16 @@
 package de.dfutil.events;
 
-import de.dfutil.entities.RowType;
-import org.springframework.context.ApplicationEvent;
+import de.dfutil.entities.ArchivablePostalObject;
 
-public final class EntitySplitEvent extends ApplicationEvent {
+public class EntitySplitEvent {
 
-    private final RowType rowType;
+    private ArchivablePostalObject archivablePostalObject;
 
-    private final byte[] row;
-
-    public EntitySplitEvent(Object source) {
-        super(source);
-        this.rowType = RowType.fromPrefix(((String) source).substring(0, 2));
-        this.row = String.valueOf(source).getBytes();
+    public EntitySplitEvent(ArchivablePostalObject archivablePostalObject) {
+        this.archivablePostalObject = archivablePostalObject;
     }
 
-    public RowType rowType() {
-        return rowType;
+    public ArchivablePostalObject getArchivablePostalObject() {
+        return archivablePostalObject;
     }
-
-    public byte[] row() {
-        return row;
-    }
-
 }

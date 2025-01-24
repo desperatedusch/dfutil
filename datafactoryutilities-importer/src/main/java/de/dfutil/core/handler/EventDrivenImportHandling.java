@@ -1,0 +1,11 @@
+package de.dfutil.core.handler;
+
+import de.dfutil.events.RowParsedEvent;
+import org.springframework.context.annotation.Profile;
+
+@Profile({"eventbased-importing", "!procedural-importing "})
+public interface EventDrivenImportHandling {
+
+    void persistEventContent(RowParsedEvent event);
+
+}

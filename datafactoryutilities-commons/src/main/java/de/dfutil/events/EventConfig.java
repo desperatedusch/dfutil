@@ -2,6 +2,7 @@ package de.dfutil.events;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.task.TaskExecutor;
@@ -14,6 +15,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @EnableAsync
 @Configuration
+@Profile({"eventbased-importing", "!procedural-importing "})
 public class EventConfig {
 
     @Bean(name = "applicationEventMulticaster")

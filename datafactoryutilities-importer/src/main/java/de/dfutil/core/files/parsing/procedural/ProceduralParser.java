@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 @Service
-@Profile({"procedural-persisting ", "!eventbased-persisting"})
+@Profile({"procedural-importing ", "!eventbased-importing"})
 public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);

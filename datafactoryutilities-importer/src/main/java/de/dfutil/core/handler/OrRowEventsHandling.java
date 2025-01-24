@@ -12,8 +12,8 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile({"eventbased-persisting", "!procedural-persisting "})
-public class OrRowEventsHandling implements DataImportHandling {
+@Profile({"eventbased-importing", "!procedural-importing "})
+public class OrRowEventsHandling implements EventDrivenImportHandling {
 
     private static final Logger log = LoggerFactory.getLogger(OrRowEventsHandling.class);
 

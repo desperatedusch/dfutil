@@ -13,7 +13,7 @@ import java.util.Date;
  * Repräsentiert einzelne Postleitzahlbereiche
  */
 @Entity
-@Table(name = "PLZ")//, indexes = @Index(columnList = "PLZPLZ,PLZALORT"))
+@Table(name = "PLZ", indexes = @Index(columnList = "PLZ_PLZ,PLZ_ALORT"))
 public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
 
     private final static RowType rowType = RowType.PL;

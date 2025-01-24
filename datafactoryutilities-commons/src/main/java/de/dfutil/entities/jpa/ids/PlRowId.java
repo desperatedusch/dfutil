@@ -9,14 +9,14 @@ import java.util.Objects;
 public class PlRowId implements Serializable {
 
     private String plzPlz;
-    private String plzAlOrt;
+    private String plzAlort;
 
     public PlRowId() {
     }
 
-    public PlRowId(String plzPlz, String plzAlOrt) {
+    public PlRowId(String plzPlz, String plzAlort) {
         this.plzPlz = plzPlz;
-        this.plzAlOrt = plzAlOrt;
+        this.plzAlort = plzAlort;
     }
 
     public String plzPlz() {
@@ -28,11 +28,11 @@ public class PlRowId implements Serializable {
     }
 
     public String plzAlOrt() {
-        return plzAlOrt;
+        return plzAlort;
     }
 
-    public void setPlzAlOrt(String plzAlOrt) {
-        this.plzAlOrt = plzAlOrt;
+    public void setPlzAlort(String plzAlOrt) {
+        this.plzAlort = plzAlOrt;
     }
 
     @Override
@@ -40,12 +40,12 @@ public class PlRowId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PlRowId plRowId = (PlRowId) o;
-        return Objects.equals(plzPlz, plRowId.plzPlz) && Objects.equals(plzAlOrt, plRowId.plzAlOrt);
+        return Objects.equals(plzPlz, plRowId.plzPlz) && Objects.equals(plzAlort, plRowId.plzAlort);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(plzPlz, plzAlOrt);
+        return Objects.hash(plzPlz, plzAlort);
     }
 
 }

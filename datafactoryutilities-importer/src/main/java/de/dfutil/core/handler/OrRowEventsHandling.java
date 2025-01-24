@@ -5,6 +5,7 @@ import de.dfutil.entities.jpa.OrRow;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.lang.NonNull;
@@ -16,10 +17,10 @@ public class OrRowEventsHandling implements DataImportHandling {
 
     private static final Logger log = LoggerFactory.getLogger(OrRowEventsHandling.class);
 
-    private final OrRowRepository jpaDao;
+    @Autowired
+    private OrRowRepository jpaDao;
 
-    public OrRowEventsHandling(OrRowRepository jpaDao) {
-        this.jpaDao = jpaDao;
+    public OrRowEventsHandling() {
     }
 
     @EventListener(condition = "#event.rowType.name().startsWith('OR')")

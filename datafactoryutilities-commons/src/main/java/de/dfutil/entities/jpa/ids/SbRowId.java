@@ -8,7 +8,7 @@ import java.util.Objects;
 @Embeddable
 public class SbRowId implements Serializable {
 
-    private String strAlOrt;
+    private String strAlort;
     private String strNamenSchl;
     private String strBundLfdnr;
     private String strHnrVon;
@@ -19,8 +19,8 @@ public class SbRowId implements Serializable {
     public SbRowId() {
     }
 
-    public SbRowId(String strAlOrt, String strNamenSchl, String strBundLfdnr, String strHnrVon, String strHnrBis, String strStatus, String strHnr1000) {
-        this.strAlOrt = strAlOrt;
+    public SbRowId(String strAlort, String strNamenSchl, String strBundLfdnr, String strHnrVon, String strHnrBis, String strStatus, String strHnr1000) {
+        this.strAlort = strAlort;
         this.strNamenSchl = strNamenSchl;
         this.strBundLfdnr = strBundLfdnr;
         this.strHnrVon = strHnrVon;
@@ -30,11 +30,11 @@ public class SbRowId implements Serializable {
     }
 
     public String strAlOrt() {
-        return strAlOrt;
+        return strAlort;
     }
 
-    public void setStrAlOrt(String strAlOrt) {
-        this.strAlOrt = strAlOrt;
+    public void setStrAlort(String strAlOrt) {
+        this.strAlort = strAlOrt;
     }
 
     public String strNamenSchl() {
@@ -90,12 +90,12 @@ public class SbRowId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SbRowId sbRowId = (SbRowId) o;
-        return Objects.equals(strAlOrt, sbRowId.strAlOrt) && Objects.equals(strNamenSchl, sbRowId.strNamenSchl) && Objects.equals(strBundLfdnr, sbRowId.strBundLfdnr) && Objects.equals(strHnrVon, sbRowId.strHnrVon) && Objects.equals(strHnrBis, sbRowId.strHnrBis) && Objects.equals(strStatus, sbRowId.strStatus) && Objects.equals(strHnr1000, sbRowId.strHnr1000);
+        return Objects.equals(strAlort, sbRowId.strAlort) && Objects.equals(strNamenSchl, sbRowId.strNamenSchl) && Objects.equals(strBundLfdnr, sbRowId.strBundLfdnr) && Objects.equals(strHnrVon, sbRowId.strHnrVon) && Objects.equals(strHnrBis, sbRowId.strHnrBis) && Objects.equals(strStatus, sbRowId.strStatus) && Objects.equals(strHnr1000, sbRowId.strHnr1000);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strAlOrt, strNamenSchl, strBundLfdnr, strHnrVon, strHnrBis, strStatus, strHnr1000);
+        return Objects.hash(strAlort, strNamenSchl, strBundLfdnr, strHnrVon, strHnrBis, strStatus, strHnr1000);
     }
 
 }

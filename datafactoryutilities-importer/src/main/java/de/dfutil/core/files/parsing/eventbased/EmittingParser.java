@@ -34,10 +34,11 @@ public class EmittingParser implements Parser {
     }
 
     public void fromFile(Path path) {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        stopwatch.start();
+        long duration;
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             log.debug("Parsing file: {}", path);
-            Stopwatch stopwatch = Stopwatch.createStarted();
-            stopwatch.start();
             String line;
             while ((line = br.readLine()) != null) {
                 // Publish each line to event handler until Reader is empty
@@ -48,11 +49,13 @@ public class EmittingParser implements Parser {
             }
             eventPublisher.publishEvent(new FileParsingFinishedEvent(rowCount()));
             stopwatch.stop();
-            log.info("Successfully parsed file {} within {} ms", path, stopwatch.elapsed().toMillis());
-            postprocessing.parsedSuccessfully(path);
+            duration = stopwatch.elapsed().toMillis();
+            log.info("Successfully parsed file {} within {} ms", path, duration);
+            postprocessing.parsedSuccessfully(path, duration);
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
-            postprocessing.parsingFailed(path);
+            duration = stopwatch.elapsed().toMillis();
+            postprocessing.parsingFailed(path, duration);
             throw new RuntimeException(e.getMessage(), e);
         }
     }

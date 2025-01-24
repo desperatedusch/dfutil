@@ -16,11 +16,13 @@ public class ImportResult implements Serializable {
     private String fileName;
     private LocalDate importDate;
     private boolean importSuccessful;
+    private Long duration;
 
-    public ImportResult(String fileName, LocalDate importDate, boolean importSuccessful) {
+    public ImportResult(String fileName, LocalDate importDate, boolean importSuccessful, Long duration) {
         this.fileName = fileName;
         this.importDate = importDate;
         this.importSuccessful = importSuccessful;
+        this.duration = duration;
     }
 
     public ImportResult() {
@@ -59,12 +61,20 @@ public class ImportResult implements Serializable {
         this.importSuccessful = importSuccessful;
     }
 
+    public Long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Long duration) {
+        this.duration = duration;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ImportResult that = (ImportResult) o;
-        return importSuccessful == that.importSuccessful && Objects.equals(fileName, that.fileName) && Objects.equals(importDate, that.importDate);
+        return importSuccessful == that.importSuccessful && Objects.equals(fileName, that.fileName) && Objects.equals(importDate, that.importDate) && Objects.equals(duration, that.duration);
     }
 
     @Override

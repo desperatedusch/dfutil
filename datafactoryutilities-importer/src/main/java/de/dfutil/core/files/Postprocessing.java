@@ -16,12 +16,12 @@ public class Postprocessing {
         this.importResultRepository = importResultRepository;
     }
 
-    public void parsedSuccessfully(Path inputSource) {
-        importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDate.now(), true));
+    public void parsedSuccessfully(Path inputSource, Long duration) {
+        importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDate.now(), true, duration));
     }
 
-    public void parsingFailed(Path inputSource) {
-        importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDate.now(), false));
+    public void parsingFailed(Path inputSource, Long duration) {
+        importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDate.now(), false, duration));
     }
 
 }

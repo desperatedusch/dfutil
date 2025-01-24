@@ -75,7 +75,7 @@ public class ProceduralParser implements Parser {
                     sbRowRepository.save(sb);
                 break;
             default:
-                log.warn("Unsupported prefix : " + prefix);
+                log.warn("Unsupported prefix : {}", prefix);
         }
 
     }
@@ -83,6 +83,7 @@ public class ProceduralParser implements Parser {
     public void fromFile(Path path) {
         Stopwatch stopwatch = Stopwatch.createStarted();
         stopwatch.start();
+        long duration;
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -91,12 +92,14 @@ public class ProceduralParser implements Parser {
                     lineCounter++;
                 }
             }
-            postprocessing.parsedSuccessfully(path);
             stopwatch.stop();
-            log.info("Successfully parsed file {} within {} ms", path, stopwatch.elapsed().toMillis());
+            duration = stopwatch.elapsed().toMillis();
+            log.info("Successfully parsed file {} within {} ms", path, duration);
+            postprocessing.parsedSuccessfully(path, duration);
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
-            postprocessing.parsingFailed(path);
+            duration = stopwatch.elapsed().toMillis();
+            postprocessing.parsingFailed(path, duration);
             throw new RuntimeException(e.getMessage(), e);
         }
     }

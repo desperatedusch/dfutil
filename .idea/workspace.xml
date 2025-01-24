@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds Postprocessing [basic]">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds indices to tables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ImportResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ImportResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntityMergeEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntityMergeEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntitySplitEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EntitySplitEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Postprocessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/Postprocessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/eventbased/EmittingParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/eventbased/EmittingParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/procedural/ProceduralParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/parsing/procedural/ProceduralParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/KgRowEventsHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/ObRowEventsHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/OrRowEventsHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/PlRowEventsHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/handler/SbRowEventsHandling.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -526,39 +516,9 @@
       <workItem from="1737547798657" duration="1239000" />
       <workItem from="1737550226737" duration="4142000" />
       <workItem from="1737608227425" duration="28238000" />
-      <workItem from="1737697675447" duration="5134000" />
-    </task>
-    <task id="LOCAL-00018" summary="Reworks event handling and remove central importer instance">
-      <option name="closed" value="true" />
-      <created>1729609222850</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1729609222850</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Reworks event handling and remove central importer instance">
-      <option name="closed" value="true" />
-      <created>1729609524916</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1729609524916</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Reworks event handling and remove central importer instance">
-      <option name="closed" value="true" />
-      <created>1729697854832</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1729697854832</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Reworks event handling and remove central importer instance">
-      <option name="closed" value="true" />
-      <created>1729844711024</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1729844711024</updated>
+      <workItem from="1737697675447" duration="11808000" />
+      <workItem from="1737711903697" duration="144000" />
+      <workItem from="1737712658441" duration="1136000" />
     </task>
     <task id="LOCAL-00022" summary="Eventhandling works now to the  SBDataImportHandler, but step to database still open">
       <option name="closed" value="true" />
@@ -920,7 +880,39 @@
       <option name="project" value="LOCAL" />
       <updated>1737648726693</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Adds index on AGS table">
+      <option name="closed" value="true" />
+      <created>1737703567865</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1737703567865</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Adds index on AGS table">
+      <option name="closed" value="true" />
+      <created>1737703677250</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1737703677250</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Some logging adjustments">
+      <option name="closed" value="true" />
+      <created>1737707427445</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1737707427445</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Adds indices to tables">
+      <option name="closed" value="true" />
+      <created>1737710291778</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1737710291778</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -962,9 +954,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Renamings in postal objects" />
-    <MESSAGE value="Using spring's ReflectionUtils inside Token processing" />
-    <MESSAGE value="ImportHandler persists now although to redis. Next iteration will provide Profile based persistence" />
     <MESSAGE value="SbJpaDao implementation completed" />
     <MESSAGE value="Integrated H2 Server into Unit Test (not finished)" />
     <MESSAGE value="Adds profiles for development and different modes of persistence [redis, jpa]" />
@@ -987,7 +976,10 @@
     <MESSAGE value="Minor changes inside entity classes (@table annotation didnt work properly)" />
     <MESSAGE value="FileParsingFinishedEvent Handling [unfinished]" />
     <MESSAGE value="Adds Postprocessing [basic]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds Postprocessing [basic]" />
+    <MESSAGE value="Adds index on AGS table" />
+    <MESSAGE value="Some logging adjustments" />
+    <MESSAGE value="Adds indices to tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds indices to tables" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1002,7 +994,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/core/files/InputSourceDetection.java</url>
-          <line>42</line>
+          <line>45</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

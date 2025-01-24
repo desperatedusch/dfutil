@@ -33,11 +33,13 @@ public class InputSourceDetection {
     }
 
     public List<Path> findFiles() throws IOException {
+//        var alreadyProcessedPaths = importResults.findByFileName();
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
         log.info("Following input sources are detected:");
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
+//            files.stream().filter(f->f.getFileName().toFile().());
             result.addAll(files);
         }
         return result;

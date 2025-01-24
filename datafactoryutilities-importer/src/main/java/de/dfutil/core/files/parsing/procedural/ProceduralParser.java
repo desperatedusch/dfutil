@@ -7,6 +7,7 @@ import de.dfutil.dao.jpa.*;
 import de.dfutil.entities.jpa.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -23,28 +24,21 @@ public class ProceduralParser implements Parser {
 
     private long lineCounter = 0;
 
-    private final KgRowRepository kgRowRepository;
-    private final ObRowRepository obRowRepository;
-    private final OrRowRepository orRowRepository;
-    private final PlRowRepository plRowRepository;
-    private final SbRowRepository sbRowRepository;
+    @Autowired
+    private KgRowRepository kgRowRepository;
+    @Autowired
+    private ObRowRepository obRowRepository;
+    @Autowired
+    private OrRowRepository orRowRepository;
+    @Autowired
+    private PlRowRepository plRowRepository;
+    @Autowired
+    private SbRowRepository sbRowRepository;
 
     private final Postprocessing postprocessing;
 
-    public ProceduralParser(Postprocessing postprocessing,
-                            KgRowRepository kgRowRepository,
-                            ObRowRepository obRowRepository,
-                            OrRowRepository orRowRepository,
-                            PlRowRepository plRowRepository,
-                            SbRowRepository sbRowRepository) {
-
+    public ProceduralParser(Postprocessing postprocessing) {
         this.postprocessing = postprocessing;
-
-        this.kgRowRepository = kgRowRepository;
-        this.obRowRepository = obRowRepository;
-        this.orRowRepository = orRowRepository;
-        this.plRowRepository = plRowRepository;
-        this.sbRowRepository = sbRowRepository;
     }
 
     private void persist(String line) {
@@ -52,27 +46,22 @@ public class ProceduralParser implements Parser {
         switch (prefix) {
             case "KG":
                 KgRow kg = KgRow.parseFrom(line);
-                if (kgRowRepository.findById(kg.getKgRowId()).isEmpty())
-                    kgRowRepository.save(kg);
+                kgRowRepository.save(kg);
                 break;
             case "OB":
                 ObRow ob = ObRow.parseFrom(line);
-                if (obRowRepository.findById(ob.getObRowId()).isEmpty())
-                    obRowRepository.save(ob);
+                obRowRepository.save(ob);
                 break;
             case "OR":
                 OrRow or = OrRow.parseFrom(line);
-                if (orRowRepository.findById(or.getOrRowId()).isEmpty())
-                    orRowRepository.save(or);
+                orRowRepository.save(or);
                 break;
             case "PL":
                 PlRow pl = PlRow.parseFrom(line);
-                if (plRowRepository.findById(pl.getPlRowId()).isEmpty())
-                    plRowRepository.save(pl);
+                plRowRepository.save(pl);
             case "SB":
                 SbRow sb = SbRow.parseFrom(line);
-                if (sbRowRepository.findById(sb.getSbRowId()).isEmpty())
-                    sbRowRepository.save(sb);
+                sbRowRepository.save(sb);
                 break;
             default:
                 log.warn("Unsupported prefix : {}", prefix);

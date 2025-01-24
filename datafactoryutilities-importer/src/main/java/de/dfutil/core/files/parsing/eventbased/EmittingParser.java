@@ -1,5 +1,6 @@
 package de.dfutil.core.files.parsing.eventbased;
 
+import com.google.common.base.Stopwatch;
 import de.dfutil.core.files.Postprocessing;
 import de.dfutil.core.files.parsing.Parser;
 import de.dfutil.events.FileParsingFinishedEvent;
@@ -33,8 +34,10 @@ public class EmittingParser implements Parser {
     }
 
     public void fromFile(Path path) {
-        log.debug("Parsing file: {}", path);
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
+            log.debug("Parsing file: {}", path);
+            Stopwatch stopwatch = Stopwatch.createStarted();
+            stopwatch.start();
             String line;
             while ((line = br.readLine()) != null) {
                 // Publish each line to event handler until Reader is empty
@@ -44,7 +47,8 @@ public class EmittingParser implements Parser {
                 }
             }
             eventPublisher.publishEvent(new FileParsingFinishedEvent(rowCount()));
-            log.info("Successfully parsed file: {}", path);
+            stopwatch.stop();
+            log.info("Successfully parsed file {} within {} ms", path, stopwatch.elapsed().toMillis());
             postprocessing.parsedSuccessfully(path);
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);

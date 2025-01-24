@@ -82,6 +82,7 @@ public class ProceduralParser implements Parser {
 
     public void fromFile(Path path) {
         Stopwatch stopwatch = Stopwatch.createStarted();
+        stopwatch.start();
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = br.readLine()) != null) {

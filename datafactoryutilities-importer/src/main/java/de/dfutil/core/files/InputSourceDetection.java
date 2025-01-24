@@ -1,5 +1,6 @@
 package de.dfutil.core.files;
 
+import de.dfutil.dao.jpa.ImportResultRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,12 +22,14 @@ public class InputSourceDetection {
     @Value("${app.importer.inputsource.folders}")
     @NonNull
     private String inputFolders;
-
     @Value("${app.importer.inputsource.filenamemask}")
     @NonNull
     private String inputFilenameMask;
 
-    public InputSourceDetection() {
+    private final ImportResultRepository importResults;
+
+    public InputSourceDetection(ImportResultRepository importResults) {
+        this.importResults = importResults;
     }
 
     public List<Path> findFiles() throws IOException {
@@ -62,7 +65,7 @@ public class InputSourceDetection {
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
                 if (attrs.isRegularFile()) {
                     if (pathMatcher.matches(file.getFileName())) {
-                        log.info(file.getFileName().toString());
+                        log.info(file.toFile().getAbsolutePath());
                         paths.add(file);
                     }
                 }

@@ -1,10 +1,10 @@
-package de.dfutil.importer.files.parsing.procedural;
+package de.dfutil.importing.parsing.procedural;
 
 import com.google.common.base.Stopwatch;
 import de.dfutil.dao.jpa.*;
 import de.dfutil.entities.jpa.*;
-import de.dfutil.importer.files.Postprocessing;
-import de.dfutil.importer.files.parsing.Parser;
+import de.dfutil.importing.Postprocessing;
+import de.dfutil.importing.parsing.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,11 @@ import java.nio.file.Path;
 public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
-    private final Postprocessing postprocessing;
+
     private long linesProcessed = 0;
+
+    @Autowired
+    private Postprocessing postprocessing;
     @Autowired
     private KgRowRepository kgRowRepository;
     @Autowired
@@ -34,8 +37,7 @@ public class ProceduralParser implements Parser {
     @Autowired
     private SbRowRepository sbRowRepository;
 
-    public ProceduralParser(Postprocessing postprocessing) {
-        this.postprocessing = postprocessing;
+    public ProceduralParser() {
     }
 
     private void persist(String line) {

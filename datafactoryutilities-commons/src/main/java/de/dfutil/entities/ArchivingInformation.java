@@ -1,6 +1,11 @@
 package de.dfutil.entities;
 
-public class ArchivingInformation {
+import jakarta.persistence.Embeddable;
+
+import java.io.Serializable;
+
+@Embeddable
+public class ArchivingInformation implements Serializable {
 
     private ArchivingObjectType archivingObjectType;
     private ArchivingState archivingState;
@@ -17,6 +22,10 @@ public class ArchivingInformation {
         this.schluessel = schluessel;
         this.status = status;
         this.schluesselNeu = schluesselNeu;
+    }
+
+    public ArchivingInformation() {
+
     }
 
     public ArchivingObjectType archivingObjectType() {

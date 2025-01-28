@@ -1,4 +1,4 @@
-package de.dfutil.downloader.core;
+package de.dfutil.downloading;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

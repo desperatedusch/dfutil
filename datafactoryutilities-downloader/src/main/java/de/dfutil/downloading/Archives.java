@@ -1,4 +1,4 @@
-package de.dfutil.downloader.core;
+package de.dfutil.downloading;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.lang.NonNull;
@@ -28,7 +28,7 @@ public class Archives {
         String destFilePath = destFile.getCanonicalPath();
 
         if (!destFilePath.startsWith(destDirPath + File.separator)) {
-            throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+            throw new IOException("Entry is outside of the target dir: {}" + zipEntry.getName());
         }
         return destFile;
     }

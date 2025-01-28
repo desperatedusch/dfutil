@@ -1,7 +1,7 @@
-package de.dfutil.importer;
+package de.dfutil;
 
-import de.dfutil.importer.files.InputSourceDetection;
-import de.dfutil.importer.files.parsing.Parser;
+import de.dfutil.importing.InputSourceDetection;
+import de.dfutil.importing.parsing.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

@@ -1,5 +1,6 @@
-package de.dfutil.importer.files;
+package de.dfutil.files;
 
+import de.dfutil.importing.InputSourceDetection;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,7 +3,7 @@ package de.dfutil.entities.jpa;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -14,11 +14,11 @@ public class ImportResult implements Serializable {
     private Long id;
 
     private String fileName;
-    private LocalDate importDate;
+    private LocalDateTime importDate;
     private boolean importSuccessful;
     private Long duration;
 
-    public ImportResult(String fileName, LocalDate importDate, boolean importSuccessful, Long duration) {
+    public ImportResult(String fileName, LocalDateTime importDate, boolean importSuccessful, Long duration) {
         this.fileName = fileName;
         this.importDate = importDate;
         this.importSuccessful = importSuccessful;
@@ -45,11 +45,11 @@ public class ImportResult implements Serializable {
         this.fileName = fileName;
     }
 
-    public LocalDate getImportDate() {
+    public LocalDateTime getImportDate() {
         return importDate;
     }
 
-    public void setImportDate(LocalDate importDate) {
+    public void setImportDate(LocalDateTime importDate) {
         this.importDate = importDate;
     }
 

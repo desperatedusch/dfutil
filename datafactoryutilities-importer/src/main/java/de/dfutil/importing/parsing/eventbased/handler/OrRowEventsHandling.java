@@ -1,7 +1,7 @@
-package de.dfutil.importer.files.parsing.eventbased.handler;
+package de.dfutil.importing.parsing.eventbased.handler;
 
-import de.dfutil.dao.jpa.KgRowRepository;
-import de.dfutil.entities.jpa.KgRow;
+import de.dfutil.dao.jpa.OrRowRepository;
+import de.dfutil.entities.jpa.OrRow;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,17 +13,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Profile({"eventbased-importing", "!procedural-importing "})
-public class KgRowEventsHandling implements EventDrivenImportHandling {
+public class OrRowEventsHandling implements EventDrivenImportHandling {
 
-    private static final Logger log = LoggerFactory.getLogger(KgRowEventsHandling.class);
+    private static final Logger log = LoggerFactory.getLogger(OrRowEventsHandling.class);
 
     @Autowired
-    private KgRowRepository jpaDao;
+    private OrRowRepository jpaDao;
 
-    public KgRowEventsHandling() {
+    public OrRowEventsHandling() {
     }
 
-    @EventListener(condition = "#event.rowType.name().startsWith('KG')")
+    @EventListener(condition = "#event.rowType.name().startsWith('OR')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.debug("event '{}' of type '{}' received", event.row(), event.rowType());
         persistEventContent(event);
@@ -31,8 +31,8 @@ public class KgRowEventsHandling implements EventDrivenImportHandling {
 
     @Override
     public void persistEventContent(RowParsedEvent event) {
-        KgRow entity = KgRow.parseFrom(event.row());
-        if (jpaDao.findById(entity.getKgRowId()).isEmpty())
+        OrRow entity = OrRow.parseFrom(event.row());
+        if (jpaDao.findById(entity.getOrRowId()).isEmpty())
             jpaDao.save(entity);
         else
             log.info("Entity already exists: {}", entity);

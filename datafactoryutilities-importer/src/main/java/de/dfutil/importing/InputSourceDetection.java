@@ -1,9 +1,7 @@
-package de.dfutil.importer.files;
+package de.dfutil.importing;
 
-import de.dfutil.dao.jpa.ImportResultRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -27,20 +25,15 @@ public class InputSourceDetection {
     @NonNull
     private String inputFilenameMask;
 
-    @Autowired
-    private ImportResultRepository importResults;
-
     public InputSourceDetection() {
     }
 
     public List<Path> findFiles() throws IOException {
-//        var alreadyProcessedPaths = importResults.findByFileName();
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
         log.info("Following input sources are detected:");
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
-//            files.stream().filter(f->f.getFileName().toFile().());
             result.addAll(files);
         }
         return result;

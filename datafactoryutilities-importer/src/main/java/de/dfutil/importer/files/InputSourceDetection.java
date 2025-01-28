@@ -1,4 +1,4 @@
-package de.dfutil.core.files;
+package de.dfutil.importer.files;
 
 import de.dfutil.dao.jpa.ImportResultRepository;
 import org.slf4j.Logger;

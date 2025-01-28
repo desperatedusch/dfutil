@@ -23,6 +23,7 @@
     <modules>
         <module>datafactoryutilities-commons</module>
         <module>datafactoryutilities-importer</module>
+        <module>datafactoryutilities-downloader</module>
         <module>datafactoryutilities-adressinformationprovider</module>
     </modules>
 

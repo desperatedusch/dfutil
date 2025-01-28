@@ -1,10 +1,10 @@
-package de.dfutil.core.files.parsing.eventbased;
+package de.dfutil.importer.files.parsing.eventbased;
 
 import com.google.common.base.Stopwatch;
-import de.dfutil.core.files.Postprocessing;
-import de.dfutil.core.files.parsing.Parser;
 import de.dfutil.events.FileParsingFinishedEvent;
 import de.dfutil.events.RowParsedEvent;
+import de.dfutil.importer.files.Postprocessing;
+import de.dfutil.importer.files.parsing.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Base64;
 
 @Service
 public class DatafactoryResources {
@@ -22,19 +25,30 @@ public class DatafactoryResources {
 
     private final WebClient client;
 
-    @Value("app.downloader.datafactory.resource.location")
-    private String baseUrl;
-    @Value("app.downloader.datafactory.resource.location")
+    @Value("${app.downloader.datafactory.resource.location}")
+    @NonNull
+    private String resourceUrl;
+    @Value("${app.downloader.target.destination.archived}")
+    @NonNull
     private String targetFolder;
+    @Value("${app.downloader.user}")
+    @NonNull
+    private String user;
+    @Value("${app.downloader.password}")
+    @NonNull
+    private String password;
 
     public DatafactoryResources() {
-        this.client = WebClient.builder().baseUrl(baseUrl)
+        this.client = WebClient.builder().baseUrl(resourceUrl)
                 .exchangeStrategies(useMaxMemory())
                 .build();
     }
 
     public long fetch() throws IOException {
-        Flux<DataBuffer> flux = client.get()
+        String basicAuthHeader = "basic " + Base64.getEncoder().encodeToString((user + ":" + password).getBytes());
+        Flux<DataBuffer> flux = client
+                .get()
+                .header(HttpHeaders.AUTHORIZATION, basicAuthHeader)
                 .retrieve()
                 .bodyToFlux(DataBuffer.class);
         Path path = Paths.get(targetFolder);
@@ -48,8 +62,7 @@ public class DatafactoryResources {
 
         return ExchangeStrategies.builder()
                 .codecs(configurer -> configurer.defaultCodecs()
-                        .maxInMemorySize((int) totalMemory)
-                )
+                        .maxInMemorySize((int) totalMemory))
                 .build();
     }
 

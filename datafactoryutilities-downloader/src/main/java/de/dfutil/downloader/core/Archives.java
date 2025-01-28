@@ -1,13 +1,13 @@
 package de.dfutil.downloader.core;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -15,11 +15,13 @@ import java.util.zip.ZipInputStream;
 public class Archives {
 
     @Value("app.downloader.target.destination.archived")
+    @NonNull
     private String archivedTargetDestination;
     @Value("app.downloader.target.destination.unzipped")
+    @NonNull
     private String targetDestination;
 
-    public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+    private static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
         File destFile = new File(destinationDir, zipEntry.getName());
 
         String destDirPath = destinationDir.getCanonicalPath();
@@ -31,11 +33,11 @@ public class Archives {
         return destFile;
     }
 
-    public void unzip(Path zipped) {
+    public void unzip() {
         byte[] buffer = new byte[1024];
-        ZipInputStream zis = null;
-        try {
-            zis = new ZipInputStream(new FileInputStream(archivedTargetDestination));
+        try (FileInputStream fis = new FileInputStream(archivedTargetDestination);
+             ZipInputStream zis = new ZipInputStream(fis)) {
+
             ZipEntry zipEntry = zis.getNextEntry();
             while (zipEntry != null) {
                 File newFile = newFile(new File(targetDestination), zipEntry);
@@ -57,8 +59,6 @@ public class Archives {
                 }
                 zipEntry = zis.getNextEntry();
             }
-            zis.closeEntry();
-            zis.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -21,7 +21,7 @@ public class Archives {
     @NonNull
     private String targetDestination;
 
-    private static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+    private File newFileFromZipEntry(File destinationDir, ZipEntry zipEntry) throws IOException {
         File destFile = new File(destinationDir, zipEntry.getName());
 
         String destDirPath = destinationDir.getCanonicalPath();
@@ -40,7 +40,7 @@ public class Archives {
 
             ZipEntry zipEntry = zis.getNextEntry();
             while (zipEntry != null) {
-                File newFile = newFile(new File(targetDestination), zipEntry);
+                File newFile = newFileFromZipEntry(new File(targetDestination), zipEntry);
                 if (zipEntry.isDirectory()) {
                     if (!newFile.isDirectory() && !newFile.mkdirs()) {
                         throw new IOException("Failed to create directory " + newFile);

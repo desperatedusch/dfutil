@@ -1,7 +1,7 @@
-package de.dfutil.core.handler;
+package de.dfutil.core.files.parsing.eventbased.handler;
 
-import de.dfutil.dao.jpa.OrRowRepository;
-import de.dfutil.entities.jpa.OrRow;
+import de.dfutil.dao.jpa.PlRowRepository;
+import de.dfutil.entities.jpa.PlRow;
 import de.dfutil.events.RowParsedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,17 +13,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Profile({"eventbased-importing", "!procedural-importing "})
-public class OrRowEventsHandling implements EventDrivenImportHandling {
+public class PlRowEventsHandling implements EventDrivenImportHandling {
 
-    private static final Logger log = LoggerFactory.getLogger(OrRowEventsHandling.class);
+    private static final Logger log = LoggerFactory.getLogger(PlRowEventsHandling.class);
 
     @Autowired
-    private OrRowRepository jpaDao;
+    private PlRowRepository jpaDao;
 
-    public OrRowEventsHandling() {
+    public PlRowEventsHandling() {
     }
 
-    @EventListener(condition = "#event.rowType.name().startsWith('OR')")
+    @EventListener(condition = "#event.rowType.name().startsWith('PL')")
     public void onApplicationEvent(@NonNull RowParsedEvent event) {
         log.debug("event '{}' of type '{}' received", event.row(), event.rowType());
         persistEventContent(event);
@@ -31,8 +31,8 @@ public class OrRowEventsHandling implements EventDrivenImportHandling {
 
     @Override
     public void persistEventContent(RowParsedEvent event) {
-        OrRow entity = OrRow.parseFrom(event.row());
-        if (jpaDao.findById(entity.getOrRowId()).isEmpty())
+        PlRow entity = PlRow.parseFrom(event.row());
+        if (jpaDao.findById(entity.getPlRowId()).isEmpty())
             jpaDao.save(entity);
         else
             log.info("Entity already exists: {}", entity);

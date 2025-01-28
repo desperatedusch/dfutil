@@ -21,9 +21,8 @@ import java.nio.file.Path;
 public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
-
-    private long lineCounter = 0;
-
+    private final Postprocessing postprocessing;
+    private long linesProcessed = 0;
     @Autowired
     private KgRowRepository kgRowRepository;
     @Autowired
@@ -35,8 +34,6 @@ public class ProceduralParser implements Parser {
     @Autowired
     private SbRowRepository sbRowRepository;
 
-    private final Postprocessing postprocessing;
-
     public ProceduralParser(Postprocessing postprocessing) {
         this.postprocessing = postprocessing;
     }
@@ -46,22 +43,38 @@ public class ProceduralParser implements Parser {
         switch (prefix) {
             case "KG":
                 KgRow kg = KgRow.parseFrom(line);
-                kgRowRepository.save(kg);
+                if (kgRowRepository.findById(kg.getKgRowId()).isEmpty()) {
+                    kgRowRepository.save(kg);
+                    linesProcessed++;
+                }
                 break;
             case "OB":
                 ObRow ob = ObRow.parseFrom(line);
-                obRowRepository.save(ob);
+                if (obRowRepository.findById(ob.getObRowId()).isEmpty()) {
+                    obRowRepository.save(ob);
+                    linesProcessed++;
+                }
                 break;
             case "OR":
                 OrRow or = OrRow.parseFrom(line);
-                orRowRepository.save(or);
+                if (orRowRepository.findById(or.getOrRowId()).isEmpty()) {
+                    orRowRepository.save(or);
+                    linesProcessed++;
+                }
                 break;
             case "PL":
                 PlRow pl = PlRow.parseFrom(line);
-                plRowRepository.save(pl);
+                if (plRowRepository.findById(pl.getPlRowId()).isEmpty()) {
+                    plRowRepository.save(pl);
+                    linesProcessed++;
+                }
+                break;
             case "SB":
                 SbRow sb = SbRow.parseFrom(line);
-                sbRowRepository.save(sb);
+                if (sbRowRepository.findById(sb.getSbRowId()).isEmpty()) {
+                    sbRowRepository.save(sb);
+                    linesProcessed++;
+                }
                 break;
             default:
                 log.warn("Unsupported prefix : {}", prefix);
@@ -76,7 +89,6 @@ public class ProceduralParser implements Parser {
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
                     persist(line);
-                    lineCounter++;
                 }
             }
             stopwatch.stop();
@@ -92,7 +104,7 @@ public class ProceduralParser implements Parser {
 
     @Override
     public long rowCount() {
-        return lineCounter;
+        return linesProcessed;
     }
 
 }

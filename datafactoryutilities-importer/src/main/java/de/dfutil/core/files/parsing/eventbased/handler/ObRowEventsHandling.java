@@ -1,4 +1,4 @@
-package de.dfutil.core.handler;
+package de.dfutil.core.files.parsing.eventbased.handler;
 
 import de.dfutil.dao.jpa.ObRowRepository;
 import de.dfutil.entities.jpa.ObRow;

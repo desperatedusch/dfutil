@@ -6,6 +6,7 @@ import de.dfutil.entities.RowType;
 import de.dfutil.entities.jpa.ids.ObRowId;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -26,6 +27,9 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
     private String otlStverz;
     private String otlName;
     private String otlKgs;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String uuid;
+    private LocalDateTime outdatedAt;
 
     public static ObRow parseFrom(String rowBytes) {
         ObRow row = new ObRow();
@@ -93,6 +97,22 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
 
     public void setObRowId(ObRowId obRowId) {
         this.obRowId = obRowId;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public LocalDateTime getOutdatedAt() {
+        return outdatedAt;
+    }
+
+    public void setOutdatedAt(LocalDateTime outdatedSince) {
+        this.outdatedAt = outdatedSince;
     }
 
 }

@@ -25,7 +25,7 @@ public class DatafactoryResources {
 
     private final WebClient client;
 
-    @Value("${app.downloader.datafactory.resource.location}")
+    @Value("${app.downloader.resource.url}")
     @NonNull
     private String resourceUrl;
     @Value("${app.downloader.target.destination.archived}")

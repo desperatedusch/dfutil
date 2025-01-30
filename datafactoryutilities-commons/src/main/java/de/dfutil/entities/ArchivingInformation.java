@@ -15,6 +15,8 @@ public class ArchivingInformation implements Serializable {
     private String status;
     private String schluesselNeu;
 
+    private ArchivablePostalObject predecessor;
+
     public ArchivingInformation(ArchivingObjectType archivingObjectType, ArchivingState archivingState, String datum, String schluessel, String status, String schluesselNeu) {
         this.archivingObjectType = archivingObjectType;
         this.archivingState = archivingState;

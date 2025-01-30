@@ -1,5 +1,6 @@
 package de.dfutil;
 
+import de.dfutil.downloading.Archives;
 import de.dfutil.downloading.DatafactoryResources;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,8 @@ public class DatafactoryDownloader implements CommandLineRunner {
 
     @Autowired
     private DatafactoryResources datafactoryFiles;
+    @Autowired
+    private Archives archives;
 
     public DatafactoryDownloader() {
     }
@@ -27,6 +30,7 @@ public class DatafactoryDownloader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         datafactoryFiles.fetch();
+        archives.unzip();
     }
 
 }

@@ -6,6 +6,7 @@ import de.dfutil.entities.RowType;
 import de.dfutil.entities.jpa.ids.OrRowId;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -30,6 +31,11 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
     private String ortOname24;
     private String ortKgs;
     private String ortANeu;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String uuid;
+    private LocalDateTime outdatedAt;
+
+
 
     public static OrRow parseFrom(String rowBytes) {
         OrRow row = new OrRow();
@@ -135,6 +141,22 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
 
     public OrRowId getOrRowId() {
         return orRowId;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public LocalDateTime getOutdatedAt() {
+        return outdatedAt;
+    }
+
+    public void setOutdatedAt(LocalDateTime outdatedSince) {
+        this.outdatedAt = outdatedSince;
     }
 
 }

@@ -1,4 +1,4 @@
-package de.dfutil.importer.files;
+package de.dfutil.files;
 
 import de.dfutil.dao.jpa.ImportResultRepository;
 import de.dfutil.entities.jpa.ImportResult;

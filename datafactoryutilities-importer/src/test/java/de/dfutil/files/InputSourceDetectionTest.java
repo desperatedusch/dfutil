@@ -1,4 +1,4 @@
-package de.dfutil.importer.files;
+package de.dfutil.files;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

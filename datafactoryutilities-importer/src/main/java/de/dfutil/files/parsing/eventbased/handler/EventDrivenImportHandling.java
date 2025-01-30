@@ -1,4 +1,4 @@
-package de.dfutil.importer.files.parsing.eventbased.handler;
+package de.dfutil.files.parsing.eventbased.handler;
 
 import de.dfutil.events.RowParsedEvent;
 import org.springframework.context.annotation.Profile;

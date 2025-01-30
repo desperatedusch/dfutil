@@ -5,11 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds basic ZipArchive Handling">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/updating/Updater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader/core/Archives.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader/core/Archives.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader/core/DatafactoryResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader/core/DatafactoryResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader/DatafactoryDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/DatafactoryDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader/core/Archives.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/core/Archives.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader/core/DatafactoryResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/core/DatafactoryResources.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/InputSourceDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/Postprocessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/Postprocessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/eventbased/EmittingParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/eventbased/EmittingParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/eventbased/handler/EventDrivenImportHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/eventbased/handler/EventDrivenImportHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/eventbased/handler/KgRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/eventbased/handler/KgRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/eventbased/handler/ObRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/eventbased/handler/ObRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/eventbased/handler/OrRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/eventbased/handler/OrRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/eventbased/handler/PlRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/eventbased/handler/PlRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/eventbased/handler/SbRowEventsHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/eventbased/handler/SbRowEventsHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/parsing/procedural/ProceduralParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/parsing/procedural/ProceduralParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importer/files/InputSourceDetectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/files/InputSourceDetectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importer/files/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/files/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importer/files/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/files/TestConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +128,7 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -191,7 +209,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "advanced.settings",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   }
@@ -229,11 +247,11 @@
       <recent name="de.dfutil.entities.format.v2308213" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil" />
       <recent name="de.dfutil.core.files.parsing.procedural" />
       <recent name="de.dfutil.core.files.parsing.eventbased" />
       <recent name="de.dfutil.core.files.parsing" />
       <recent name="de.dfutil.entities" />
-      <recent name="de.dfutil.core.files" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="de.dfutil.core.services" />
@@ -339,7 +357,7 @@
     </configuration>
     <configuration name="DatafactoryDownloader" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="datafactoryutilities-downloader" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.downloader.DatafactoryDownloader" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.DatafactoryDownloader" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -347,7 +365,7 @@
     <configuration name="DatafactoryImporter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="procedural-importing" />
       <module name="datafactoryutilities-importer" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.importer.DatafactoryImporter" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.DatafactoryImporter" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -526,23 +544,8 @@
       <workItem from="1737711903697" duration="144000" />
       <workItem from="1737712658441" duration="14652000" />
       <workItem from="1737961842432" duration="14674000" />
-      <workItem from="1738052657095" duration="15125000" />
-    </task>
-    <task id="LOCAL-00034" summary="Integrated H2 Server into Unit Test (not finished)">
-      <option name="closed" value="true" />
-      <created>1731754430801</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1731754430801</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Adds profiles for development and different modes of persistence [redis, jpa]">
-      <option name="closed" value="true" />
-      <created>1732204595627</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1732204595627</updated>
+      <workItem from="1738052657095" duration="15368000" />
+      <workItem from="1738219459304" duration="7638000" />
     </task>
     <task id="LOCAL-00036" summary="Adds profiles for development and different modes of persistence [redis, jpa]">
       <option name="closed" value="true" />
@@ -920,7 +923,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738068748829</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Adds basic ZipArchive Handling">
+      <option name="closed" value="true" />
+      <created>1738074091113</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1738074091114</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Adds basic ZipArchive Handling">
+      <option name="closed" value="true" />
+      <created>1738074213367</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1738074213367</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1001,12 +1020,12 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/InputSourceDetection.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/files/InputSourceDetection.java</url>
           <line>48</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importer/files/InputSourceDetectionTest.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/files/InputSourceDetectionTest.java</url>
           <line>21</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
@@ -1031,7 +1050,7 @@
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/DatafactoryImporter.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
           <line>34</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>

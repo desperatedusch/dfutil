@@ -1,4 +1,4 @@
-package de.dfutil.downloader.core;
+package de.dfutil.core;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.lang.NonNull;

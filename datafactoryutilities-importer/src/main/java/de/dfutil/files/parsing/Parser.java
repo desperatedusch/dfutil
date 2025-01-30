@@ -1,4 +1,4 @@
-package de.dfutil.importer.files.parsing;
+package de.dfutil.files.parsing;
 
 import java.nio.file.Path;
 

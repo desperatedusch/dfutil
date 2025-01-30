@@ -21,8 +21,11 @@ import java.nio.file.Path;
 public class ProceduralParser implements Parser {
 
     private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
-    private final Postprocessing postprocessing;
+
     private long linesProcessed = 0;
+
+    @Autowired
+    private Postprocessing postprocessing;
     @Autowired
     private KgRowRepository kgRowRepository;
     @Autowired
@@ -34,8 +37,7 @@ public class ProceduralParser implements Parser {
     @Autowired
     private SbRowRepository sbRowRepository;
 
-    public ProceduralParser(Postprocessing postprocessing) {
-        this.postprocessing = postprocessing;
+    public ProceduralParser() {
     }
 
     private void persist(String line) {

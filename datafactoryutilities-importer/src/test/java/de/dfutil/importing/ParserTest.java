@@ -1,6 +1,3 @@
-package de.dfutil.importing;
-
-
 import de.dfutil.importing.parsing.eventbased.EmittingParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

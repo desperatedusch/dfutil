@@ -29,7 +29,6 @@ public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
     private KgRowId kgRowId;
     private String kgName;
 
-
     public static KgRow parseFrom(String rowBytes) {
         KgRow row = new KgRow();
         row.kgDatum = rowBytes.substring(9, 17);

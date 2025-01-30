@@ -1,4 +1,4 @@
-package de.dfutil.files;
+package de.dfutil.importing;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;

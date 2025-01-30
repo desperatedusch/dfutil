@@ -1,10 +1,10 @@
-package de.dfutil.files.parsing.procedural;
+package de.dfutil.importing.parsing.procedural;
 
 import com.google.common.base.Stopwatch;
 import de.dfutil.dao.jpa.*;
 import de.dfutil.entities.jpa.*;
-import de.dfutil.files.Postprocessing;
-import de.dfutil.files.parsing.Parser;
+import de.dfutil.importing.Postprocessing;
+import de.dfutil.importing.parsing.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

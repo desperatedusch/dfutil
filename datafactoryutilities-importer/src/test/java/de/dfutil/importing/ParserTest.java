@@ -1,7 +1,7 @@
-package de.dfutil.files;
+package de.dfutil.importing;
 
 
-import de.dfutil.files.parsing.eventbased.EmittingParser;
+import de.dfutil.importing.parsing.eventbased.EmittingParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

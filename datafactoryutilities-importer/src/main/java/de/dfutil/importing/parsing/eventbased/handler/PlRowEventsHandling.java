@@ -1,4 +1,4 @@
-package de.dfutil.files.parsing.eventbased.handler;
+package de.dfutil.importing.parsing.eventbased.handler;
 
 import de.dfutil.dao.jpa.PlRowRepository;
 import de.dfutil.entities.jpa.PlRow;

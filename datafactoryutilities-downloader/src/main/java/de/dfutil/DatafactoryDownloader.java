@@ -1,6 +1,6 @@
 package de.dfutil;
 
-import de.dfutil.core.DatafactoryResources;
+import de.dfutil.downloading.DatafactoryResources;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

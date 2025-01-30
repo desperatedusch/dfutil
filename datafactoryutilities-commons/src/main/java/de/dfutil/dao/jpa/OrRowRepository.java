@@ -14,6 +14,9 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus != 'G'")
     List<OrRow> findByStatusSuccessionRelevant();
 
+    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'G' and ort.orRowId = ?1")
+    List<OrRow> findValidById(OrRowId id);
+
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'W' and ort.outdatedAt is null ")
     List<OrRow> findProcessableOrphans();
 

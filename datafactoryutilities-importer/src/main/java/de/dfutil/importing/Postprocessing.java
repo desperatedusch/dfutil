@@ -18,11 +18,23 @@ public class Postprocessing {
     }
 
     public void parsedSuccessfully(Path inputSource, Long duration) {
-        importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDateTime.now(), true, duration));
+        importResultRepository.save(
+                new ImportResult(
+                        inputSource.getFileName().toString(),
+                        LocalDateTime.now(),
+                        true,
+                        duration)
+        );
     }
 
     public void parsingFailed(Path inputSource, Long duration) {
-        importResultRepository.save(new ImportResult(inputSource.getFileName().toString(), LocalDateTime.now(), false, null));
+        importResultRepository.save(
+                new ImportResult(
+                        inputSource.getFileName().toString(),
+                        LocalDateTime.now(),
+                        false,
+                        null)
+        );
     }
 
 }

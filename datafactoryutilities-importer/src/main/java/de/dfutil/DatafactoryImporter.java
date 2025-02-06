@@ -8,11 +8,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
 
+@EnableTransactionManagement
 @SpringBootApplication
 public class DatafactoryImporter implements CommandLineRunner {
 

@@ -43,6 +43,7 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
     private LocalDateTime outdatedAt;
+    private LocalDateTime alreadyAppliedAt;
 
     public static SbRow parseFrom(String rowBytes) {
         SbRow row = new SbRow();
@@ -255,6 +256,14 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
 
     public void setOutdatedAt(LocalDateTime outdatedSince) {
         this.outdatedAt = outdatedSince;
+    }
+
+    public LocalDateTime alreadyAppliedAt() {
+        return alreadyAppliedAt;
+    }
+
+    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
+        this.alreadyAppliedAt = alreadyAppliedAt;
     }
 
 }

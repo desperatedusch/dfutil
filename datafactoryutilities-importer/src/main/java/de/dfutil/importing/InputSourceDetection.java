@@ -41,7 +41,7 @@ public class InputSourceDetection {
 
     private List<Path> inputSourceFolders() {
         var folders2Scan = new ArrayList<Path>();
-        var stringTokenizer = new StringTokenizer(inputFolders, ";", false);
+        final var stringTokenizer = new StringTokenizer(inputFolders, ";", false);
         while (stringTokenizer.hasMoreTokens()) {
             String token = stringTokenizer.nextToken();
             folders2Scan.add(Paths.get(token));
@@ -52,7 +52,7 @@ public class InputSourceDetection {
     }
 
     private List<Path> searchFilesIn(Path startPath) throws IOException {
-        var pattern = "glob:" + inputFilenameMask;
+        final var pattern = "glob:" + inputFilenameMask;
         final var pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
         final var paths = new ArrayList<Path>();
         Files.walkFileTree(startPath, new SimpleFileVisitor<>() {

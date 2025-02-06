@@ -34,8 +34,7 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
     private LocalDateTime outdatedAt;
-
-
+    private LocalDateTime alreadyAppliedAt;
 
     public static OrRow parseFrom(String rowBytes) {
         OrRow row = new OrRow();
@@ -159,6 +158,13 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
         this.outdatedAt = outdatedSince;
     }
 
+    public LocalDateTime alreadyAppliedAt() {
+        return alreadyAppliedAt;
+    }
+
+    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
+        this.alreadyAppliedAt = alreadyAppliedAt;
+    }
 }
 
 

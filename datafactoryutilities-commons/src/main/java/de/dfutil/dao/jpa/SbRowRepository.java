@@ -11,17 +11,18 @@ import java.util.List;
 @Repository
 public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
 
-    @Query("Select sb from SbRow sb where sb.sbRowId.strStatus != 'G'")
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus != 'G'")
     List<SbRow> findByStatusSuccessionRelevant();
 
-    @Query("Select sb from SbRow sb where sb.sbRowId.strStatus = 'W' and sb.outdatedAt is null ")
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'G' and strasse.sbRowId = ?1")
+    List<SbRow> findValidById(SbRowId id);
+
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'W' and strasse.outdatedAt is null ")
     List<SbRow> findProcessableOrphans();
 
-    @Query("Select sb from SbRow sb where sb.sbRowId.strStatus = 'N'")
-    List<SbRow> findAllByStatusN();
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'N'")
+    List<SbRow> findAllWithMultipleSuccessors();
 
-    @Query("Select sb from SbRow sb where sb.sbRowId.strStatus = 'S'")
-    List<SbRow> findAllByStatusS();
-
-
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'S'")
+    List<SbRow> findAllWithSingleSuccessor();
 }

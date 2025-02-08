@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "PLZ", indexes = @Index(columnList = "PLZ_PLZ,PLZ_ALORT"))
-public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
+public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObject {
 
     private final static RowType rowType = RowType.PL;
 
@@ -45,6 +45,7 @@ public class PlRow implements AbstractRow<PlRow>, SerializablePostalObject {
 
     public static PlRow parseFrom(String rowBytes) {
         PlRow row = new PlRow();
+        row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.plzDatum = rowBytes.substring(9, 17);
         row.plzArtKardinalität = rowBytes.substring(30, 31);
         row.plzArtAuslierferung = rowBytes.substring(31, 32);

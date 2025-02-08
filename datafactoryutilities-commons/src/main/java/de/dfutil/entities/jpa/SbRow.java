@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "STRASSE", indexes = @Index(columnList = "STR_ALORT,STR_NAMEN_SCHL,STR_BUND_LFDNR,STR_HNRVON,STR_HNRBIS,STR_STATUS,STR_HNR1000"))
-public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
+public class SbRow extends AbstractRow<SbRow> implements ArchivablePostalObject {
 
     private final static RowType rowType = RowType.SB;
 
@@ -40,13 +40,12 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
     private String strBundLfdnrNeu;
     private String strHnrvonNeu;
     private String strHnrbisNeu;
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
     public static SbRow parseFrom(String rowBytes) {
         SbRow row = new SbRow();
+        row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.strDatum = rowBytes.substring(9, 17);
         row.strStverz = rowBytes.substring(54, 55);
         row.strNameSort = rowBytes.substring(55, 101);
@@ -240,14 +239,6 @@ public class SbRow implements AbstractRow<SbRow>, ArchivablePostalObject {
 
     public String getStrNameSort() {
         return strNameSort;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     public LocalDateTime getOutdatedAt() {

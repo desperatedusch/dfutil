@@ -1,4 +1,5 @@
-import de.dfutil.importing.parsing.eventbased.EmittingParser;
+package de.dfutil.importing;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.io.IOException;
 public class ParserTest {
 
     @Autowired
-    private EmittingParser cut;
+    private Parser cut;
 
     @Autowired
     private ResourceLoader resourceLoader;

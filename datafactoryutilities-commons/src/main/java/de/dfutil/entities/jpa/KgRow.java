@@ -17,7 +17,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "AGS", indexes = @Index(columnList = "KG_SCHLUESSEL,KG_SATZART"))
-public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
+public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObject {
 
     private final static RowType rowType = RowType.KG;
 
@@ -31,6 +31,7 @@ public class KgRow implements AbstractRow<KgRow>, SerializablePostalObject {
 
     public static KgRow parseFrom(String rowBytes) {
         KgRow row = new KgRow();
+        row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.kgDatum = rowBytes.substring(9, 17);
         row.kgName = rowBytes.substring(26, 66);
         row.kgRowId = new KgRowId

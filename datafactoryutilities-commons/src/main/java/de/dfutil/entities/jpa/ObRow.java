@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "ORTSTEIL", indexes = @Index(columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"))
-public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
+public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OB;
 
@@ -27,13 +27,12 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
     private String otlStverz;
     private String otlName;
     private String otlKgs;
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
     public static ObRow parseFrom(String rowBytes) {
         ObRow row = new ObRow();
+        row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.otlDatum = rowBytes.substring(9, 17);
         row.otlStverz = rowBytes.substring(34, 35);
         row.otlName = rowBytes.substring(35, 75);
@@ -98,14 +97,6 @@ public class ObRow implements AbstractRow<ObRow>, ArchivablePostalObject {
 
     public void setObRowId(ObRowId obRowId) {
         this.obRowId = obRowId;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     public LocalDateTime getOutdatedAt() {

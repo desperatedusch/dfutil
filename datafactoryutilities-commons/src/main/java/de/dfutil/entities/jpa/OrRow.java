@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "ORT", indexes = @Index(columnList = "ORT_ALORT,ORT_STATUS"))
-public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
+public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OR;
 
@@ -30,14 +30,13 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
     private String ortArtOzusatz;
     private String ortOname24;
     private String ortKgs;
-    private String ortANeu;
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
+    private String ortAlortNeu;
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
     public static OrRow parseFrom(String rowBytes) {
         OrRow row = new OrRow();
+        row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.ortDatum = rowBytes.substring(9, 17);
         row.ortOname = rowBytes.substring(26, 66);
         row.ortOnamePost = rowBytes.substring(66, 106);
@@ -45,7 +44,7 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
         row.ortArtOzusatz = rowBytes.substring(136, 137);
         row.ortOname24 = rowBytes.substring(137, 161);
         row.ortKgs = rowBytes.substring(161, 169);
-        row.ortANeu = rowBytes.substring(169, 177);
+        row.ortAlortNeu = rowBytes.substring(169, 177);
         row.orRowId = new OrRowId
                 (
                         rowBytes.substring(17, 25),
@@ -66,12 +65,12 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
         return rowType;
     }
 
-    public String getOrtANeu() {
-        return ortANeu;
+    public String getOrtAlortNeu() {
+        return ortAlortNeu;
     }
 
-    public void setOrtANeu(String ortANeu) {
-        this.ortANeu = ortANeu;
+    public void setOrtAlortNeu(String ortANeu) {
+        this.ortAlortNeu = ortANeu;
     }
 
     public String getOrtKgs() {
@@ -140,14 +139,6 @@ public class OrRow implements AbstractRow<OrRow>, ArchivablePostalObject {
 
     public OrRowId getOrRowId() {
         return orRowId;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     public LocalDateTime getOutdatedAt() {

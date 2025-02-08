@@ -1,14 +1,11 @@
-package de.dfutil.importing.parsing.procedural;
+package de.dfutil.importing;
 
 import com.google.common.base.Stopwatch;
 import de.dfutil.dao.jpa.*;
 import de.dfutil.entities.jpa.*;
-import de.dfutil.importing.Postprocessing;
-import de.dfutil.importing.parsing.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -17,10 +14,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 @Service
-@Profile({"procedural-importing ", "!eventbased-importing"})
-public class ProceduralParser implements Parser {
+public class Parser {
 
-    private static final Logger log = LoggerFactory.getLogger(ProceduralParser.class);
+    private static final Logger log = LoggerFactory.getLogger(Parser.class);
 
     private long linesProcessed = 0;
 
@@ -37,7 +33,7 @@ public class ProceduralParser implements Parser {
     @Autowired
     private SbRowRepository sbRowRepository;
 
-    public ProceduralParser() {
+    public Parser() {
     }
 
     private void persist(String line) {
@@ -79,7 +75,7 @@ public class ProceduralParser implements Parser {
                 }
                 break;
             default:
-                log.warn("Unsupported prefix : {}", prefix);
+//                log.warn("Unsupported prefix : {}", prefix);
         }
     }
 
@@ -104,7 +100,6 @@ public class ProceduralParser implements Parser {
         }
     }
 
-    @Override
     public long rowCount() {
         return linesProcessed;
     }

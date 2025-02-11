@@ -11,17 +11,16 @@ import java.util.List;
 @Repository
 public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
 
-    @Query("Select agsObject from KgRow agsObject where 'G' = agsObject.kgRowId.kgSatzart")
+    @Query("SELECT agsObject FROM KgRow agsObject WHERE 'G' = agsObject.kgRowId.kgSatzart")
     List<KgRow> communities();
 
-    @Query("Select agsObject from KgRow agsObject where 'K' = agsObject.kgRowId.kgSatzart")
+    @Query("select agsObject FROM KgRow agsObject WHERE 'K' = agsObject.kgRowId.kgSatzart")
     List<KgRow> ruralDistricts();
 
-    @Query("Select agsObject from KgRow agsObject where 'R' = agsObject.kgRowId.kgSatzart")
+    @Query("select agsObject FROM KgRow agsObject WHERE 'R' = agsObject.kgRowId.kgSatzart")
     List<KgRow> administrativeRegions();
 
-    @Query("Select agsObject from KgRow agsObject where 'L' = agsObject.kgRowId.kgSatzart")
+    @Query("select agsObject FROM KgRow agsObject WHERE 'L' = agsObject.kgRowId.kgSatzart")
     List<KgRow> federalStates();
-
 
 }

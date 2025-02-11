@@ -5,6 +5,7 @@ import de.dfutil.entities.jpa.ImportResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,6 +20,9 @@ public class Postprocessing {
 
     @Autowired
     private ImportResultRepository importResultRepository;
+
+    @Value("${app.importer.inputsource.delete-after-successful-processing}")
+    private boolean deleteAfterSuccessfulProcessing;
 
     public Postprocessing() {
     }
@@ -45,7 +49,9 @@ public class Postprocessing {
 
     public void deleteProcessedInputSources(Path inputSource) {
         try {
-            Files.deleteIfExists(inputSource);
+            if (deleteAfterSuccessfulProcessing) {
+                Files.deleteIfExists(inputSource);
+            }
         } catch (IOException e) {
             log.error("Failed to delete input source: {}", inputSource, e);
             throw new RuntimeException(e.getMessage(), e);

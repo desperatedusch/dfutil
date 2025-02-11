@@ -75,7 +75,7 @@ public class Parser {
                 }
                 break;
             default:
-//                log.warn("Unsupported prefix : {}", prefix);
+                log.info("Unsupported prefix : {}", prefix);
         }
     }
 
@@ -93,6 +93,7 @@ public class Parser {
             duration = stopwatch.elapsed().toMillis();
             log.info("Successfully parsed file {} within {} ms", path, duration);
             postprocessing.parsedSuccessfully(path, duration);
+            postprocessing.deleteProcessedInputSources(path);
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
             postprocessing.parsingFailed(path, null);

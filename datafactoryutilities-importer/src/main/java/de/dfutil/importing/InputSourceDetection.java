@@ -1,7 +1,10 @@
 package de.dfutil.importing;
 
+import de.dfutil.dao.jpa.ImportResultRepository;
+import de.dfutil.entities.jpa.ImportResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,11 @@ public class InputSourceDetection {
 
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
 
+    private final List<ImportResult> alreadySuccessfulImports;
+
+    @Autowired
+    private ImportResultRepository importResultRepository;
+
     @Value("${app.importer.inputsource.folders}")
     @NonNull
     private String inputFolders;
@@ -26,12 +34,12 @@ public class InputSourceDetection {
     private String inputFilenameMask;
 
     public InputSourceDetection() {
+        alreadySuccessfulImports = importResultRepository.findAllSuccessfulImportResults();
     }
 
     public List<Path> findFiles() throws IOException {
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
-        log.info("Following input sources are detected:");
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
             result.addAll(files);
@@ -60,8 +68,13 @@ public class InputSourceDetection {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
                 if (attrs.isRegularFile()) {
-                    if (pathMatcher.matches(file.getFileName())) {
-                        log.info(file.toFile().getAbsolutePath());
+                    Path fileName = file.getFileName();
+                    if (pathMatcher.matches(fileName)) {
+                        if (alreadySuccessfulImports.stream().anyMatch(ir -> ir.getFileName().equals(fileName.toString()))) {
+                            log.info("File {} was already processed successfully", file.toFile().getAbsolutePath());
+                            return FileVisitResult.CONTINUE;
+                        }
+                        log.info("File {} is detetected for processing", file.toFile().getAbsolutePath());
                         paths.add(file);
                     }
                 }

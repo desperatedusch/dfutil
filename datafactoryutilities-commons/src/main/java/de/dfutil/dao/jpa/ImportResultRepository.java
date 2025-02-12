@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ImportResultRepository extends JpaRepository<ImportResult, Long> {
 
-    @Query("SELECT importResult FROM ImportResult importResult WHERE importResult.importSuccessful")
-    public List<ImportResult> findAllSuccessfulImportResults();
+    @Query("SELECT importResult FROM ImportResult importResult WHERE importResult.importSuccessful = TRUE")
+    List<ImportResult> findAllSuccessfulImportResults();
 
 }

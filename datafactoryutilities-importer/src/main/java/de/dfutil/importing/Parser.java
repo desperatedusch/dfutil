@@ -76,7 +76,6 @@ public class Parser {
                 }
                 break;
             default:
-                log.warn("Unsupported prefix : {}", prefix);
         }
     }
 

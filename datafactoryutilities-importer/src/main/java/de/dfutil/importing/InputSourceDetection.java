@@ -38,9 +38,9 @@ public class InputSourceDetection {
     }
 
     public List<Path> findFiles() throws IOException {
-        alreadySuccessfulImports = importResultRepository.findAllSuccessfulImportResults();
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
+        alreadySuccessfulImports = importResultRepository.findAllSuccessfulImportResults();
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
             result.addAll(files);

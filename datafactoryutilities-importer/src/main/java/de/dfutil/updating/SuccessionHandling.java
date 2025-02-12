@@ -27,7 +27,6 @@ public class SuccessionHandling {
         List<OrRow> processableOrphanedOr = orRowRepository.findProcessableOrphans();
         List<ObRow> processableOrphanedOb = obRowRepository.findProcessableOrphans();
         List<SbRow> processableOrphanedSb = sbRowRepository.findProcessableOrphans();
-
     }
 
     public void hasSuccessor() {

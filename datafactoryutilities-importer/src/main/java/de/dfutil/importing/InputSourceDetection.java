@@ -21,7 +21,7 @@ public class InputSourceDetection {
 
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
 
-    private final List<ImportResult> alreadySuccessfulImports;
+    private List<ImportResult> alreadySuccessfulImports;
 
     @Autowired
     private ImportResultRepository importResultRepository;
@@ -34,10 +34,11 @@ public class InputSourceDetection {
     private String inputFilenameMask;
 
     public InputSourceDetection() {
-        alreadySuccessfulImports = importResultRepository.findAllSuccessfulImportResults();
+
     }
 
     public List<Path> findFiles() throws IOException {
+        alreadySuccessfulImports = importResultRepository.findAllSuccessfulImportResults();
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
         for (var folder : folders) {

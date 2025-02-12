@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds basic ZipArchive Handling">
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Check in InputSourceDetection for already processed files and prevent importing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/ImportResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/ImportResultRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/KgRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/KgRowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EventConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EventConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Postprocessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Postprocessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -536,15 +531,9 @@
       <workItem from="1738247564371" duration="6129000" />
       <workItem from="1739188367705" duration="4212000" />
       <workItem from="1739256498427" duration="2877000" />
-      <workItem from="1739261040341" duration="9330000" />
-    </task>
-    <task id="LOCAL-00037" summary="Adds profiles for development and different modes of persistence [redis, jpa]">
-      <option name="closed" value="true" />
-      <created>1732273428195</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1732273428195</updated>
+      <workItem from="1739261040341" duration="9538000" />
+      <workItem from="1739275637525" duration="1730000" />
+      <workItem from="1739336958515" duration="2238000" />
     </task>
     <task id="LOCAL-00038" summary="Removes redis temporary">
       <option name="closed" value="true" />
@@ -930,7 +919,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738246033626</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Check in InputSourceDetection for already processed files and prevent importing">
+      <option name="closed" value="true" />
+      <created>1739274556094</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1739274556094</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -972,7 +969,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Or and Ol implementation" />
     <MESSAGE value="Minor bugfixes" />
     <MESSAGE value="Reformats source code  and changes input data structure" />
     <MESSAGE value="Use EmbeddedId annotations for combined natural primary key attributes" />
@@ -997,7 +993,8 @@
     <MESSAGE value="Some minor bugfixes" />
     <MESSAGE value="Adds new module with a basic downloader component" />
     <MESSAGE value="Adds basic ZipArchive Handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds basic ZipArchive Handling" />
+    <MESSAGE value="Check in InputSourceDetection for already processed files and prevent importing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check in InputSourceDetection for already processed files and prevent importing" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

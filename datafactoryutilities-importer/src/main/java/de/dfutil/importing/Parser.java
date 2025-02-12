@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Path;
 
 @Service
@@ -75,12 +76,12 @@ public class Parser {
                 }
                 break;
             default:
-                log.info("Unsupported prefix : {}", prefix);
+                log.warn("Unsupported prefix : {}", prefix);
         }
     }
 
     public void fromFile(Path path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path.toFile(), Charset.forName("Cp850")))) {
             var stopwatch = Stopwatch.createStarted();
             long duration;
             String line;

@@ -13,7 +13,7 @@ import java.util.Date;
  * Repräsentiert Orte
  */
 @Entity
-@Table(name = "ORT", indexes = @Index(columnList = "ORT_ALORT,ORT_STATUS"))
+@Table(name = "ORT", indexes = @Index(name = "IDX_ORT___ORT_ALORT__ORT_STATUS", columnList = "ORT_ALORT,ORT_STATUS"))
 public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OR;

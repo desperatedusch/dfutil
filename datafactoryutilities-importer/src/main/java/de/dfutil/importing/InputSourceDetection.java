@@ -2,6 +2,7 @@ package de.dfutil.importing;
 
 import de.dfutil.dao.jpa.ImportResultRepository;
 import de.dfutil.entities.jpa.ImportResult;
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class InputSourceDetection {
 
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
 
-    private List<ImportResult> alreadySuccessfulImports;
+    private List<ImportResult> alreadySuccessfulImported;
 
     @Autowired
     private ImportResultRepository importResultRepository;
@@ -37,10 +38,17 @@ public class InputSourceDetection {
 
     }
 
+    @PostConstruct
+    public void postConstruct() {
+        alreadySuccessfulImported = new ArrayList<>();
+        List<ImportResult> all = importResultRepository.findAll();
+        alreadySuccessfulImported =
+                all.stream().filter(ImportResult::isImportSuccessful).toList();
+    }
+
     public List<Path> findFiles() throws IOException {
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
-        alreadySuccessfulImports = importResultRepository.findAllSuccessfulImportResults();
         for (var folder : folders) {
             List<Path> files = searchFilesIn(folder);
             result.addAll(files);
@@ -71,7 +79,7 @@ public class InputSourceDetection {
                 if (attrs.isRegularFile()) {
                     Path fileName = file.getFileName();
                     if (pathMatcher.matches(fileName)) {
-                        if (alreadySuccessfulImports.stream().anyMatch(ir -> ir.getFileName().equals(fileName.toString()))) {
+                        if (alreadySuccessfulImported.stream().anyMatch(ir -> ir.getFileName().equals(fileName.toString()))) {
                             log.info("File {} was already processed successfully", file.toFile().getAbsolutePath());
                             return FileVisitResult.CONTINUE;
                         }

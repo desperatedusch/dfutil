@@ -13,7 +13,7 @@ import java.util.Date;
  * Repräsentiert Ortsteile
  */
 @Entity
-@Table(name = "ORTSTEIL", indexes = @Index(columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"))
+@Table(name = "ORTSTEIL", indexes = @Index(name = "IDX_ORTSTEIL___OTL_ALORT__OTL_SCHL__OTL_PLZ__OTL_STATUS", columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"))
 public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject {
 
     private final static RowType rowType = RowType.OB;

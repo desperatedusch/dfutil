@@ -16,7 +16,7 @@ import java.util.Date;
  * STRA-DB, OTL-DB und PLZ-DA dargestellt.
  */
 @Entity
-@Table(name = "AGS", indexes = @Index(columnList = "KG_SCHLUESSEL,KG_SATZART"))
+@Table(name = "AGS", indexes = @Index(name = "IDX_AGS___KG_SCHLUESSEL__KG_SATZART", columnList = "KG_SCHLUESSEL,KG_SATZART"))
 public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObject {
 
     private final static RowType rowType = RowType.KG;

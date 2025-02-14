@@ -80,7 +80,7 @@ public class InputSourceDetection {
                     Path fileName = file.getFileName();
                     if (pathMatcher.matches(fileName)) {
                         if (alreadySuccessfulImported.stream().anyMatch(ir -> ir.getFileName().equals(fileName.toString()))) {
-                            log.info("File {} was already processed successfully", file.toFile().getAbsolutePath());
+                            log.info("{} was already processed successfully", fileName);
                             return FileVisitResult.CONTINUE;
                         }
                         log.info("File {} is detetected for processing", file.toFile().getAbsolutePath());

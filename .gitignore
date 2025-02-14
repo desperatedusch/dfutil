@@ -45,3 +45,5 @@ build/
 *.log
 *.gz
 
+
+/datafactoryutilities-downloader/src/main/resources/application.properties

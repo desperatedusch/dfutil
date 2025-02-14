@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Renames db indices">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/AbstractRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/AbstractRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/updating/SuccessionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/updating/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/updating/TestConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/desperatedusch/dfutil.git&quot;,
-    &quot;accountId&quot;: &quot;730b1197-a0e3-48fd-8c7e-7c5173e8effc&quot;
+    &quot;accountId&quot;: &quot;8bb5c486-af9d-4c1a-9a8f-7ae2176c6ce3&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -113,7 +113,7 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -176,7 +176,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AddressInformationProviderApplication.executor": "Run",
     "Spring Boot.AdressInformationProviderApplication.executor": "Run",
-    "Spring Boot.DatafactoryImporter.executor": "Debug",
+    "Spring Boot.DatafactoryDownloader.executor": "Debug",
+    "Spring Boot.DatafactoryImporter.executor": "Run",
     "Spring Boot.DatafactoryImporterApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
@@ -184,7 +185,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/ideaWorkspaces/dfutil/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader",
-    "last_opened_file_path": "D:/ideaWorkspaces/dfutil/datafactoryutilities-commons/src/test",
+    "last_opened_file_path": "D:/ideaWorkspaces/dfutil/datafactoryutilities-downloader",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -194,7 +195,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.43788344",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "spring",
+    "settings.editor.selected.configurable": "preferences.updates",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   }
@@ -211,11 +212,11 @@
       <recent name="de.dfutil.entities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-commons\src\test" />
       <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-downloader" />
       <recent name="D:\ideaWorkspaces\dfutil" />
       <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-importer\src\test\resources" />
       <recent name="D:\idea-workspaces\dfutil\commons\src" />
+      <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-importer\src\test\resources\de\dfutil\core\files" />
@@ -232,11 +233,11 @@
       <recent name="de.dfutil.entities.format.v2308213" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.dfutil.importing" />
       <recent name="de.dfutil" />
       <recent name="de.dfutil.core.files.parsing.procedural" />
       <recent name="de.dfutil.core.files.parsing.eventbased" />
       <recent name="de.dfutil.core.files.parsing" />
-      <recent name="de.dfutil.entities" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="de.dfutil.core.services" />
@@ -246,11 +247,11 @@
       <recent name="de.dfutil.core.files" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="de.dfutil.updating" />
       <recent name="de.dfutil.downloader" />
       <recent name="de.dfutil.dao.jpa" />
       <recent name="de.dfutil.events" />
       <recent name="de.dfutil.core.files.parsing.procedural" />
+      <recent name="de.dfutil.core.files.parsing" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
@@ -348,6 +349,7 @@
       </method>
     </configuration>
     <configuration name="DatafactoryImporter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="procedural-importing" />
       <module name="datafactoryutilities-importer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.DatafactoryImporter" />
       <method v="2">
@@ -377,8 +379,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
       </set>
     </attachedChunks>
   </component>
@@ -532,15 +534,49 @@
       <workItem from="1738219459304" duration="7638000" />
       <workItem from="1738052657095" duration="15125000" />
       <workItem from="1738079271658" duration="13899000" />
-      <workItem from="1738247564371" duration="6129000" />
-      <workItem from="1739188367705" duration="4212000" />
-      <workItem from="1739256498427" duration="2877000" />
-      <workItem from="1739261040341" duration="9538000" />
-      <workItem from="1739275637525" duration="1730000" />
-      <workItem from="1739336958515" duration="15258000" />
-      <workItem from="1739371651831" duration="3566000" />
-      <workItem from="1739417736517" duration="24843000" />
-      <workItem from="1739455473024" duration="704000" />
+      <workItem from="1738247564371" duration="14166000" />
+      <workItem from="1738275635155" duration="168000" />
+      <workItem from="1738419807500" duration="1760000" />
+      <workItem from="1738426130249" duration="1771000" />
+      <workItem from="1738601279371" duration="647000" />
+      <workItem from="1738602105812" duration="1875000" />
+      <workItem from="1738853594222" duration="6976000" />
+      <workItem from="1738864529630" duration="10048000" />
+      <workItem from="1738951842889" duration="17000" />
+      <workItem from="1738951868985" duration="3457000" />
+      <workItem from="1738997724276" duration="19416000" />
+    </task>
+    <task id="LOCAL-00038" summary="Removes redis temporary">
+      <option name="closed" value="true" />
+      <created>1732626017971</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1732626017971</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Several renamings">
+      <option name="closed" value="true" />
+      <created>1732734774738</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1732734774738</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Basic Watcher implementation">
+      <option name="closed" value="true" />
+      <created>1732803184290</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1732803184290</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Basic InputSourceDetection">
+      <option name="closed" value="true" />
+      <created>1732902554519</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1732902554519</updated>
     </task>
     <task id="LOCAL-00042" summary="Basic InputSourceDetection">
       <option name="closed" value="true" />
@@ -894,47 +930,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738246033626</updated>
     </task>
-    <task id="LOCAL-00086" summary="Check in InputSourceDetection for already processed files and prevent importing">
+    <task id="LOCAL-00086" summary="Adds basic ZipArchive Handling">
       <option name="closed" value="true" />
-      <created>1739274556094</created>
+      <created>1738254423092</created>
       <option name="number" value="00086" />
       <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1739274556094</updated>
+      <updated>1738254423092</updated>
     </task>
-    <task id="LOCAL-00087" summary="Check in InputSourceDetection for already processed files and prevent importing">
-      <option name="closed" value="true" />
-      <created>1739339419780</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1739339419780</updated>
-    </task>
-    <task id="LOCAL-00088" summary="Check in InputSourceDetection for already processed files and prevent importing">
-      <option name="closed" value="true" />
-      <created>1739375005162</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1739375005162</updated>
-    </task>
-    <task id="LOCAL-00089" summary="Renames db indices">
-      <option name="closed" value="true" />
-      <created>1739437183710</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1739437183710</updated>
-    </task>
-    <task id="LOCAL-00090" summary="Renames db indices">
-      <option name="closed" value="true" />
-      <created>1739454760719</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1739454760719</updated>
-    </task>
-    <option name="localTasksCounter" value="91" />
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -976,6 +980,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Or and Ol implementation" />
+    <MESSAGE value="Minor bugfixes" />
     <MESSAGE value="Reformats source code  and changes input data structure" />
     <MESSAGE value="Use EmbeddedId annotations for combined natural primary key attributes" />
     <MESSAGE value="No more reflection based object creation" />
@@ -999,9 +1005,7 @@
     <MESSAGE value="Some minor bugfixes" />
     <MESSAGE value="Adds new module with a basic downloader component" />
     <MESSAGE value="Adds basic ZipArchive Handling" />
-    <MESSAGE value="Check in InputSourceDetection for already processed files and prevent importing" />
-    <MESSAGE value="Renames db indices" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renames db indices" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds basic ZipArchive Handling" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1051,13 +1055,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java</url>
-          <line>34</line>
+          <line>33</line>
           <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowParsingTest.java</url>
@@ -1065,9 +1064,14 @@
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="45" />
+          <line>43</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java</url>
@@ -1075,17 +1079,12 @@
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/3.4.2/spring-data-jpa-3.4.2-sources.jar!/org/springframework/data/jpa/repository/support/SimpleJpaRepository.java</url>
-          <line>392</line>
-          <option name="timeStamp" value="57" />
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="58" />
+          <line>79</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

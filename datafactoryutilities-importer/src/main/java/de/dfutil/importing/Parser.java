@@ -5,7 +5,6 @@ import de.dfutil.dao.jpa.*;
 import de.dfutil.entities.jpa.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -21,20 +20,20 @@ public class Parser {
 
     private long linesProcessed = 0;
 
-    @Autowired
-    private Postprocessing postprocessing;
-    @Autowired
-    private KgRowRepository kgRowRepository;
-    @Autowired
-    private ObRowRepository obRowRepository;
-    @Autowired
-    private OrRowRepository orRowRepository;
-    @Autowired
-    private PlRowRepository plRowRepository;
-    @Autowired
-    private SbRowRepository sbRowRepository;
+    private final Postprocessing postprocessing;
+    private final KgRowRepository kgRowRepository;
+    private final ObRowRepository obRowRepository;
+    private final OrRowRepository orRowRepository;
+    private final PlRowRepository plRowRepository;
+    private final SbRowRepository sbRowRepository;
 
-    public Parser() {
+    public Parser(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing) {
+        this.sbRowRepository = sbRowRepository;
+        this.plRowRepository = plRowRepository;
+        this.orRowRepository = orRowRepository;
+        this.obRowRepository = obRowRepository;
+        this.kgRowRepository = kgRowRepository;
+        this.postprocessing = postprocessing;
     }
 
     private void persist(String line) {

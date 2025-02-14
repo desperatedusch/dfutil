@@ -16,35 +16,25 @@ public enum RowType {
     private final String dateiInhalt;
     private final int satzLaenge;
 
-    private RowType(String dateiName, String dateiInhalt, int satzLaenge) {
+    RowType(String dateiName, String dateiInhalt, int satzLaenge) {
         this.dateiName = dateiName;
         this.dateiInhalt = dateiInhalt;
         this.satzLaenge = satzLaenge;
     }
 
     public static RowType fromPrefix(String prefix) {
-        switch (prefix) {
-            case "OE":
-                return OE;
-            case "GE":
-                return GE;
-            case "KG":
-                return KG;
-            case "OR":
-                return OR;
-            case "OB":
-                return OB;
-            case "PL":
-                return PL;
-            case "PF":
-                return PF;
-            case "SB":
-                return SB;
-            case "XX":
-                return XX;
-            default:
-                throw new IllegalArgumentException("Unkown prefix: " + prefix);
-        }
+        return switch (prefix) {
+            case "OE" -> OE;
+            case "GE" -> GE;
+            case "KG" -> KG;
+            case "OR" -> OR;
+            case "OB" -> OB;
+            case "PL" -> PL;
+            case "PF" -> PF;
+            case "SB" -> SB;
+            case "XX" -> XX;
+            default -> throw new IllegalArgumentException("Unkown prefix: " + prefix);
+        };
     }
 
     public String dateiName() {

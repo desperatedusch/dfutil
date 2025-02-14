@@ -5,7 +5,6 @@ import de.dfutil.entities.jpa.ImportResult;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -24,8 +23,7 @@ public class InputSourceDetection {
 
     private List<ImportResult> alreadySuccessfulImported;
 
-    @Autowired
-    private ImportResultRepository importResultRepository;
+    private final ImportResultRepository importResultRepository;
 
     @Value("${app.importer.inputsource.folders}")
     @NonNull
@@ -34,8 +32,8 @@ public class InputSourceDetection {
     @NonNull
     private String inputFilenameMask;
 
-    public InputSourceDetection() {
-
+    public InputSourceDetection(ImportResultRepository importResultRepository) {
+        this.importResultRepository = importResultRepository;
     }
 
     @PostConstruct

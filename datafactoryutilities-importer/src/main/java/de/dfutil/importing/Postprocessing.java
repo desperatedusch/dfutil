@@ -4,7 +4,6 @@ import de.dfutil.dao.jpa.ImportResultRepository;
 import de.dfutil.entities.jpa.ImportResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +17,13 @@ public class Postprocessing {
 
     private static final Logger log = LoggerFactory.getLogger(Postprocessing.class);
 
-    @Autowired
-    private ImportResultRepository importResultRepository;
+    private final ImportResultRepository importResultRepository;
 
     @Value("${app.importer.inputsource.delete-after-successful-processing}")
     private boolean deleteAfterSuccessfulProcessing;
 
-    public Postprocessing() {
+    public Postprocessing(ImportResultRepository importResultRepository) {
+        this.importResultRepository = importResultRepository;
     }
 
     public void parsedSuccessfully(Path inputSource, Long duration) {

@@ -31,8 +31,7 @@ public class InputSourceDetectionTest {
 
     @Test
     public void findInputFiles() throws IOException {
-        List<Path> inputFiles = new ArrayList<>();
-        inputFiles.addAll(cut.findFiles());
+        List<Path> inputFiles = new ArrayList<>(cut.findFiles());
     }
 
 }

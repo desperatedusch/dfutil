@@ -38,10 +38,12 @@ public class InputSourceDetection {
 
     @PostConstruct
     public void postConstruct() {
-        alreadySuccessfulImported = new ArrayList<>();
-        List<ImportResult> all = importResultRepository.findAll();
         alreadySuccessfulImported =
-                all.stream().filter(ImportResult::isImportSuccessful).toList();
+                importResultRepository
+                        .findAll()
+                        .stream()
+                        .filter(ImportResult::isImportSuccessful)
+                        .toList();
     }
 
     public List<Path> findFiles() throws IOException {

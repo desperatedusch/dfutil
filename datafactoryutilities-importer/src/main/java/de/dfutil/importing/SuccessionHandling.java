@@ -30,11 +30,15 @@ public class SuccessionHandling {
 
     }
 
-    public void hasSuccessor() {
+    public void handleSingleSuccessor() {
 
     }
 
-    public void hasSuccessors() {
+    public void handleMultipleSuccessors() {
+
+    }
+
+    public void handlePredecessor() {
 
     }
 

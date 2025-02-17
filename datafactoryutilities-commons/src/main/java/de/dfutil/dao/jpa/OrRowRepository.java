@@ -14,16 +14,16 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus != 'G'")
     List<OrRow> findByStatusSuccessionRelevant();
 
-    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'G' and ort.orRowId = ?1")
+    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'G' and ort.orRowId = ?1 and ort.outdatedAt is null")
     List<OrRow> findValidById(OrRowId id);
 
-    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'W' and ort.outdatedAt is null ")
+    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'W' and ort.alreadyAppliedAt is null")
     List<OrRow> findProcessableOrphans();
 
-    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'N'")
+    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'N' and ort.alreadyAppliedAt is null")
     List<OrRow> findAllWithMultipleSuccessors();
 
-    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'S'")
+    @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'S' and ort.alreadyAppliedAt is null")
     List<OrRow> findAllWithSingleSuccessor();
 
 }

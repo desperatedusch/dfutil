@@ -30,12 +30,15 @@ public class SuccessionHandling {
     public void handleOrOrphans() {
         List<OrRow> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
-        processableOrphanedOrObjects.forEach(or ->
+        processableOrphanedOrObjects.forEach(outerOr ->
         {
-            Optional<OrRow> byId = orRowRepository.findById(new OrRowId(or.getOrRowId().ortAlort(), ArchivingState.G.toString()));
+            Optional<OrRow> byId = orRowRepository.findById(new OrRowId(outerOr.getOrRowId().ortAlort(), ArchivingState.G.toString()));
             if (byId.isPresent()) {
-                OrRow orRow = byId.get();
-                orRow.setOutdatedAt(LocalDateTime.now());
+                OrRow innerOr = byId.get();
+                innerOr.setOutdatedAt(LocalDateTime.now());
+                orRowRepository.save(innerOr);
+                outerOr.setAlreadyAppliedAt(LocalDateTime.now());
+                orRowRepository.save(outerOr);
             }
         });
 

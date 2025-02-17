@@ -15,18 +15,16 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus != 'G'")
     List<ObRow> findByStatusSuccessionRelevant();
 
-    @Query(
-            "Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'G' and ortsteil.obRowId = ?1")
+    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'G' and ortsteil.obRowId = ?1 and ortsteil.outdatedAt is null")
     List<ObRow> findValidById(OrRowId id);
 
-    @Query(
-            "Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'W' and ortsteil.outdatedAt is null ")
+    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'W' and ortsteil.alreadyAppliedAt is null")
     List<ObRow> findProcessableOrphans();
 
-    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'N'")
+    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'N' and ortsteil.alreadyAppliedAt is null")
     List<ObRow> findAllWithMultipleSuccessors();
 
-    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'S'")
+    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'S' and ortsteil.alreadyAppliedAt is null")
     List<ObRow> findAllWithSingleSuccessor();
 
 }

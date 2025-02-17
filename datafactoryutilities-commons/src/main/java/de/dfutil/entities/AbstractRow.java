@@ -9,36 +9,36 @@ import java.util.Date;
 @MappedSuperclass
 public abstract class AbstractRow<T extends SerializablePostalObject> {
 
-  protected String importingFileIdentifier;
+    protected String importingFileIdentifier;
 
-  @CreatedDate
-  protected Date createdAt;
+    @CreatedDate
+    protected Date createdAt;
 
-  @LastModifiedDate
-  protected Date modifiedAt;
+    @LastModifiedDate
+    protected Date modifiedAt;
 
-  public String getImportingFileIdentifier() {
-    return importingFileIdentifier;
-  }
+    public String getImportingFileIdentifier() {
+        return importingFileIdentifier;
+    }
 
-  public void setImportingFileIdentifier(String importingFileIdentifier) {
-    this.importingFileIdentifier = importingFileIdentifier;
-  }
+    public void setImportingFileIdentifier(String importingFileIdentifier) {
+        this.importingFileIdentifier = importingFileIdentifier;
+    }
 
-  public Date getCreatedAt() {
-    return createdAt;
-  }
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 
-  public void setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-  }
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
-  public Date getModifiedAt() {
-    return modifiedAt;
-  }
+    public Date getModifiedAt() {
+        return modifiedAt;
+    }
 
-  public void setModifiedAt(Date modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
+    public void setModifiedAt(Date modifiedAt) {
+        this.modifiedAt = modifiedAt;
+    }
 
 }

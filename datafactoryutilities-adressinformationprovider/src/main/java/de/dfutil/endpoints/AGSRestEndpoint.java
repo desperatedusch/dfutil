@@ -7,4 +7,5 @@ public class AGSRestEndpoint {
 
     public AGSRestEndpoint() {
     }
+    
 }

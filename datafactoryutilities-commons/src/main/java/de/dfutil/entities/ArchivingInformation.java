@@ -82,4 +82,5 @@ public class ArchivingInformation implements Serializable {
     public void setSchluesselNeu(String schluesselNeu) {
         this.schluesselNeu = schluesselNeu;
     }
+
 }

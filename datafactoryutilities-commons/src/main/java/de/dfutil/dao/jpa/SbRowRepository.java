@@ -27,4 +27,5 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
 
     @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'S'")
     List<SbRow> findAllWithSingleSuccessor();
+
 }

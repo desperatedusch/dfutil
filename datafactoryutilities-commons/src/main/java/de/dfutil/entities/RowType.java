@@ -1,6 +1,7 @@
 package de.dfutil.entities;
 
 public enum RowType {
+
     GE("GROSS-DA", "Großempfängeradressen mit Hausadressen", 324),
     KG(
             "KGS-DA",
@@ -50,4 +51,5 @@ public enum RowType {
     public int satzLaenge() {
         return satzLaenge;
     }
+
 }

@@ -28,4 +28,5 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
 
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'S'")
     List<ObRow> findAllWithSingleSuccessor();
+
 }

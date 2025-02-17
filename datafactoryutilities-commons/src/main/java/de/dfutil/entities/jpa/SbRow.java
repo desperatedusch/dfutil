@@ -262,4 +262,5 @@ public class SbRow extends AbstractRow<SbRow> implements ArchivablePostalObject 
     public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
     }
+
 }

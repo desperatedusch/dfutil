@@ -155,4 +155,5 @@ public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject 
     public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
     }
+
 }

@@ -17,6 +17,7 @@ import java.nio.file.Path;
 public class Parser {
 
     private static final Logger log = LoggerFactory.getLogger(Parser.class);
+
     private final Postprocessing postprocessing;
     private final KgRowRepository kgRowRepository;
     private final ObRowRepository obRowRepository;

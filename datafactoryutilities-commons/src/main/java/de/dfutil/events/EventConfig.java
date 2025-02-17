@@ -45,4 +45,5 @@ public class EventConfig {
         threadPoolTaskExecutor.initialize();
         return threadPoolTaskExecutor;
     }
+
 }

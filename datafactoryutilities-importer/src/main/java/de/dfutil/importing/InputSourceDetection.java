@@ -20,12 +20,14 @@ import java.util.StringTokenizer;
 public class InputSourceDetection {
 
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
+
     private final ImportResultRepository importResultRepository;
     private List<ImportResult> alreadySuccessfulImported;
+
     @Value("${app.importer.inputsource.folders}")
     @NonNull
     private String inputFolders;
-    @Value("${app.importer.inputsource.filenamemask}")
+    @Value("${app.importer.inputsource.main-file.filenamemask}")
     @NonNull
     private String inputFilenameMask;
 

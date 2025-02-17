@@ -48,4 +48,5 @@ public class OrRowId implements Serializable {
     public int hashCode() {
         return Objects.hash(ortAlort, ortStatus);
     }
+
 }

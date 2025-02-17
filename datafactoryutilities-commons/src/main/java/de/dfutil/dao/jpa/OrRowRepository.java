@@ -25,4 +25,5 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
 
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'S'")
     List<OrRow> findAllWithSingleSuccessor();
+
 }

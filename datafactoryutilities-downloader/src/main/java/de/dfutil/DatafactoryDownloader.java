@@ -33,4 +33,5 @@ public class DatafactoryDownloader implements CommandLineRunner {
         datafactoryFiles.fetch();
         archives.unzip();
     }
+
 }

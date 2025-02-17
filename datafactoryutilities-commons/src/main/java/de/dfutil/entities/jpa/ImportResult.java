@@ -84,4 +84,5 @@ public class ImportResult implements Serializable {
     public int hashCode() {
         return Objects.hash(fileName, importDate, importSuccessful);
     }
+
 }

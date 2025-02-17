@@ -111,4 +111,5 @@ public class SbRowId implements Serializable {
         return Objects.hash(
                 strAlort, strNamenSchl, strBundLfdnr, strHnrvon, strHnrbis, strStatus, strHnr1000);
     }
+
 }

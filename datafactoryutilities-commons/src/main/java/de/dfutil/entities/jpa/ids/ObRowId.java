@@ -70,4 +70,5 @@ public class ObRowId implements Serializable {
     public int hashCode() {
         return Objects.hash(otlAlort, otlSchl, otlPlz, otlStatus);
     }
+
 }

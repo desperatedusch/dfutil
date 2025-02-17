@@ -48,4 +48,5 @@ public class KgRowId implements Serializable {
     public int hashCode() {
         return Objects.hash(kgSchluessel, kgSatzart);
     }
+
 }

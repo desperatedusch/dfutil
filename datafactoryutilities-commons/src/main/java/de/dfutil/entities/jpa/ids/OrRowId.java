@@ -40,12 +40,12 @@ public class OrRowId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrRowId orRowId = (OrRowId) o;
-        return Objects.equals(ortAlort, orRowId.ortAlort) && Objects.equals(ortStatus, orRowId.ortStatus);
+        return Objects.equals(ortAlort, orRowId.ortAlort)
+                && Objects.equals(ortStatus, orRowId.ortStatus);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(ortAlort, ortStatus);
     }
-
 }

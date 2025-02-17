@@ -15,10 +15,12 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus != 'G'")
     List<ObRow> findByStatusSuccessionRelevant();
 
-    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'G' and ortsteil.obRowId = ?1")
+    @Query(
+            "Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'G' and ortsteil.obRowId = ?1")
     List<ObRow> findValidById(OrRowId id);
 
-    @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'W' and ortsteil.outdatedAt is null ")
+    @Query(
+            "Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'W' and ortsteil.outdatedAt is null ")
     List<ObRow> findProcessableOrphans();
 
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'N'")
@@ -26,5 +28,4 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
 
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'S'")
     List<ObRow> findAllWithSingleSuccessor();
-
 }

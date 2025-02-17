@@ -14,10 +14,12 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
     @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus != 'G'")
     List<SbRow> findByStatusSuccessionRelevant();
 
-    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'G' and strasse.sbRowId = ?1")
+    @Query(
+            "Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'G' and strasse.sbRowId = ?1")
     List<SbRow> findValidById(SbRowId id);
 
-    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'W' and strasse.outdatedAt is null ")
+    @Query(
+            "Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'W' and strasse.outdatedAt is null ")
     List<SbRow> findProcessableOrphans();
 
     @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'N'")

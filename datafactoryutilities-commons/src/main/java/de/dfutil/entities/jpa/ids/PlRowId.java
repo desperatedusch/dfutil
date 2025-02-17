@@ -47,5 +47,4 @@ public class PlRowId implements Serializable {
     public int hashCode() {
         return Objects.hash(plzPlz, plzAlort);
     }
-
 }

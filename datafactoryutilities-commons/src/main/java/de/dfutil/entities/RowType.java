@@ -1,9 +1,11 @@
 package de.dfutil.entities;
 
 public enum RowType {
-
     GE("GROSS-DA", "Großempfängeradressen mit Hausadressen", 324),
-    KG("KGS-DA", "Bundesländer, Regierungsbezirke, Kreise, kreisfreie Städte mit 8-stelligem Schlüssel des statistischen Bundesamtes", 67),
+    KG(
+            "KGS-DA",
+            "Bundesländer, Regierungsbezirke, Kreise, kreisfreie Städte mit 8-stelligem Schlüssel des statistischen Bundesamtes",
+            67),
     OE("ORG-DA", "Organisationseinheiten der Deutschen Post mit Adressen und Funktionen", 272),
     OR("ORT-DA", "Orte und Archivorte", 178),
     OB("OTL-DB", "Ortsteiledatei", 84),
@@ -48,5 +50,4 @@ public enum RowType {
     public int satzLaenge() {
         return satzLaenge;
     }
-
 }

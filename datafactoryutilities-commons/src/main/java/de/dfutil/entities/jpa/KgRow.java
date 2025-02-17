@@ -9,21 +9,27 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 /**
- * In der Kreisgemeindedatei KGS-DA stehen die amtlichen Namen der Gemeinden, Kreise, kreisfreien Städte,
- * Regierungsbezirke und Bundesländer zusammen mit dem achtstelligen Kreisgemeindeschlüssel. Diese Daten
- * werden vom Statistischen Bundesamt in Wiesbaden übernommen und aufgrund der Angaben der statistischen
- * Landesämter erweitert. Mit Hilfe dieses Schlüssels wird die staatliche Gliederung in den Dateien ORT-DA,
- * STRA-DB, OTL-DB und PLZ-DA dargestellt.
+ * In der Kreisgemeindedatei KGS-DA stehen die amtlichen Namen der Gemeinden, Kreise, kreisfreien
+ * Städte, Regierungsbezirke und Bundesländer zusammen mit dem achtstelligen Kreisgemeindeschlüssel.
+ * Diese Daten werden vom Statistischen Bundesamt in Wiesbaden übernommen und aufgrund der Angaben
+ * der statistischen Landesämter erweitert. Mit Hilfe dieses Schlüssels wird die staatliche
+ * Gliederung in den Dateien ORT-DA, STRA-DB, OTL-DB und PLZ-DA dargestellt.
  */
 @Entity
-@Table(name = "AGS", indexes = @Index(name = "IDX_AGS___KG_SCHLUESSEL__KG_SATZART", columnList = "KG_SCHLUESSEL,KG_SATZART"))
+@Table(
+        name = "AGS",
+        indexes =
+        @Index(
+                name = "IDX_AGS___KG_SCHLUESSEL__KG_SATZART",
+                columnList = "KG_SCHLUESSEL,KG_SATZART"))
 public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObject {
 
-    private final static RowType rowType = RowType.KG;
+    private static final RowType rowType = RowType.KG;
 
     @Version
     @Column(name = "version")
     private Date version;
+
     private String kgDatum;
     @EmbeddedId
     private KgRowId kgRowId;
@@ -34,11 +40,7 @@ public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObjec
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.kgDatum = rowBytes.substring(9, 17);
         row.kgName = rowBytes.substring(26, 66);
-        row.kgRowId = new KgRowId
-                (
-                        rowBytes.substring(17, 25),
-                        rowBytes.substring(25, 26)
-                );
+        row.kgRowId = new KgRowId(rowBytes.substring(17, 25), rowBytes.substring(25, 26));
         return row;
     }
 
@@ -49,7 +51,6 @@ public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObjec
     public void setVersion(Date version) {
         this.version = version;
     }
-
 
     public String getKgDatum() {
         return kgDatum;
@@ -78,7 +79,4 @@ public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObjec
     public void setKgRowId(KgRowId kgRowId) {
         this.kgRowId = kgRowId;
     }
-
 }
-
-

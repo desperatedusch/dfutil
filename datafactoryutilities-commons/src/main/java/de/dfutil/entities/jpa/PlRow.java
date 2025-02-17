@@ -8,19 +8,21 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
-
 /**
  * Repräsentiert einzelne Postleitzahlbereiche
  */
 @Entity
-@Table(name = "PLZ", indexes = @Index(name = "IDX_PLZ___PLZ_PLZ__PLZ_ALORT", columnList = "PLZ_PLZ,PLZ_ALORT"))
+@Table(
+        name = "PLZ",
+        indexes = @Index(name = "IDX_PLZ___PLZ_PLZ__PLZ_ALORT", columnList = "PLZ_PLZ,PLZ_ALORT"))
 public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObject {
 
-    private final static RowType rowType = RowType.PL;
+    private static final RowType rowType = RowType.PL;
 
     @Version
     @Column(name = "version")
     private Date version;
+
     private String plzDatum;
     @EmbeddedId
     private PlRowId plRowId;
@@ -65,11 +67,7 @@ public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObjec
         row.plzReserve = rowBytes.substring(161, 163);
         row.plzFzNr = rowBytes.substring(163, 165);
         row.plzBzNr = rowBytes.substring(165, 167);
-        row.plRowId = new PlRowId
-                (
-                        rowBytes.substring(17, 22),
-                        rowBytes.substring(22, 30)
-                );
+        row.plRowId = new PlRowId(rowBytes.substring(17, 22), rowBytes.substring(22, 30));
         return row;
     }
 
@@ -243,7 +241,5 @@ public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObjec
 
     public void setPlRowId(PlRowId plRowId) {
         this.plRowId = plRowId;
-    }
-
+  }
 }
-

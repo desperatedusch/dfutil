@@ -13,14 +13,20 @@ import java.util.Date;
  * Repräsentiert Ortsteile
  */
 @Entity
-@Table(name = "ORTSTEIL", indexes = @Index(name = "IDX_ORTSTEIL___OTL_ALORT__OTL_SCHL__OTL_PLZ__OTL_STATUS", columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"))
+@Table(
+        name = "ORTSTEIL",
+        indexes =
+        @Index(
+                name = "IDX_ORTSTEIL___OTL_ALORT__OTL_SCHL__OTL_PLZ__OTL_STATUS",
+                columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"))
 public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject {
 
-    private final static RowType rowType = RowType.OB;
+    private static final RowType rowType = RowType.OB;
 
     @Version
     @Column(name = "version")
     private Date version;
+
     private String otlDatum;
     @EmbeddedId
     private ObRowId obRowId;
@@ -37,13 +43,12 @@ public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject 
         row.otlStverz = rowBytes.substring(34, 35);
         row.otlName = rowBytes.substring(35, 75);
         row.otlKgs = rowBytes.substring(75, 83);
-        row.obRowId = new ObRowId
-                (
+        row.obRowId =
+                new ObRowId(
                         rowBytes.substring(17, 25),
                         rowBytes.substring(25, 28),
                         rowBytes.substring(28, 33),
-                        rowBytes.substring(33, 34)
-                );
+                        rowBytes.substring(33, 34));
         return row;
     }
 
@@ -113,8 +118,5 @@ public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject 
 
     public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
-    }
-
+  }
 }
-
-

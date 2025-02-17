@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
 
-
 @TestConfiguration
 public class TestConfig {
 
@@ -13,6 +12,4 @@ public class TestConfig {
     public ResourceLoader resourceLoader() {
         return new DefaultResourceLoader();
     }
-
 }
-

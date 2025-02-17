@@ -23,7 +23,9 @@ public class DatafactoryDownloader implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(DatafactoryDownloader.class).web(WebApplicationType.NONE).run(args);
+        new SpringApplicationBuilder(DatafactoryDownloader.class)
+                .web(WebApplicationType.NONE)
+                .run(args);
     }
 
     @Override
@@ -31,5 +33,4 @@ public class DatafactoryDownloader implements CommandLineRunner {
         datafactoryFiles.fetch();
         archives.unzip();
     }
-
 }

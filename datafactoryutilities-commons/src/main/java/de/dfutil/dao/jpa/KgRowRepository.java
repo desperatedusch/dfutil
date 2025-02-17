@@ -22,5 +22,4 @@ public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
 
     @Query("select agsObject FROM KgRow agsObject WHERE 'L' = agsObject.kgRowId.kgSatzart")
     List<KgRow> federalStates();
-
 }

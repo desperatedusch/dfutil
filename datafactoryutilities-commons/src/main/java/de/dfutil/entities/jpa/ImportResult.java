@@ -18,7 +18,8 @@ public class ImportResult implements Serializable {
     private boolean importSuccessful;
     private Long duration;
 
-    public ImportResult(String fileName, LocalDateTime importDate, boolean importSuccessful, Long duration) {
+    public ImportResult(
+            String fileName, LocalDateTime importDate, boolean importSuccessful, Long duration) {
         this.fileName = fileName;
         this.importDate = importDate;
         this.importSuccessful = importSuccessful;
@@ -26,7 +27,6 @@ public class ImportResult implements Serializable {
     }
 
     public ImportResult() {
-
     }
 
     public Long getId() {
@@ -74,7 +74,10 @@ public class ImportResult implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ImportResult that = (ImportResult) o;
-        return importSuccessful == that.importSuccessful && Objects.equals(fileName, that.fileName) && Objects.equals(importDate, that.importDate) && Objects.equals(duration, that.duration);
+        return importSuccessful == that.importSuccessful
+                && Objects.equals(fileName, that.fileName)
+                && Objects.equals(importDate, that.importDate)
+                && Objects.equals(duration, that.duration);
     }
 
     @Override

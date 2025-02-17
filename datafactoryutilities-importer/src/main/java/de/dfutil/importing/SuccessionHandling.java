@@ -24,10 +24,12 @@ public class SuccessionHandling {
     }
 
     public void handleOrOrphans() {
-        List<OrRow> processableOrphanedOr = orRowRepository.findProcessableOrphans();
-        List<ObRow> processableOrphanedOb = obRowRepository.findProcessableOrphans();
-        List<SbRow> processableOrphanedSb = sbRowRepository.findProcessableOrphans();
-
+        List<OrRow> processableOrphanedOr =
+                orRowRepository.findProcessableOrphans();
+        List<ObRow> processableOrphanedOb =
+                obRowRepository.findProcessableOrphans();
+        List<SbRow> processableOrphanedSb =
+                sbRowRepository.findProcessableOrphans();
     }
 
     public void handleSingleSuccessor() {

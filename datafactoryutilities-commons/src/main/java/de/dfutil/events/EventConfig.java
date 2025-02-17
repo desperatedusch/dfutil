@@ -34,18 +34,15 @@ public class EventConfig {
         threadPoolTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
         threadPoolTaskExecutor.setQueueCapacity(1000);
         threadPoolTaskExecutor.setRejectedExecutionHandler(
-                (Runnable r, ThreadPoolExecutor executor) ->
-                {
+                (Runnable r, ThreadPoolExecutor executor) -> {
                     try {
                         executor.getQueue().put(r);
                     } catch (InterruptedException e) {
                         throw new RejectedExecutionException(e.getMessage(), e);
                     }
-                }
-        );
+                });
         threadPoolTaskExecutor.setVirtualThreads(true);
         threadPoolTaskExecutor.initialize();
         return threadPoolTaskExecutor;
     }
-
 }

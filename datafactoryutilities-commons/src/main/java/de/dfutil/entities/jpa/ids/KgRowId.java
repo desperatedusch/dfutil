@@ -12,7 +12,6 @@ public class KgRowId implements Serializable {
     private String kgSatzart;
 
     public KgRowId() {
-
     }
 
     public KgRowId(String kgSchluessel, String kgSatzart) {
@@ -41,12 +40,12 @@ public class KgRowId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KgRowId kgRowId = (KgRowId) o;
-        return Objects.equals(kgSchluessel, kgRowId.kgSchluessel) && Objects.equals(kgSatzart, kgRowId.kgSatzart);
+        return Objects.equals(kgSchluessel, kgRowId.kgSchluessel)
+                && Objects.equals(kgSatzart, kgRowId.kgSatzart);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(kgSchluessel, kgSatzart);
     }
-
 }

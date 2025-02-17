@@ -20,5 +20,4 @@ public final class EntityMergeEvent {
     public String row() {
         return row;
     }
-
 }

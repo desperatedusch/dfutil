@@ -19,5 +19,4 @@ public final class RowParsedEvent {
     public String row() {
         return row;
     }
-
 }

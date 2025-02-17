@@ -60,12 +60,14 @@ public class ObRowId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ObRowId obRowId = (ObRowId) o;
-        return Objects.equals(otlAlort, obRowId.otlAlort) && Objects.equals(otlSchl, obRowId.otlSchl) && Objects.equals(otlPlz, obRowId.otlPlz) && Objects.equals(otlStatus, obRowId.otlStatus);
+        return Objects.equals(otlAlort, obRowId.otlAlort)
+                && Objects.equals(otlSchl, obRowId.otlSchl)
+                && Objects.equals(otlPlz, obRowId.otlPlz)
+                && Objects.equals(otlStatus, obRowId.otlStatus);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(otlAlort, otlSchl, otlPlz, otlStatus);
     }
-
 }

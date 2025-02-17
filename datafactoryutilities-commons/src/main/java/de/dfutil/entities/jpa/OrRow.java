@@ -13,149 +13,146 @@ import java.util.Date;
  * Repräsentiert Orte
  */
 @Entity
-@Table(name = "ORT", indexes = @Index(name = "IDX_ORT___ORT_ALORT__ORT_STATUS", columnList = "ORT_ALORT,ORT_STATUS"))
+@Table(
+        name = "ORT",
+        indexes = @Index(name = "IDX_ORT___ORT_ALORT__ORT_STATUS", columnList = "ORT_ALORT,ORT_STATUS"))
 public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject {
 
-    private final static RowType rowType = RowType.OR;
+  private static final RowType rowType = RowType.OR;
 
-    @Version
-    @Column(name = "version")
-    private Date version;
-    private String ortDatum;
-    @EmbeddedId
-    private OrRowId orRowId;
-    private String ortOname;
-    private String ortOnamePost;
-    private String ortOzusatz;
-    private String ortArtOzusatz;
-    private String ortOname24;
-    private String ortKgs;
-    private String ortAlortNeu;
-    private LocalDateTime outdatedAt;
-    private LocalDateTime alreadyAppliedAt;
+  @Version
+  @Column(name = "version")
+  private Date version;
 
-    public static OrRow parseFrom(String rowBytes) {
-        OrRow row = new OrRow();
-        row.importingFileIdentifier = rowBytes.substring(0, 9);
-        row.ortDatum = rowBytes.substring(9, 17);
-        row.ortOname = rowBytes.substring(26, 66);
-        row.ortOnamePost = rowBytes.substring(66, 106);
-        row.ortOzusatz = rowBytes.substring(106, 136);
-        row.ortArtOzusatz = rowBytes.substring(136, 137);
-        row.ortOname24 = rowBytes.substring(137, 161);
-        row.ortKgs = rowBytes.substring(161, 169);
-        row.ortAlortNeu = rowBytes.substring(169, 177);
-        row.orRowId = new OrRowId
-                (
-                        rowBytes.substring(17, 25),
-                        rowBytes.substring(25, 26)
-                );
-        return row;
-    }
+  private String ortDatum;
+  @EmbeddedId
+  private OrRowId orRowId;
+  private String ortOname;
+  private String ortOnamePost;
+  private String ortOzusatz;
+  private String ortArtOzusatz;
+  private String ortOname24;
+  private String ortKgs;
+  private String ortAlortNeu;
+  private LocalDateTime outdatedAt;
+  private LocalDateTime alreadyAppliedAt;
 
-    public Date getVersion() {
-        return version;
-    }
+  public static OrRow parseFrom(String rowBytes) {
+    OrRow row = new OrRow();
+    row.importingFileIdentifier = rowBytes.substring(0, 9);
+    row.ortDatum = rowBytes.substring(9, 17);
+    row.ortOname = rowBytes.substring(26, 66);
+    row.ortOnamePost = rowBytes.substring(66, 106);
+    row.ortOzusatz = rowBytes.substring(106, 136);
+    row.ortArtOzusatz = rowBytes.substring(136, 137);
+    row.ortOname24 = rowBytes.substring(137, 161);
+    row.ortKgs = rowBytes.substring(161, 169);
+    row.ortAlortNeu = rowBytes.substring(169, 177);
+    row.orRowId = new OrRowId(rowBytes.substring(17, 25), rowBytes.substring(25, 26));
+    return row;
+  }
 
-    public void setVersion(Date version) {
-        this.version = version;
-    }
+  public Date getVersion() {
+    return version;
+  }
 
-    public RowType getRowType() {
-        return rowType;
-    }
+  public void setVersion(Date version) {
+    this.version = version;
+  }
 
-    public String getOrtAlortNeu() {
-        return ortAlortNeu;
-    }
+  public RowType getRowType() {
+    return rowType;
+  }
 
-    public void setOrtAlortNeu(String ortANeu) {
-        this.ortAlortNeu = ortANeu;
-    }
+  public String getOrtAlortNeu() {
+    return ortAlortNeu;
+  }
 
-    public String getOrtKgs() {
-        return ortKgs;
-    }
+  public void setOrtAlortNeu(String ortANeu) {
+    this.ortAlortNeu = ortANeu;
+  }
 
-    public void setOrtKgs(String ortKgs) {
-        this.ortKgs = ortKgs;
-    }
+  public String getOrtKgs() {
+    return ortKgs;
+  }
 
-    public String getOrtOname24() {
-        return ortOname24;
-    }
+  public void setOrtKgs(String ortKgs) {
+    this.ortKgs = ortKgs;
+  }
 
-    public void setOrtOname24(String ortOname24) {
-        this.ortOname24 = ortOname24;
-    }
+  public String getOrtOname24() {
+    return ortOname24;
+  }
 
-    public String getOrtArtOzusatz() {
-        return ortArtOzusatz;
-    }
+  public void setOrtOname24(String ortOname24) {
+    this.ortOname24 = ortOname24;
+  }
 
-    public void setOrtArtOzusatz(String ortArtOzusatz) {
-        this.ortArtOzusatz = ortArtOzusatz;
-    }
+  public String getOrtArtOzusatz() {
+    return ortArtOzusatz;
+  }
 
-    public String getOrtOzusatz() {
-        return ortOzusatz;
-    }
+  public void setOrtArtOzusatz(String ortArtOzusatz) {
+    this.ortArtOzusatz = ortArtOzusatz;
+  }
 
-    public void setOrtOzusatz(String ortOzusatz) {
-        this.ortOzusatz = ortOzusatz;
-    }
+  public String getOrtOzusatz() {
+    return ortOzusatz;
+  }
 
-    public String getOrtOnamePost() {
-        return ortOnamePost;
-    }
+  public void setOrtOzusatz(String ortOzusatz) {
+    this.ortOzusatz = ortOzusatz;
+  }
 
-    public void setOrtOnamePost(String ortOnamePost) {
-        this.ortOnamePost = ortOnamePost;
-    }
+  public String getOrtOnamePost() {
+    return ortOnamePost;
+  }
 
-    public String getOrtOname() {
-        return ortOname;
-    }
+  public void setOrtOnamePost(String ortOnamePost) {
+    this.ortOnamePost = ortOnamePost;
+  }
 
-    public void setOrtOname(String ortOname) {
-        this.ortOname = ortOname;
-    }
+  public String getOrtOname() {
+    return ortOname;
+  }
 
-    public String getOrtDatum() {
-        return ortDatum;
-    }
+  public void setOrtOname(String ortOname) {
+    this.ortOname = ortOname;
+  }
 
-    public void setOrtDatum(String ortDatum) {
-        this.ortDatum = ortDatum;
-    }
+  public String getOrtDatum() {
+    return ortDatum;
+  }
 
-    public OrRowId orRowId() {
-        return orRowId;
-    }
+  public void setOrtDatum(String ortDatum) {
+    this.ortDatum = ortDatum;
+  }
 
-    public void setOrRowId(OrRowId orRowId) {
-        this.orRowId = orRowId;
-    }
+  public OrRowId orRowId() {
+    return orRowId;
+  }
 
-    public OrRowId getOrRowId() {
-        return orRowId;
-    }
+  public OrRowId getOrRowId() {
+    return orRowId;
+  }
 
-    public LocalDateTime getOutdatedAt() {
-        return outdatedAt;
-    }
+  public void setOrRowId(OrRowId orRowId) {
+    this.orRowId = orRowId;
+  }
 
-    public void setOutdatedAt(LocalDateTime outdatedSince) {
-        this.outdatedAt = outdatedSince;
-    }
+  public LocalDateTime getOutdatedAt() {
+    return outdatedAt;
+  }
 
-    public LocalDateTime alreadyAppliedAt() {
-        return alreadyAppliedAt;
-    }
+  public void setOutdatedAt(LocalDateTime outdatedSince) {
+    this.outdatedAt = outdatedSince;
+  }
 
-    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
-        this.alreadyAppliedAt = alreadyAppliedAt;
-    }
+  public LocalDateTime alreadyAppliedAt() {
+    return alreadyAppliedAt;
+  }
+
+  public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
+    this.alreadyAppliedAt = alreadyAppliedAt;
+  }
 }
-
-

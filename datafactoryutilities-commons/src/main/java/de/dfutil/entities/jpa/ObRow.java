@@ -118,5 +118,5 @@ public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject 
 
     public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
-  }
+    }
 }

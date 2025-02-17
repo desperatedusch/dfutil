@@ -20,11 +20,8 @@ import java.util.StringTokenizer;
 public class InputSourceDetection {
 
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
-
-    private List<ImportResult> alreadySuccessfulImported;
-
     private final ImportResultRepository importResultRepository;
-
+    private List<ImportResult> alreadySuccessfulImported;
     @Value("${app.importer.inputsource.folders}")
     @NonNull
     private String inputFolders;

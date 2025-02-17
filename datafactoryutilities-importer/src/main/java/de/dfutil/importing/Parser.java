@@ -17,15 +17,13 @@ import java.nio.file.Path;
 public class Parser {
 
     private static final Logger log = LoggerFactory.getLogger(Parser.class);
-
-    private long linesProcessed = 0;
-
     private final Postprocessing postprocessing;
     private final KgRowRepository kgRowRepository;
     private final ObRowRepository obRowRepository;
     private final OrRowRepository orRowRepository;
     private final PlRowRepository plRowRepository;
     private final SbRowRepository sbRowRepository;
+    private long linesProcessed = 0;
 
     public Parser(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing) {
         this.sbRowRepository = sbRowRepository;

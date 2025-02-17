@@ -107,16 +107,8 @@ public class SbRow extends AbstractRow<SbRow> implements ArchivablePostalObject 
         return strStverz;
     }
 
-    public void setStrStverz(String strStverz) {
-        this.strStverz = strStverz;
-    }
-
     public String strNameSort() {
         return strNameSort;
-    }
-
-    public void setStrNameSort(String strNameSort) {
-        this.strNameSort = strNameSort;
     }
 
     public String getStrName46() {
@@ -243,8 +235,16 @@ public class SbRow extends AbstractRow<SbRow> implements ArchivablePostalObject 
         return strStverz;
     }
 
+    public void setStrStverz(String strStverz) {
+        this.strStverz = strStverz;
+    }
+
     public String getStrNameSort() {
         return strNameSort;
+    }
+
+    public void setStrNameSort(String strNameSort) {
+        this.strNameSort = strNameSort;
     }
 
     public LocalDateTime getOutdatedAt() {
@@ -261,5 +261,5 @@ public class SbRow extends AbstractRow<SbRow> implements ArchivablePostalObject 
 
     public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
-  }
+    }
 }

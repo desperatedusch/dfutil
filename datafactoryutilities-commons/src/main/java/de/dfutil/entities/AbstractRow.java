@@ -24,4 +24,21 @@ public abstract class AbstractRow<T extends SerializablePostalObject> {
   public void setImportingFileIdentifier(String importingFileIdentifier) {
     this.importingFileIdentifier = importingFileIdentifier;
   }
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Date getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(Date modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
 }

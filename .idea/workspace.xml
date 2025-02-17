@@ -4,7 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Reformatting" />
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Reformatting">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/KgRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/KgRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/ObRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/ObRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/OrRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/OrRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SbRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/jpa/SbRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/AbstractRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/AbstractRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ArchivingInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ArchivingInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ImportResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ImportResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/KgRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/OrRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/PlRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/SbRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/KgRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/KgRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/ObRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/ObRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/OrRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/OrRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/PlRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/PlRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/SbRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ids/SbRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EventConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/events/EventConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloading/Archives.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloading/Archives.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloading/DatafactoryResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/java/de/dfutil/downloading/DatafactoryResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Postprocessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Postprocessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/InputSourceDetectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/InputSourceDetectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/ParserTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -547,15 +576,7 @@
       <workItem from="1739646943347" duration="1834000" />
       <workItem from="1739767886343" duration="4477000" />
       <workItem from="1739772414924" duration="83000" />
-      <workItem from="1739772510198" duration="360000" />
-    </task>
-    <task id="LOCAL-00041" summary="Basic InputSourceDetection">
-      <option name="closed" value="true" />
-      <created>1732902554519</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1732902554519</updated>
+      <workItem from="1739772510198" duration="1139000" />
     </task>
     <task id="LOCAL-00042" summary="Basic InputSourceDetection">
       <option name="closed" value="true" />
@@ -941,7 +962,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739772846511</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Reformatting">
+      <option name="closed" value="true" />
+      <created>1739772889655</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1739772889655</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1058,7 +1087,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/jpa/ObRow.java</url>
-          <line>30</line>
+          <line>29</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

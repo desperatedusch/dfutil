@@ -19,20 +19,24 @@ public class Parser {
     private static final Logger log = LoggerFactory.getLogger(Parser.class);
 
     private final Postprocessing postprocessing;
+    private final SuccessionHandling successionHandling;
+
     private final KgRowRepository kgRowRepository;
     private final ObRowRepository obRowRepository;
     private final OrRowRepository orRowRepository;
     private final PlRowRepository plRowRepository;
     private final SbRowRepository sbRowRepository;
+
     private long linesProcessed = 0;
 
-    public Parser(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing) {
+    public Parser(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing, SuccessionHandling successionHandling) {
         this.sbRowRepository = sbRowRepository;
         this.plRowRepository = plRowRepository;
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.kgRowRepository = kgRowRepository;
         this.postprocessing = postprocessing;
+        this.successionHandling = successionHandling;
     }
 
     private void persist(String line) {
@@ -92,6 +96,8 @@ public class Parser {
             log.info("Successfully parsed file {} within {} ms", path, duration);
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
+            successionHandling.handleOrOrphans();
+
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
             postprocessing.parsingFailed(path, null);

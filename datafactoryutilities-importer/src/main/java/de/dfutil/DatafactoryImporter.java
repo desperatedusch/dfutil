@@ -19,7 +19,6 @@ public class DatafactoryImporter implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(DatafactoryImporter.class);
 
     private final InputSourceDetection inputSourceDetection;
-
     private final Parser parsing;
 
     public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parser parsing) {

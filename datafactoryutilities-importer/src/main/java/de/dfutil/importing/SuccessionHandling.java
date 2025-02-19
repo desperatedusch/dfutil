@@ -34,9 +34,18 @@ public class SuccessionHandling {
         handleOrphanedOr();
         handleOrphanedOb();
         handleOrphanedSb();
-        handleSplitted();
-        handleMerged();
-        handleReplacements();
+
+        handleSplittedOr();
+        handleSplittedOb();
+        handleSplittedSb();
+
+        handleMergedOr();
+        handleMergedOb();
+        handleMergedSb();
+
+        handleReplacementsOr();
+        handleReplacementsOb();
+        handleReplacementsSb();
     }
 
     private void handleOrphanedSb() {
@@ -111,15 +120,39 @@ public class SuccessionHandling {
         });
     }
 
-    private void handleSplitted() {
+    private void handleSplittedOr() {
         throw new UnsupportedOperationException("not implemented yet");
     }
 
-    private void handleMerged() {
+    private void handleSplittedOb() {
         throw new UnsupportedOperationException("not implemented yet");
     }
 
-    private void handleReplacements() {
+    private void handleSplittedSb() {
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+
+    private void handleMergedOb() {
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+
+    private void handleMergedOr() {
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+
+    private void handleMergedSb() {
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+
+    private void handleReplacementsOb() {
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+
+    private void handleReplacementsOr() {
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+
+    private void handleReplacementsSb() {
         throw new UnsupportedOperationException("not implemented yet");
     }
 }

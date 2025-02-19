@@ -6,12 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AddressInformationProviderApplication {
+public class AddressInformationProvider {
 
-    private static final Logger log = LoggerFactory.getLogger(AddressInformationProviderApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(AddressInformationProvider.class);
 
     public static void main(String[] args) {
         log.debug("AddressInformationProviderApplication started...");
-        SpringApplication.run(AddressInformationProviderApplication.class, args);
+        SpringApplication.run(AddressInformationProvider.class, args);
     }
 }

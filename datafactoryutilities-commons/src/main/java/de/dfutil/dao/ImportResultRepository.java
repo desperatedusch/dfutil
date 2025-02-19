@@ -1,6 +1,6 @@
-package de.dfutil.dao.jpa;
+package de.dfutil.dao;
 
-import de.dfutil.entities.jpa.ImportResult;
+import de.dfutil.entities.ImportResult;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

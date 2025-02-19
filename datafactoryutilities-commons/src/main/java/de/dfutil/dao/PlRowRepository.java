@@ -1,7 +1,7 @@
-package de.dfutil.dao.jpa;
+package de.dfutil.dao;
 
-import de.dfutil.entities.jpa.PlRow;
-import de.dfutil.entities.jpa.ids.PlRowId;
+import de.dfutil.entities.PlRow;
+import de.dfutil.entities.ids.PlRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

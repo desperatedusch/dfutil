@@ -1,7 +1,7 @@
-package de.dfutil.dao.jpa;
+package de.dfutil.dao;
 
-import de.dfutil.entities.jpa.KgRow;
-import de.dfutil.entities.jpa.ids.KgRowId;
+import de.dfutil.entities.KgRow;
+import de.dfutil.entities.ids.KgRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

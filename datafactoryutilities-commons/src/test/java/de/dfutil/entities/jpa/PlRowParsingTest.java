@@ -1,5 +1,6 @@
 package de.dfutil.entities.jpa;
 
+import de.dfutil.entities.PlRow;
 import org.junit.jupiter.api.Test;
 
 public class PlRowParsingTest {

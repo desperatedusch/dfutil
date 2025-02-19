@@ -1,9 +1,6 @@
-package de.dfutil.entities.jpa;
+package de.dfutil.entities;
 
-import de.dfutil.entities.AbstractRow;
-import de.dfutil.entities.RowType;
-import de.dfutil.entities.SerializablePostalObject;
-import de.dfutil.entities.jpa.ids.PlRowId;
+import de.dfutil.entities.ids.PlRowId;
 import jakarta.persistence.*;
 
 import java.util.Date;

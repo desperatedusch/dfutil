@@ -1,9 +1,6 @@
-package de.dfutil.entities.jpa;
+package de.dfutil.entities;
 
-import de.dfutil.entities.AbstractRow;
-import de.dfutil.entities.ArchivablePostalObject;
-import de.dfutil.entities.RowType;
-import de.dfutil.entities.jpa.ids.ObRowId;
+import de.dfutil.entities.ids.ObRowId;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;

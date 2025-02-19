@@ -1,7 +1,7 @@
 package de.dfutil.importing;
 
-import de.dfutil.dao.jpa.ImportResultRepository;
-import de.dfutil.entities.jpa.ImportResult;
+import de.dfutil.dao.ImportResultRepository;
+import de.dfutil.entities.ImportResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,8 +1,8 @@
 package de.dfutil.importing;
 
 import com.google.common.base.Stopwatch;
-import de.dfutil.dao.jpa.*;
-import de.dfutil.entities.jpa.*;
+import de.dfutil.dao.*;
+import de.dfutil.entities.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -14,9 +14,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 
 @Service
-public class Parser {
+public class Parsing {
 
-    private static final Logger log = LoggerFactory.getLogger(Parser.class);
+    private static final Logger log = LoggerFactory.getLogger(Parsing.class);
 
     private final Postprocessing postprocessing;
     private final SuccessionHandling successionHandling;
@@ -29,7 +29,7 @@ public class Parser {
 
     private long linesProcessed = 0;
 
-    public Parser(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing, SuccessionHandling successionHandling) {
+    public Parsing(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing, SuccessionHandling successionHandling) {
         this.sbRowRepository = sbRowRepository;
         this.plRowRepository = plRowRepository;
         this.orRowRepository = orRowRepository;
@@ -94,9 +94,12 @@ public class Parser {
             stopwatch.stop();
             duration = stopwatch.elapsed().toMillis();
             log.info("Successfully parsed file {} within {} ms", path, duration);
+
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
-            successionHandling.handleOrOrphans();
+
+//            successionHandling.process();
+
 
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);

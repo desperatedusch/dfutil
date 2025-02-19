@@ -1,4 +1,4 @@
-package de.dfutil.entities.jpa.ids;
+package de.dfutil.entities.ids;
 
 import jakarta.persistence.Embeddable;
 

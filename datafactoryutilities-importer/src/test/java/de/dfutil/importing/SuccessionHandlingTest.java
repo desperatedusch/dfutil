@@ -1,4 +1,4 @@
-package de.dfutil.updating;
+package de.dfutil.importing;
 
 public class SuccessionHandlingTest {
 }

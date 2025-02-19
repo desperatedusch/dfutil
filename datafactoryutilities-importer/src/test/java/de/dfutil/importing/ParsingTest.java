@@ -15,10 +15,10 @@ import java.io.IOException;
 @Import(TestConfig.class)
 @SpringBootTest
 @ActiveProfiles({"dev"})
-public class ParserTest {
+public class ParsingTest {
 
     @Autowired
-    private Parser cut;
+    private Parsing cut;
 
     @Autowired
     private ResourceLoader resourceLoader;

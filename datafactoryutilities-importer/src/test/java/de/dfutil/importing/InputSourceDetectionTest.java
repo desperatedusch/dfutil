@@ -10,9 +10,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 
 @ExtendWith(SpringExtension.class)
 @Import(TestConfig.class)
@@ -31,7 +28,7 @@ public class InputSourceDetectionTest {
 
     @Test
     public void findInputFiles() throws IOException {
-        List<Path> inputFiles = new ArrayList<>(cut.findFiles());
+        cut.findFiles();
     }
 
 }

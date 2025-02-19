@@ -1,4 +1,4 @@
-package de.dfutil.entities.jpa;
+package de.dfutil.entities;
 
 import jakarta.persistence.*;
 

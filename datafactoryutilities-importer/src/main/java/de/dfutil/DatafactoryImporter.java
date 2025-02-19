@@ -1,7 +1,7 @@
 package de.dfutil;
 
 import de.dfutil.importing.InputSourceDetection;
-import de.dfutil.importing.Parser;
+import de.dfutil.importing.Parsing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -19,9 +19,9 @@ public class DatafactoryImporter implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(DatafactoryImporter.class);
 
     private final InputSourceDetection inputSourceDetection;
-    private final Parser parsing;
+    private final Parsing parsing;
 
-    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parser parsing) {
+    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing) {
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
     }

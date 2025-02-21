@@ -94,13 +94,9 @@ public class Parsing {
             stopwatch.stop();
             duration = stopwatch.elapsed().toMillis();
             log.info("Successfully parsed file {} within {} ms", path, duration);
-
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
-
-//            successionHandling.process();
-
-
+            successionHandling.process();
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
             postprocessing.parsingFailed(path, null);

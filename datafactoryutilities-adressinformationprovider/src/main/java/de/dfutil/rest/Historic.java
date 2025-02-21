@@ -2,8 +2,7 @@ package de.dfutil.rest;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/history")
+@RestController("/historic")
 public class Historic {
-
 
 }

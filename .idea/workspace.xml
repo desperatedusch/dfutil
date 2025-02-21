@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="First draft of SuccessionHandling is implemented">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/resources/Historic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/resources/Searches.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/resources/Suggestions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/AddressInformationProviderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/AddressInformationProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/endpoints/AGSRestEndpoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/rest/Historic.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/rest/Historic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/rest/Suggestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/src/main/java/de/dfutil/rest/Suggestions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parsing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Postprocessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Postprocessing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +182,7 @@
     &quot;Spring Boot.AddressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AdressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.DatafactoryDownloader.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.DatafactoryImporter.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DatafactoryImporter.executor&quot;: &quot;Debug&quot;,
     &quot;Spring Boot.DatafactoryImporterApplication.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
@@ -195,12 +196,12 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.43788344&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.29663607&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -259,7 +260,7 @@
       <recent name="de.dfutil.core.files.parsing.procedural" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.AddressInformationProviderApplication">
+  <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
     <configuration name="KgRowParsingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
@@ -367,7 +368,7 @@
       <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
       <item itemvalue="JUnit.ObRowParsingTest.parseObRowBytes2Object" />
       <item itemvalue="JUnit.OrRowParsingTest.parseOrRowBytes2Object" />
-      <item itemvalue="Spring Boot.AddressInformationProviderApplication" />
+      <item itemvalue="Spring Boot.AddressInformationProvider" />
       <item itemvalue="Spring Boot.DatafactoryDownloader" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
     </list>
@@ -384,8 +385,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
@@ -560,15 +561,11 @@
       <workItem from="1739772510198" duration="26373000" />
       <workItem from="1739862681551" duration="6548000" />
       <workItem from="1739869356309" duration="19276000" />
-      <workItem from="1739969194524" duration="6179000" />
-    </task>
-    <task id="LOCAL-00049" summary="No more reflection based object creation">
-      <option name="closed" value="true" />
-      <created>1736702081319</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1736702081319</updated>
+      <workItem from="1739969194524" duration="7010000" />
+      <workItem from="1740120955896" duration="6920000" />
+      <workItem from="1740129072650" duration="178000" />
+      <workItem from="1740129306466" duration="2621000" />
+      <workItem from="1740133202354" duration="2593000" />
     </task>
     <task id="LOCAL-00050" summary="No more reflection based object creation">
       <option name="closed" value="true" />
@@ -954,7 +951,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739958131399</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="First draft of SuccessionHandling is implemented">
+      <option name="closed" value="true" />
+      <created>1739978964328</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1739978964328</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1083,6 +1088,11 @@
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
           <line>35</line>
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parsing.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -20,7 +20,7 @@ public class Postprocessing {
     private final ImportResultRepository importResultRepository;
 
     @Value("${app.importer.inputsource.delete-after-successful-processing}")
-    private boolean deleteAfterSuccessfulProcessing;
+    private boolean deleteSourcesAfterSuccessfulProcessing;
 
     public Postprocessing(ImportResultRepository importResultRepository) {
         this.importResultRepository = importResultRepository;
@@ -48,7 +48,7 @@ public class Postprocessing {
 
     public void deleteProcessedInputSources(Path inputSource) {
         try {
-            if (deleteAfterSuccessfulProcessing) {
+            if (deleteSourcesAfterSuccessfulProcessing) {
                 Files.deleteIfExists(inputSource);
             }
         } catch (IOException e) {

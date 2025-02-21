@@ -9,6 +9,8 @@ import de.dfutil.entities.SbRow;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
 import de.dfutil.entities.ids.SbRowId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,8 @@ import java.util.Optional;
 @Transactional
 @Service
 public class SuccessionHandling {
+
+    private static final Logger log = LoggerFactory.getLogger(SuccessionHandling.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
@@ -31,21 +35,24 @@ public class SuccessionHandling {
     }
 
     public void process() {
+        log.info("Succession handling started at {}", LocalDateTime.now());
         handleOrphanedOr();
         handleOrphanedOb();
         handleOrphanedSb();
-
+        log.info("Orphaned handling completed");
         handleSplittedOr();
         handleSplittedOb();
         handleSplittedSb();
-
+        log.info("Splits handling completed");
         handleMergedOr();
         handleMergedOb();
         handleMergedSb();
-
+        log.info("Merges handling completed");
         handleReplacementsOr();
         handleReplacementsOb();
         handleReplacementsSb();
+        log.info("Replacements step completed");
+        log.info("Finished handling completed at {}", LocalDateTime.now());
     }
 
     private void handleOrphanedSb() {
@@ -121,6 +128,7 @@ public class SuccessionHandling {
     }
 
     private void handleSplittedOr() {
+        List<OrRow> multipleSuccessors = orRowRepository.findMultipleSuccessors();
         throw new UnsupportedOperationException("not implemented yet");
     }
 

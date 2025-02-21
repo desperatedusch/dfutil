@@ -1,5 +1,6 @@
 package de.dfutil.importing;
 
+import com.google.common.base.Stopwatch;
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
@@ -35,6 +36,7 @@ public class SuccessionHandling {
     }
 
     public void process() {
+        var stopwatch = Stopwatch.createStarted();
         log.info("Succession handling started at {}", LocalDateTime.now());
         handleOrphanedOr();
         handleOrphanedOb();
@@ -52,7 +54,8 @@ public class SuccessionHandling {
         handleReplacementsOb();
         handleReplacementsSb();
         log.info("Replacements step completed");
-        log.info("Finished handling completed at {}", LocalDateTime.now());
+        stopwatch.stop();
+        log.info("Finished handling completed at {} within {} ms", LocalDateTime.now(), stopwatch.elapsed().toMillis());
     }
 
     private void handleOrphanedSb() {
@@ -129,38 +132,37 @@ public class SuccessionHandling {
 
     private void handleSplittedOr() {
         List<OrRow> multipleSuccessors = orRowRepository.findMultipleSuccessors();
-        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleSplittedOb() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleSplittedSb() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleMergedOb() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleMergedOr() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleMergedSb() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleReplacementsOb() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleReplacementsOr() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 
     private void handleReplacementsSb() {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 }

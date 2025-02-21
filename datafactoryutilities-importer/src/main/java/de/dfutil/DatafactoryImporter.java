@@ -2,6 +2,7 @@ package de.dfutil;
 
 import de.dfutil.importing.InputSourceDetection;
 import de.dfutil.importing.Parsing;
+import de.dfutil.importing.SuccessionHandling;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -20,10 +21,12 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     private final InputSourceDetection inputSourceDetection;
     private final Parsing parsing;
+    private final SuccessionHandling successionHandling;
 
-    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing) {
+    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing, SuccessionHandling successionHandling) {
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
+        this.successionHandling = successionHandling;
     }
 
     public static void main(String[] args) {
@@ -35,6 +38,7 @@ public class DatafactoryImporter implements CommandLineRunner {
         List<Path> files = inputSourceDetection.findFiles();
         files.sort(Comparator.comparing(Path::getFileName));
         files.forEach(parsing::fromFile);
+        successionHandling.process();
     }
 
 }

@@ -19,7 +19,6 @@ public class Parsing {
     private static final Logger log = LoggerFactory.getLogger(Parsing.class);
 
     private final Postprocessing postprocessing;
-    private final SuccessionHandling successionHandling;
 
     private final KgRowRepository kgRowRepository;
     private final ObRowRepository obRowRepository;
@@ -29,14 +28,13 @@ public class Parsing {
 
     private long linesProcessed = 0;
 
-    public Parsing(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing, SuccessionHandling successionHandling) {
+    public Parsing(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing) {
         this.sbRowRepository = sbRowRepository;
         this.plRowRepository = plRowRepository;
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.kgRowRepository = kgRowRepository;
         this.postprocessing = postprocessing;
-        this.successionHandling = successionHandling;
     }
 
     private void persist(String line) {
@@ -96,7 +94,6 @@ public class Parsing {
             log.info("Successfully parsed file {} within {} ms", path, duration);
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
-            successionHandling.process();
         } catch (IOException e) {
             log.error("Parsing file failed: {}", path);
             postprocessing.parsingFailed(path, null);

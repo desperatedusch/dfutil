@@ -19,7 +19,7 @@ public class PlRowId implements Serializable {
         this.plzAlort = plzAlort;
     }
 
-    public String plzPlz() {
+    public String getPlzPlz() {
         return plzPlz;
     }
 
@@ -27,7 +27,7 @@ public class PlRowId implements Serializable {
         this.plzPlz = plzPlz;
     }
 
-    public String plzAlOrt() {
+    public String getPlzAlOrt() {
         return plzAlort;
     }
 

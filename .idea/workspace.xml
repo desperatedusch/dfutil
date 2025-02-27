@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="First draft of SuccessionHandling is implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/ObRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/ObRowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/OrRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/OrRowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/SbRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/SbRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/KgRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/KgRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/ObRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/ObRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/OrRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/OrRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/PlRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/PlRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/SbRowId.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ids/SbRowId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +181,7 @@
     &quot;Spring Boot.AddressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AdressInformationProviderApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.DatafactoryDownloader.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.DatafactoryImporter.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DatafactoryImporter.executor&quot;: &quot;Debug&quot;,
     &quot;Spring Boot.DatafactoryImporterApplication.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
@@ -255,7 +259,7 @@
       <recent name="de.dfutil.core.files.parsing.procedural" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SbRowParsingTest.parseSBRowBytes2Object">
+  <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
     <configuration name="KgRowParsingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
@@ -358,11 +362,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.SbRowParsingTest.parseSBRowBytes2Object" />
       <item itemvalue="JUnit.KgRowParsingTest" />
       <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
       <item itemvalue="JUnit.ObRowParsingTest.parseObRowBytes2Object" />
       <item itemvalue="JUnit.OrRowParsingTest.parseOrRowBytes2Object" />
+      <item itemvalue="JUnit.SbRowParsingTest.parseSBRowBytes2Object" />
       <item itemvalue="Spring Boot.AddressInformationProvider" />
       <item itemvalue="Spring Boot.DatafactoryDownloader" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
@@ -561,23 +565,14 @@
       <workItem from="1739869356309" duration="19276000" />
       <workItem from="1739969194524" duration="6179000" />
       <workItem from="1740156445779" duration="195000" />
-      <workItem from="1740156651347" duration="345000" />
-    </task>
-    <task id="LOCAL-00049" summary="No more reflection based object creation">
-      <option name="closed" value="true" />
-      <created>1736702081319</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1736702081319</updated>
-    </task>
-    <task id="LOCAL-00050" summary="No more reflection based object creation">
-      <option name="closed" value="true" />
-      <created>1736702276896</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1736702276896</updated>
+      <workItem from="1740156651347" duration="11650000" />
+      <workItem from="1740214775647" duration="1111000" />
+      <workItem from="1740218856390" duration="1502000" />
+      <workItem from="1740233543398" duration="8000" />
+      <workItem from="1740562733131" duration="570000" />
+      <workItem from="1740563699707" duration="2283000" />
+      <workItem from="1740597101011" duration="633000" />
+      <workItem from="1740647070926" duration="2947000" />
     </task>
     <task id="LOCAL-00051" summary="Minor refactorings">
       <option name="closed" value="true" />
@@ -955,7 +950,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739958131399</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="First draft of SuccessionHandling is implemented">
+      <option name="closed" value="true" />
+      <created>1740158071400</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1740158071400</updated>
+    </task>
+    <task id="LOCAL-00099" summary="First draft of SuccessionHandling is implemented">
+      <option name="closed" value="true" />
+      <created>1740167846709</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1740167846709</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1031,59 +1042,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/format/RowFormat.java</url>
-          <line>4</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/files/InputSourceDetection.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importer/files/InputSourceDetectionTest.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/PlRowParsingTest.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowParsingTest.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowParsingTest.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowParsingTest.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importer/DatafactoryImporter.java</url>
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java</url>
           <line>34</line>
-          <option name="timeStamp" value="35" />
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ObRow.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowParsingTest.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="42" />
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

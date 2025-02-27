@@ -13,13 +13,11 @@ import de.dfutil.entities.ids.SbRowId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
 @Service
 public class SuccessionHandling {
 
@@ -41,7 +39,7 @@ public class SuccessionHandling {
         handleOrphanedOr();
         handleOrphanedOb();
         handleOrphanedSb();
-        log.info("Orphaned handling completed");
+        log.info("Orphans handling completed");
         handleSplittedOr();
         handleSplittedOb();
         handleSplittedSb();
@@ -53,26 +51,27 @@ public class SuccessionHandling {
         handleReplacementsOr();
         handleReplacementsOb();
         handleReplacementsSb();
-        log.info("Replacements step completed");
+        log.info("Replacements handling completed");
         stopwatch.stop();
-        log.info("Finished handling completed at {} within {} ms", LocalDateTime.now(), stopwatch.elapsed().toMillis());
+        log.info("Finished successions at {} within {} ms", LocalDateTime.now(), stopwatch.elapsed().toMillis());
     }
 
     private void handleOrphanedSb() {
         List<SbRow> processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
+        log.info("Processing orphaned Sb objects {} found", processableOrphanedSbObjects.size());
         processableOrphanedSbObjects.forEach(processableSb ->
         {
             Optional<SbRow> formerExistingSbOptional =
                     sbRowRepository.findById(
                             new SbRowId(
-                                    processableSb.getSbRowId().strAlOrt(),
-                                    processableSb.getSbRowId().strNamenSchl(),
-                                    processableSb.getSbRowId().strBundLfdnr(),
-                                    processableSb.getSbRowId().strHnrVon(),
-                                    processableSb.getSbRowId().strHnrBis(),
+                                    processableSb.getSbRowId().getStrAlOrt(),
+                                    processableSb.getSbRowId().getStrNamenSchl(),
+                                    processableSb.getSbRowId().getStrBundLfdnr(),
+                                    processableSb.getSbRowId().getStrHnrVon(),
+                                    processableSb.getSbRowId().getStrHnrBis(),
                                     "G",
-                                    processableSb.getSbRowId().strHnr1000()
+                                    processableSb.getSbRowId().getStrHnr1000()
                             )
                     );
             if (formerExistingSbOptional.isPresent()) {
@@ -88,14 +87,15 @@ public class SuccessionHandling {
     private void handleOrphanedOb() {
         List<ObRow> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
+        log.info("Processing orphaned Ob objects {} found", processableOrphanedObObjects.size());
         processableOrphanedObObjects.forEach(processableOb ->
         {
             Optional<ObRow> formerExistingObOptional =
                     obRowRepository.findById(
                             new ObRowId(
-                                    processableOb.getObRowId().otlAlort(),
-                                    processableOb.getObRowId().otlSchl(),
-                                    processableOb.getObRowId().otlPlz(),
+                                    processableOb.getObRowId().getOtlAlort(),
+                                    processableOb.getObRowId().getOtlSchl(),
+                                    processableOb.getObRowId().getOtlPlz(),
                                     "G"
                             )
                     );
@@ -112,11 +112,12 @@ public class SuccessionHandling {
     private void handleOrphanedOr() {
         List<OrRow> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
+        log.info("Processing orphaned Or objects {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.forEach(processableOr ->
         {
             Optional<OrRow> formerExistingOrOptional = orRowRepository.findById(
                     new OrRowId(
-                            processableOr.getOrRowId().ortAlort(),
+                            processableOr.getOrRowId().getOrtAlort(),
                             "G"
                     )
             );
@@ -135,34 +136,35 @@ public class SuccessionHandling {
     }
 
     private void handleSplittedOb() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
 
     private void handleSplittedSb() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
 
     private void handleMergedOb() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
 
     private void handleMergedOr() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
 
     private void handleMergedSb() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
 
     private void handleReplacementsOb() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
 
     private void handleReplacementsOr() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
 
     private void handleReplacementsSb() {
-//        throw new UnsupportedOperationException("not implemented yet");
+
     }
+
 }

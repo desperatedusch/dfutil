@@ -19,7 +19,7 @@ public class KgRowId implements Serializable {
         this.kgSatzart = kgSatzart;
     }
 
-    public String kgSchluessel() {
+    public String getKgSchluessel() {
         return kgSchluessel;
     }
 
@@ -27,7 +27,7 @@ public class KgRowId implements Serializable {
         this.kgSchluessel = kgSchluessel;
     }
 
-    public String kgSatzart() {
+    public String getKgSatzart() {
         return kgSatzart;
     }
 

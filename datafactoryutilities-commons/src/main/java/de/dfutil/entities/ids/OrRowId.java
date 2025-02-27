@@ -19,7 +19,7 @@ public class OrRowId implements Serializable {
         this.ortStatus = ortStatus;
     }
 
-    public String ortAlort() {
+    public String getOrtAlort() {
         return ortAlort;
     }
 
@@ -27,7 +27,7 @@ public class OrRowId implements Serializable {
         this.ortAlort = ortAlort;
     }
 
-    public String ortStatus() {
+    public String getOrtStatus() {
         return ortStatus;
     }
 

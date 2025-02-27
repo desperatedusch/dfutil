@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import java.nio.file.Path;
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
@@ -35,10 +36,12 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        log.info("Importing started at {}", LocalDateTime.now());
         List<Path> files = inputSourceDetection.findFiles();
         files.sort(Comparator.comparing(Path::getFileName));
         files.forEach(parsing::fromFile);
         successionHandling.process();
+        log.info("Importing finished at {}", LocalDateTime.now());
     }
 
 }

@@ -23,7 +23,7 @@ public class ObRowId implements Serializable {
         this.otlStatus = otlStatus;
     }
 
-    public String otlAlort() {
+    public String getOtlAlort() {
         return otlAlort;
     }
 
@@ -31,7 +31,7 @@ public class ObRowId implements Serializable {
         this.otlAlort = otlAlort;
     }
 
-    public String otlSchl() {
+    public String getOtlSchl() {
         return otlSchl;
     }
 
@@ -39,7 +39,7 @@ public class ObRowId implements Serializable {
         this.otlSchl = otlSchl;
     }
 
-    public String otlPlz() {
+    public String getOtlPlz() {
         return otlPlz;
     }
 
@@ -47,7 +47,7 @@ public class ObRowId implements Serializable {
         this.otlPlz = otlPlz;
     }
 
-    public String otlStatus() {
+    public String getOtlStatus() {
         return otlStatus;
     }
 

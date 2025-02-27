@@ -36,7 +36,7 @@ public class SbRowId implements Serializable {
         this.strHnr1000 = strHnr1000;
     }
 
-    public String strAlOrt() {
+    public String getStrAlOrt() {
         return strAlort;
     }
 
@@ -44,7 +44,7 @@ public class SbRowId implements Serializable {
         this.strAlort = strAlOrt;
     }
 
-    public String strNamenSchl() {
+    public String getStrNamenSchl() {
         return strNamenSchl;
     }
 
@@ -52,7 +52,7 @@ public class SbRowId implements Serializable {
         this.strNamenSchl = strNamenSchl;
     }
 
-    public String strBundLfdnr() {
+    public String getStrBundLfdnr() {
         return strBundLfdnr;
     }
 
@@ -60,7 +60,7 @@ public class SbRowId implements Serializable {
         this.strBundLfdnr = strBundLfdnr;
     }
 
-    public String strHnrVon() {
+    public String getStrHnrVon() {
         return strHnrvon;
     }
 
@@ -68,7 +68,7 @@ public class SbRowId implements Serializable {
         this.strHnrvon = strHnrVon;
     }
 
-    public String strHnrBis() {
+    public String getStrHnrBis() {
         return strHnrbis;
     }
 
@@ -76,7 +76,7 @@ public class SbRowId implements Serializable {
         this.strHnrbis = strHnrBis;
     }
 
-    public String strStatus() {
+    public String getStrStatus() {
         return strStatus;
     }
 
@@ -84,7 +84,7 @@ public class SbRowId implements Serializable {
         this.strStatus = strStatus;
     }
 
-    public String strHnr1000() {
+    public String getStrHnr1000() {
         return strHnr1000;
     }
 

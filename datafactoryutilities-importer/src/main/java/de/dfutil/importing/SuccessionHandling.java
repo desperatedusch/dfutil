@@ -59,7 +59,7 @@ public class SuccessionHandling {
     private void handleOrphanedSb() {
         List<SbRow> processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
-        log.info("Processing orphaned Sb objects {} found", processableOrphanedSbObjects.size());
+        log.info("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
         processableOrphanedSbObjects.forEach(processableSb ->
         {
             Optional<SbRow> formerExistingSbOptional =
@@ -87,7 +87,7 @@ public class SuccessionHandling {
     private void handleOrphanedOb() {
         List<ObRow> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
-        log.info("Processing orphaned Ob objects {} found", processableOrphanedObObjects.size());
+        log.info("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
         processableOrphanedObObjects.forEach(processableOb ->
         {
             Optional<ObRow> formerExistingObOptional =
@@ -112,7 +112,7 @@ public class SuccessionHandling {
     private void handleOrphanedOr() {
         List<OrRow> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
-        log.info("Processing orphaned Or objects {} found", processableOrphanedOrObjects.size());
+        log.info("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.forEach(processableOr ->
         {
             Optional<OrRow> formerExistingOrOptional = orRowRepository.findById(

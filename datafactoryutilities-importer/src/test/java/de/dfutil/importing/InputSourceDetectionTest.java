@@ -1,24 +1,20 @@
 package de.dfutil.importing;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 
-@ExtendWith(SpringExtension.class)
 @Import(TestConfig.class)
 @SpringBootTest
-@ActiveProfiles({"dev"})
 @TestPropertySource(
         properties =
                 """
-                            app.importer.inputsource.folders=D:/Stuff/Datafactory/2024/
+                            app.importer.inputsource.folders=de/dfutil/importing/2024
                             app.importer.inputsource.filenamemask=B*.DAT
                         """)
 public class InputSourceDetectionTest {
@@ -28,7 +24,7 @@ public class InputSourceDetectionTest {
 
     @Test
     public void findInputFiles() throws IOException {
-        cut.findFiles();
+        Assertions.assertEquals(10, cut.findFiles().size());
     }
 
 }

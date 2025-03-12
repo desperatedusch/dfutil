@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="H2 usage in Test">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/InputSourceDetectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/InputSourceDetectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/ParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/ParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/SuccessionHandlingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/SuccessionHandlingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/java/de/dfutil/importing/TestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/application-dev.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/src/main/resources/application-dev.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,8 +206,8 @@
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "h2",
-      "postgresql"
+      "postgresql",
+      "h2"
     ],
     "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
       "PostgreSQL"
@@ -234,11 +233,11 @@
       <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dusch\IdeaProjects\dfutil\datafactoryutilities-importer\src\test\resources\importing" />
+      <recent name="C:\Users\dusch\IdeaProjects\dfutil\datafactoryutilities-importer\src\test\resources\de\dfutil" />
+      <recent name="C:\Users\dusch\IdeaProjects\dfutil\datafactoryutilities-importer\src\test\resources" />
       <recent name="D:\ideaWorkspaces\dfutil\datafactoryutilities-importer\src\test\resources\de\dfutil\core\files" />
       <recent name="D:\idea-workspaces\dfutil\commons\src\main\java" />
-      <recent name="D:\idea-workspaces\dfutil\datafactoryimporter\src\test\resources\files2import" />
-      <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\resources" />
-      <recent name="D:\idea-workspaces\dfutil\adressinformationprovider\src\main\java\de\dfutil" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -373,10 +372,10 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.InputSourceDetectionTest" />
-      <item itemvalue="JUnit.SbRowParsingTest.parseSBRowBytes2Object" />
       <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
       <item itemvalue="JUnit.ObRowParsingTest.parseObRowBytes2Object" />
       <item itemvalue="JUnit.OrRowParsingTest.parseOrRowBytes2Object" />
+      <item itemvalue="JUnit.SbRowParsingTest.parseSBRowBytes2Object" />
       <item itemvalue="Spring Boot.AddressInformationProvider" />
       <item itemvalue="Spring Boot.DatafactoryDownloader" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
@@ -582,23 +581,14 @@
       <workItem from="1741093295418" duration="4170000" />
       <workItem from="1741162549842" duration="7481000" />
       <workItem from="1741337984017" duration="1096000" />
-      <workItem from="1741401040399" duration="1329000" />
-    </task>
-    <task id="LOCAL-00052" summary="Minor refactorings">
-      <option name="closed" value="true" />
-      <created>1737017701932</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1737017701932</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Profilebased persistence (eventbased vs. procedural) is available">
-      <option name="closed" value="true" />
-      <created>1737377382038</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1737377382039</updated>
+      <workItem from="1741401040399" duration="2856000" />
+      <workItem from="1741504254441" duration="4547000" />
+      <workItem from="1741529350090" duration="2000" />
+      <workItem from="1741537604653" duration="1278000" />
+      <workItem from="1741635790243" duration="1953000" />
+      <workItem from="1741708141822" duration="2196000" />
+      <workItem from="1741764710075" duration="70000" />
+      <workItem from="1741768097126" duration="5015000" />
     </task>
     <task id="LOCAL-00054" summary="Implements CoR Pattern for prodecural presistence [UNFINISHED]">
       <option name="closed" value="true" />
@@ -976,7 +966,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741091974052</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="H2 usage in Test">
+      <option name="closed" value="true" />
+      <created>1741402432045</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1741402432045</updated>
+    </task>
+    <task id="LOCAL-00102" summary="H2 usage in Test">
+      <option name="closed" value="true" />
+      <created>1741402592197</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1741402592197</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1105,6 +1111,11 @@
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
           <line>35</line>
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parsing.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

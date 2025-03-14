@@ -19,7 +19,7 @@ import java.util.Objects;
                         "IDX_STRASSE___STR_ALORT__STR_NAMEN_SCHL__STR_BUND_LFDNR__STR_HNRVON__STR_HNRBIS__STR_STATUS__STR_HNR1000",
                 columnList =
                         "STR_ALORT,STR_NAMEN_SCHL,STR_BUND_LFDNR,STR_HNRVON,STR_HNRBIS,STR_STATUS,STR_HNR1000"))
-public class SbRow extends AbstractRow<SbRow> implements ArchivablePostalObject {
+public class SbRow extends AbstractRow implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.SB;
 

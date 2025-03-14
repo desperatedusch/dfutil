@@ -4,6 +4,7 @@ import de.dfutil.entities.ids.KgRowId;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * In der Kreisgemeindedatei KGS-DA stehen die amtlichen Namen der Gemeinden, Kreise, kreisfreien
@@ -75,6 +76,18 @@ public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObjec
 
     public void setKgRowId(KgRowId kgRowId) {
         this.kgRowId = kgRowId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        KgRow kgRow = (KgRow) o;
+        return Objects.equals(version, kgRow.version) && Objects.equals(kgDatum, kgRow.kgDatum) && Objects.equals(kgRowId, kgRow.kgRowId) && Objects.equals(kgName, kgRow.kgName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(version, kgDatum, kgRowId, kgName);
     }
 
 }

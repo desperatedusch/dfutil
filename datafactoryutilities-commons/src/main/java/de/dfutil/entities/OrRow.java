@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Repräsentiert Orte
@@ -151,6 +152,18 @@ public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject 
 
     public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        OrRow orRow = (OrRow) o;
+        return Objects.equals(version, orRow.version) && Objects.equals(ortDatum, orRow.ortDatum) && Objects.equals(orRowId, orRow.orRowId) && Objects.equals(ortOname, orRow.ortOname) && Objects.equals(ortOnamePost, orRow.ortOnamePost) && Objects.equals(ortOzusatz, orRow.ortOzusatz) && Objects.equals(ortArtOzusatz, orRow.ortArtOzusatz) && Objects.equals(ortOname24, orRow.ortOname24) && Objects.equals(ortKgs, orRow.ortKgs) && Objects.equals(ortAlortNeu, orRow.ortAlortNeu) && Objects.equals(outdatedAt, orRow.outdatedAt) && Objects.equals(alreadyAppliedAt, orRow.alreadyAppliedAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(version, ortDatum, orRowId, ortOname, ortOnamePost, ortOzusatz, ortArtOzusatz, ortOname24, ortKgs, ortAlortNeu, outdatedAt, alreadyAppliedAt);
     }
 
 }

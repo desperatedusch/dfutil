@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Repräsentiert Strassen
@@ -260,4 +261,15 @@ public class SbRow extends AbstractRow<SbRow> implements ArchivablePostalObject 
         this.alreadyAppliedAt = alreadyAppliedAt;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        SbRow sbRow = (SbRow) o;
+        return Objects.equals(version, sbRow.version) && Objects.equals(strDatum, sbRow.strDatum) && Objects.equals(sbRowId, sbRow.sbRowId) && Objects.equals(strStverz, sbRow.strStverz) && Objects.equals(strNameSort, sbRow.strNameSort) && Objects.equals(strName46, sbRow.strName46) && Objects.equals(strName22, sbRow.strName22) && Objects.equals(strReserve, sbRow.strReserve) && Objects.equals(strHnrTyp, sbRow.strHnrTyp) && Objects.equals(strPlz, sbRow.strPlz) && Objects.equals(strCode, sbRow.strCode) && Objects.equals(strOtlSchl, sbRow.strOtlSchl) && Objects.equals(strAlorgB, sbRow.strAlorgB) && Objects.equals(strKgs, sbRow.strKgs) && Objects.equals(strAlortNeu, sbRow.strAlortNeu) && Objects.equals(strNamenSchlNeu, sbRow.strNamenSchlNeu) && Objects.equals(strBundLfdnrNeu, sbRow.strBundLfdnrNeu) && Objects.equals(strHnrvonNeu, sbRow.strHnrvonNeu) && Objects.equals(strHnrbisNeu, sbRow.strHnrbisNeu) && Objects.equals(outdatedAt, sbRow.outdatedAt) && Objects.equals(alreadyAppliedAt, sbRow.alreadyAppliedAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(version, strDatum, sbRowId, strStverz, strNameSort, strName46, strName22, strReserve, strHnrTyp, strPlz, strCode, strOtlSchl, strAlorgB, strKgs, strAlortNeu, strNamenSchlNeu, strBundLfdnrNeu, strHnrvonNeu, strHnrbisNeu, outdatedAt, alreadyAppliedAt);
+    }
 }

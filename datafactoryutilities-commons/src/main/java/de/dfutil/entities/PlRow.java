@@ -4,6 +4,7 @@ import de.dfutil.entities.ids.PlRowId;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Repräsentiert einzelne Postleitzahlbereiche
@@ -238,6 +239,18 @@ public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObjec
 
     public void setPlRowId(PlRowId plRowId) {
         this.plRowId = plRowId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        PlRow plRow = (PlRow) o;
+        return Objects.equals(version, plRow.version) && Objects.equals(plzDatum, plRow.plzDatum) && Objects.equals(plRowId, plRow.plRowId) && Objects.equals(plzArtKardinalität, plRow.plzArtKardinalität) && Objects.equals(plzArtAuslierferung, plRow.plzArtAuslierferung) && Objects.equals(plzStverz, plRow.plzStverz) && Objects.equals(plzPfverz, plRow.plzPfverz) && Objects.equals(plzOname, plRow.plzOname) && Objects.equals(plzOzusatz, plRow.plzOzusatz) && Objects.equals(plzArtOzusatz, plRow.plzArtOzusatz) && Objects.equals(plzOname24, plRow.plzOname24) && Objects.equals(plzPostlag, plRow.plzPostlag) && Objects.equals(plzLaBrief, plRow.plzLaBrief) && Objects.equals(plzLaAlort, plRow.plzLaAlort) && Objects.equals(plzKgs, plRow.plzKgs) && Objects.equals(plzOrtCode, plRow.plzOrtCode) && Objects.equals(plzLeitcodeMax, plRow.plzLeitcodeMax) && Objects.equals(plzRabattInfoSchwer, plRow.plzRabattInfoSchwer) && Objects.equals(plzReserve, plRow.plzReserve) && Objects.equals(plzFzNr, plRow.plzFzNr) && Objects.equals(plzBzNr, plRow.plzBzNr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(version, plzDatum, plRowId, plzArtKardinalität, plzArtAuslierferung, plzStverz, plzPfverz, plzOname, plzOzusatz, plzArtOzusatz, plzOname24, plzPostlag, plzLaBrief, plzLaAlort, plzKgs, plzOrtCode, plzLeitcodeMax, plzRabattInfoSchwer, plzReserve, plzFzNr, plzBzNr);
     }
 
 }

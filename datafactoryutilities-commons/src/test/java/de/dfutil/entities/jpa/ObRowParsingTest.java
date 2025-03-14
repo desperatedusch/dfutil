@@ -1,6 +1,8 @@
 package de.dfutil.entities.jpa;
 
 import de.dfutil.entities.ObRow;
+import de.dfutil.entities.ids.ObRowId;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ObRowParsingTest {
@@ -10,7 +12,16 @@ public class ObRowParsingTest {
 
     @Test
     public void parseObRowBytes2Object() {
+        ObRow expectedObRow = new ObRow();
+        expectedObRow.setOtlDatum("19941203");
+        expectedObRow.setObRowId(new ObRowId("00004000", "008", "52070", "G"));
+        expectedObRow.setOtlStverz("2");
+        expectedObRow.setOtlName("Laurensberg                             ");
+        expectedObRow.setOtlKgs("05334002");
+        expectedObRow.setImportingFileIdentifier("OB2309244");
+
         ObRow parsedObRow = ObRow.parseFrom(LAURENSBERG);
-        parsedObRow.toString();
+
+        Assertions.assertEquals(expectedObRow, parsedObRow);
     }
 }

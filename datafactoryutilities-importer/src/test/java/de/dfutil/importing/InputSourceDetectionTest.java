@@ -14,7 +14,7 @@ import java.io.IOException;
 @TestPropertySource(
         properties =
                 """
-                            app.importer.inputsource.folders=de/dfutil/importing/2024
+                            app.importer.inputsource.folders=importsourcedetection/2024
                             app.importer.inputsource.filenamemask=B*.DAT
                         """)
 public class InputSourceDetectionTest {

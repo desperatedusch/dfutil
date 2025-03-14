@@ -1,6 +1,7 @@
 package de.dfutil.importing;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
@@ -8,6 +9,8 @@ import org.springframework.context.annotation.Import;
 @SpringBootTest
 public class SuccessionHandlingTest {
 
+    @Autowired
+    private SuccessionHandling cut;
 
 }
 

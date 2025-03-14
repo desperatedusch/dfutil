@@ -35,7 +35,7 @@ public class SuccessionHandling {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
-        log.info("Succession handling started at {}", LocalDateTime.now());
+        log.info("Succession handling started");
         handleOrphanedOr();
         handleOrphanedOb();
         handleOrphanedSb();
@@ -53,7 +53,7 @@ public class SuccessionHandling {
         handleReplacementsSb();
         log.info("Replacements handling completed");
         stopwatch.stop();
-        log.info("Finished successions at {} within {} ms", LocalDateTime.now(), stopwatch.elapsed().toMillis());
+        log.info("Finished successions within {} ms", stopwatch.elapsed().toMillis());
     }
 
     private void handleOrphanedSb() {

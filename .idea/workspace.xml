@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="H2 usage in Test">
-      <change afterPath="$PROJECT_DIR$/.idea/diff-generator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy-datasource.xml" afterDir="false" />
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Fixes some issues related to an incomplete equals implementation inside jpa entities and there embedded ids">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/KgRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/KgRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ObRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/ObRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/OrRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/OrRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PlRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/entities/PlRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +143,7 @@
     "JUnit.KgRowParsingTest.executor": "Debug",
     "JUnit.ObRowBytes2JpaEntityTest.parseObRowBytes2Object.executor": "Debug",
     "JUnit.ObRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor": "Debug",
-    "JUnit.ObRowParsingTest.parseObRowBytes2Object.executor": "Debug",
+    "JUnit.ObRowParsingTest.parseObRowBytes2Object.executor": "Run",
     "JUnit.OrRowBytes2JpaEntityTest.parsePlRowBytes2Object.executor": "Debug",
     "JUnit.ParserTest.executor": "Run",
     "JUnit.ParserTest.parseInputFile.executor": "Run",
@@ -206,7 +200,7 @@
     "project.structure.side.proportion": "0.43788344",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "database.query.execution",
+    "settings.editor.selected.configurable": "configurable.group.language",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   },
@@ -277,7 +271,7 @@
       <recent name="de.dfutil.core.files.parsing.procedural" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ObRowParsingTest.parseObRowBytes2Object">
+  <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
     <configuration name="schema.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/schema.sql" />
       <script-mode>FILE</script-mode>
@@ -588,23 +582,7 @@
       <workItem from="1741764710075" duration="70000" />
       <workItem from="1741768097126" duration="12304000" />
       <workItem from="1741886501010" duration="3669000" />
-      <workItem from="1741942543370" duration="3150000" />
-    </task>
-    <task id="LOCAL-00056" summary="Implements CoR Pattern for prodecural presistence [UNFINISHED]">
-      <option name="closed" value="true" />
-      <created>1737449503641</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1737449503641</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Implements prodecural persistence">
-      <option name="closed" value="true" />
-      <created>1737458447393</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1737458447393</updated>
+      <workItem from="1741942543370" duration="5405000" />
     </task>
     <task id="LOCAL-00058" summary="Implements prodecural persistence">
       <option name="closed" value="true" />
@@ -982,7 +960,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741782886416</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Fixes some issues related to an incomplete equals implementation inside jpa entities and there embedded ids">
+      <option name="closed" value="true" />
+      <created>1741969740872</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1741969740872</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Fixes some issues related to an incomplete equals implementation inside jpa entities and there embedded ids">
+      <option name="closed" value="true" />
+      <created>1741970060715</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1741970060715</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1024,7 +1018,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="No more reflection based object creation" />
     <MESSAGE value="Profilebased persistence (eventbased vs. procedural) is available" />
     <MESSAGE value="Implements CoR Pattern for prodecural presistence [UNFINISHED]" />
     <MESSAGE value="Implements prodecural persistence" />
@@ -1049,7 +1042,8 @@
     <MESSAGE value="Reformatting" />
     <MESSAGE value="First draft of SuccessionHandling is implemented" />
     <MESSAGE value="H2 usage in Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="H2 usage in Test" />
+    <MESSAGE value="Fixes some issues related to an incomplete equals implementation inside jpa entities and there embedded ids" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes some issues related to an incomplete equals implementation inside jpa entities and there embedded ids" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

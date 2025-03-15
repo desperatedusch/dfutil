@@ -21,9 +21,9 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
     List<OrRow> findProcessableOrphans();
 
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'N' and ort.alreadyAppliedAt is null")
-    List<OrRow> findMultipleSuccessors();
+    List<OrRow> findMultipleSuccessorCandidates();
 
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'S' and ort.alreadyAppliedAt is null")
-    List<OrRow> findSingleSuccessors();
+    List<OrRow> findReplacementCandidates();
 
 }

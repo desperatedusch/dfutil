@@ -22,9 +22,9 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
     List<ObRow> findProcessableOrphans();
 
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'N' and ortsteil.alreadyAppliedAt is null")
-    List<ObRow> findMultipleSuccessors();
+    List<ObRow> findMultipleSuccessorCandidates();
 
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'S' and ortsteil.alreadyAppliedAt is null")
-    List<ObRow> findSingleSuccessors();
+    List<ObRow> findReplacementCandidates();
 
 }

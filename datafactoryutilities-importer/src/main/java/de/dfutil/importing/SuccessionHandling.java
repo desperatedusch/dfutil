@@ -132,7 +132,14 @@ public class SuccessionHandling {
     }
 
     private void handleSplittedOr() {
-        List<OrRow> multipleSuccessors = orRowRepository.findMultipleSuccessors();
+        List<OrRow> multipleSuccessors =
+                orRowRepository.findMultipleSuccessorCandidates();
+        log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+//        multipleSuccessors.forEach(processableOr ->
+//        {
+//
+//        });
+
     }
 
     private void handleSplittedOb() {
@@ -156,7 +163,29 @@ public class SuccessionHandling {
     }
 
     private void handleReplacementsOb() {
-
+        List<ObRow> processableSingleSuccessors =
+                obRowRepository.findReplacementCandidates();
+        log.info("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
+        processableSingleSuccessors.forEach(processableOb ->
+        {
+            Optional<ObRow> predecessorObOptional =
+                    obRowRepository.findById(
+                            new ObRowId(
+                                    processableOb.getObRowId().getOtlAlort(),
+                                    processableOb.getObRowId().getOtlSchl(),
+                                    processableOb.getObRowId().getOtlPlz(),
+                                    "G"
+                            )
+                    );
+            if (predecessorObOptional.isPresent()) {
+                ObRow formerExistingOb = predecessorObOptional.get();
+                formerExistingOb.setOutdatedAt(LocalDateTime.now());
+                obRowRepository.save(formerExistingOb);
+                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
+                processableOb.getObRowId().setOtlStatus("G");
+                obRowRepository.save(processableOb);
+            }
+        });
     }
 
     private void handleReplacementsOr() {

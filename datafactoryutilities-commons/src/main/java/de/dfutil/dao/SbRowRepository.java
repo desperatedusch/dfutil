@@ -21,9 +21,9 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
     List<SbRow> findProcessableOrphans();
 
     @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'N' and strasse.alreadyAppliedAt is null")
-    List<SbRow> findMultipleSuccessors();
+    List<SbRow> findMultipleSuccessorCandidates();
 
     @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'S' and strasse.alreadyAppliedAt is null")
-    List<SbRow> findSingleSuccessors();
+    List<SbRow> findReplacementCandidates();
 
 }

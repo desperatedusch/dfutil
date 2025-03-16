@@ -23,10 +23,7 @@ public class OrRowParsingTest {
         expectedOrRow.setOrtKgs("        ");
         expectedOrRow.setOrtAlortNeu("26631500");
         expectedOrRow.setImportingFileIdentifier("OR2309244");
-
         OrRow parsedOrRow = OrRow.parseFrom(HOPSTENBAUERSCHAFT);
-
         Assertions.assertEquals(expectedOrRow, parsedOrRow);
-
     }
 }

@@ -19,9 +19,7 @@ public class ObRowParsingTest {
         expectedObRow.setOtlName("Laurensberg                             ");
         expectedObRow.setOtlKgs("05334002");
         expectedObRow.setImportingFileIdentifier("OB2309244");
-
         ObRow parsedObRow = ObRow.parseFrom(LAURENSBERG);
-
         Assertions.assertEquals(expectedObRow, parsedObRow);
     }
 }

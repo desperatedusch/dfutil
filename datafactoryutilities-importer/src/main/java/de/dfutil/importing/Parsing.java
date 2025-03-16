@@ -89,8 +89,7 @@ public class Parsing {
                     persist(line);
                 }
             }
-            stopwatch.stop();
-            duration = stopwatch.elapsed().toMillis();
+            duration = stopwatch.stop().elapsed().toMillis();
             log.info("Successfully parsed file {} within {} ms", path, duration);
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);

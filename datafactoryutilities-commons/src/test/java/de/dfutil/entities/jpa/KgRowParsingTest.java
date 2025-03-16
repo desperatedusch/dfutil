@@ -17,9 +17,7 @@ public class KgRowParsingTest {
         expectedKgRow.setKgName("Flensburg, Stadt                        ");
         expectedKgRow.setKgRowId(new KgRowId("01001000", "K"));
         expectedKgRow.setImportingFileIdentifier("KG2309244");
-
         KgRow parsedKgRow = KgRow.parseFrom(FLENSBURG_STADT);
-
         Assertions.assertEquals(expectedKgRow, parsedKgRow);
     }
 }

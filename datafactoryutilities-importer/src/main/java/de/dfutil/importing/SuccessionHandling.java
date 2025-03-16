@@ -36,24 +36,23 @@ public class SuccessionHandling {
     public void process() {
         var stopwatch = Stopwatch.createStarted();
         log.info("Succession handling started");
+        log.info("Orphans handling started");
         handleOrphanedOr();
         handleOrphanedOb();
         handleOrphanedSb();
-        log.info("Orphans handling completed");
+        log.info("Splits handling started");
         handleSplittedOr();
         handleSplittedOb();
         handleSplittedSb();
-        log.info("Splits handling completed");
+        log.info("Merges handling started");
         handleMergedOr();
         handleMergedOb();
         handleMergedSb();
-        log.info("Merges handling completed");
+        log.info("Replacements handling started");
         handleReplacementsOr();
         handleReplacementsOb();
         handleReplacementsSb();
-        log.info("Replacements handling completed");
-        stopwatch.stop();
-        log.info("Finished successions within {} ms", stopwatch.elapsed().toMillis());
+        log.info("Finished successions within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 
     private void handleOrphanedSb() {

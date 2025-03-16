@@ -1,6 +1,5 @@
-package de.dfutil.entities.jpa;
+package de.dfutil.entities;
 
-import de.dfutil.entities.PlRow;
 import de.dfutil.entities.ids.PlRowId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

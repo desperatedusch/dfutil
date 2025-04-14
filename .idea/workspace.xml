@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds basic Parsing tests [finished]">
-      <change afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/dao/DataJpaTestConfiguration.java" afterDir="false" />
+    <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="H2 usage in Test">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/dao/OrRowRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/dao/OrRowRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/KgRowParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/KgRowParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/ObRowParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/ObRowParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/OrRowParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/OrRowParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/PlRowParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/PlRowParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/jpa/SbRowParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/SbRowParsingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/test/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,18 +194,18 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/ideaWorkspaces/dfutil/datafactoryutilities-downloader/src/main/java/de/dfutil/downloader",
-    "last_opened_file_path": "D:/ideaWorkspaces/dfutil/datafactoryutilities-importer/src/test",
+    "last_opened_file_path": "D:/ideaWorkspaces/hewog-trunk",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.43788344",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "configurable.group.language",
+    "settings.editor.selected.configurable": "settings.sync",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   },
@@ -384,10 +377,10 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.KgRowParsingTest.parseKgRowBytes2Object" />
+      <item itemvalue="JUnit.OrRowParsingTest" />
       <item itemvalue="JUnit.OrRowRepositoryTest" />
       <item itemvalue="JUnit.PlRowParsingTest" />
       <item itemvalue="JUnit.SbRowParsingTest" />
-      <item itemvalue="JUnit.OrRowParsingTest" />
       <item itemvalue="Spring Boot.AddressInformationProvider" />
       <item itemvalue="Spring Boot.DatafactoryDownloader" />
       <item itemvalue="Spring Boot.DatafactoryImporter" />
@@ -405,8 +398,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -607,6 +600,10 @@
       <workItem from="1742020732874" duration="5620000" />
       <workItem from="1742081717428" duration="3977000" />
       <workItem from="1742121114329" duration="8138000" />
+      <workItem from="1742193058900" duration="18000" />
+      <workItem from="1742371995860" duration="49000" />
+      <workItem from="1744271223079" duration="4751000" />
+      <workItem from="1744633142506" duration="1305000" />
     </task>
     <task id="LOCAL-00062" summary="Adds @taqble anotations to entity classes">
       <option name="closed" value="true" />

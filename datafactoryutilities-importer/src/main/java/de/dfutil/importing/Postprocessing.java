@@ -52,7 +52,7 @@ public class Postprocessing {
                 Files.deleteIfExists(inputSource);
             }
         } catch (IOException e) {
-            log.error("Failed to delete input source: {}", inputSource, e);
+            log.error("Failed to delete {}", inputSource);
             throw new RuntimeException(e.getMessage(), e);
         }
     }

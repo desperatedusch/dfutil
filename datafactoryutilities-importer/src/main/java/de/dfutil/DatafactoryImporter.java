@@ -41,15 +41,18 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        log.info("Importing started");
         if (parsingActivated) {
-            log.info("Importing started");
+            log.info("Parsing started");
             List<Path> files = inputSourceDetection.findFiles();
             files.sort(Comparator.comparing(Path::getFileName));
             files.forEach(parsing::fromFile);
+            log.info("Parsing finished");
         }
         if (successionHandlingActivated) {
             log.info("Succession handling started");
             successionHandling.process();
+            log.info("Succession handling finished");
         }
         log.info("Importing finished");
     }

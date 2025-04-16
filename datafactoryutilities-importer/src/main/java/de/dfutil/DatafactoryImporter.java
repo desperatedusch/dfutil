@@ -5,6 +5,7 @@ import de.dfutil.importing.Parsing;
 import de.dfutil.importing.SuccessionHandling;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +24,11 @@ public class DatafactoryImporter implements CommandLineRunner {
     private final Parsing parsing;
     private final SuccessionHandling successionHandling;
 
+    @Value("${app.importer.inputsource.parsing-activated}")
+    private boolean parsingActivated;
+    @Value("${app.importer.inputsource.successionhandling-activated}")
+    private boolean successionHandlingActivated;
+
     public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing, SuccessionHandling successionHandling) {
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
@@ -35,11 +41,16 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("Importing started");
-        List<Path> files = inputSourceDetection.findFiles();
-        files.sort(Comparator.comparing(Path::getFileName));
-        files.forEach(parsing::fromFile);
-        successionHandling.process();
+        if (parsingActivated) {
+            log.info("Importing started");
+            List<Path> files = inputSourceDetection.findFiles();
+            files.sort(Comparator.comparing(Path::getFileName));
+            files.forEach(parsing::fromFile);
+        }
+        if (successionHandlingActivated) {
+            log.info("Succession handling started");
+            successionHandling.process();
+        }
         log.info("Importing finished");
     }
 

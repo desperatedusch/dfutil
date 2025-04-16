@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="H2 usage in Test">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/ObRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/ObRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/OrRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/OrRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/SbRowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/java/de/dfutil/dao/SbRowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/InputSourceDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/Parsing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,12 +207,12 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.43788344",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   },
@@ -276,7 +283,7 @@
       <recent name="de.dfutil.core.files.parsing.procedural" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.OrRowRepositoryTest">
+  <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
     <configuration name="KgRowParsingTest.parseKgRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="datafactoryutilities-commons" />
       <extension name="coverage">
@@ -368,7 +375,6 @@
       </method>
     </configuration>
     <configuration name="DatafactoryImporter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="ACTIVE_PROFILES" value="procedural-importing" />
       <module name="datafactoryutilities-importer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="de.dfutil.DatafactoryImporter" />
       <method v="2">
@@ -603,23 +609,10 @@
       <workItem from="1742193058900" duration="18000" />
       <workItem from="1742371995860" duration="49000" />
       <workItem from="1744271223079" duration="4751000" />
-      <workItem from="1744633142506" duration="1305000" />
-    </task>
-    <task id="LOCAL-00062" summary="Adds @taqble anotations to entity classes">
-      <option name="closed" value="true" />
-      <created>1737557391754</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1737557391754</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Some minor jpa properties changed">
-      <option name="closed" value="true" />
-      <created>1737611377247</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1737611377247</updated>
+      <workItem from="1744633142506" duration="2541000" />
+      <workItem from="1744692932190" duration="6123000" />
+      <workItem from="1744706898892" duration="777000" />
+      <workItem from="1744783929405" duration="9643000" />
     </task>
     <task id="LOCAL-00064" summary="Minor changes inside entity classes (@table annotation didnt work properly)">
       <option name="closed" value="true" />
@@ -997,7 +990,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742088945006</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="H2 usage in Test">
+      <option name="closed" value="true" />
+      <created>1744634455833</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1744634455833</updated>
+    </task>
+    <task id="LOCAL-00112" summary="H2 usage in Test">
+      <option name="closed" value="true" />
+      <created>1744634470615</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1744634470615</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1059,12 +1068,12 @@
     <MESSAGE value="Files import for a file should only be once processed" />
     <MESSAGE value="Reformatting" />
     <MESSAGE value="First draft of SuccessionHandling is implemented" />
-    <MESSAGE value="H2 usage in Test" />
     <MESSAGE value="Fixes some issues related to an incomplete equals implementation inside jpa entities and there embedded ids" />
     <MESSAGE value="Fixes some issues related to an incomplete equals implementation inside jpa entities and their embedded ids" />
     <MESSAGE value="Adds Parsing tests [tbf]" />
     <MESSAGE value="Adds basic Parsing tests [finished]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds basic Parsing tests [finished]" />
+    <MESSAGE value="H2 usage in Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="H2 usage in Test" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1099,7 +1108,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/DatafactoryImporter.java</url>
-          <line>34</line>
+          <line>40</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1121,6 +1130,21 @@
           <url>file://$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/entities/OrRowParsingTest.java</url>
           <line>25</line>
           <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/datafactoryutilities-importer/src/main/java/de/dfutil/importing/SuccessionHandling.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

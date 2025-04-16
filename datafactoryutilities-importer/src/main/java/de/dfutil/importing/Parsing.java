@@ -90,11 +90,11 @@ public class Parsing {
                 }
             }
             duration = stopwatch.stop().elapsed().toMillis();
-            log.info("Successfully parsed file {} within {} ms", path, duration);
+            log.info("Successfully parsed {} within {} ms", path, duration);
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
         } catch (IOException e) {
-            log.error("Parsing file failed: {}", path);
+            log.error("Parsing {} failed", path);
             postprocessing.parsingFailed(path, null);
             throw new RuntimeException(e.getMessage(), e);
         }

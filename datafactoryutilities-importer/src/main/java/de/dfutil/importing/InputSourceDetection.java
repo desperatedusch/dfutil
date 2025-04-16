@@ -82,7 +82,7 @@ public class InputSourceDetection {
                             log.info("{} was already processed successfully", fileName);
                             return FileVisitResult.CONTINUE;
                         }
-                        log.info("File {} is detetected for processing", file.toFile().getAbsolutePath());
+                        log.info("{} is detetected for processing", file.toFile().getAbsolutePath());
                         paths.add(file);
                     }
                 }

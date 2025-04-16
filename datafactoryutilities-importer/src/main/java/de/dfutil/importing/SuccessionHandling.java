@@ -35,23 +35,22 @@ public class SuccessionHandling {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
-        log.info("Succession handling started");
         log.info("Orphans handling started");
-        handleOrphanedOr();
-        handleOrphanedOb();
         handleOrphanedSb();
+        handleOrphanedOb();
+        handleOrphanedOr();
         log.info("Splits handling started");
-        handleSplittedOr();
-        handleSplittedOb();
         handleSplittedSb();
+        handleSplittedOb();
+        handleSplittedOr();
         log.info("Merges handling started");
-        handleMergedOr();
-        handleMergedOb();
         handleMergedSb();
+        handleMergedOb();
+        handleMergedOr();
         log.info("Replacements handling started");
-        handleReplacementsOr();
-        handleReplacementsOb();
         handleReplacementsSb();
+        handleReplacementsOb();
+        handleReplacementsOr();
         log.info("Finished successions within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 
@@ -130,6 +129,18 @@ public class SuccessionHandling {
         });
     }
 
+    private void handleSplittedSb() {
+        List<SbRow> multipleSuccessors =
+                sbRowRepository.findMultipleSuccessorCandidates();
+        log.info("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+    }
+
+    private void handleSplittedOb() {
+        List<ObRow> multipleSuccessors =
+                obRowRepository.findMultipleSuccessorCandidates();
+        log.info("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
+    }
+
     private void handleSplittedOr() {
         List<OrRow> multipleSuccessors =
                 orRowRepository.findMultipleSuccessorCandidates();
@@ -138,14 +149,6 @@ public class SuccessionHandling {
 //        {
 //
 //        });
-
-    }
-
-    private void handleSplittedOb() {
-
-    }
-
-    private void handleSplittedSb() {
 
     }
 

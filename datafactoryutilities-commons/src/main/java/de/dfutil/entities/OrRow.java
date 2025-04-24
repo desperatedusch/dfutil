@@ -3,7 +3,6 @@ package de.dfutil.entities;
 import de.dfutil.entities.ids.OrRowId;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -13,7 +12,8 @@ import java.util.Objects;
 @Entity
 @Table(
         name = "ORT",
-        indexes = @Index(name = "IDX_ORT___ORT_ALORT__ORT_STATUS", columnList = "ORT_ALORT,ORT_STATUS"))
+        indexes = @Index(name = "IDX_ORT___ORT_ALORT__ORT_STATUS__OUTDATED_AT__ALREADY_APPLIED_AT"
+                , columnList = "ORT_ALORT,ORT_STATUS,OUTDATED_AT,ALREADY_APPLIED_AT"))
 public class OrRow extends AbstractRow implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.OR;
@@ -32,8 +32,6 @@ public class OrRow extends AbstractRow implements ArchivablePostalObject {
     private String ortOname24;
     private String ortKgs;
     private String ortAlortNeu;
-    private LocalDateTime outdatedAt;
-    private LocalDateTime alreadyAppliedAt;
 
     public static OrRow parseFrom(String rowBytes) {
         OrRow row = new OrRow();
@@ -138,32 +136,16 @@ public class OrRow extends AbstractRow implements ArchivablePostalObject {
         this.orRowId = orRowId;
     }
 
-    public LocalDateTime getOutdatedAt() {
-        return outdatedAt;
-    }
-
-    public void setOutdatedAt(LocalDateTime outdatedSince) {
-        this.outdatedAt = outdatedSince;
-    }
-
-    public LocalDateTime alreadyAppliedAt() {
-        return alreadyAppliedAt;
-    }
-
-    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
-        this.alreadyAppliedAt = alreadyAppliedAt;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         OrRow orRow = (OrRow) o;
-        return Objects.equals(version, orRow.version) && Objects.equals(ortDatum, orRow.ortDatum) && Objects.equals(orRowId, orRow.orRowId) && Objects.equals(ortOname, orRow.ortOname) && Objects.equals(ortOnamePost, orRow.ortOnamePost) && Objects.equals(ortOzusatz, orRow.ortOzusatz) && Objects.equals(ortArtOzusatz, orRow.ortArtOzusatz) && Objects.equals(ortOname24, orRow.ortOname24) && Objects.equals(ortKgs, orRow.ortKgs) && Objects.equals(ortAlortNeu, orRow.ortAlortNeu) && Objects.equals(outdatedAt, orRow.outdatedAt) && Objects.equals(alreadyAppliedAt, orRow.alreadyAppliedAt);
+        return Objects.equals(version, orRow.version) && Objects.equals(ortDatum, orRow.ortDatum) && Objects.equals(orRowId, orRow.orRowId) && Objects.equals(ortOname, orRow.ortOname) && Objects.equals(ortOnamePost, orRow.ortOnamePost) && Objects.equals(ortOzusatz, orRow.ortOzusatz) && Objects.equals(ortArtOzusatz, orRow.ortArtOzusatz) && Objects.equals(ortOname24, orRow.ortOname24) && Objects.equals(ortKgs, orRow.ortKgs) && Objects.equals(ortAlortNeu, orRow.ortAlortNeu);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, ortDatum, orRowId, ortOname, ortOnamePost, ortOzusatz, ortArtOzusatz, ortOname24, ortKgs, ortAlortNeu, outdatedAt, alreadyAppliedAt);
+        return Objects.hash(version, ortDatum, orRowId, ortOname, ortOnamePost, ortOzusatz, ortArtOzusatz, ortOname24, ortKgs, ortAlortNeu);
     }
 
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -58,7 +59,7 @@ public class SuccessionHandling {
         List<SbRow> processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
         log.info("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
-        processableOrphanedSbObjects.forEach(processableSb ->
+        processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
             Optional<SbRow> formerExistingSbOptional =
                     sbRowRepository.findById(
@@ -74,9 +75,9 @@ public class SuccessionHandling {
                     );
             if (formerExistingSbOptional.isPresent()) {
                 SbRow formerExistingSb = formerExistingSbOptional.get();
-                formerExistingSb.setOutdatedAt(LocalDateTime.now());
+                formerExistingSb.getSbRowId().setOutdatedAt(LocalDateTime.now());
                 sbRowRepository.save(formerExistingSb);
-                processableSb.setAlreadyAppliedAt(LocalDateTime.now());
+                processableSb.getSbRowId().setAlreadyAppliedAt(LocalDateTime.now());
                 sbRowRepository.save(processableSb);
             }
         });
@@ -86,7 +87,7 @@ public class SuccessionHandling {
         List<ObRow> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
         log.info("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
-        processableOrphanedObObjects.forEach(processableOb ->
+        processableOrphanedObObjects.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
             Optional<ObRow> formerExistingObOptional =
                     obRowRepository.findById(
@@ -99,9 +100,9 @@ public class SuccessionHandling {
                     );
             if (formerExistingObOptional.isPresent()) {
                 ObRow formerExistingOb = formerExistingObOptional.get();
-                formerExistingOb.setOutdatedAt(LocalDateTime.now());
+                formerExistingOb.getObRowId().setOutdatedAt(LocalDateTime.now());
                 obRowRepository.save(formerExistingOb);
-                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
+                processableOb.getObRowId().setAlreadyAppliedAt(LocalDateTime.now());
                 obRowRepository.save(processableOb);
             }
         });
@@ -111,7 +112,7 @@ public class SuccessionHandling {
         List<OrRow> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
         log.info("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
-        processableOrphanedOrObjects.forEach(processableOr ->
+        processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
             Optional<OrRow> formerExistingOrOptional = orRowRepository.findById(
                     new OrRowId(
@@ -121,9 +122,9 @@ public class SuccessionHandling {
             );
             if (formerExistingOrOptional.isPresent()) {
                 OrRow formerExistingOr = formerExistingOrOptional.get();
-                formerExistingOr.setOutdatedAt(LocalDateTime.now());
+                formerExistingOr.getOrRowId().setOutdatedAt(LocalDateTime.now());
                 orRowRepository.save(formerExistingOr);
-                processableOr.setAlreadyAppliedAt(LocalDateTime.now());
+                processableOr.getOrRowId().setAlreadyAppliedAt(LocalDateTime.now());
                 orRowRepository.save(processableOr);
             }
         });
@@ -145,11 +146,6 @@ public class SuccessionHandling {
         List<OrRow> multipleSuccessors =
                 orRowRepository.findMultipleSuccessorCandidates();
         log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
-//        multipleSuccessors.forEach(processableOr ->
-//        {
-//
-//        });
-
     }
 
     private void handleMergedOb() {
@@ -168,7 +164,7 @@ public class SuccessionHandling {
         List<ObRow> processableSingleSuccessors =
                 obRowRepository.findReplacementCandidates();
         log.info("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
-        processableSingleSuccessors.forEach(processableOb ->
+        processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
             Optional<ObRow> predecessorObOptional =
                     obRowRepository.findById(
@@ -181,9 +177,9 @@ public class SuccessionHandling {
                     );
             if (predecessorObOptional.isPresent()) {
                 ObRow formerExistingOb = predecessorObOptional.get();
-                formerExistingOb.setOutdatedAt(LocalDateTime.now());
+                formerExistingOb.getObRowId().setOutdatedAt(LocalDateTime.now());
                 obRowRepository.save(formerExistingOb);
-                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
+                processableOb.getObRowId().setAlreadyAppliedAt(LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
                 obRowRepository.save(processableOb);
             }
@@ -191,11 +187,56 @@ public class SuccessionHandling {
     }
 
     private void handleReplacementsOr() {
-
+        List<OrRow> processableSingleSuccessors =
+                orRowRepository.findReplacementCandidates();
+        log.info("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
+        processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOr ->
+        {
+            Optional<OrRow> predecessorOrOptional =
+                    orRowRepository.findById(
+                            new OrRowId(
+                                    processableOr.getOrRowId().getOrtAlort(),
+                                    "G"
+                            )
+                    );
+            if (predecessorOrOptional.isPresent()) {
+                OrRow formerExistingOr = predecessorOrOptional.get();
+                formerExistingOr.getOrRowId().setOutdatedAt(LocalDateTime.now());
+                orRowRepository.save(formerExistingOr);
+                processableOr.getOrRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableOr.getOrRowId().setOrtStatus("G");
+                orRowRepository.save(processableOr);
+            }
+        });
     }
 
     private void handleReplacementsSb() {
-
+        List<SbRow> processableSingleSuccessors =
+                sbRowRepository.findReplacementCandidates();
+        log.info("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
+        processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableSb ->
+        {
+            Optional<SbRow> predecessorSbOptional =
+                    sbRowRepository.findById(
+                            new SbRowId(
+                                    processableSb.getSbRowId().getStrAlOrt(),
+                                    processableSb.getSbRowId().getStrNamenSchl(),
+                                    processableSb.getSbRowId().getStrBundLfdnr(),
+                                    processableSb.getSbRowId().getStrHnrVon(),
+                                    processableSb.getSbRowId().getStrHnrBis(),
+                                    "G",
+                                    processableSb.getSbRowId().getStrHnr1000()
+                            )
+                    );
+            if (predecessorSbOptional.isPresent()) {
+                SbRow formerExistingSb = predecessorSbOptional.get();
+                formerExistingSb.getSbRowId().setOutdatedAt(LocalDateTime.now());
+                sbRowRepository.save(formerExistingSb);
+                processableSb.getSbRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableSb.getSbRowId().setStrStatus("G");
+                sbRowRepository.save(processableSb);
+            }
+        });
     }
 
 }

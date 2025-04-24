@@ -14,16 +14,16 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
     @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus != 'G' order by strasse.version asc")
     List<SbRow> findByStatusSuccessionRelevant();
 
-    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'G' and strasse.sbRowId = ?1 and strasse.outdatedAt is null order by strasse.version asc")
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'G' and strasse.sbRowId = ?1 and strasse.sbRowId.outdatedAt is null order by strasse.version asc")
     List<SbRow> findValidById(SbRowId id);
 
-    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'W' and strasse.alreadyAppliedAt is null order by strasse.version asc")
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'W' and strasse.sbRowId.alreadyAppliedAt is null order by strasse.version asc")
     List<SbRow> findProcessableOrphans();
 
-    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus IN ('1','2','3','4','5','6','7','8','9') and strasse.alreadyAppliedAt is null order by strasse.version asc")
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus IN ('1','2','3','4','5','6','7','8','9') and strasse.sbRowId.alreadyAppliedAt is null order by strasse.version asc")
     List<SbRow> findMultipleSuccessorCandidates();
 
-    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'S' and strasse.alreadyAppliedAt is null order by strasse.version asc")
+    @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'S' and strasse.sbRowId.alreadyAppliedAt is null order by strasse.version asc")
     List<SbRow> findReplacementCandidates();
 
 }

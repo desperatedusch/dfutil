@@ -3,7 +3,6 @@ package de.dfutil.entities;
 import de.dfutil.entities.ids.SbRowId;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,10 +14,8 @@ import java.util.Objects;
         name = "STRASSE",
         indexes =
         @Index(
-                name =
-                        "IDX_STRASSE___STR_ALORT__STR_NAMEN_SCHL__STR_BUND_LFDNR__STR_HNRVON__STR_HNRBIS__STR_STATUS__STR_HNR1000",
-                columnList =
-                        "STR_ALORT,STR_NAMEN_SCHL,STR_BUND_LFDNR,STR_HNRVON,STR_HNRBIS,STR_STATUS,STR_HNR1000"))
+                name = "IDX_STRASSE___STR_ALORT__STR_NAMEN_SCHL__STR_BUND_LFDNR__STR_HNRVON__STR_HNRBIS__STR_STATUS__STR_HNR1000__OUTDATED_AT__ALREADY_APPLIED_AT",
+                columnList = "STR_ALORT,STR_NAMEN_SCHL,STR_BUND_LFDNR,STR_HNRVON,STR_HNRBIS,STR_STATUS,STR_HNR1000,OUTDATED_AT,ALREADY_APPLIED_AT"))
 public class SbRow extends AbstractRow implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.SB;
@@ -46,8 +43,6 @@ public class SbRow extends AbstractRow implements ArchivablePostalObject {
     private String strBundLfdnrNeu;
     private String strHnrvonNeu;
     private String strHnrbisNeu;
-    private LocalDateTime outdatedAt;
-    private LocalDateTime alreadyAppliedAt;
 
     public static SbRow parseFrom(String rowBytes) {
         SbRow row = new SbRow();
@@ -77,7 +72,9 @@ public class SbRow extends AbstractRow implements ArchivablePostalObject {
                         rowBytes.substring(36, 44),
                         rowBytes.substring(44, 52),
                         rowBytes.substring(52, 53),
-                        rowBytes.substring(53, 54));
+                        rowBytes.substring(53, 54),
+                        null,
+                        null);
         return row;
     }
 
@@ -245,31 +242,15 @@ public class SbRow extends AbstractRow implements ArchivablePostalObject {
         this.strNameSort = strNameSort;
     }
 
-    public LocalDateTime getOutdatedAt() {
-        return outdatedAt;
-    }
-
-    public void setOutdatedAt(LocalDateTime outdatedSince) {
-        this.outdatedAt = outdatedSince;
-    }
-
-    public LocalDateTime alreadyAppliedAt() {
-        return alreadyAppliedAt;
-    }
-
-    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
-        this.alreadyAppliedAt = alreadyAppliedAt;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         SbRow sbRow = (SbRow) o;
-        return Objects.equals(version, sbRow.version) && Objects.equals(strDatum, sbRow.strDatum) && Objects.equals(sbRowId, sbRow.sbRowId) && Objects.equals(strStverz, sbRow.strStverz) && Objects.equals(strNameSort, sbRow.strNameSort) && Objects.equals(strName46, sbRow.strName46) && Objects.equals(strName22, sbRow.strName22) && Objects.equals(strReserve, sbRow.strReserve) && Objects.equals(strHnrTyp, sbRow.strHnrTyp) && Objects.equals(strPlz, sbRow.strPlz) && Objects.equals(strCode, sbRow.strCode) && Objects.equals(strOtlSchl, sbRow.strOtlSchl) && Objects.equals(strAlorgB, sbRow.strAlorgB) && Objects.equals(strKgs, sbRow.strKgs) && Objects.equals(strAlortNeu, sbRow.strAlortNeu) && Objects.equals(strNamenSchlNeu, sbRow.strNamenSchlNeu) && Objects.equals(strBundLfdnrNeu, sbRow.strBundLfdnrNeu) && Objects.equals(strHnrvonNeu, sbRow.strHnrvonNeu) && Objects.equals(strHnrbisNeu, sbRow.strHnrbisNeu) && Objects.equals(outdatedAt, sbRow.outdatedAt) && Objects.equals(alreadyAppliedAt, sbRow.alreadyAppliedAt);
+        return Objects.equals(version, sbRow.version) && Objects.equals(strDatum, sbRow.strDatum) && Objects.equals(sbRowId, sbRow.sbRowId) && Objects.equals(strStverz, sbRow.strStverz) && Objects.equals(strNameSort, sbRow.strNameSort) && Objects.equals(strName46, sbRow.strName46) && Objects.equals(strName22, sbRow.strName22) && Objects.equals(strReserve, sbRow.strReserve) && Objects.equals(strHnrTyp, sbRow.strHnrTyp) && Objects.equals(strPlz, sbRow.strPlz) && Objects.equals(strCode, sbRow.strCode) && Objects.equals(strOtlSchl, sbRow.strOtlSchl) && Objects.equals(strAlorgB, sbRow.strAlorgB) && Objects.equals(strKgs, sbRow.strKgs) && Objects.equals(strAlortNeu, sbRow.strAlortNeu) && Objects.equals(strNamenSchlNeu, sbRow.strNamenSchlNeu) && Objects.equals(strBundLfdnrNeu, sbRow.strBundLfdnrNeu) && Objects.equals(strHnrvonNeu, sbRow.strHnrvonNeu) && Objects.equals(strHnrbisNeu, sbRow.strHnrbisNeu);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, strDatum, sbRowId, strStverz, strNameSort, strName46, strName22, strReserve, strHnrTyp, strPlz, strCode, strOtlSchl, strAlorgB, strKgs, strAlortNeu, strNamenSchlNeu, strBundLfdnrNeu, strHnrvonNeu, strHnrbisNeu, outdatedAt, alreadyAppliedAt);
+        return Objects.hash(version, strDatum, sbRowId, strStverz, strNameSort, strName46, strName22, strReserve, strHnrTyp, strPlz, strCode, strOtlSchl, strAlorgB, strKgs, strAlortNeu, strNamenSchlNeu, strBundLfdnrNeu, strHnrvonNeu, strHnrbisNeu);
     }
 }

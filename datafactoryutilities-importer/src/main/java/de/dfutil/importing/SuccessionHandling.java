@@ -75,9 +75,9 @@ public class SuccessionHandling {
                     );
             if (formerExistingSbOptional.isPresent()) {
                 SbRow formerExistingSb = formerExistingSbOptional.get();
-                formerExistingSb.getSbRowId().setOutdatedAt(LocalDateTime.now());
+                formerExistingSb.setOutdatedAt(LocalDateTime.now());
                 sbRowRepository.save(formerExistingSb);
-                processableSb.getSbRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableSb.setAlreadyAppliedAt(LocalDateTime.now());
                 sbRowRepository.save(processableSb);
             }
         });
@@ -100,9 +100,9 @@ public class SuccessionHandling {
                     );
             if (formerExistingObOptional.isPresent()) {
                 ObRow formerExistingOb = formerExistingObOptional.get();
-                formerExistingOb.getObRowId().setOutdatedAt(LocalDateTime.now());
+                formerExistingOb.setOutdatedAt(LocalDateTime.now());
                 obRowRepository.save(formerExistingOb);
-                processableOb.getObRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
                 obRowRepository.save(processableOb);
             }
         });
@@ -122,9 +122,9 @@ public class SuccessionHandling {
             );
             if (formerExistingOrOptional.isPresent()) {
                 OrRow formerExistingOr = formerExistingOrOptional.get();
-                formerExistingOr.getOrRowId().setOutdatedAt(LocalDateTime.now());
+                formerExistingOr.setOutdatedAt(LocalDateTime.now());
                 orRowRepository.save(formerExistingOr);
-                processableOr.getOrRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableOr.setAlreadyAppliedAt(LocalDateTime.now());
                 orRowRepository.save(processableOr);
             }
         });
@@ -177,9 +177,9 @@ public class SuccessionHandling {
                     );
             if (predecessorObOptional.isPresent()) {
                 ObRow formerExistingOb = predecessorObOptional.get();
-                formerExistingOb.getObRowId().setOutdatedAt(LocalDateTime.now());
+                formerExistingOb.setOutdatedAt(LocalDateTime.now());
                 obRowRepository.save(formerExistingOb);
-                processableOb.getObRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
                 obRowRepository.save(processableOb);
             }
@@ -201,9 +201,9 @@ public class SuccessionHandling {
                     );
             if (predecessorOrOptional.isPresent()) {
                 OrRow formerExistingOr = predecessorOrOptional.get();
-                formerExistingOr.getOrRowId().setOutdatedAt(LocalDateTime.now());
+                formerExistingOr.setOutdatedAt(LocalDateTime.now());
                 orRowRepository.save(formerExistingOr);
-                processableOr.getOrRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableOr.setAlreadyAppliedAt(LocalDateTime.now());
                 processableOr.getOrRowId().setOrtStatus("G");
                 orRowRepository.save(processableOr);
             }
@@ -230,9 +230,9 @@ public class SuccessionHandling {
                     );
             if (predecessorSbOptional.isPresent()) {
                 SbRow formerExistingSb = predecessorSbOptional.get();
-                formerExistingSb.getSbRowId().setOutdatedAt(LocalDateTime.now());
+                formerExistingSb.setOutdatedAt(LocalDateTime.now());
                 sbRowRepository.save(formerExistingSb);
-                processableSb.getSbRowId().setAlreadyAppliedAt(LocalDateTime.now());
+                processableSb.setAlreadyAppliedAt(LocalDateTime.now());
                 processableSb.getSbRowId().setStrStatus("G");
                 sbRowRepository.save(processableSb);
             }

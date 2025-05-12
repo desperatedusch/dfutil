@@ -13,7 +13,11 @@ import java.util.Objects;
 @Entity
 @Table(
         name = "ORT",
-        indexes = @Index(name = "IDX_ORT___ORT_ALORT__ORT_STATUS", columnList = "ORT_ALORT,ORT_STATUS"))
+        indexes = @Index(
+                name =
+                        "IDX_ORT___ORT_ALORT__ORT_STATUS",
+                columnList =
+                        "ORT_ALORT,ORT_STATUS"))
 public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.OR;

@@ -20,7 +20,7 @@ import java.util.Objects;
         @Index(
                 name = "IDX_AGS___KG_SCHLUESSEL__KG_SATZART",
                 columnList = "KG_SCHLUESSEL,KG_SATZART"))
-public class KgRow extends AbstractRow implements SerializablePostalObject {
+public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObject {
 
     private static final RowType rowType = RowType.KG;
 

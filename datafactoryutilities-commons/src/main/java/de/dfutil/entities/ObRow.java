@@ -3,6 +3,7 @@ package de.dfutil.entities;
 import de.dfutil.entities.ids.ObRowId;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -14,9 +15,9 @@ import java.util.Objects;
         name = "ORTSTEIL",
         indexes =
         @Index(
-                name = "IDX_ORTSTEIL___OTL_ALORT__OTL_SCHL__OTL_PLZ__OTL_STATUS__OUTDATED_AT__ALREADY_APPLIED_AT",
-                columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS,OUTDATED_AT,ALREADY_APPLIED_AT"))
-public class ObRow extends AbstractRow implements ArchivablePostalObject {
+                name = "IDX_ORTSTEIL___OTL_ALORT__OTL_SCHL__OTL_PLZ__OTL_STATUS",
+                columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"))
+public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.OB;
 
@@ -30,7 +31,8 @@ public class ObRow extends AbstractRow implements ArchivablePostalObject {
     private String otlStverz;
     private String otlName;
     private String otlKgs;
-
+    private LocalDateTime outdatedAt;
+    private LocalDateTime alreadyAppliedAt;
 
     public static ObRow parseFrom(String rowBytes) {
         ObRow row = new ObRow();
@@ -44,10 +46,7 @@ public class ObRow extends AbstractRow implements ArchivablePostalObject {
                         rowBytes.substring(17, 25),
                         rowBytes.substring(25, 28),
                         rowBytes.substring(28, 33),
-                        rowBytes.substring(33, 34),
-                        null,
-                        null
-                );
+                        rowBytes.substring(33, 34));
         return row;
     }
 
@@ -103,16 +102,32 @@ public class ObRow extends AbstractRow implements ArchivablePostalObject {
         this.obRowId = obRowId;
     }
 
+    public LocalDateTime getOutdatedAt() {
+        return outdatedAt;
+    }
+
+    public void setOutdatedAt(LocalDateTime outdatedSince) {
+        this.outdatedAt = outdatedSince;
+    }
+
+    public LocalDateTime alreadyAppliedAt() {
+        return alreadyAppliedAt;
+    }
+
+    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
+        this.alreadyAppliedAt = alreadyAppliedAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ObRow obRow = (ObRow) o;
-        return Objects.equals(version, obRow.version) && Objects.equals(otlDatum, obRow.otlDatum) && Objects.equals(obRowId, obRow.obRowId) && Objects.equals(otlStverz, obRow.otlStverz) && Objects.equals(otlName, obRow.otlName) && Objects.equals(otlKgs, obRow.otlKgs);
+        return Objects.equals(version, obRow.version) && Objects.equals(otlDatum, obRow.otlDatum) && Objects.equals(obRowId, obRow.obRowId) && Objects.equals(otlStverz, obRow.otlStverz) && Objects.equals(otlName, obRow.otlName) && Objects.equals(otlKgs, obRow.otlKgs) && Objects.equals(outdatedAt, obRow.outdatedAt) && Objects.equals(alreadyAppliedAt, obRow.alreadyAppliedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, otlDatum, obRowId, otlStverz, otlName, otlKgs);
+        return Objects.hash(version, otlDatum, obRowId, otlStverz, otlName, otlKgs, outdatedAt, alreadyAppliedAt);
     }
 
 }

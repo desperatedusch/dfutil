@@ -13,7 +13,7 @@ import java.util.Objects;
 @Table(
         name = "PLZ",
         indexes = @Index(name = "IDX_PLZ___PLZ_PLZ__PLZ_ALORT", columnList = "PLZ_PLZ,PLZ_ALORT"))
-public class PlRow extends AbstractRow implements SerializablePostalObject {
+public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObject {
 
     private static final RowType rowType = RowType.PL;
 

@@ -7,7 +7,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.util.Date;
 
 @MappedSuperclass
-public abstract class AbstractRow {
+public abstract class AbstractRow<T extends SerializablePostalObject> {
 
     protected String importingFileIdentifier;
 

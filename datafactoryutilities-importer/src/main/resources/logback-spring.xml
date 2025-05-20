@@ -1,0 +1,39 @@
+<configuration>
+    <property name="LOG_DIR" value="./var/log/datafactoryutilities-importer"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SUCCESSIONHANDLING" class="ch.qos.logback.core.FileAppender">
+        <file value="${LOG_DIR}/successionhandling.log"/>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SQL" class="ch.qos.logback.core.FileAppender">
+        <file value="${LOG_DIR}/sql.log"/>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Setup the root category, add the appenders and set the default level -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- Specify the level specific to de.dfutil.importing.SuccessionHandling -->
+    <logger name="de.dfutil.importing.SuccessionHandling">
+        <level value="ALL"/>
+        <appender-ref ref="SUCCESSIONHANDLING"/>
+    </logger>
+    <logger name="net.ttddyy.dsproxy.listener">
+        <level value="ALL"/>
+        <appender-ref ref="SQL"/>
+    </logger>
+
+</configuration>

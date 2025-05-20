@@ -175,7 +175,8 @@ public class SuccessionHandling {
                                     "G"
                             )
                     );
-            if (predecessorObOptional.isPresent()) {
+            if (predecessorObOptional.isPresent()
+                    && !Objects.equals(predecessorObOptional.get(), processableOb)) {
                 ObRow formerExistingOb = predecessorObOptional.get();
                 formerExistingOb.setOutdatedAt(LocalDateTime.now());
                 obRowRepository.save(formerExistingOb);
@@ -199,7 +200,8 @@ public class SuccessionHandling {
                                     "G"
                             )
                     );
-            if (predecessorOrOptional.isPresent()) {
+            if (predecessorOrOptional.isPresent()
+                    && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
                 OrRow formerExistingOr = predecessorOrOptional.get();
                 formerExistingOr.setOutdatedAt(LocalDateTime.now());
                 orRowRepository.save(formerExistingOr);
@@ -228,7 +230,8 @@ public class SuccessionHandling {
                                     processableSb.getSbRowId().getStrHnr1000()
                             )
                     );
-            if (predecessorSbOptional.isPresent()) {
+            if (predecessorSbOptional.isPresent()
+                    && !Objects.equals(predecessorSbOptional.get(), processableSb)) {
                 SbRow formerExistingSb = predecessorSbOptional.get();
                 formerExistingSb.setOutdatedAt(LocalDateTime.now());
                 sbRowRepository.save(formerExistingSb);

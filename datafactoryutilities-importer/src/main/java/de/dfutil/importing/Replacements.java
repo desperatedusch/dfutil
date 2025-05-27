@@ -3,10 +3,21 @@ package de.dfutil.importing;
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
+import de.dfutil.entities.ObRow;
+import de.dfutil.entities.OrRow;
+import de.dfutil.entities.SbRow;
+import de.dfutil.entities.ids.ObRowId;
+import de.dfutil.entities.ids.OrRowId;
+import de.dfutil.entities.ids.SbRowId;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class Replacements {
@@ -28,5 +39,87 @@ public class Replacements {
     public void process() {
 
     }
+
+
+    private void handleReplacementsOb() {
+        List<ObRow> processableSingleSuccessors =
+                obRowRepository.findReplacementCandidates();
+        log.info("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
+        processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOb ->
+        {
+            Optional<ObRow> predecessorObOptional =
+                    obRowRepository.findById(
+                            new ObRowId(
+                                    processableOb.getObRowId().getOtlAlort(),
+                                    processableOb.getObRowId().getOtlSchl(),
+                                    processableOb.getObRowId().getOtlPlz(),
+                                    "G"
+                            )
+                    );
+            if (predecessorObOptional.isPresent()
+                    && !Objects.equals(predecessorObOptional.get(), processableOb)) {
+                ObRow formerExistingOb = predecessorObOptional.get();
+                formerExistingOb.setOutdatedAt(LocalDateTime.now());
+                obRowRepository.saveAndFlush(formerExistingOb);
+                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
+                processableOb.getObRowId().setOtlStatus("G");
+                obRowRepository.saveAndFlush(processableOb);
+            }
+        });
+    }
+
+    private void handleReplacementsOr() {
+        List<OrRow> processableSingleSuccessors =
+                orRowRepository.findReplacementCandidates();
+        log.info("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
+        processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOr ->
+        {
+            Optional<OrRow> predecessorOrOptional =
+                    orRowRepository.findById(
+                            new OrRowId(
+                                    processableOr.getOrRowId().getOrtAlort(),
+                                    "G"
+                            )
+                    );
+            if (predecessorOrOptional.isPresent()
+                    && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
+                OrRow formerExistingOr = predecessorOrOptional.get();
+                formerExistingOr.setOutdatedAt(LocalDateTime.now());
+                orRowRepository.saveAndFlush(formerExistingOr);
+                processableOr.setAlreadyAppliedAt(LocalDateTime.now());
+                processableOr.getOrRowId().setOrtStatus("G");
+                orRowRepository.saveAndFlush(processableOr);
+            }
+        });
+    }
+
+    private void handleReplacementsSb() {
+        List<SbRow> processableSingleSuccessors =
+                sbRowRepository.findReplacementCandidates();
+        log.info("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
+        processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableSb ->
+        {
+            Optional<SbRow> predecessorSbOptional =
+                    sbRowRepository.findById(
+                            new SbRowId(
+                                    processableSb.getSbRowId().getStrAlOrt(),
+                                    processableSb.getSbRowId().getStrNamenSchl(),
+                                    processableSb.getSbRowId().getStrBundLfdnr(),
+                                    processableSb.getSbRowId().getStrHnrVon(),
+                                    processableSb.getSbRowId().getStrHnrBis(),
+                                    "G",
+                                    processableSb.getSbRowId().getStrHnr1000()
+                            )
+                    );
+            if (predecessorSbOptional.isPresent()
+                    && !Objects.equals(predecessorSbOptional.get(), processableSb)) {
+                SbRow formerExistingSb = predecessorSbOptional.get();
+                sbRowRepository.setOutdated(formerExistingSb.getSbRowId(), LocalDateTime.now());
+                processableSb.getSbRowId().setStrStatus("G");
+                sbRowRepository.setAlreadyApplied(processableSb.getSbRowId(), LocalDateTime.now());
+            }
+        });
+    }
+
 
 }

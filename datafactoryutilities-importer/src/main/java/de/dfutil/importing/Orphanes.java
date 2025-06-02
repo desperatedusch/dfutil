@@ -35,17 +35,11 @@ public class Orphanes {
         this.sbRowRepository = sbRowRepository;
     }
 
-    @Transactional
-    public void process() {
-        handleOrphanedOb();
-        handleOrphanedSb();
-        handleOrphanedOr();
-    }
-
-    private void handleOrphanedSb() {
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void handleSb() {
         List<SbRow> processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
-        log.info("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
+        log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
         processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
             Optional<SbRow> formerExistingSbOptional =
@@ -70,10 +64,11 @@ public class Orphanes {
         });
     }
 
-    private void handleOrphanedOb() {
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void handleOb() {
         List<ObRow> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
-        log.info("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
+        log.debug("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
         processableOrphanedObObjects.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
             Optional<ObRow> formerExistingObOptional =
@@ -95,10 +90,11 @@ public class Orphanes {
         });
     }
 
-    private void handleOrphanedOr() {
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void handleOr() {
         List<OrRow> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
-        log.info("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
+        log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
             Optional<OrRow> formerExistingOrOptional = orRowRepository.findById(

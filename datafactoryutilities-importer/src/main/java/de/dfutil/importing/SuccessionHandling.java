@@ -24,10 +24,24 @@ public class SuccessionHandling {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
-        orphanes.process();
-        splittings.process();
-        replacements.process();
-        merges.process();
+        orphanes.handleOr();
+        orphanes.handleOb();
+        orphanes.handleSb();
+        splittings.handleOr();
+        ;
+        splittings.handleOb();
+        ;
+        splittings.handleSb();
+        ;
+        replacements.handleOr();
+        ;
+        replacements.handleOb();
+        ;
+        replacements.handleSb();
+        ;
+        merges.handleOr();
+        merges.handleOb();
+        merges.handleSb();
         log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 

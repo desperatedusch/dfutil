@@ -35,16 +35,11 @@ public class Replacements {
         this.sbRowRepository = sbRowRepository;
     }
 
-    @Transactional
-    public void process() {
-
-    }
-
-
-    private void handleReplacementsOb() {
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void handleOb() {
         List<ObRow> processableSingleSuccessors =
                 obRowRepository.findReplacementCandidates();
-        log.info("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
+        log.debug("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
             Optional<ObRow> predecessorObOptional =
@@ -68,10 +63,11 @@ public class Replacements {
         });
     }
 
-    private void handleReplacementsOr() {
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void handleOr() {
         List<OrRow> processableSingleSuccessors =
                 orRowRepository.findReplacementCandidates();
-        log.info("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
+        log.debug("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
             Optional<OrRow> predecessorOrOptional =
@@ -93,10 +89,11 @@ public class Replacements {
         });
     }
 
-    private void handleReplacementsSb() {
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void handleSb() {
         List<SbRow> processableSingleSuccessors =
                 sbRowRepository.findReplacementCandidates();
-        log.info("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
+        log.debug("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
             Optional<SbRow> predecessorSbOptional =

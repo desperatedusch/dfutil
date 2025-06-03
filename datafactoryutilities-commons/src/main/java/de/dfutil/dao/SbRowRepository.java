@@ -29,13 +29,12 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
     @Query("Select strasse from SbRow strasse where strasse.sbRowId.strStatus = 'S' and strasse.alreadyAppliedAt is null order by strasse.version asc")
     List<SbRow> findReplacementCandidates();
 
-    @Modifying(flushAutomatically = true)
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update SbRow strasse set strasse.outdatedAt = :date where strasse.sbRowId = :strId")
-    void setOutdated(@Param("strId") SbRowId strId, @Param("date") LocalDateTime date);
+    void outdate(@Param("strId") SbRowId strId, @Param("date") LocalDateTime date);
 
-    @Modifying(flushAutomatically = true)
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update SbRow strasse set strasse.alreadyAppliedAt = :date where strasse.sbRowId = :strId")
-    void setAlreadyApplied(@Param("strÎd") SbRowId strId, @Param("date") LocalDateTime date);
-
+    void apply(@Param("strÎd") SbRowId strId, @Param("date") LocalDateTime date);
 
 }

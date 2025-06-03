@@ -54,11 +54,9 @@ public class Replacements {
             if (predecessorObOptional.isPresent()
                     && !Objects.equals(predecessorObOptional.get(), processableOb)) {
                 ObRow formerExistingOb = predecessorObOptional.get();
-                formerExistingOb.setOutdatedAt(LocalDateTime.now());
-                obRowRepository.saveAndFlush(formerExistingOb);
-                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
+                obRowRepository.outdate(formerExistingOb.getObRowId(), LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
-                obRowRepository.saveAndFlush(processableOb);
+                obRowRepository.apply(processableOb.getObRowId(), LocalDateTime.now());
             }
         });
     }
@@ -80,11 +78,9 @@ public class Replacements {
             if (predecessorOrOptional.isPresent()
                     && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
                 OrRow formerExistingOr = predecessorOrOptional.get();
-                formerExistingOr.setOutdatedAt(LocalDateTime.now());
-                orRowRepository.saveAndFlush(formerExistingOr);
-                processableOr.setAlreadyAppliedAt(LocalDateTime.now());
+                orRowRepository.outdate(formerExistingOr.getOrRowId(), LocalDateTime.now());
                 processableOr.getOrRowId().setOrtStatus("G");
-                orRowRepository.saveAndFlush(processableOr);
+                orRowRepository.apply(processableOr.getOrRowId(), LocalDateTime.now());
             }
         });
     }
@@ -111,12 +107,11 @@ public class Replacements {
             if (predecessorSbOptional.isPresent()
                     && !Objects.equals(predecessorSbOptional.get(), processableSb)) {
                 SbRow formerExistingSb = predecessorSbOptional.get();
-                sbRowRepository.setOutdated(formerExistingSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.outdate(formerExistingSb.getSbRowId(), LocalDateTime.now());
                 processableSb.getSbRowId().setStrStatus("G");
-                sbRowRepository.setAlreadyApplied(processableSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.apply(processableSb.getSbRowId(), LocalDateTime.now());
             }
         });
     }
-
 
 }

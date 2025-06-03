@@ -3,9 +3,12 @@ package de.dfutil.dao;
 import de.dfutil.entities.OrRow;
 import de.dfutil.entities.ids.OrRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -25,5 +28,13 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
 
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'S' and ort.alreadyAppliedAt is null order by ort.version asc")
     List<OrRow> findReplacementCandidates();
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query("update OrRow ort set ort.outdatedAt = :date where ort.orRowId = :orId")
+    void outdate(@Param("orId") OrRowId orId, @Param("date") LocalDateTime date);
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query("update OrRow ort set ort.alreadyAppliedAt = :date where ort.orRowId = :orId")
+    void apply(@Param("orÎd") OrRowId orId, @Param("date") LocalDateTime date);
 
 }

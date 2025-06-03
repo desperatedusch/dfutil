@@ -50,5 +50,4 @@ public class Splittings {
         log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
-
 }

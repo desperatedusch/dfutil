@@ -4,9 +4,12 @@ import de.dfutil.entities.ObRow;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -26,5 +29,13 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
 
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'S' and ortsteil.alreadyAppliedAt is null order by ortsteil.version asc")
     List<ObRow> findReplacementCandidates();
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query("update ObRow ortsteil set ortsteil.outdatedAt = :date where ortsteil.obRowId = :obId")
+    void outdate(@Param("obId") ObRowId obId, @Param("date") LocalDateTime date);
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query("update ObRow ortsteil set ortsteil.alreadyAppliedAt = :date where ortsteil.obRowId = :obId")
+    void apply(@Param("obÎd") ObRowId obId, @Param("date") LocalDateTime date);
 
 }

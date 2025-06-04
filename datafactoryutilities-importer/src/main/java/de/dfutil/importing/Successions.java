@@ -28,17 +28,11 @@ public class Successions {
         orphanes.handleOb();
         orphanes.handleSb();
         splittings.handleOr();
-        ;
         splittings.handleOb();
-        ;
         splittings.handleSb();
-        ;
         replacements.handleOr();
-        ;
         replacements.handleOb();
-        ;
         replacements.handleSb();
-        ;
         merges.handleOr();
         merges.handleOb();
         merges.handleSb();

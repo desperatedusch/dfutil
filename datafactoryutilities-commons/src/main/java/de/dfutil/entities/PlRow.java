@@ -12,7 +12,16 @@ import java.util.Objects;
 @Entity
 @Table(
         name = "PLZ",
-        indexes = @Index(name = "IDX_PLZ___PLZ_PLZ__PLZ_ALORT", columnList = "PLZ_PLZ,PLZ_ALORT"))
+        indexes =
+                {
+                        @Index(
+                                name = "IDX_PLZ___PLZ_PLZ__PLZ_ALORT",
+                                columnList = "PLZ_PLZ,PLZ_ALORT"),
+                        @Index(
+                                name = "IDX_PLZ___UUID",
+                                columnList = "UUID")
+                }
+)
 public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObject {
 
     private static final RowType rowType = RowType.PL;

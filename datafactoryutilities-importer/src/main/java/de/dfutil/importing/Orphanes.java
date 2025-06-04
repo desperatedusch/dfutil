@@ -36,30 +36,24 @@ public class Orphanes {
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void handleSb() {
-        List<SbRow> processableOrphanedSbObjects =
-                sbRowRepository.findProcessableOrphans();
-        log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
-        processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
+    public void handleOr() {
+        List<OrRow> processableOrphanedOrObjects =
+                orRowRepository.findProcessableOrphans();
+        log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
+        processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            Optional<SbRow> formerExistingSbOptional =
-                    sbRowRepository.findById(
-                            new SbRowId(
-                                    processableSb.getSbRowId().getStrAlOrt(),
-                                    processableSb.getSbRowId().getStrNamenSchl(),
-                                    processableSb.getSbRowId().getStrBundLfdnr(),
-                                    processableSb.getSbRowId().getStrHnrVon(),
-                                    processableSb.getSbRowId().getStrHnrBis(),
-                                    "G",
-                                    processableSb.getSbRowId().getStrHnr1000()
-                            )
-                    );
-            if (formerExistingSbOptional.isPresent()) {
-                SbRow formerExistingSb = formerExistingSbOptional.get();
-                formerExistingSb.setOutdatedAt(LocalDateTime.now());
-                sbRowRepository.saveAndFlush(formerExistingSb);
-                processableSb.setAlreadyAppliedAt(LocalDateTime.now());
-                sbRowRepository.saveAndFlush(processableSb);
+            Optional<OrRow> formerExistingOrOptional = orRowRepository.findById(
+                    new OrRowId(
+                            processableOr.getOrRowId().getOrtAlort(),
+                            "G"
+                    )
+            );
+            if (formerExistingOrOptional.isPresent()) {
+                OrRow formerExistingOr = formerExistingOrOptional.get();
+                orRowRepository.outdate(formerExistingOr.getOrRowId(), LocalDateTime.now());
+                processableOr.getOrRowId().setOrtStatus("G");
+                orRowRepository.saveAndFlush(processableOr);
+                orRowRepository.apply(processableOr.getOrRowId(), LocalDateTime.now());
             }
         });
     }
@@ -82,33 +76,39 @@ public class Orphanes {
                     );
             if (formerExistingObOptional.isPresent()) {
                 ObRow formerExistingOb = formerExistingObOptional.get();
-                formerExistingOb.setOutdatedAt(LocalDateTime.now());
-                obRowRepository.saveAndFlush(formerExistingOb);
-                processableOb.setAlreadyAppliedAt(LocalDateTime.now());
+                obRowRepository.outdate(formerExistingOb.getObRowId(), LocalDateTime.now());
+                processableOb.getObRowId().setOtlStatus("G");
                 obRowRepository.saveAndFlush(processableOb);
+                obRowRepository.apply(processableOb.getObRowId(), LocalDateTime.now());
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void handleOr() {
-        List<OrRow> processableOrphanedOrObjects =
-                orRowRepository.findProcessableOrphans();
-        log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
-        processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
+    public void handleSb() {
+        List<SbRow> processableOrphanedSbObjects =
+                sbRowRepository.findProcessableOrphans();
+        log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
+        processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
-            Optional<OrRow> formerExistingOrOptional = orRowRepository.findById(
-                    new OrRowId(
-                            processableOr.getOrRowId().getOrtAlort(),
-                            "G"
-                    )
-            );
-            if (formerExistingOrOptional.isPresent()) {
-                OrRow formerExistingOr = formerExistingOrOptional.get();
-                formerExistingOr.setOutdatedAt(LocalDateTime.now());
-                orRowRepository.saveAndFlush(formerExistingOr);
-                processableOr.setAlreadyAppliedAt(LocalDateTime.now());
-                orRowRepository.saveAndFlush(processableOr);
+            Optional<SbRow> formerExistingSbOptional =
+                    sbRowRepository.findById(
+                            new SbRowId(
+                                    processableSb.getSbRowId().getStrAlOrt(),
+                                    processableSb.getSbRowId().getStrNamenSchl(),
+                                    processableSb.getSbRowId().getStrBundLfdnr(),
+                                    processableSb.getSbRowId().getStrHnrVon(),
+                                    processableSb.getSbRowId().getStrHnrBis(),
+                                    "G",
+                                    processableSb.getSbRowId().getStrHnr1000()
+                            )
+                    );
+            if (formerExistingSbOptional.isPresent()) {
+                SbRow formerExistingSb = formerExistingSbOptional.get();
+                sbRowRepository.outdate(formerExistingSb.getSbRowId(), LocalDateTime.now());
+                processableSb.getSbRowId().setStrStatus("G");
+                sbRowRepository.saveAndFlush(processableSb);
+                sbRowRepository.apply(processableSb.getSbRowId(), LocalDateTime.now());
             }
         });
     }

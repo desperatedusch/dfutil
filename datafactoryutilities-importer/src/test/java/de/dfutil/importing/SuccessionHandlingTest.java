@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
 public class SuccessionHandlingTest {
 
     @Autowired
-    private SuccessionHandling cut;
+    private Successions cut;
 
 }
 

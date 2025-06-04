@@ -14,11 +14,15 @@ import java.util.Objects;
 @Table(
         name = "ORTSTEIL",
         indexes =
-        @Index(
-                name =
-                        "IDX_ORTSTEIL___OTL_ALORT__OTL_SCHL__OTL_PLZ__OTL_STATUS",
-                columnList =
-                        "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"))
+                {
+                        @Index(
+                                name = "IDX_ORTSTEIL___OTL_ALORT__OTL_SCHL__OTL_PLZ__OTL_STATUS",
+                                columnList = "OTL_ALORT,OTL_SCHL,OTL_PLZ,OTL_STATUS"),
+                        @Index(
+                                name = "IDX_ORTSTEIL___UUID",
+                                columnList = "UUID")
+                }
+)
 public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.OB;

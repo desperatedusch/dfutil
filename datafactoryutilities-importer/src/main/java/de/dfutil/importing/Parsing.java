@@ -26,7 +26,7 @@ public class Parsing {
     private final PlRowRepository plRowRepository;
     private final SbRowRepository sbRowRepository;
 
-    private long linesProcessed = 0;
+    private long rowsProcessed;
 
     public Parsing(SbRowRepository sbRowRepository, PlRowRepository plRowRepository, OrRowRepository orRowRepository, ObRowRepository obRowRepository, KgRowRepository kgRowRepository, Postprocessing postprocessing) {
         this.sbRowRepository = sbRowRepository;
@@ -44,35 +44,35 @@ public class Parsing {
                 KgRow kg = KgRow.parseFrom(line);
                 if (kgRowRepository.findById(kg.getKgRowId()).isEmpty()) {
                     kgRowRepository.save(kg);
-                    linesProcessed++;
+                    rowsProcessed++;
                 }
                 break;
             case "OB":
                 ObRow ob = ObRow.parseFrom(line);
                 if (obRowRepository.findById(ob.getObRowId()).isEmpty()) {
                     obRowRepository.save(ob);
-                    linesProcessed++;
+                    rowsProcessed++;
                 }
                 break;
             case "OR":
                 OrRow or = OrRow.parseFrom(line);
                 if (orRowRepository.findById(or.getOrRowId()).isEmpty()) {
                     orRowRepository.save(or);
-                    linesProcessed++;
+                    rowsProcessed++;
                 }
                 break;
             case "PL":
                 PlRow pl = PlRow.parseFrom(line);
                 if (plRowRepository.findById(pl.getPlRowId()).isEmpty()) {
                     plRowRepository.save(pl);
-                    linesProcessed++;
+                    rowsProcessed++;
                 }
                 break;
             case "SB":
                 SbRow sb = SbRow.parseFrom(line);
                 if (sbRowRepository.findById(sb.getSbRowId()).isEmpty()) {
                     sbRowRepository.save(sb);
-                    linesProcessed++;
+                    rowsProcessed++;
                 }
                 break;
             default:
@@ -80,6 +80,7 @@ public class Parsing {
     }
 
     public void fromFile(Path path) {
+        rowsProcessed = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile(), Charset.forName("Cp850")))) {
             var stopwatch = Stopwatch.createStarted();
             long duration;
@@ -90,7 +91,7 @@ public class Parsing {
                 }
             }
             duration = stopwatch.stop().elapsed().toMillis();
-            log.info("Successfully parsed {} within {} ms", path, duration);
+            log.info("Successfully parsed {} rows from {} within {} ms", rowsProcessed, path, duration);
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
         } catch (IOException e) {
@@ -101,7 +102,7 @@ public class Parsing {
     }
 
     public long rowCount() {
-        return linesProcessed;
+        return rowsProcessed;
     }
 
 }

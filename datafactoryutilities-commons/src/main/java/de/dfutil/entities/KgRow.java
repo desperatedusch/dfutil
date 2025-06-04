@@ -17,9 +17,15 @@ import java.util.Objects;
 @Table(
         name = "AGS",
         indexes =
-        @Index(
-                name = "IDX_AGS___KG_SCHLUESSEL__KG_SATZART",
-                columnList = "KG_SCHLUESSEL,KG_SATZART"))
+                {
+                        @Index(
+                                name = "IDX_AGS___KG_SCHLUESSEL__KG_SATZART",
+                                columnList = "KG_SCHLUESSEL,KG_SATZART"),
+                        @Index(
+                                name = "IDX_AGS___UUID",
+                                columnList = "UUID")
+                }
+)
 public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObject {
 
     private static final RowType rowType = RowType.KG;

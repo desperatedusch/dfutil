@@ -1,13 +1,19 @@
 package de.dfutil.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.util.Date;
+import java.util.UUID;
 
 @MappedSuperclass
 public abstract class AbstractRow<T extends SerializablePostalObject> {
+
+    @Column
+    protected UUID uuid;
 
     protected String importingFileIdentifier;
 
@@ -16,6 +22,14 @@ public abstract class AbstractRow<T extends SerializablePostalObject> {
 
     @LastModifiedDate
     protected Date modifiedAt;
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
     public String getImportingFileIdentifier() {
         return importingFileIdentifier;
@@ -39,6 +53,11 @@ public abstract class AbstractRow<T extends SerializablePostalObject> {
 
     public void setModifiedAt(Date modifiedAt) {
         this.modifiedAt = modifiedAt;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        setUuid(java.util.UUID.randomUUID());
     }
 
 }

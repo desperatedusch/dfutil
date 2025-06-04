@@ -1,4 +1,4 @@
-package de.dfutil.importing;
+package de.dfutil.importing.updates;
 
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
@@ -52,8 +52,8 @@ public class Orphanes {
                 OrRow formerExistingOr = formerExistingOrOptional.get();
                 orRowRepository.outdate(formerExistingOr.getOrRowId(), LocalDateTime.now());
                 processableOr.getOrRowId().setOrtStatus("G");
-                orRowRepository.saveAndFlush(processableOr);
                 orRowRepository.apply(processableOr.getOrRowId(), LocalDateTime.now());
+                orRowRepository.saveAndFlush(processableOr);
             }
         });
     }
@@ -78,8 +78,8 @@ public class Orphanes {
                 ObRow formerExistingOb = formerExistingObOptional.get();
                 obRowRepository.outdate(formerExistingOb.getObRowId(), LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
-                obRowRepository.saveAndFlush(processableOb);
                 obRowRepository.apply(processableOb.getObRowId(), LocalDateTime.now());
+                obRowRepository.saveAndFlush(processableOb);
             }
         });
     }
@@ -107,8 +107,8 @@ public class Orphanes {
                 SbRow formerExistingSb = formerExistingSbOptional.get();
                 sbRowRepository.outdate(formerExistingSb.getSbRowId(), LocalDateTime.now());
                 processableSb.getSbRowId().setStrStatus("G");
-                sbRowRepository.saveAndFlush(processableSb);
                 sbRowRepository.apply(processableSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.saveAndFlush(processableSb);
             }
         });
     }

@@ -1,4 +1,4 @@
-package de.dfutil.importing;
+package de.dfutil.importing.updates;
 
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
@@ -14,26 +14,26 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class Merges {
+public class Splittings {
 
-    private static final Logger log = LoggerFactory.getLogger(Merges.class);
+    private static final Logger log = LoggerFactory.getLogger(Splittings.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public Merges(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public Splittings(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void handleOr() {
-        List<OrRow> multipleSuccessors =
-                orRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+    public void handleSb() {
+        List<SbRow> multipleSuccessors =
+                sbRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
@@ -44,10 +44,10 @@ public class Merges {
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void handleSb() {
-        List<SbRow> multipleSuccessors =
-                sbRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+    public void handleOr() {
+        List<OrRow> multipleSuccessors =
+                orRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
 }

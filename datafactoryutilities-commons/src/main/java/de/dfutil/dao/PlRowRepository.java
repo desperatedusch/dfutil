@@ -13,6 +13,6 @@ import java.util.UUID;
 public interface PlRowRepository extends JpaRepository<PlRow, PlRowId> {
 
     @Query
-    public Optional<PlRow> findDistinctTopByUuid(UUID uuid);
+    Optional<PlRow> findDistinctTopByUuid(UUID uuid);
 
 }

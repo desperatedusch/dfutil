@@ -1,4 +1,4 @@
-package de.dfutil.importing;
+package de.dfutil.importing.updates;
 
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
@@ -57,6 +57,7 @@ public class Replacements {
                 obRowRepository.outdate(formerExistingOb.getObRowId(), LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
                 obRowRepository.apply(processableOb.getObRowId(), LocalDateTime.now());
+                obRowRepository.saveAndFlush(processableOb);
             }
         });
     }
@@ -81,6 +82,8 @@ public class Replacements {
                 orRowRepository.outdate(formerExistingOr.getOrRowId(), LocalDateTime.now());
                 processableOr.getOrRowId().setOrtStatus("G");
                 orRowRepository.apply(processableOr.getOrRowId(), LocalDateTime.now());
+                orRowRepository.saveAndFlush(processableOr);
+
             }
         });
     }
@@ -110,6 +113,8 @@ public class Replacements {
                 sbRowRepository.outdate(formerExistingSb.getSbRowId(), LocalDateTime.now());
                 processableSb.getSbRowId().setStrStatus("G");
                 sbRowRepository.apply(processableSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.saveAndFlush(processableSb);
+
             }
         });
     }

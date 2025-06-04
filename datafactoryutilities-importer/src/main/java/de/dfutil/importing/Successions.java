@@ -1,6 +1,10 @@
 package de.dfutil.importing;
 
 import com.google.common.base.Stopwatch;
+import de.dfutil.importing.updates.Merges;
+import de.dfutil.importing.updates.Orphanes;
+import de.dfutil.importing.updates.Replacements;
+import de.dfutil.importing.updates.Splittings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -24,19 +28,35 @@ public class Successions {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
-        orphanes.handleOr();
-        orphanes.handleOb();
-        orphanes.handleSb();
-        splittings.handleOr();
-        splittings.handleOb();
-        splittings.handleSb();
-        replacements.handleOr();
-        replacements.handleOb();
-        replacements.handleSb();
+        processOrphanes();
+        processSplittings();
+        processReplacements();
+        processMerges();
+        log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
+    }
+
+    private void processMerges() {
         merges.handleOr();
         merges.handleOb();
         merges.handleSb();
-        log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
+    }
+
+    private void processReplacements() {
+        replacements.handleOr();
+        replacements.handleOb();
+        replacements.handleSb();
+    }
+
+    private void processSplittings() {
+        splittings.handleOr();
+        splittings.handleOb();
+        splittings.handleSb();
+    }
+
+    private void processOrphanes() {
+        orphanes.handleOr();
+        orphanes.handleOb();
+        orphanes.handleSb();
     }
 
 }

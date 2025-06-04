@@ -91,7 +91,7 @@ public class Parsing {
                 }
             }
             duration = stopwatch.stop().elapsed().toMillis();
-            log.info("Successfully parsed {} rows from {} within {} ms", rowsProcessed, path, duration);
+            log.info("Successfully parsed {} new rows from {} within {} ms", rowsProcessed, path, duration);
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
         } catch (IOException e) {

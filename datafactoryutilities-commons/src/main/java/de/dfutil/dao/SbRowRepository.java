@@ -32,7 +32,7 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
     List<SbRow> findReplacementCandidates();
 
     @Query
-    public Optional<SbRow> findDistinctTopByUuid(UUID uuid);
+    Optional<SbRow> findDistinctTopByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update SbRow strasse set strasse.outdatedAt = :date where strasse.sbRowId = :strId")

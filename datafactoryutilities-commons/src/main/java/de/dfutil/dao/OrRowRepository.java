@@ -32,7 +32,7 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
     List<OrRow> findReplacementCandidates();
 
     @Query
-    public Optional<OrRow> findDistinctTopByUuid(UUID uuid);
+    Optional<OrRow> findDistinctTopByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update OrRow ort set ort.outdatedAt = :date where ort.orRowId = :orId")

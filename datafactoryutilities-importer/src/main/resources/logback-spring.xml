@@ -18,14 +18,14 @@
         </encoder>
     </appender>
 
-    <logger name="de.dfutil.importing.Successions">
-        <level value="INFO"/>
-        <appender-ref ref="SUCCESSIONHANDLING"/>
-    </logger>
-    <logger name="net.ttddyy.dsproxy.listener">
-        <level value="ALL"/>
-        <appender-ref ref="SQL"/>
-    </logger>
+    <!--    <logger name="de.dfutil.importing.Successions">-->
+    <!--        <level value="INFO"/>-->
+    <!--        <appender-ref ref="SUCCESSIONHANDLING"/>-->
+    <!--    </logger>-->
+    <!--    <logger name="net.ttddyy.dsproxy.listener">-->
+    <!--        <level value="ALL"/>-->
+    <!--        <appender-ref ref="SQL"/>-->
+    <!--    </logger>-->
 
     <!-- Setup the root category, add the appenders and set the default level -->
     <root level="info">

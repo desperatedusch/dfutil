@@ -26,6 +26,6 @@ public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
     List<KgRow> federalStates();
 
     @Query
-    public Optional<KgRow> findDistinctTopByUuid(UUID uuid);
+    Optional<KgRow> findDistinctTopByUuid(UUID uuid);
 
 }

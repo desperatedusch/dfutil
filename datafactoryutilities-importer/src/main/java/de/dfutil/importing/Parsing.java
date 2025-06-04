@@ -101,8 +101,4 @@ public class Parsing {
         }
     }
 
-    public long rowCount() {
-        return rowsProcessed;
-    }
-
 }

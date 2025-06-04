@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
@@ -29,6 +31,9 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
 
     @Query("Select ortsteil from ObRow ortsteil where ortsteil.obRowId.otlStatus = 'S' and ortsteil.alreadyAppliedAt is null order by ortsteil.version asc")
     List<ObRow> findReplacementCandidates();
+
+    @Query
+    public Optional<ObRow> findDistinctTopByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update ObRow ortsteil set ortsteil.outdatedAt = :date where ortsteil.obRowId = :obId")

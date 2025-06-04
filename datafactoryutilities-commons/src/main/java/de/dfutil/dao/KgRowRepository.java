@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
@@ -22,5 +24,8 @@ public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
 
     @Query("select agsObject FROM KgRow agsObject WHERE 'L' = agsObject.kgRowId.kgSatzart")
     List<KgRow> federalStates();
+
+    @Query
+    public Optional<KgRow> findDistinctTopByUuid(UUID uuid);
 
 }

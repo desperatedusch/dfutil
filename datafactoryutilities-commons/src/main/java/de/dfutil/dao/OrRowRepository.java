@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
@@ -28,6 +30,9 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
 
     @Query("Select ort from OrRow ort where ort.orRowId.ortStatus = 'S' and ort.alreadyAppliedAt is null order by ort.version asc")
     List<OrRow> findReplacementCandidates();
+
+    @Query
+    public Optional<OrRow> findDistinctTopByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update OrRow ort set ort.outdatedAt = :date where ort.orRowId = :orId")

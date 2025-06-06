@@ -28,7 +28,7 @@ public class Successions {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
-        merges.process();
+        orphanes.process();
         splittings.process();
         replacements.process();
         merges.process();

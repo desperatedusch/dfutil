@@ -28,17 +28,11 @@ public class Successions {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
-        processOrphanes();
-        processSplittings();
-        processReplacements();
-        processMerges();
+        merges.process();
+        splittings.process();
+        replacements.process();
+        merges.process();
         log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
-    }
-
-    private void processMerges() {
-        merges.handleOr();
-        merges.handleOb();
-        merges.handleSb();
     }
 
     private void processReplacements() {

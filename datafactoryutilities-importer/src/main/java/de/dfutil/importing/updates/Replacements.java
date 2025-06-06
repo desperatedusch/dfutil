@@ -35,7 +35,7 @@ public class Replacements {
         this.sbRowRepository = sbRowRepository;
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleOb() {
         List<ObRow> processableSingleSuccessors =
                 obRowRepository.findReplacementCandidates();
@@ -62,7 +62,7 @@ public class Replacements {
         });
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleOr() {
         List<OrRow> processableSingleSuccessors =
                 orRowRepository.findReplacementCandidates();
@@ -88,7 +88,7 @@ public class Replacements {
         });
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleSb() {
         List<SbRow> processableSingleSuccessors =
                 sbRowRepository.findReplacementCandidates();
@@ -118,5 +118,13 @@ public class Replacements {
             }
         });
     }
+
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void process() {
+        handleOr();
+        handleOb();
+        handleSb();
+    }
+
 
 }

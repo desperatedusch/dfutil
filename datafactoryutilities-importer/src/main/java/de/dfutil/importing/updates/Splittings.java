@@ -29,25 +29,34 @@ public class Splittings {
         this.sbRowRepository = sbRowRepository;
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleSb() {
         List<SbRow> multipleSuccessors =
                 sbRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleOb() {
         List<ObRow> multipleSuccessors =
                 obRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleOr() {
         List<OrRow> multipleSuccessors =
                 orRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
+
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void process() {
+        handleOr();
+        handleOb();
+        handleSb();
+    }
+
+
 
 }

@@ -18,10 +18,10 @@
         </encoder>
     </appender>
 
-    <!--    <logger name="de.dfutil.importing.Successions">-->
-    <!--        <level value="INFO"/>-->
-    <!--        <appender-ref ref="SUCCESSIONHANDLING"/>-->
-    <!--    </logger>-->
+    <logger name="de.dfutil.importing.Successions">
+        <level value="INFO"/>
+        <appender-ref ref="SUCCESSIONHANDLING"/>
+    </logger>
     <!--    <logger name="net.ttddyy.dsproxy.listener">-->
     <!--        <level value="ALL"/>-->
     <!--        <appender-ref ref="SQL"/>-->

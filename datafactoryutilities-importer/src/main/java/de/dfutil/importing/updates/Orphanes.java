@@ -35,7 +35,7 @@ public class Orphanes {
         this.sbRowRepository = sbRowRepository;
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleOr() {
         List<OrRow> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
@@ -58,7 +58,7 @@ public class Orphanes {
         });
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleOb() {
         List<ObRow> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
@@ -84,7 +84,7 @@ public class Orphanes {
         });
     }
 
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    @Transactional(Transactional.TxType.REQUIRED)
     public void handleSb() {
         List<SbRow> processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
@@ -112,5 +112,13 @@ public class Orphanes {
             }
         });
     }
+
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void process() {
+        handleOr();
+        handleOb();
+        handleSb();
+    }
+
 
 }

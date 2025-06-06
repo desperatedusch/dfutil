@@ -35,22 +35,4 @@ public class Successions {
         log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 
-    private void processReplacements() {
-        replacements.handleOr();
-        replacements.handleOb();
-        replacements.handleSb();
-    }
-
-    private void processSplittings() {
-        splittings.handleOr();
-        splittings.handleOb();
-        splittings.handleSb();
-    }
-
-    private void processOrphanes() {
-        orphanes.handleOr();
-        orphanes.handleOb();
-        orphanes.handleSb();
-    }
-
 }

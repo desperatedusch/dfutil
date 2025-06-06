@@ -1,6 +1,7 @@
 package de.dfutil.dao;
 
 import de.dfutil.entities.ObRow;
+import de.dfutil.entities.SbRow;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -33,7 +33,7 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
     List<ObRow> findReplacementCandidates();
 
     @Query
-    Optional<ObRow> findDistinctTopByUuid(UUID uuid);
+    SbRow getByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update ObRow ortsteil set ortsteil.outdatedAt = :date where ortsteil.obRowId = :obId")

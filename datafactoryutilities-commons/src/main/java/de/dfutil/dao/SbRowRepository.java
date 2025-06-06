@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -32,7 +31,7 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
     List<SbRow> findReplacementCandidates();
 
     @Query
-    Optional<SbRow> findDistinctTopByUuid(UUID uuid);
+    SbRow getByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update SbRow strasse set strasse.outdatedAt = :date where strasse.sbRowId = :strId")

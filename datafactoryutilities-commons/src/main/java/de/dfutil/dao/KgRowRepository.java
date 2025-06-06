@@ -1,13 +1,13 @@
 package de.dfutil.dao;
 
 import de.dfutil.entities.KgRow;
+import de.dfutil.entities.SbRow;
 import de.dfutil.entities.ids.KgRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -26,6 +26,6 @@ public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
     List<KgRow> federalStates();
 
     @Query
-    Optional<KgRow> findDistinctTopByUuid(UUID uuid);
+    SbRow getByUuid(UUID uuid);
 
 }

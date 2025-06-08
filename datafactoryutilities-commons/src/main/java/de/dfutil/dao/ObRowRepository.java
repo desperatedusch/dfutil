@@ -1,7 +1,6 @@
 package de.dfutil.dao;
 
 import de.dfutil.entities.ObRow;
-import de.dfutil.entities.SbRow;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,14 +32,14 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
     List<ObRow> findReplacementCandidates();
 
     @Query
-    SbRow getByUuid(UUID uuid);
+    ObRow getByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
-    @Query("update ObRow ortsteil set ortsteil.outdatedAt = :date where ortsteil.obRowId = :obId")
-    void outdate(@Param("obId") ObRowId obId, @Param("date") LocalDateTime date);
+    @Query("update ObRow ortsteil set ortsteil.outdatedAt = :date where ortsteil.uuid = :uuid")
+    void outdate(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
-    @Query("update ObRow ortsteil set ortsteil.alreadyAppliedAt = :date where ortsteil.obRowId = :obId")
-    void apply(@Param("obÎd") ObRowId obId, @Param("date") LocalDateTime date);
+    @Query("update ObRow ortsteil set ortsteil.alreadyAppliedAt = :date where ortsteil.uuid = :uuid")
+    void apply(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
 }

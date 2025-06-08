@@ -20,16 +20,16 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class Replacements {
+public class ReplacementHandling {
 
-    private static final Logger log = LoggerFactory.getLogger(Replacements.class);
+    private static final Logger log = LoggerFactory.getLogger(ReplacementHandling.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public Replacements(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public ReplacementHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -54,9 +54,9 @@ public class Replacements {
             if (predecessorObOptional.isPresent()
                     && !Objects.equals(predecessorObOptional.get(), processableOb)) {
                 ObRow formerExistingOb = predecessorObOptional.get();
-                obRowRepository.outdate(formerExistingOb.getObRowId(), LocalDateTime.now());
+                obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
-                obRowRepository.apply(processableOb.getObRowId(), LocalDateTime.now());
+                obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
                 obRowRepository.saveAndFlush(processableOb);
             }
         });
@@ -79,9 +79,9 @@ public class Replacements {
             if (predecessorOrOptional.isPresent()
                     && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
                 OrRow formerExistingOr = predecessorOrOptional.get();
-                orRowRepository.outdate(formerExistingOr.getOrRowId(), LocalDateTime.now());
+                orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 processableOr.getOrRowId().setOrtStatus("G");
-                orRowRepository.apply(processableOr.getOrRowId(), LocalDateTime.now());
+                orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
                 orRowRepository.saveAndFlush(processableOr);
 
             }
@@ -110,9 +110,9 @@ public class Replacements {
             if (predecessorSbOptional.isPresent()
                     && !Objects.equals(predecessorSbOptional.get(), processableSb)) {
                 SbRow formerExistingSb = predecessorSbOptional.get();
-                sbRowRepository.outdate(formerExistingSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
                 processableSb.getSbRowId().setStrStatus("G");
-                sbRowRepository.apply(processableSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
                 sbRowRepository.saveAndFlush(processableSb);
 
             }

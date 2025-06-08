@@ -34,11 +34,11 @@ public interface SbRowRepository extends JpaRepository<SbRow, SbRowId> {
     SbRow getByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
-    @Query("update SbRow strasse set strasse.outdatedAt = :date where strasse.sbRowId = :strId")
-    void outdate(@Param("strId") SbRowId strId, @Param("date") LocalDateTime date);
+    @Query("update SbRow strasse set strasse.outdatedAt = :date where strasse.uuid = :uuid")
+    void outdate(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
-    @Query("update SbRow strasse set strasse.alreadyAppliedAt = :date where strasse.sbRowId = :strId")
-    void apply(@Param("strÎd") SbRowId strId, @Param("date") LocalDateTime date);
+    @Query("update SbRow strasse set strasse.alreadyAppliedAt = :date where strasse.uuid = :uuid")
+    void apply(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
 }

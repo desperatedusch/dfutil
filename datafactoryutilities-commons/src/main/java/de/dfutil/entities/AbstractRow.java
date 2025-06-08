@@ -1,6 +1,5 @@
 package de.dfutil.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,7 +11,6 @@ import java.util.UUID;
 @MappedSuperclass
 public abstract class AbstractRow<T extends SerializablePostalObject> {
 
-    @Column
     protected UUID uuid;
 
     protected String importingFileIdentifier;

@@ -1,7 +1,6 @@
 package de.dfutil.dao;
 
 import de.dfutil.entities.OrRow;
-import de.dfutil.entities.SbRow;
 import de.dfutil.entities.ids.OrRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -32,14 +31,14 @@ public interface OrRowRepository extends JpaRepository<OrRow, OrRowId> {
     List<OrRow> findReplacementCandidates();
 
     @Query
-    SbRow getByUuid(UUID uuid);
+    OrRow getByUuid(UUID uuid);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
-    @Query("update OrRow ort set ort.outdatedAt = :date where ort.orRowId = :orId")
-    void outdate(@Param("orId") OrRowId orId, @Param("date") LocalDateTime date);
+    @Query("update OrRow ort set ort.outdatedAt = :date where ort.uuid = :uuid")
+    void outdate(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
-    @Query("update OrRow ort set ort.alreadyAppliedAt = :date where ort.orRowId = :orId")
-    void apply(@Param("orÎd") OrRowId orId, @Param("date") LocalDateTime date);
+    @Query("update OrRow ort set ort.alreadyAppliedAt = :date where ort.uuid = :uuid")
+    void apply(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
 }

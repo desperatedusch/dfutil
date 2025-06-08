@@ -14,26 +14,26 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class Splittings {
+public class MergeHandling {
 
-    private static final Logger log = LoggerFactory.getLogger(Splittings.class);
+    private static final Logger log = LoggerFactory.getLogger(MergeHandling.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public Splittings(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public MergeHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleSb() {
-        List<SbRow> multipleSuccessors =
-                sbRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+    public void handleOr() {
+        List<OrRow> multipleSuccessors =
+                orRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -44,10 +44,10 @@ public class Splittings {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleOr() {
-        List<OrRow> multipleSuccessors =
-                orRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+    public void handleSb() {
+        List<SbRow> multipleSuccessors =
+                sbRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
@@ -56,7 +56,5 @@ public class Splittings {
         handleOb();
         handleSb();
     }
-
-
 
 }

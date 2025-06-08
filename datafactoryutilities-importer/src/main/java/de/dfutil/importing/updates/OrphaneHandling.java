@@ -20,16 +20,16 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class Orphanes {
+public class OrphaneHandling {
 
-    private static final Logger log = LoggerFactory.getLogger(Orphanes.class);
+    private static final Logger log = LoggerFactory.getLogger(OrphaneHandling.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public Orphanes(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public OrphaneHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -50,9 +50,9 @@ public class Orphanes {
             );
             if (formerExistingOrOptional.isPresent()) {
                 OrRow formerExistingOr = formerExistingOrOptional.get();
-                orRowRepository.outdate(formerExistingOr.getOrRowId(), LocalDateTime.now());
+                orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 processableOr.getOrRowId().setOrtStatus("G");
-                orRowRepository.apply(processableOr.getOrRowId(), LocalDateTime.now());
+                orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
                 orRowRepository.saveAndFlush(processableOr);
             }
         });
@@ -76,9 +76,9 @@ public class Orphanes {
                     );
             if (formerExistingObOptional.isPresent()) {
                 ObRow formerExistingOb = formerExistingObOptional.get();
-                obRowRepository.outdate(formerExistingOb.getObRowId(), LocalDateTime.now());
+                obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
-                obRowRepository.apply(processableOb.getObRowId(), LocalDateTime.now());
+                obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
                 obRowRepository.saveAndFlush(processableOb);
             }
         });
@@ -105,9 +105,9 @@ public class Orphanes {
                     );
             if (formerExistingSbOptional.isPresent()) {
                 SbRow formerExistingSb = formerExistingSbOptional.get();
-                sbRowRepository.outdate(formerExistingSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
                 processableSb.getSbRowId().setStrStatus("G");
-                sbRowRepository.apply(processableSb.getSbRowId(), LocalDateTime.now());
+                sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
                 sbRowRepository.saveAndFlush(processableSb);
             }
         });

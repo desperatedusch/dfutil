@@ -1,7 +1,6 @@
 package de.dfutil.dao;
 
 import de.dfutil.entities.KgRow;
-import de.dfutil.entities.SbRow;
 import de.dfutil.entities.ids.KgRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,6 +25,6 @@ public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
     List<KgRow> federalStates();
 
     @Query
-    SbRow getByUuid(UUID uuid);
+    KgRow getByUuid(UUID uuid);
 
 }

@@ -57,7 +57,7 @@ public class ReplacementHandling {
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
                 processableOb.getObRowId().setOtlStatus("G");
                 obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
-                obRowRepository.saveAndFlush(processableOb);
+//                obRowRepository.saveAndFlush(processableOb);
             }
         });
     }
@@ -82,7 +82,7 @@ public class ReplacementHandling {
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 processableOr.getOrRowId().setOrtStatus("G");
                 orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
-                orRowRepository.saveAndFlush(processableOr);
+//                orRowRepository.saveAndFlush(processableOr);
 
             }
         });
@@ -113,7 +113,7 @@ public class ReplacementHandling {
                 sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
                 processableSb.getSbRowId().setStrStatus("G");
                 sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
-                sbRowRepository.saveAndFlush(processableSb);
+//                sbRowRepository.saveAndFlush(processableSb);
 
             }
         });

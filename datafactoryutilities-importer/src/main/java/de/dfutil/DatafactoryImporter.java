@@ -2,7 +2,7 @@ package de.dfutil;
 
 import de.dfutil.importing.InputSourceDetection;
 import de.dfutil.importing.Parsing;
-import de.dfutil.importing.Successions;
+import de.dfutil.importing.SuccessionsUpdater;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,14 +22,14 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     private final InputSourceDetection inputSourceDetection;
     private final Parsing parsing;
-    private final Successions successions;
+    private final SuccessionsUpdater successions;
 
     @Value("${app.importer.inputsource.parsing-activated}")
     private boolean parsingActivated;
     @Value("${app.importer.inputsource.successionhandling-activated}")
     private boolean successionHandlingActivated;
 
-    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing, Successions successions) {
+    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing, SuccessionsUpdater successions) {
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
         this.successions = successions;

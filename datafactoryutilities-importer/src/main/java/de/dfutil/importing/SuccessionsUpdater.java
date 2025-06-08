@@ -10,16 +10,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Successions {
+public class SuccessionsUpdater {
 
-    private static final Logger log = LoggerFactory.getLogger(Successions.class);
+    private static final Logger log = LoggerFactory.getLogger(SuccessionsUpdater.class);
 
     private final OrphaneHandling orphaneHandling;
     private final ReplacementHandling replacementHandling;
     private final SplitHandling splitHandling;
     private final MergeHandling mergeHandling;
 
-    public Successions(OrphaneHandling orphaneHandling, ReplacementHandling replacementHandling, SplitHandling splitHandling, MergeHandling mergeHandling) {
+    public SuccessionsUpdater(OrphaneHandling orphaneHandling, ReplacementHandling replacementHandling, SplitHandling splitHandling, MergeHandling mergeHandling) {
         this.orphaneHandling = orphaneHandling;
         this.replacementHandling = replacementHandling;
         this.splitHandling = splitHandling;

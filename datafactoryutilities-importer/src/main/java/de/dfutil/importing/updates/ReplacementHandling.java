@@ -19,6 +19,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import static de.dfutil.entities.ArchivingState.INVALID;
+import static de.dfutil.entities.ArchivingState.VALID;
+
 @Service
 public class ReplacementHandling {
 
@@ -36,7 +39,7 @@ public class ReplacementHandling {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleOb() {
+    public void handleObObjects() {
         List<ObRow> processableSingleSuccessors =
                 obRowRepository.findReplacementCandidates();
         log.debug("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
@@ -54,16 +57,16 @@ public class ReplacementHandling {
             if (predecessorObOptional.isPresent()
                     && !Objects.equals(predecessorObOptional.get(), processableOb)) {
                 ObRow formerExistingOb = predecessorObOptional.get();
+                orRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
-                processableOb.getObRowId().setOtlStatus("G");
+                orRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
                 obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
-//                obRowRepository.saveAndFlush(processableOb);
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleOr() {
+    public void handleOrObjects() {
         List<OrRow> processableSingleSuccessors =
                 orRowRepository.findReplacementCandidates();
         log.debug("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
@@ -79,17 +82,16 @@ public class ReplacementHandling {
             if (predecessorOrOptional.isPresent()
                     && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
                 OrRow formerExistingOr = predecessorOrOptional.get();
+                orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
-                processableOr.getOrRowId().setOrtStatus("G");
+                orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());
                 orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
-//                orRowRepository.saveAndFlush(processableOr);
-
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleSb() {
+    public void handleSbObjects() {
         List<SbRow> processableSingleSuccessors =
                 sbRowRepository.findReplacementCandidates();
         log.debug("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
@@ -110,20 +112,19 @@ public class ReplacementHandling {
             if (predecessorSbOptional.isPresent()
                     && !Objects.equals(predecessorSbOptional.get(), processableSb)) {
                 SbRow formerExistingSb = predecessorSbOptional.get();
+                sbRowRepository.changeStatus(formerExistingSb.getUuid(), INVALID.symbol());
                 sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
-                processableSb.getSbRowId().setStrStatus("G");
+                sbRowRepository.changeStatus(processableSb.getUuid(), VALID.symbol());
                 sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
-//                sbRowRepository.saveAndFlush(processableSb);
-
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void process() {
-        handleOr();
-        handleOb();
-        handleSb();
+        handleOrObjects();
+        handleObObjects();
+        handleSbObjects();
     }
 
 

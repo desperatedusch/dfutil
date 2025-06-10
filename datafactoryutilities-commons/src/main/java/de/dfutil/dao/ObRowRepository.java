@@ -39,6 +39,10 @@ public interface ObRowRepository extends JpaRepository<ObRow, ObRowId> {
     void outdate(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query("update ObRow ortsteil set ortsteil.obRowId.otlStatus = :otlStatus where ortsteil.uuid = :uuid")
+    void changeStatus(@Param("uuid") UUID uuid, @Param("otlStatus") String status);
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update ObRow ortsteil set ortsteil.alreadyAppliedAt = :date where ortsteil.uuid = :uuid")
     void apply(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 

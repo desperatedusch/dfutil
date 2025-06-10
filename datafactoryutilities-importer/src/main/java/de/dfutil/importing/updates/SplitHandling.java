@@ -30,21 +30,21 @@ public class SplitHandling {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleSb() {
+    public void handleSbObjects() {
         List<SbRow> multipleSuccessors =
                 sbRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleOb() {
+    public void handleObObjects() {
         List<ObRow> multipleSuccessors =
                 obRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleOr() {
+    public void handleOrObjects() {
         List<OrRow> multipleSuccessors =
                 orRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
@@ -52,11 +52,9 @@ public class SplitHandling {
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void process() {
-        handleOr();
-        handleOb();
-        handleSb();
+        handleOrObjects();
+        handleObObjects();
+        handleSbObjects();
     }
-
-
 
 }

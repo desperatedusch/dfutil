@@ -19,6 +19,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import static de.dfutil.entities.ArchivingState.INVALID;
+import static de.dfutil.entities.ArchivingState.VALID;
+
 @Service
 public class OrphaneHandling {
 
@@ -36,7 +39,7 @@ public class OrphaneHandling {
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void handleOr() {
+    public void handleOrObjects() {
         List<OrRow> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
         log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
@@ -50,16 +53,16 @@ public class OrphaneHandling {
             );
             if (formerExistingOrOptional.isPresent()) {
                 OrRow formerExistingOr = formerExistingOrOptional.get();
+                orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
-                processableOr.getOrRowId().setOrtStatus("G");
+                orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());
                 orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
-//                orRowRepository.saveAndFlush(processableOr);
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void handleOb() {
+    public void handleObObjects() {
         List<ObRow> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
         log.debug("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
@@ -76,16 +79,16 @@ public class OrphaneHandling {
                     );
             if (formerExistingObOptional.isPresent()) {
                 ObRow formerExistingOb = formerExistingObOptional.get();
+                sbRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
-                processableOb.getObRowId().setOtlStatus("G");
+                sbRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
                 obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
-//                obRowRepository.saveAndFlush(processableOb);
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void handleSb() {
+    public void handleSbObjects() {
         List<SbRow> processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
         log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
@@ -105,19 +108,19 @@ public class OrphaneHandling {
                     );
             if (formerExistingSbOptional.isPresent()) {
                 SbRow formerExistingSb = formerExistingSbOptional.get();
+                sbRowRepository.changeStatus(formerExistingSb.getUuid(), INVALID.symbol());
                 sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
-                processableSb.getSbRowId().setStrStatus("G");
+                sbRowRepository.changeStatus(processableSb.getUuid(), VALID.symbol());
                 sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
-//                sbRowRepository.saveAndFlush(processableSb);
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void process() {
-        handleOr();
-        handleOb();
-        handleSb();
+        handleOrObjects();
+        handleObObjects();
+        handleSbObjects();
     }
 
 

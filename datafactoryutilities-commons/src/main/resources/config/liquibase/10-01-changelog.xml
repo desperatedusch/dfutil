@@ -207,17 +207,17 @@
                     replaceIfExists="false"
                     schemaName="public"
                     viewName="v_processed_successionable_rows">
-            SELECT o.uuid
+            SELECT 'Ort'::text AS "?column?", o.uuid
             FROM ort o
             WHERE o.already_applied_at IS NOT NULL
                OR o.outdated_at IS NOT NULL
             UNION
-            SELECT ot.uuid
+            SELECT 'Ortsteil'::text, ot.uuid
             FROM ortsteil ot
             WHERE ot.already_applied_at IS NOT NULL
                OR ot.outdated_at IS NOT NULL
             UNION
-            SELECT st.uuid
+            SELECT 'Strasse'::text, st.uuid
             FROM strasse st
             WHERE st.already_applied_at IS NOT NULL
                OR st.outdated_at IS NOT NULL;

@@ -23,16 +23,16 @@ import static de.dfutil.entities.ArchivingState.INVALID;
 import static de.dfutil.entities.ArchivingState.VALID;
 
 @Service
-public class OrphaneHandling {
+public class Orphanes implements Updater {
 
-    private static final Logger log = LoggerFactory.getLogger(OrphaneHandling.class);
+    private static final Logger log = LoggerFactory.getLogger(Orphanes.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public OrphaneHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public Orphanes(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -115,13 +115,5 @@ public class OrphaneHandling {
             }
         });
     }
-
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void process() {
-        handleOrObjects();
-        handleObObjects();
-        handleSbObjects();
-    }
-
 
 }

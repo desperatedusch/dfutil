@@ -14,26 +14,26 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SplitHandling {
+public class Merges implements Updater {
 
-    private static final Logger log = LoggerFactory.getLogger(SplitHandling.class);
+    private static final Logger log = LoggerFactory.getLogger(Merges.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public SplitHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public Merges(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleSbObjects() {
-        List<SbRow> multipleSuccessors =
-                sbRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+    public void handleOrObjects() {
+        List<OrRow> multipleSuccessors =
+                orRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -44,17 +44,10 @@ public class SplitHandling {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void handleOrObjects() {
-        List<OrRow> multipleSuccessors =
-                orRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
-    }
-
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
-    public void process() {
-        handleOrObjects();
-        handleObObjects();
-        handleSbObjects();
+    public void handleSbObjects() {
+        List<SbRow> multipleSuccessors =
+                sbRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
 }

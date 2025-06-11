@@ -3,16 +3,13 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>de.dfutil</groupId>
         <artifactId>datafactoryutilities-aggregator-parent</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
-
     <artifactId>datafactoryutilities-adressinformationprovider</artifactId>
     <name>datafactoryutilities-adressinformationprovider</name>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -25,7 +22,6 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -34,5 +30,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

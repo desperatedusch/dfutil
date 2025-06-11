@@ -14,16 +14,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class Merges implements Updater {
+public class MergesRelationalDatabaseHandling implements RelationalDataUpdater {
 
-    private static final Logger log = LoggerFactory.getLogger(Merges.class);
+    private static final Logger log = LoggerFactory.getLogger(MergesRelationalDatabaseHandling.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public Merges(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public MergesRelationalDatabaseHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;

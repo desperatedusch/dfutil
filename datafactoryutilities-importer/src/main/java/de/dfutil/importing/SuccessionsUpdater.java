@@ -1,10 +1,10 @@
 package de.dfutil.importing;
 
 import com.google.common.base.Stopwatch;
-import de.dfutil.importing.updates.Merges;
-import de.dfutil.importing.updates.Orphanes;
-import de.dfutil.importing.updates.Replacements;
-import de.dfutil.importing.updates.Splittings;
+import de.dfutil.importing.updates.MergesRelationalDatabaseHandling;
+import de.dfutil.importing.updates.OrphanesRelationalDatabaseHandling;
+import de.dfutil.importing.updates.ReplacementsRelationalDatabaseHandling;
+import de.dfutil.importing.updates.SplittingsRelationalDatabaseHandling;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -14,12 +14,12 @@ public class SuccessionsUpdater {
 
     private static final Logger log = LoggerFactory.getLogger(SuccessionsUpdater.class);
 
-    private final Orphanes orphanes;
-    private final Replacements replacements;
-    private final Splittings splittings;
-    private final Merges merges;
+    private final OrphanesRelationalDatabaseHandling orphanes;
+    private final ReplacementsRelationalDatabaseHandling replacements;
+    private final SplittingsRelationalDatabaseHandling splittings;
+    private final MergesRelationalDatabaseHandling merges;
 
-    public SuccessionsUpdater(Orphanes orphanes, Replacements replacements, Splittings splittings, Merges merges) {
+    public SuccessionsUpdater(OrphanesRelationalDatabaseHandling orphanes, ReplacementsRelationalDatabaseHandling replacements, SplittingsRelationalDatabaseHandling splittings, MergesRelationalDatabaseHandling merges) {
         this.orphanes = orphanes;
         this.replacements = replacements;
         this.splittings = splittings;

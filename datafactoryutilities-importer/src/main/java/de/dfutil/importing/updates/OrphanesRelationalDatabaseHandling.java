@@ -23,16 +23,16 @@ import static de.dfutil.entities.ArchivingState.INVALID;
 import static de.dfutil.entities.ArchivingState.VALID;
 
 @Service
-public class Orphanes implements Updater {
+public class OrphanesRelationalDatabaseHandling implements RelationalDataUpdater {
 
-    private static final Logger log = LoggerFactory.getLogger(Orphanes.class);
+    private static final Logger log = LoggerFactory.getLogger(OrphanesRelationalDatabaseHandling.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public Orphanes(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public OrphanesRelationalDatabaseHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;

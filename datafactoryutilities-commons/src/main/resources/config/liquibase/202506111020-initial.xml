@@ -9,7 +9,7 @@
         <createSequence incrementBy="50" sequenceName="import_result_seq" startValue="1"/>
     </changeSet>
     <changeSet id="1749569803119-2" author="dusch">
-        <createTable tableName="ags">
+        <createTable tableName="ags" ifNotExists="true">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -26,7 +26,7 @@
         </createTable>
     </changeSet>
     <changeSet id="1749569803119-3" author="dusch">
-        <createTable tableName="import_result">
+        <createTable tableName="import_result" ifNotExists="true">
             <column name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_importresult"/>
             </column>
@@ -39,7 +39,7 @@
         </createTable>
     </changeSet>
     <changeSet id="1749569803119-4" author="dusch">
-        <createTable tableName="ort">
+        <createTable tableName="ort" ifNotExists="true">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -64,7 +64,7 @@
         </createTable>
     </changeSet>
     <changeSet id="1749569803119-5" author="dusch">
-        <createTable tableName="ortsteil">
+        <createTable tableName="ortsteil" ifNotExists="true">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -91,7 +91,7 @@
         </createTable>
     </changeSet>
     <changeSet id="1749569803119-6" author="dusch">
-        <createTable tableName="plz">
+        <createTable tableName="plz" ifNotExists="true">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -125,7 +125,7 @@
         </createTable>
     </changeSet>
     <changeSet id="1749569803119-7" author="dusch">
-        <createTable tableName="strasse">
+        <createTable tableName="strasse" ifNotExists="true">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -198,30 +198,37 @@
             <column name="uuid"/>
         </createIndex>
     </changeSet>
-
     <changeSet id="1749569803119-13" author="dusch">
         <createView catalogName="cat"
                     encoding="UTF-8"
                     fullDefinition="false"
                     remarks="A String"
-                    replaceIfExists="false"
+                    replaceIfExists="true"
                     schemaName="public"
-                    viewName="v_processed_successionable_rows">
-            SELECT 'Ort'::text AS "?column?", o.uuid
+                    viewName="already_processed_successionable_rows">
+            SELECT 'Ort'::text AS "Typ", o.uuid,
+                   o.ort_status         as "Status",
+                   o.already_applied_at as "bereits verarbeitet am",
+                   o.outdated_at        as "abgelöst am"
             FROM ort o
             WHERE o.already_applied_at IS NOT NULL
                OR o.outdated_at IS NOT NULL
             UNION
-            SELECT 'Ortsteil'::text, ot.uuid
+            SELECT 'Ortsteil'::text , ot.uuid,
+                   ot.otl_status         as "Status",
+                   ot.already_applied_at as "bereits verarbeitet am",
+                   ot.outdated_at        as "abgelöst am"
             FROM ortsteil ot
             WHERE ot.already_applied_at IS NOT NULL
                OR ot.outdated_at IS NOT NULL
             UNION
-            SELECT 'Strasse'::text, st.uuid
+            SELECT 'Strasse'::text, st.uuid,
+                   st.str_status         as "Status",
+                   st.already_applied_at as "bereits verarbeitet am",
+                   st.outdated_at        as "abgelöst am"
             FROM strasse st
             WHERE st.already_applied_at IS NOT NULL
                OR st.outdated_at IS NOT NULL;
         </createView>
     </changeSet>
-
 </databaseChangeLog>

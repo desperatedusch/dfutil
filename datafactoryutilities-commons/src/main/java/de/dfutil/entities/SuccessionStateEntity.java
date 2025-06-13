@@ -22,7 +22,7 @@ public class SuccessionStateEntity {
     @JoinTable(
             name = "successionstate_predecessor",
             joinColumns = @JoinColumn(name = "successionstate_link_id"),
-            inverseJoinColumns = @JoinColumn(name = "successionstate_link_id"))
+            inverseJoinColumns = @JoinColumn(name = "predecessor_id"))
     private Set<SuccessionStateEntity> predecessors;
 
     @ManyToMany(mappedBy = "predecessors", fetch = FetchType.LAZY)

@@ -1,8 +1,6 @@
 package de.dfutil.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import java.util.Objects;
 import java.util.Set;
@@ -22,11 +20,9 @@ public class SuccessionStateEntity {
     private UUID uuid;
 
     @ManyToMany(mappedBy = "predecessors", fetch = FetchType.LAZY)
-    @Fetch(FetchMode.SELECT)
     private Set<SuccessionStateEntity> predecessors;
 
-    @ManyToMany(mappedBy = "successors")
-    @Fetch(FetchMode.SELECT)
+    @ManyToMany(mappedBy = "successors", fetch = FetchType.LAZY)
     private Set<SuccessionStateEntity> successors;
 
     public UUID getUuid() {

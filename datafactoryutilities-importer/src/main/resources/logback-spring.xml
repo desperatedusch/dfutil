@@ -4,7 +4,7 @@
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <appender name="z" class="ch.qos.logback.core.FileAppender">
+    <appender name="SUCCESSIONHANDLING" class="ch.qos.logback.core.FileAppender">
         <file>logs/datafactoryutilities-importer/successionhandling.log</file>
         <encoder>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>

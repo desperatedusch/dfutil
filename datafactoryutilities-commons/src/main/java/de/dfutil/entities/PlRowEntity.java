@@ -22,7 +22,7 @@ import java.util.Objects;
                                 columnList = "UUID")
                 }
 )
-public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObject {
+public class PlRowEntity extends AbstractRowEntity<PlRowEntity> implements SerializablePostalObject {
 
     private static final RowType rowType = RowType.PL;
 
@@ -52,8 +52,8 @@ public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObjec
     private String plzFzNr;
     private String plzBzNr;
 
-    public static PlRow parseFrom(String rowBytes) {
-        PlRow row = new PlRow();
+    public static PlRowEntity parseFrom(String rowBytes) {
+        PlRowEntity row = new PlRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.plzDatum = rowBytes.substring(9, 17);
         row.plzArtKardinalität = rowBytes.substring(30, 31);
@@ -253,7 +253,7 @@ public class PlRow extends AbstractRow<PlRow> implements SerializablePostalObjec
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        PlRow plRow = (PlRow) o;
+        PlRowEntity plRow = (PlRowEntity) o;
         return Objects.equals(version, plRow.version) && Objects.equals(plzDatum, plRow.plzDatum) && Objects.equals(plRowId, plRow.plRowId) && Objects.equals(plzArtKardinalität, plRow.plzArtKardinalität) && Objects.equals(plzArtAuslierferung, plRow.plzArtAuslierferung) && Objects.equals(plzStverz, plRow.plzStverz) && Objects.equals(plzPfverz, plRow.plzPfverz) && Objects.equals(plzOname, plRow.plzOname) && Objects.equals(plzOzusatz, plRow.plzOzusatz) && Objects.equals(plzArtOzusatz, plRow.plzArtOzusatz) && Objects.equals(plzOname24, plRow.plzOname24) && Objects.equals(plzPostlag, plRow.plzPostlag) && Objects.equals(plzLaBrief, plRow.plzLaBrief) && Objects.equals(plzLaAlort, plRow.plzLaAlort) && Objects.equals(plzKgs, plRow.plzKgs) && Objects.equals(plzOrtCode, plRow.plzOrtCode) && Objects.equals(plzLeitcodeMax, plRow.plzLeitcodeMax) && Objects.equals(plzRabattInfoSchwer, plRow.plzRabattInfoSchwer) && Objects.equals(plzReserve, plRow.plzReserve) && Objects.equals(plzFzNr, plRow.plzFzNr) && Objects.equals(plzBzNr, plRow.plzBzNr);
     }
 

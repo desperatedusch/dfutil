@@ -1,7 +1,7 @@
 package de.dfutil.importing;
 
 import de.dfutil.dao.ImportResultRepository;
-import de.dfutil.entities.ImportResult;
+import de.dfutil.entities.ImportResultEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +28,7 @@ public class Postprocessing {
 
     public void parsedSuccessfully(Path inputSource, Long duration) {
         importResultRepository.save(
-                new ImportResult(
+                new ImportResultEntity(
                         inputSource.getFileName().toString(),
                         LocalDateTime.now(),
                         true,
@@ -38,7 +38,7 @@ public class Postprocessing {
 
     public void parsingFailed(Path inputSource, Long duration) {
         importResultRepository.save(
-                new ImportResult(
+                new ImportResultEntity(
                         inputSource.getFileName().toString(),
                         LocalDateTime.now(),
                         false,

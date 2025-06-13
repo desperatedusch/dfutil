@@ -3,9 +3,9 @@ package de.dfutil.importing.updates;
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
-import de.dfutil.entities.ObRow;
-import de.dfutil.entities.OrRow;
-import de.dfutil.entities.SbRow;
+import de.dfutil.entities.ObRowEntity;
+import de.dfutil.entities.OrRowEntiy;
+import de.dfutil.entities.SbRowEntity;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
 import de.dfutil.entities.ids.SbRowId;
@@ -40,12 +40,12 @@ public class ReplacementsRelationalDatabaseHandling implements RelationalDataUpd
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
-        List<ObRow> processableSingleSuccessors =
+        List<ObRowEntity> processableSingleSuccessors =
                 obRowRepository.findReplacementCandidates();
         log.debug("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
-            Optional<ObRow> predecessorObOptional =
+            Optional<ObRowEntity> predecessorObOptional =
                     obRowRepository.findById(
                             new ObRowId(
                                     processableOb.getObRowId().getOtlAlort(),
@@ -56,7 +56,7 @@ public class ReplacementsRelationalDatabaseHandling implements RelationalDataUpd
                     );
             if (predecessorObOptional.isPresent()
                     && !Objects.equals(predecessorObOptional.get(), processableOb)) {
-                ObRow formerExistingOb = predecessorObOptional.get();
+                ObRowEntity formerExistingOb = predecessorObOptional.get();
                 orRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
                 orRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
@@ -67,12 +67,12 @@ public class ReplacementsRelationalDatabaseHandling implements RelationalDataUpd
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        List<OrRow> processableSingleSuccessors =
+        List<OrRowEntiy> processableSingleSuccessors =
                 orRowRepository.findReplacementCandidates();
         log.debug("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            Optional<OrRow> predecessorOrOptional =
+            Optional<OrRowEntiy> predecessorOrOptional =
                     orRowRepository.findById(
                             new OrRowId(
                                     processableOr.getOrRowId().getOrtAlort(),
@@ -81,7 +81,7 @@ public class ReplacementsRelationalDatabaseHandling implements RelationalDataUpd
                     );
             if (predecessorOrOptional.isPresent()
                     && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
-                OrRow formerExistingOr = predecessorOrOptional.get();
+                OrRowEntiy formerExistingOr = predecessorOrOptional.get();
                 orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());
@@ -92,12 +92,12 @@ public class ReplacementsRelationalDatabaseHandling implements RelationalDataUpd
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
-        List<SbRow> processableSingleSuccessors =
+        List<SbRowEntity> processableSingleSuccessors =
                 sbRowRepository.findReplacementCandidates();
         log.debug("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
-            Optional<SbRow> predecessorSbOptional =
+            Optional<SbRowEntity> predecessorSbOptional =
                     sbRowRepository.findById(
                             new SbRowId(
                                     processableSb.getSbRowId().getStrAlOrt(),
@@ -111,7 +111,7 @@ public class ReplacementsRelationalDatabaseHandling implements RelationalDataUpd
                     );
             if (predecessorSbOptional.isPresent()
                     && !Objects.equals(predecessorSbOptional.get(), processableSb)) {
-                SbRow formerExistingSb = predecessorSbOptional.get();
+                SbRowEntity formerExistingSb = predecessorSbOptional.get();
                 sbRowRepository.changeStatus(formerExistingSb.getUuid(), INVALID.symbol());
                 sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
                 sbRowRepository.changeStatus(processableSb.getUuid(), VALID.symbol());

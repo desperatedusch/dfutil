@@ -3,9 +3,9 @@ package de.dfutil.importing.updates;
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
-import de.dfutil.entities.ObRow;
-import de.dfutil.entities.OrRow;
-import de.dfutil.entities.SbRow;
+import de.dfutil.entities.ObRowEntity;
+import de.dfutil.entities.OrRowEntiy;
+import de.dfutil.entities.SbRowEntity;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,21 +31,21 @@ public class SplittingsRelationalDatabaseHandling implements RelationalDataUpdat
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
-        List<SbRow> multipleSuccessors =
+        List<SbRowEntity> multipleSuccessors =
                 sbRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
-        List<ObRow> multipleSuccessors =
+        List<ObRowEntity> multipleSuccessors =
                 obRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        List<OrRow> multipleSuccessors =
+        List<OrRowEntiy> multipleSuccessors =
                 orRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }

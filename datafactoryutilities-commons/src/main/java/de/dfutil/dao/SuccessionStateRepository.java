@@ -1,8 +1,8 @@
 package de.dfutil.dao;
 
-import de.dfutil.entities.SuccessionState;
-import org.springframework.data.neo4j.repository.Neo4jRepository;
+import de.dfutil.entities.SuccessionStateEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SuccessionStateRepository extends Neo4jRepository<SuccessionState, Long> {
+public interface SuccessionStateRepository extends JpaRepository<SuccessionStateEntity, Long> {
 
 }

@@ -23,7 +23,7 @@ import java.util.Objects;
                                 columnList = "UUID")
                 }
 )
-public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject {
+public class ObRowEntity extends AbstractRowEntity<ObRowEntity> implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.OB;
 
@@ -40,8 +40,8 @@ public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject 
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
-    public static ObRow parseFrom(String rowBytes) {
-        ObRow row = new ObRow();
+    public static ObRowEntity parseFrom(String rowBytes) {
+        ObRowEntity row = new ObRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.otlDatum = rowBytes.substring(9, 17);
         row.otlStverz = rowBytes.substring(34, 35);
@@ -127,7 +127,7 @@ public class ObRow extends AbstractRow<ObRow> implements ArchivablePostalObject 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        ObRow obRow = (ObRow) o;
+        ObRowEntity obRow = (ObRowEntity) o;
         return Objects.equals(version, obRow.version) && Objects.equals(otlDatum, obRow.otlDatum) && Objects.equals(obRowId, obRow.obRowId) && Objects.equals(otlStverz, obRow.otlStverz) && Objects.equals(otlName, obRow.otlName) && Objects.equals(otlKgs, obRow.otlKgs) && Objects.equals(outdatedAt, obRow.outdatedAt) && Objects.equals(alreadyAppliedAt, obRow.alreadyAppliedAt);
     }
 

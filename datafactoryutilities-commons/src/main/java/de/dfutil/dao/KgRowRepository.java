@@ -1,6 +1,6 @@
 package de.dfutil.dao;
 
-import de.dfutil.entities.KgRow;
+import de.dfutil.entities.KgRowEntity;
 import de.dfutil.entities.ids.KgRowId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,21 +10,21 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface KgRowRepository extends JpaRepository<KgRow, KgRowId> {
+public interface KgRowRepository extends JpaRepository<KgRowEntity, KgRowId> {
 
-    @Query("SELECT agsObject FROM KgRow agsObject WHERE 'G' = agsObject.kgRowId.kgSatzart")
-    List<KgRow> communities();
+    @Query("SELECT agsObject FROM KgRowEntity agsObject WHERE 'G' = agsObject.kgRowId.kgSatzart")
+    List<KgRowEntity> communities();
 
-    @Query("select agsObject FROM KgRow agsObject WHERE 'K' = agsObject.kgRowId.kgSatzart")
-    List<KgRow> ruralDistricts();
+    @Query("select agsObject FROM KgRowEntity agsObject WHERE 'K' = agsObject.kgRowId.kgSatzart")
+    List<KgRowEntity> ruralDistricts();
 
-    @Query("select agsObject FROM KgRow agsObject WHERE 'R' = agsObject.kgRowId.kgSatzart")
-    List<KgRow> administrativeRegions();
+    @Query("select agsObject FROM KgRowEntity agsObject WHERE 'R' = agsObject.kgRowId.kgSatzart")
+    List<KgRowEntity> administrativeRegions();
 
-    @Query("select agsObject FROM KgRow agsObject WHERE 'L' = agsObject.kgRowId.kgSatzart")
-    List<KgRow> federalStates();
+    @Query("select agsObject FROM KgRowEntity agsObject WHERE 'L' = agsObject.kgRowId.kgSatzart")
+    List<KgRowEntity> federalStates();
 
     @Query
-    KgRow getByUuid(UUID uuid);
+    KgRowEntity getByUuid(UUID uuid);
 
 }

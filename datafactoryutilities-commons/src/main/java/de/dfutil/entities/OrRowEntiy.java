@@ -23,7 +23,7 @@ import java.util.Objects;
                                 columnList = "UUID")
                 }
 )
-public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject {
+public class OrRowEntiy extends AbstractRowEntity<OrRowEntiy> implements ArchivablePostalObject {
 
     private static final RowType rowType = RowType.OR;
 
@@ -44,8 +44,8 @@ public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject 
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
-    public static OrRow parseFrom(String rowBytes) {
-        OrRow row = new OrRow();
+    public static OrRowEntiy parseFrom(String rowBytes) {
+        OrRowEntiy row = new OrRowEntiy();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.ortDatum = rowBytes.substring(9, 17);
         row.ortOname = rowBytes.substring(26, 66);
@@ -166,7 +166,7 @@ public class OrRow extends AbstractRow<OrRow> implements ArchivablePostalObject 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        OrRow orRow = (OrRow) o;
+        OrRowEntiy orRow = (OrRowEntiy) o;
         return Objects.equals(version, orRow.version) && Objects.equals(ortDatum, orRow.ortDatum) && Objects.equals(orRowId, orRow.orRowId) && Objects.equals(ortOname, orRow.ortOname) && Objects.equals(ortOnamePost, orRow.ortOnamePost) && Objects.equals(ortOzusatz, orRow.ortOzusatz) && Objects.equals(ortArtOzusatz, orRow.ortArtOzusatz) && Objects.equals(ortOname24, orRow.ortOname24) && Objects.equals(ortKgs, orRow.ortKgs) && Objects.equals(ortAlortNeu, orRow.ortAlortNeu) && Objects.equals(outdatedAt, orRow.outdatedAt) && Objects.equals(alreadyAppliedAt, orRow.alreadyAppliedAt);
     }
 

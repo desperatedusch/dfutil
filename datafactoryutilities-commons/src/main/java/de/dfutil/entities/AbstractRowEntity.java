@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @MappedSuperclass
-public abstract class AbstractRow<T extends SerializablePostalObject> {
+public abstract class AbstractRowEntity<T extends SerializablePostalObject> {
 
     protected UUID uuid;
 

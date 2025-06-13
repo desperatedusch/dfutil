@@ -1,7 +1,7 @@
 package de.dfutil.importing;
 
 import de.dfutil.dao.ImportResultRepository;
-import de.dfutil.entities.ImportResult;
+import de.dfutil.entities.ImportResultEntity;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class InputSourceDetection {
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
 
     private final ImportResultRepository importResultRepository;
-    private List<ImportResult> alreadySuccessfulImported;
+    private List<ImportResultEntity> alreadySuccessfulImported;
 
     @Value("${app.importer.inputsource.folders}")
     @NonNull
@@ -41,7 +41,7 @@ public class InputSourceDetection {
                 importResultRepository
                         .findAll()
                         .stream()
-                        .filter(ImportResult::isImportSuccessful)
+                        .filter(ImportResultEntity::isImportSuccessful)
                         .toList();
     }
 

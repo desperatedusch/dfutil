@@ -3,9 +3,9 @@ package de.dfutil.importing.updates;
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
-import de.dfutil.entities.ObRow;
-import de.dfutil.entities.OrRow;
-import de.dfutil.entities.SbRow;
+import de.dfutil.entities.ObRowEntity;
+import de.dfutil.entities.OrRowEntiy;
+import de.dfutil.entities.SbRowEntity;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
 import de.dfutil.entities.ids.SbRowId;
@@ -40,19 +40,19 @@ public class OrphanesRelationalDatabaseHandling implements RelationalDataUpdater
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void handleOrObjects() {
-        List<OrRow> processableOrphanedOrObjects =
+        List<OrRowEntiy> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
         log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            Optional<OrRow> formerExistingOrOptional = orRowRepository.findById(
+            Optional<OrRowEntiy> formerExistingOrOptional = orRowRepository.findById(
                     new OrRowId(
                             processableOr.getOrRowId().getOrtAlort(),
                             "G"
                     )
             );
             if (formerExistingOrOptional.isPresent()) {
-                OrRow formerExistingOr = formerExistingOrOptional.get();
+                OrRowEntiy formerExistingOr = formerExistingOrOptional.get();
                 orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());
@@ -63,12 +63,12 @@ public class OrphanesRelationalDatabaseHandling implements RelationalDataUpdater
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void handleObObjects() {
-        List<ObRow> processableOrphanedObObjects =
+        List<ObRowEntity> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
         log.debug("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
         processableOrphanedObObjects.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
-            Optional<ObRow> formerExistingObOptional =
+            Optional<ObRowEntity> formerExistingObOptional =
                     obRowRepository.findById(
                             new ObRowId(
                                     processableOb.getObRowId().getOtlAlort(),
@@ -78,7 +78,7 @@ public class OrphanesRelationalDatabaseHandling implements RelationalDataUpdater
                             )
                     );
             if (formerExistingObOptional.isPresent()) {
-                ObRow formerExistingOb = formerExistingObOptional.get();
+                ObRowEntity formerExistingOb = formerExistingObOptional.get();
                 sbRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
                 sbRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
@@ -89,12 +89,12 @@ public class OrphanesRelationalDatabaseHandling implements RelationalDataUpdater
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void handleSbObjects() {
-        List<SbRow> processableOrphanedSbObjects =
+        List<SbRowEntity> processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
         log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
         processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
-            Optional<SbRow> formerExistingSbOptional =
+            Optional<SbRowEntity> formerExistingSbOptional =
                     sbRowRepository.findById(
                             new SbRowId(
                                     processableSb.getSbRowId().getStrAlOrt(),
@@ -107,7 +107,7 @@ public class OrphanesRelationalDatabaseHandling implements RelationalDataUpdater
                             )
                     );
             if (formerExistingSbOptional.isPresent()) {
-                SbRow formerExistingSb = formerExistingSbOptional.get();
+                SbRowEntity formerExistingSb = formerExistingSbOptional.get();
                 sbRowRepository.changeStatus(formerExistingSb.getUuid(), INVALID.symbol());
                 sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
                 sbRowRepository.changeStatus(processableSb.getUuid(), VALID.symbol());

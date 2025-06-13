@@ -26,7 +26,7 @@ import java.util.Objects;
                                 columnList = "UUID")
                 }
 )
-public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObject {
+public class KgRowEntity extends AbstractRowEntity<KgRowEntity> implements SerializablePostalObject {
 
     private static final RowType rowType = RowType.KG;
 
@@ -39,8 +39,8 @@ public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObjec
     private KgRowId kgRowId;
     private String kgName;
 
-    public static KgRow parseFrom(String rowBytes) {
-        KgRow row = new KgRow();
+    public static KgRowEntity parseFrom(String rowBytes) {
+        KgRowEntity row = new KgRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.kgDatum = rowBytes.substring(9, 17);
         row.kgName = rowBytes.substring(26, 66);
@@ -87,7 +87,7 @@ public class KgRow extends AbstractRow<KgRow> implements SerializablePostalObjec
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        KgRow kgRow = (KgRow) o;
+        KgRowEntity kgRow = (KgRowEntity) o;
         return Objects.equals(version, kgRow.version) && Objects.equals(kgDatum, kgRow.kgDatum) && Objects.equals(kgRowId, kgRow.kgRowId) && Objects.equals(kgName, kgRow.kgName);
     }
 

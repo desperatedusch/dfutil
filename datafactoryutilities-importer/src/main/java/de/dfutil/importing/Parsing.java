@@ -41,35 +41,35 @@ public class Parsing {
         String prefix = line.substring(0, 2);
         switch (prefix) {
             case "KG":
-                KgRow kg = KgRow.parseFrom(line);
+                KgRowEntity kg = KgRowEntity.parseFrom(line);
                 if (kgRowRepository.findById(kg.getKgRowId()).isEmpty()) {
                     kgRowRepository.save(kg);
                     rowsProcessed++;
                 }
                 break;
             case "OB":
-                ObRow ob = ObRow.parseFrom(line);
+                ObRowEntity ob = ObRowEntity.parseFrom(line);
                 if (obRowRepository.findById(ob.getObRowId()).isEmpty()) {
                     obRowRepository.save(ob);
                     rowsProcessed++;
                 }
                 break;
             case "OR":
-                OrRow or = OrRow.parseFrom(line);
+                OrRowEntiy or = OrRowEntiy.parseFrom(line);
                 if (orRowRepository.findById(or.getOrRowId()).isEmpty()) {
                     orRowRepository.save(or);
                     rowsProcessed++;
                 }
                 break;
             case "PL":
-                PlRow pl = PlRow.parseFrom(line);
+                PlRowEntity pl = PlRowEntity.parseFrom(line);
                 if (plRowRepository.findById(pl.getPlRowId()).isEmpty()) {
                     plRowRepository.save(pl);
                     rowsProcessed++;
                 }
                 break;
             case "SB":
-                SbRow sb = SbRow.parseFrom(line);
+                SbRowEntity sb = SbRowEntity.parseFrom(line);
                 if (sbRowRepository.findById(sb.getSbRowId()).isEmpty()) {
                     sbRowRepository.save(sb);
                     rowsProcessed++;

@@ -4,14 +4,14 @@ import de.dfutil.entities.ids.SbRowId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class SbRowParsingTest {
+public class SbRowEntitiyParsingTest {
 
     private static final String ALPENSTRASSE =
             "SB2410277199910270000210000176200013                G01ALPENSTR                                      Alpenstr.                                     Alpenstr.             0N78267001   1318807008335001                                   $                                                                                          \n";
 
     @Test
     public void parseSBRowBytes2Object() {
-        SbRow expectedSbRow = new SbRow();
+        SbRowEntity expectedSbRow = new SbRowEntity();
         expectedSbRow.setStrDatum("19991027");
         expectedSbRow.setSbRowId(new SbRowId("00002100", "001762", "00013", "        ", "        ", "G", "0"));
         expectedSbRow.setStrStverz("1");
@@ -31,7 +31,7 @@ public class SbRowParsingTest {
         expectedSbRow.setStrHnrvonNeu("        ");
         expectedSbRow.setStrHnrbisNeu("        ");
         expectedSbRow.setImportingFileIdentifier("SB2410277");
-        SbRow parsedSbRow = SbRow.parseFrom(ALPENSTRASSE);
+        SbRowEntity parsedSbRow = SbRowEntity.parseFrom(ALPENSTRASSE);
         Assertions.assertEquals(expectedSbRow, parsedSbRow);
     }
 }

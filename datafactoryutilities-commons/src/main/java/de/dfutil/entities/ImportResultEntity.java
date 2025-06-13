@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class ImportResult implements Serializable {
+public class ImportResultEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
@@ -18,7 +18,7 @@ public class ImportResult implements Serializable {
     private boolean importSuccessful;
     private Long duration;
 
-    public ImportResult(
+    public ImportResultEntity(
             String fileName, LocalDateTime importDate, boolean importSuccessful, Long duration) {
         this.fileName = fileName;
         this.importDate = importDate;
@@ -26,7 +26,7 @@ public class ImportResult implements Serializable {
         this.duration = duration;
     }
 
-    public ImportResult() {
+    public ImportResultEntity() {
     }
 
     public Long getId() {
@@ -73,7 +73,7 @@ public class ImportResult implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ImportResult that = (ImportResult) o;
+        ImportResultEntity that = (ImportResultEntity) o;
         return importSuccessful == that.importSuccessful
                 && Objects.equals(fileName, that.fileName)
                 && Objects.equals(importDate, that.importDate)

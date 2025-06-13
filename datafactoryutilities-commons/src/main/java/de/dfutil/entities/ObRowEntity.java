@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(
-        name = "ORTSTEIL",
+        name = "ot_row",
         indexes =
                 {
                         @Index(

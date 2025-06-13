@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "import_result")
 public class ImportResultEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

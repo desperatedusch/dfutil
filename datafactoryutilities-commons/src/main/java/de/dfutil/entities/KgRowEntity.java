@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(
-        name = "AGS",
+        name = "kg_row",
         indexes =
                 {
                         @Index(

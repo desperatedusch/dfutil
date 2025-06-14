@@ -1,34 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
-    <changeSet id="1749569803119-1" author="dusch">
+    <changeSet id="1749934603783-1" author="dusch">
         <createSequence incrementBy="50" sequenceName="import_result_seq" startValue="1"/>
     </changeSet>
-    <changeSet id="1749569803119-2" author="dusch">
-        <createTable tableName="ags" ifNotExists="true">
-            <column name="uuid" type="UUID"/>
-            <column name="importing_file_identifier" type="VARCHAR(255)"/>
-            <column name="created_at" type="DATETIME"/>
-            <column name="modified_at" type="DATETIME"/>
-            <column name="version" type="DATETIME"/>
-            <column name="kg_datum" type="VARCHAR(255)"/>
-            <column name="kg_name" type="VARCHAR(255)"/>
-            <column name="kg_schluessel" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ags"/>
-            </column>
-            <column name="kg_satzart" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ags"/>
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet id="1749569803119-3" author="dusch">
-        <createTable tableName="import_result" ifNotExists="true">
+    <changeSet id="1749934603783-2" author="dusch">
+        <createTable tableName="import_result">
             <column name="id" type="BIGINT">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_importresult"/>
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_import_result"/>
             </column>
             <column name="file_name" type="VARCHAR(255)"/>
             <column name="import_date" type="DATETIME"/>
@@ -38,8 +21,25 @@
             <column name="duration" type="BIGINT"/>
         </createTable>
     </changeSet>
-    <changeSet id="1749569803119-4" author="dusch">
-        <createTable tableName="ort" ifNotExists="true">
+    <changeSet id="1749934603783-3" author="dusch">
+        <createTable tableName="kg_row">
+            <column name="uuid" type="UUID"/>
+            <column name="importing_file_identifier" type="VARCHAR(255)"/>
+            <column name="created_at" type="DATETIME"/>
+            <column name="modified_at" type="DATETIME"/>
+            <column name="version" type="DATETIME"/>
+            <column name="kg_datum" type="VARCHAR(255)"/>
+            <column name="kg_name" type="VARCHAR(255)"/>
+            <column name="kg_schluessel" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="pk_kg_row"/>
+            </column>
+            <column name="kg_satzart" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="pk_kg_row"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1749934603783-4" author="dusch">
+        <createTable tableName="or_row">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -56,15 +56,15 @@
             <column name="outdated_at" type="DATETIME"/>
             <column name="already_applied_at" type="DATETIME"/>
             <column name="ort_alort" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ort"/>
+                <constraints primaryKey="true" primaryKeyName="pk_or_row"/>
             </column>
             <column name="ort_status" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ort"/>
+                <constraints primaryKey="true" primaryKeyName="pk_or_row"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="1749569803119-5" author="dusch">
-        <createTable tableName="ortsteil" ifNotExists="true">
+    <changeSet id="1749934603783-5" author="dusch">
+        <createTable tableName="ot_row">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -77,21 +77,21 @@
             <column name="outdated_at" type="DATETIME"/>
             <column name="already_applied_at" type="DATETIME"/>
             <column name="otl_alort" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ortsteil"/>
+                <constraints primaryKey="true" primaryKeyName="pk_ot_row"/>
             </column>
             <column name="otl_schl" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ortsteil"/>
+                <constraints primaryKey="true" primaryKeyName="pk_ot_row"/>
             </column>
             <column name="otl_plz" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ortsteil"/>
+                <constraints primaryKey="true" primaryKeyName="pk_ot_row"/>
             </column>
             <column name="otl_status" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_ortsteil"/>
+                <constraints primaryKey="true" primaryKeyName="pk_ot_row"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="1749569803119-6" author="dusch">
-        <createTable tableName="plz" ifNotExists="true">
+    <changeSet id="1749934603783-6" author="dusch">
+        <createTable tableName="pl_row">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -117,15 +117,15 @@
             <column name="plz_fz_nr" type="VARCHAR(255)"/>
             <column name="plz_bz_nr" type="VARCHAR(255)"/>
             <column name="plz_plz" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_plz"/>
+                <constraints primaryKey="true" primaryKeyName="pk_pl_row"/>
             </column>
             <column name="plz_alort" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_plz"/>
+                <constraints primaryKey="true" primaryKeyName="pk_pl_row"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="1749569803119-7" author="dusch">
-        <createTable tableName="strasse" ifNotExists="true">
+    <changeSet id="1749934603783-7" author="dusch">
+        <createTable tableName="sb_row">
             <column name="uuid" type="UUID"/>
             <column name="importing_file_identifier" type="VARCHAR(255)"/>
             <column name="created_at" type="DATETIME"/>
@@ -151,54 +151,84 @@
             <column name="outdated_at" type="DATETIME"/>
             <column name="already_applied_at" type="DATETIME"/>
             <column name="str_alort" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_strasse"/>
+                <constraints primaryKey="true" primaryKeyName="pk_sb_row"/>
             </column>
             <column name="str_namen_schl" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_strasse"/>
+                <constraints primaryKey="true" primaryKeyName="pk_sb_row"/>
             </column>
             <column name="str_bund_lfdnr" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_strasse"/>
+                <constraints primaryKey="true" primaryKeyName="pk_sb_row"/>
             </column>
             <column name="str_hnrvon" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_strasse"/>
+                <constraints primaryKey="true" primaryKeyName="pk_sb_row"/>
             </column>
             <column name="str_hnrbis" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_strasse"/>
+                <constraints primaryKey="true" primaryKeyName="pk_sb_row"/>
             </column>
             <column name="str_status" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_strasse"/>
+                <constraints primaryKey="true" primaryKeyName="pk_sb_row"/>
             </column>
             <column name="str_hnr1000" type="VARCHAR(255)">
-                <constraints primaryKey="true" primaryKeyName="pk_strasse"/>
+                <constraints primaryKey="true" primaryKeyName="pk_sb_row"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="1749569803119-8" author="dusch">
-        <createIndex indexName="IDX_AGS___UUID" tableName="ags">
+    <changeSet id="1749934603783-8" author="dusch">
+        <createTable tableName="successionstate_link">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_successionstate_link"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1749934603783-9" author="dusch">
+        <createTable tableName="successionstate_predecessor">
+            <column name="predecessor_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_successionstate_predecessor"/>
+            </column>
+            <column name="successionstate_link_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_successionstate_predecessor"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1749934603783-10" author="dusch">
+        <createIndex indexName="IDX_AGS___UUID" tableName="kg_row">
             <column name="uuid"/>
         </createIndex>
     </changeSet>
-    <changeSet id="1749569803119-9" author="dusch">
-        <createIndex indexName="IDX_ORTSTEIL___UUID" tableName="ortsteil">
+    <changeSet id="1749934603783-11" author="dusch">
+        <createIndex indexName="IDX_ORTSTEIL___UUID" tableName="ot_row">
             <column name="uuid"/>
         </createIndex>
     </changeSet>
-    <changeSet id="1749569803119-10" author="dusch">
-        <createIndex indexName="IDX_ORT___UUID" tableName="ort">
+    <changeSet id="1749934603783-12" author="dusch">
+        <createIndex indexName="IDX_ORT___UUID" tableName="or_row">
             <column name="uuid"/>
         </createIndex>
     </changeSet>
-    <changeSet id="1749569803119-11" author="dusch">
-        <createIndex indexName="IDX_PLZ___UUID" tableName="plz">
+    <changeSet id="1749934603783-13" author="dusch">
+        <createIndex indexName="IDX_PLZ___UUID" tableName="pl_row">
             <column name="uuid"/>
         </createIndex>
     </changeSet>
-    <changeSet id="1749569803119-12" author="dusch">
-        <createIndex indexName="IDX_STRASSE___UUID" tableName="strasse">
+    <changeSet id="1749934603783-14" author="dusch">
+        <createIndex indexName="IDX_STRASSE___UUID" tableName="sb_row">
             <column name="uuid"/>
         </createIndex>
     </changeSet>
-    <changeSet id="1749569803119-13" author="dusch">
+    <changeSet id="1749934603783-15" author="dusch">
+        <addForeignKeyConstraint baseColumnNames="predecessor_id" baseTableName="successionstate_predecessor"
+                                 constraintName="fk_sucpre_on_predecessor" referencedColumnNames="id"
+                                 referencedTableName="successionstate_link"/>
+    </changeSet>
+    <changeSet id="1749934603783-16" author="dusch">
+        <addForeignKeyConstraint baseColumnNames="successionstate_link_id" baseTableName="successionstate_predecessor"
+                                 constraintName="fk_sucpre_on_successionstate_link" referencedColumnNames="id"
+                                 referencedTableName="successionstate_link"/>
+    </changeSet>
+    <changeSet id="1749934603783-17" author="dusch">
         <createView catalogName="cat"
                     encoding="UTF-8"
                     fullDefinition="false"

@@ -5,4 +5,8 @@ package de.dfutil.entities;
  */
 public interface ArchivablePostalObject extends SerializablePostalObject {
 
+    SuccessionState getSuccessionState();
+
+    public void setSuccessionState(SuccessionState successionState);
+
 }

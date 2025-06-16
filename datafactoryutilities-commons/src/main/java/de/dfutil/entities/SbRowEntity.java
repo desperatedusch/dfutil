@@ -53,6 +53,19 @@ public class SbRowEntity extends AbstractRowEntity<SbRowEntity> implements Archi
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
+    @OneToOne
+    @JoinColumn(name = "succession_state_id")
+    private SuccessionState successionState;
+
+    public SuccessionState getSuccessionState() {
+        return successionState;
+    }
+
+    public void setSuccessionState(SuccessionState successionState) {
+        this.successionState = successionState;
+    }
+
+
     public static SbRowEntity parseFrom(String rowBytes) {
         SbRowEntity row = new SbRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);

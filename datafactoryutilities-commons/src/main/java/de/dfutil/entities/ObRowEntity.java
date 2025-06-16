@@ -40,6 +40,18 @@ public class ObRowEntity extends AbstractRowEntity<ObRowEntity> implements Archi
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
+    @OneToOne
+    @JoinColumn(name = "succession_state_id")
+    private SuccessionState successionState;
+
+    public SuccessionState getSuccessionState() {
+        return successionState;
+    }
+
+    public void setSuccessionState(SuccessionState successionState) {
+        this.successionState = successionState;
+    }
+
     public static ObRowEntity parseFrom(String rowBytes) {
         ObRowEntity row = new ObRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);

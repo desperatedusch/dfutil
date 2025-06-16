@@ -8,8 +8,8 @@ import java.util.UUID;
 
 @Entity()
 @Table(
-        name = "successionstate_link")
-public class SuccessionStateEntity {
+        name = "succession_state")
+public class SuccessionState {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,17 +21,17 @@ public class SuccessionStateEntity {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "successionstate_predecessor",
-            joinColumns = @JoinColumn(name = "successionstate_link_id"),
+            joinColumns = @JoinColumn(name = "successionstate_id"),
             inverseJoinColumns = @JoinColumn(name = "predecessor_id"))
-    private Set<SuccessionStateEntity> predecessors;
+    private Set<SuccessionState> predecessors;
 
     @ManyToMany(mappedBy = "predecessors", fetch = FetchType.LAZY)
-    private Set<SuccessionStateEntity> successors;
+    private Set<SuccessionState> successors;
 
-    public SuccessionStateEntity() {
+    public SuccessionState() {
     }
 
-    public SuccessionStateEntity(UUID uuid) {
+    public SuccessionState(UUID uuid) {
         this.uuid = uuid;
     }
 
@@ -51,38 +51,38 @@ public class SuccessionStateEntity {
         this.uuid = uuid;
     }
 
-    public Set<SuccessionStateEntity> getPredecessors() {
+    public Set<SuccessionState> getPredecessors() {
         return predecessors;
     }
 
-    public void setPredecessors(Set<SuccessionStateEntity> predecessors) {
+    public void setPredecessors(Set<SuccessionState> predecessors) {
         this.predecessors = predecessors;
     }
 
-    public Set<SuccessionStateEntity> getSuccessors() {
+    public Set<SuccessionState> getSuccessors() {
         return successors;
     }
 
-    public void setSuccessors(Set<SuccessionStateEntity> successors) {
+    public void setSuccessors(Set<SuccessionState> successors) {
         this.successors = successors;
     }
 
-    public void addPredecessor(SuccessionStateEntity predecessor) {
+    public void addPredecessor(SuccessionState predecessor) {
         predecessors.add(predecessor);
         predecessor.getSuccessors().add(this);
     }
 
-    public void removePredecessor(SuccessionStateEntity predecessor) {
+    public void removePredecessor(SuccessionState predecessor) {
         predecessors.remove(predecessor);
         predecessor.getSuccessors().remove(this);
     }
 
-    public void addSuccessor(SuccessionStateEntity successor) {
+    public void addSuccessor(SuccessionState successor) {
         successors.add(successor);
         successor.getPredecessors().add(this);
     }
 
-    public void removeSuccessor(SuccessionStateEntity successor) {
+    public void removeSuccessor(SuccessionState successor) {
         successors.remove(successor);
         successor.getPredecessors().remove(this);
     }
@@ -90,7 +90,7 @@ public class SuccessionStateEntity {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        SuccessionStateEntity that = (SuccessionStateEntity) o;
+        SuccessionState that = (SuccessionState) o;
         return Objects.equals(id, that.id) && Objects.equals(uuid, that.uuid);
     }
 

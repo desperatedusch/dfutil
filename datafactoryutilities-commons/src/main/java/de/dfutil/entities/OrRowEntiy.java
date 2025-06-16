@@ -44,6 +44,19 @@ public class OrRowEntiy extends AbstractRowEntity<OrRowEntiy> implements Archiva
     private LocalDateTime outdatedAt;
     private LocalDateTime alreadyAppliedAt;
 
+    @OneToOne
+    @JoinColumn(name = "succession_state_id")
+    private SuccessionState successionState;
+
+    public SuccessionState getSuccessionState() {
+        return successionState;
+    }
+
+    public void setSuccessionState(SuccessionState successionState) {
+        this.successionState = successionState;
+    }
+
+
     public static OrRowEntiy parseFrom(String rowBytes) {
         OrRowEntiy row = new OrRowEntiy();
         row.importingFileIdentifier = rowBytes.substring(0, 9);

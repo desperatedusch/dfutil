@@ -10,6 +10,13 @@
     </parent>
     <artifactId>datafactoryutilities-commons</artifactId>
     <name>datafactoryutilities-commons</name>
+    <properties>
+        <hibernate.version>7.0.2.Final</hibernate.version>
+        <hypersistence-utils-hibernate-70.version>3.10.1</hypersistence-utils-hibernate-70.version>
+        <HikariCP.version>5.1.0</HikariCP.version>
+        <guava.version>33.4.8-jre</guava.version>
+        <postgres.version>42.7.7</postgres.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,16 +42,23 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${postgres.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>33.3.1-jre</version>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>5.1.0</version>
+            <version>${HikariCP.version}</version>
+        </dependency>
+        <!-- formerly known as Hibernate types -->
+        <dependency>
+            <groupId>io.hypersistence</groupId>
+            <artifactId>hypersistence-utils-hibernate-70</artifactId>
+            <version>${hypersistence-utils-hibernate-70.version}</version>
         </dependency>
     </dependencies>
 </project>

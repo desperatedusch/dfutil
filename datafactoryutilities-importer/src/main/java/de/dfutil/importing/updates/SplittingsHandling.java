@@ -14,16 +14,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SplittingsRelationalDatabaseHandling implements RelationalDataUpdater {
+public class SplittingsHandling implements SuccessionsHandling {
 
-    private static final Logger log = LoggerFactory.getLogger(SplittingsRelationalDatabaseHandling.class);
+    private static final Logger log = LoggerFactory.getLogger(SplittingsHandling.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public SplittingsRelationalDatabaseHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public SplittingsHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;

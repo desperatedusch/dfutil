@@ -2,7 +2,7 @@ package de.dfutil.importing.updates;
 
 import jakarta.transaction.Transactional;
 
-public interface RelationalDataUpdater {
+public interface SuccessionsHandling {
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     default void process() {

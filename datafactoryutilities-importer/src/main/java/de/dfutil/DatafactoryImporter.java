@@ -2,7 +2,7 @@ package de.dfutil;
 
 import de.dfutil.importing.InputSourceDetection;
 import de.dfutil.importing.Parsing;
-import de.dfutil.importing.SuccessionsUpdater;
+import de.dfutil.importing.RelationsUpdating;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,17 +22,17 @@ public class DatafactoryImporter implements CommandLineRunner {
 
     private final InputSourceDetection inputSourceDetection;
     private final Parsing parsing;
-    private final SuccessionsUpdater successions;
+    private final RelationsUpdating relationsUpdating;
 
     @Value("${app.importer.inputsource.parsing-activated}")
     private boolean parsingActivated;
     @Value("${app.importer.inputsource.successionhandling-activated}")
     private boolean successionHandlingActivated;
 
-    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing, SuccessionsUpdater successions) {
+    public DatafactoryImporter(InputSourceDetection inputSourceDetection, Parsing parsing, RelationsUpdating relationsUpdating) {
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
-        this.successions = successions;
+        this.relationsUpdating = relationsUpdating;
     }
 
     public static void main(String[] args) {
@@ -51,7 +51,7 @@ public class DatafactoryImporter implements CommandLineRunner {
         }
         if (successionHandlingActivated) {
             log.info("Succession handling started");
-            successions.process();
+            relationsUpdating.process();
             log.info("Succession handling finished");
         }
         log.info("Importing finished");

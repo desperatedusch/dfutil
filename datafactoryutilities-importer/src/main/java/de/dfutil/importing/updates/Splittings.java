@@ -14,16 +14,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SplittingsHandling implements SuccessionsHandling {
+public class Splittings implements Successions {
 
-    private static final Logger log = LoggerFactory.getLogger(SplittingsHandling.class);
+    private static final Logger log = LoggerFactory.getLogger(Splittings.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public SplittingsHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public Splittings(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;

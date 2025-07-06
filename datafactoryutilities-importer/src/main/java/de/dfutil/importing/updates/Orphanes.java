@@ -23,16 +23,16 @@ import static de.dfutil.entities.ArchivingState.INVALID;
 import static de.dfutil.entities.ArchivingState.VALID;
 
 @Service
-public class OrphanesHandling implements SuccessionsHandling {
+public class Orphanes implements Successions {
 
-    private static final Logger log = LoggerFactory.getLogger(OrphanesHandling.class);
+    private static final Logger log = LoggerFactory.getLogger(Orphanes.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public OrphanesHandling(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public Orphanes(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;

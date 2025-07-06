@@ -2,7 +2,7 @@ package de.dfutil.endpoints;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("history")
+@RestController("/history")
 public class History {
 
 }

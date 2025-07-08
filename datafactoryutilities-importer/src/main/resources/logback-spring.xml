@@ -5,13 +5,13 @@
         </encoder>
     </appender>
     <appender name="SUCCESSIONHANDLING" class="ch.qos.logback.core.FileAppender">
-        <file>logs/datafactoryutilities-importer/successionhandling.log</file>
+        <file>/logs/datafactoryutilities-importer/successionhandling.log</file>
         <encoder>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
     </appender>
     <appender name="SQL" class="ch.qos.logback.core.FileAppender">
-        <file>logs/datafactoryutilities-importer/sql.log</file>
+        <file>/logs/datafactoryutilities-importer/sql.log</file>
         <encoder>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
@@ -20,11 +20,11 @@
         <level value="INFO"/>
         <appender-ref ref="SUCCESSIONHANDLING"/>
     </logger>
-    <!--    <logger name="net.ttddyy.dsproxy.listener">-->
-    <!--        <level value="ALL"/>-->
-    <!--        <appender-ref ref="SQL"/>-->
-    <!--    </logger>-->
-    <!-- Setup the root category, add the appenders and set the default level -->
+    <logger name="net.ttddyy.dsproxy.listener">
+        <level value="ALL"/>
+        <appender-ref ref="SQL"/>
+    </logger>
+    Setup the root category, add the appenders and set the default level
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>

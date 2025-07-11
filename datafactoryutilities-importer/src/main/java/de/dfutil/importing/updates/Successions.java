@@ -16,4 +16,5 @@ public interface Successions {
     void handleObObjects();
 
     void handleSbObjects();
+
 }

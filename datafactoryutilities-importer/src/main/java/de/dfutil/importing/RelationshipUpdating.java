@@ -10,16 +10,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RelationsUpdating {
+public class RelationshipUpdating {
 
-    private static final Logger log = LoggerFactory.getLogger(RelationsUpdating.class);
+    private static final Logger log = LoggerFactory.getLogger(RelationshipUpdating.class);
 
     private final Orphanes orphanes;
     private final Replacements replacements;
     private final Splittings splittings;
     private final Merges merges;
 
-    public RelationsUpdating(Orphanes orphanes, Replacements replacements, Splittings splittings, Merges merges) {
+    public RelationshipUpdating(Orphanes orphanes, Replacements replacements, Splittings splittings, Merges merges) {
         this.orphanes = orphanes;
         this.replacements = replacements;
         this.splittings = splittings;

@@ -1,5 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="15 seconds">
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+    <!-- Appender section -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/logs/datafactoryutilities-importer/application.log</file>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -16,16 +25,41 @@
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
     </appender>
-    <logger name="de.dfutil.importing.RelationshipUpdating">
-        <level value="INFO"/>
+
+    <!-- Async appenders for all appenders above -->
+    <appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="CONSOLE"/>
+        <queueSize>256</queueSize>
+    </appender>
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE"/>
+        <queueSize>256</queueSize>
+    </appender>
+    <appender name="ASYNC_SQL" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="SQL"/>
+        <queueSize>256</queueSize>
+    </appender>
+    <appender name="ASYNC_SUCCESSIONHANDLING" class="ch.qos.logback.classic.AsyncAppender">
         <appender-ref ref="SUCCESSIONHANDLING"/>
-    </logger>
+        <queueSize>256</queueSize>
+    </appender>
+
+    <!-- Logger section -->
+    <root level="info">
+        <appender-ref ref="ASYNC_CONSOLE"/>
+        <appender-ref ref="ASYNC_FILE"/>
+    </root>
     <logger name="net.ttddyy.dsproxy.listener">
         <level value="ALL"/>
         <appender-ref ref="SQL"/>
     </logger>
-    Setup the root category, add the appenders and set the default level
-    <root level="info">
-        <appender-ref ref="STDOUT"/>
-    </root>
+    <logger name="de.dfutil.importing.RelationshipUpdating">
+        <level value="INFO"/>
+        <appender-ref ref="ASYNC_SUCCESSIONHANDLING"/>
+    </logger>
+    <logger name="net.ttddyy.dsproxy.listener">
+        <level value="ALL"/>
+        <appender-ref ref="ASYMC_SQL"/>
+    </logger>
+
 </configuration>

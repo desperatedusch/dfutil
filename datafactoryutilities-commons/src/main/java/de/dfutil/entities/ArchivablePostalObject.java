@@ -7,6 +7,6 @@ public interface ArchivablePostalObject extends SerializablePostalObject {
 
     SuccessionState getSuccessionState();
 
-    public void setSuccessionState(SuccessionState successionState);
+    void setSuccessionState(SuccessionState successionState);
 
 }

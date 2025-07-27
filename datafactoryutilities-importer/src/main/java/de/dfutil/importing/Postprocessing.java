@@ -4,7 +4,7 @@ import de.dfutil.dao.ImportResultRepository;
 import de.dfutil.entities.ImportResultEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -13,16 +13,17 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 
 @Service
+@EnableConfigurationProperties(InputSourceConfigurationProperties.class)
 public class Postprocessing {
 
     private static final Logger log = LoggerFactory.getLogger(Postprocessing.class);
 
+    private final InputSourceConfigurationProperties inputSourceConfigurationProperties;
+
     private final ImportResultRepository importResultRepository;
 
-    @Value("${app.importer.inputsource.delete-after-successful-processing}")
-    private boolean deleteSourcesAfterSuccessfulProcessing;
-
-    public Postprocessing(ImportResultRepository importResultRepository) {
+    public Postprocessing(InputSourceConfigurationProperties inputSourceConfigurationProperties, ImportResultRepository importResultRepository) {
+        this.inputSourceConfigurationProperties = inputSourceConfigurationProperties;
         this.importResultRepository = importResultRepository;
     }
 
@@ -48,7 +49,7 @@ public class Postprocessing {
 
     public void deleteProcessedInputSources(Path inputSource) {
         try {
-            if (deleteSourcesAfterSuccessfulProcessing) {
+            if (inputSourceConfigurationProperties.isDeleteSourcesAfterSuccessfulProcessing()) {
                 Files.deleteIfExists(inputSource);
             }
         } catch (IOException e) {

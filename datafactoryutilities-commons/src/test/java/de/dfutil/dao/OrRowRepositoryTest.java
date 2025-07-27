@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Import;
 @DataJpaTest(properties = {
         "jdbc:h2:mem:mydatabase;MODE=PostgreSQL",
         "spring.jpa.hibernate.ddl-auto=create-drop",
-        "spring.datasource.driver-class-name=org.h2.Driver",
-        "spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect"})
+        "spring.datasource.driver-class-name=org.h2.Driver"})
 @Import(DataJpaTestConfiguration.class)
 public class OrRowRepositoryTest {
 

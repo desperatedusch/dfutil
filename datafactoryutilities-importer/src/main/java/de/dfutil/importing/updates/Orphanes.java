@@ -79,10 +79,11 @@ public class Orphanes implements Successions {
                     );
             if (formerExistingObOptional.isPresent()) {
                 ObRowEntity formerExistingOb = formerExistingObOptional.get();
-                sbRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
+//                sbRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
-                sbRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
+//                sbRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
                 obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
+                obRowRepository.outdate(processableOb.getUuid(), LocalDateTime.now());
             }
         });
     }

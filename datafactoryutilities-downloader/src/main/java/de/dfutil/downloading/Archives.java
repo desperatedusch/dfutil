@@ -1,7 +1,6 @@
 package de.dfutil.downloading;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.lang.NonNull;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -12,14 +11,14 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 @Service
+@EnableConfigurationProperties(DatafactoryDownloaderConfigurationProperties.class)
 public class Archives {
 
-    @Value("app.downloader.target.destination.archived")
-    @NonNull
-    private String archivedTargetDestination;
-    @Value("app.downloader.target.destination.unzipped")
-    @NonNull
-    private String targetDestination;
+    private final DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties;
+
+    public Archives(DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties) {
+        this.datafactoryDownloaderConfigurationProperties = datafactoryDownloaderConfigurationProperties;
+    }
 
     private File newFileFromZipEntry(File destinationDir, ZipEntry zipEntry) throws IOException {
         File destFile = new File(destinationDir, zipEntry.getName());
@@ -35,12 +34,12 @@ public class Archives {
 
     public void unzip() {
         byte[] buffer = new byte[1024];
-        try (FileInputStream fis = new FileInputStream(archivedTargetDestination);
+        try (FileInputStream fis = new FileInputStream(datafactoryDownloaderConfigurationProperties.getArchivedTargetDestination());
              ZipInputStream zis = new ZipInputStream(fis)) {
 
             ZipEntry zipEntry = zis.getNextEntry();
             while (zipEntry != null) {
-                File newFile = newFileFromZipEntry(new File(targetDestination), zipEntry);
+                File newFile = newFileFromZipEntry(new File(datafactoryDownloaderConfigurationProperties.getTargetDestination()), zipEntry);
                 if (zipEntry.isDirectory()) {
                     if (!newFile.isDirectory() && !newFile.mkdirs()) {
                         throw new IOException("Failed to create directory " + newFile);

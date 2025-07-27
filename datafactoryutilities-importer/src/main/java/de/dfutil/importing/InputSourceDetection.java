@@ -5,8 +5,7 @@ import de.dfutil.entities.ImportResultEntity;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.lang.NonNull;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -17,21 +16,18 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 @Service
+@EnableConfigurationProperties(InputSourceConfigurationProperties.class)
 public class InputSourceDetection {
 
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
 
+    private final InputSourceConfigurationProperties inputSourceConfigurationProperties;
+
     private final ImportResultRepository importResultRepository;
     private List<ImportResultEntity> alreadySuccessfulImported;
 
-    @Value("${app.importer.inputsource.folders}")
-    @NonNull
-    private String inputFolders;
-    @Value("${app.importer.inputsource.main-file.filenamemask}")
-    @NonNull
-    private String inputFilenameMask;
-
-    public InputSourceDetection(ImportResultRepository importResultRepository) {
+    public InputSourceDetection(InputSourceConfigurationProperties inputSourceConfigurationProperties, ImportResultRepository importResultRepository) {
+        this.inputSourceConfigurationProperties = inputSourceConfigurationProperties;
         this.importResultRepository = importResultRepository;
     }
 
@@ -57,7 +53,7 @@ public class InputSourceDetection {
 
     private List<Path> inputSourceFolders() {
         var folders2Scan = new ArrayList<Path>();
-        final var stringTokenizer = new StringTokenizer(inputFolders, ";", false);
+        final var stringTokenizer = new StringTokenizer(inputSourceConfigurationProperties.getInputFolders(), ";", false);
         while (stringTokenizer.hasMoreTokens()) {
             String token = stringTokenizer.nextToken();
             folders2Scan.add(Paths.get(token));
@@ -68,7 +64,7 @@ public class InputSourceDetection {
     }
 
     private List<Path> searchFilesIn(Path startPath) throws IOException {
-        final var pattern = "glob:" + inputFilenameMask;
+        final var pattern = "glob:" + inputSourceConfigurationProperties.getMainFileName();
         final var pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
         final var paths = new ArrayList<Path>();
         Files.walkFileTree(startPath, new SimpleFileVisitor<>() {

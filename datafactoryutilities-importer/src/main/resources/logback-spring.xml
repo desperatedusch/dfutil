@@ -49,17 +49,14 @@
         <appender-ref ref="ASYNC_CONSOLE"/>
         <appender-ref ref="ASYNC_FILE"/>
     </root>
-    <logger name="net.ttddyy.dsproxy.listener">
-        <level value="ALL"/>
+    <logger name="net.ttddyy.dsproxy.listener" level="ALL">
         <appender-ref ref="SQL"/>
     </logger>
-    <logger name="de.dfutil.importing.RelationshipUpdating">
-        <level value="INFO"/>
+    <logger name="de.dfutil.importing.RelationshipUpdating" level="INFO">
         <appender-ref ref="ASYNC_SUCCESSIONHANDLING"/>
     </logger>
-    <logger name="net.ttddyy.dsproxy.listener">
-        <level value="ALL"/>
-        <appender-ref ref="ASYMC_SQL"/>
+    <logger name="net.ttddyy.dsproxy.listener" level="ALL">
+        <appender-ref ref="ASYNC_SQL"/>
     </logger>
 
 </configuration>

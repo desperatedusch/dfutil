@@ -19,9 +19,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import static de.dfutil.entities.ArchivingState.INVALID;
-import static de.dfutil.entities.ArchivingState.VALID;
-
 @Service
 public class Orphanes implements Successions {
 
@@ -53,9 +50,7 @@ public class Orphanes implements Successions {
             );
             if (formerExistingOrOptional.isPresent()) {
                 OrRowEntiy formerExistingOr = formerExistingOrOptional.get();
-                orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
-                orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());
                 orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
             }
         });
@@ -79,11 +74,8 @@ public class Orphanes implements Successions {
                     );
             if (formerExistingObOptional.isPresent()) {
                 ObRowEntity formerExistingOb = formerExistingObOptional.get();
-//                sbRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
-//                sbRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
                 obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
-                obRowRepository.outdate(processableOb.getUuid(), LocalDateTime.now());
             }
         });
     }
@@ -109,9 +101,7 @@ public class Orphanes implements Successions {
                     );
             if (formerExistingSbOptional.isPresent()) {
                 SbRowEntity formerExistingSb = formerExistingSbOptional.get();
-                sbRowRepository.changeStatus(formerExistingSb.getUuid(), INVALID.symbol());
                 sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
-                sbRowRepository.changeStatus(processableSb.getUuid(), VALID.symbol());
                 sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
             }
         });

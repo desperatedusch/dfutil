@@ -13,17 +13,17 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 
 @Service
-@EnableConfigurationProperties(InputSourceConfigurationProperties.class)
+@EnableConfigurationProperties(ImporterConfigurationProperties.class)
 public class Postprocessing {
 
     private static final Logger log = LoggerFactory.getLogger(Postprocessing.class);
 
-    private final InputSourceConfigurationProperties inputSourceConfigurationProperties;
+    private final ImporterConfigurationProperties importerConfigurationProperties;
 
     private final ImportResultRepository importResultRepository;
 
-    public Postprocessing(InputSourceConfigurationProperties inputSourceConfigurationProperties, ImportResultRepository importResultRepository) {
-        this.inputSourceConfigurationProperties = inputSourceConfigurationProperties;
+    public Postprocessing(ImporterConfigurationProperties importerConfigurationProperties, ImportResultRepository importResultRepository) {
+        this.importerConfigurationProperties = importerConfigurationProperties;
         this.importResultRepository = importResultRepository;
     }
 
@@ -49,7 +49,7 @@ public class Postprocessing {
 
     public void deleteProcessedInputSources(Path inputSource) {
         try {
-            if (inputSourceConfigurationProperties.isDeleteSourcesAfterSuccessfulProcessing()) {
+            if (importerConfigurationProperties.isDeleteSourcesAfterSuccessfulProcessing()) {
                 Files.deleteIfExists(inputSource);
             }
         } catch (IOException e) {

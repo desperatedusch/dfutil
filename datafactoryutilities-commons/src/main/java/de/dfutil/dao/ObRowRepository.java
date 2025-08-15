@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface ObRowRepository extends JpaRepository<ObRowEntity, ObRowId> {
+public interface ObRowRepository extends JpaRepository<ObRowEntity, ObRowId>, SuccessionsApplicableRepository {
 
     @Query("Select ortsteil from ObRowEntity ortsteil where ortsteil.obRowId.otlStatus != 'G'")
     List<ObRowEntity> findByStatusSuccessionRelevant();
@@ -45,5 +45,13 @@ public interface ObRowRepository extends JpaRepository<ObRowEntity, ObRowId> {
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update ObRowEntity ortsteil set ortsteil.alreadyAppliedAt = :date where ortsteil.uuid = :uuid")
     void apply(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
+
+    @Modifying
+    @Query("update ObRowEntity ortsteil set ortsteil.alreadyAppliedAt = null")
+    void resetAppliedState();
+
+    @Modifying
+    @Query("update ObRowEntity ortsteil set ortsteil.outdatedAt = null")
+    void resetOutdatedState();
 
 }

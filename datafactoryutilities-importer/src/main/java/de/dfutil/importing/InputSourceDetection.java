@@ -16,18 +16,18 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 @Service
-@EnableConfigurationProperties(InputSourceConfigurationProperties.class)
+@EnableConfigurationProperties(ImporterConfigurationProperties.class)
 public class InputSourceDetection {
 
     private static final Logger log = LoggerFactory.getLogger(InputSourceDetection.class);
 
-    private final InputSourceConfigurationProperties inputSourceConfigurationProperties;
+    private final ImporterConfigurationProperties importerConfigurationProperties;
 
     private final ImportResultRepository importResultRepository;
     private List<ImportResultEntity> alreadySuccessfulImported;
 
-    public InputSourceDetection(InputSourceConfigurationProperties inputSourceConfigurationProperties, ImportResultRepository importResultRepository) {
-        this.inputSourceConfigurationProperties = inputSourceConfigurationProperties;
+    public InputSourceDetection(ImporterConfigurationProperties importerConfigurationProperties, ImportResultRepository importResultRepository) {
+        this.importerConfigurationProperties = importerConfigurationProperties;
         this.importResultRepository = importResultRepository;
     }
 
@@ -53,7 +53,7 @@ public class InputSourceDetection {
 
     private List<Path> inputSourceFolders() {
         var folders2Scan = new ArrayList<Path>();
-        final var stringTokenizer = new StringTokenizer(inputSourceConfigurationProperties.getInputFolders(), ";", false);
+        final var stringTokenizer = new StringTokenizer(importerConfigurationProperties.getInputFolders(), ";", false);
         while (stringTokenizer.hasMoreTokens()) {
             String token = stringTokenizer.nextToken();
             folders2Scan.add(Paths.get(token));
@@ -64,7 +64,7 @@ public class InputSourceDetection {
     }
 
     private List<Path> searchFilesIn(Path startPath) throws IOException {
-        final var pattern = "glob:" + inputSourceConfigurationProperties.getMainFileName();
+        final var pattern = "glob:" + importerConfigurationProperties.getMainFileName();
         final var pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
         final var paths = new ArrayList<Path>();
         Files.walkFileTree(startPath, new SimpleFileVisitor<>() {

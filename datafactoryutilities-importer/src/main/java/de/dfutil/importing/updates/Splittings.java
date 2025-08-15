@@ -4,7 +4,7 @@ import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
 import de.dfutil.entities.ObRowEntity;
-import de.dfutil.entities.OrRowEntiy;
+import de.dfutil.entities.OrRowEntity;
 import de.dfutil.entities.SbRowEntity;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -45,7 +45,7 @@ public class Splittings implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        List<OrRowEntiy> multipleSuccessors =
+        List<OrRowEntity> multipleSuccessors =
                 orRowRepository.findMultipleSuccessorCandidates();
         log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }

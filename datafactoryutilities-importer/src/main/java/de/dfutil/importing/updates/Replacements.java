@@ -4,7 +4,7 @@ import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
 import de.dfutil.entities.ObRowEntity;
-import de.dfutil.entities.OrRowEntiy;
+import de.dfutil.entities.OrRowEntity;
 import de.dfutil.entities.SbRowEntity;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
@@ -67,12 +67,12 @@ public class Replacements implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        List<OrRowEntiy> processableSingleSuccessors =
+        List<OrRowEntity> processableSingleSuccessors =
                 orRowRepository.findReplacementCandidates();
         log.debug("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            Optional<OrRowEntiy> predecessorOrOptional =
+            Optional<OrRowEntity> predecessorOrOptional =
                     orRowRepository.findById(
                             new OrRowId(
                                     processableOr.getOrRowId().getOrtAlort(),
@@ -81,7 +81,7 @@ public class Replacements implements Successions {
                     );
             if (predecessorOrOptional.isPresent()
                     && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
-                OrRowEntiy formerExistingOr = predecessorOrOptional.get();
+                OrRowEntity formerExistingOr = predecessorOrOptional.get();
                 orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());

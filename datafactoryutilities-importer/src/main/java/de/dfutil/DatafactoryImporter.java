@@ -1,6 +1,6 @@
 package de.dfutil;
 
-import de.dfutil.importing.InputSourceConfigurationProperties;
+import de.dfutil.importing.ImporterConfigurationProperties;
 import de.dfutil.importing.InputSourceDetection;
 import de.dfutil.importing.Parsing;
 import de.dfutil.importing.RelationshipUpdating;
@@ -17,19 +17,19 @@ import java.util.Comparator;
 import java.util.List;
 
 @SpringBootApplication
-@EnableConfigurationProperties(InputSourceConfigurationProperties.class)
+@EnableConfigurationProperties(ImporterConfigurationProperties.class)
 public class DatafactoryImporter implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(DatafactoryImporter.class);
 
-    private final InputSourceConfigurationProperties inputSourceConfigurationProperties;
+    private final ImporterConfigurationProperties importerConfigurationProperties;
 
     private final InputSourceDetection inputSourceDetection;
     private final Parsing parsing;
     private final RelationshipUpdating relationshipUpdating;
 
-    public DatafactoryImporter(InputSourceConfigurationProperties inputSourceConfigurationProperties, InputSourceDetection inputSourceDetection, Parsing parsing, RelationshipUpdating relationshipUpdating) {
-        this.inputSourceConfigurationProperties = inputSourceConfigurationProperties;
+    public DatafactoryImporter(ImporterConfigurationProperties importerConfigurationProperties, InputSourceDetection inputSourceDetection, Parsing parsing, RelationshipUpdating relationshipUpdating) {
+        this.importerConfigurationProperties = importerConfigurationProperties;
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
         this.relationshipUpdating = relationshipUpdating;
@@ -42,14 +42,14 @@ public class DatafactoryImporter implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Importing started");
-        if (inputSourceConfigurationProperties.isParsingActivated()) {
+        if (importerConfigurationProperties.isParsingActivated()) {
             log.info("Parsing started");
             List<Path> files = inputSourceDetection.findFiles();
             files.sort(Comparator.comparing(Path::getFileName));
             files.forEach(parsing::fromFile);
             log.info("Parsing finished");
         }
-        if (inputSourceConfigurationProperties.isSuccessionhandlingActivated()) {
+        if (importerConfigurationProperties.isSuccessionHandlingActivated()) {
             log.info("Succession handling started");
             relationshipUpdating.process();
             log.info("Succession handling finished");

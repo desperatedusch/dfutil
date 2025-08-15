@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface SbRowRepository extends JpaRepository<SbRowEntity, SbRowId> {
+public interface SbRowRepository extends JpaRepository<SbRowEntity, SbRowId>, SuccessionsApplicableRepository {
 
     @Query("Select strasse from SbRowEntity strasse where strasse.sbRowId.strStatus != 'G' order by strasse.version asc")
     List<SbRowEntity> findByStatusSuccessionRelevant();
@@ -44,5 +44,13 @@ public interface SbRowRepository extends JpaRepository<SbRowEntity, SbRowId> {
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update SbRowEntity strasse set strasse.alreadyAppliedAt = :date where strasse.uuid = :uuid")
     void apply(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
+
+    @Modifying
+    @Query("update SbRowEntity strasse set strasse.outdatedAt = null")
+    void resetAppliedState();
+
+    @Modifying
+    @Query("update SbRowEntity strasse set strasse.outdatedAt = null")
+    void resetOutdatedState();
 
 }

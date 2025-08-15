@@ -18,13 +18,13 @@ public class Parsing {
 
     private static final Logger log = LoggerFactory.getLogger(Parsing.class);
 
-    private final Postprocessing postprocessing;
-
     private final KgRowRepository kgRowRepository;
     private final ObRowRepository obRowRepository;
     private final OrRowRepository orRowRepository;
     private final PlRowRepository plRowRepository;
     private final SbRowRepository sbRowRepository;
+
+    private final Postprocessing postprocessing;
 
     private long rowsProcessed;
 
@@ -55,7 +55,7 @@ public class Parsing {
                 }
                 break;
             case "OR":
-                OrRowEntiy or = OrRowEntiy.parseFrom(line);
+                OrRowEntity or = OrRowEntity.parseFrom(line);
                 if (orRowRepository.findById(or.getOrRowId()).isEmpty()) {
                     orRowRepository.save(or);
                     rowsProcessed++;
@@ -92,6 +92,7 @@ public class Parsing {
             }
             duration = stopwatch.stop().elapsed().toMillis();
             log.info("Successfully parsed, imported {} rows with new/updated content, from {} within {} ms", rowsProcessed, path, duration);
+
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
         } catch (IOException e) {

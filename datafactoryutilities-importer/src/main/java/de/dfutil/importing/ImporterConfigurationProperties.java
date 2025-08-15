@@ -4,13 +4,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.lang.NonNull;
 
 @ConfigurationProperties(prefix = "app.importer.inputsource")
-public class InputSourceConfigurationProperties {
+public class ImporterConfigurationProperties {
 
     private String inputFolders;
     private String mainFileName;
     private boolean deleteSourcesAfterSuccessfulProcessing;
     private boolean parsingActivated;
-    private boolean successionhandlingActivated;
+    private boolean successionHandlingActivated;
+    private boolean resetSuccessionHandlingApplicationStateActivated;
 
     public boolean isParsingActivated() {
         return parsingActivated;
@@ -20,12 +21,12 @@ public class InputSourceConfigurationProperties {
         this.parsingActivated = parsingActivated;
     }
 
-    public boolean isSuccessionhandlingActivated() {
-        return successionhandlingActivated;
+    public boolean isSuccessionHandlingActivated() {
+        return successionHandlingActivated;
     }
 
-    public void setSuccessionhandlingActivated(boolean successionhandlingActivated) {
-        this.successionhandlingActivated = successionhandlingActivated;
+    public void setSuccessionHandlingActivated(boolean successionHandlingActivated) {
+        this.successionHandlingActivated = successionHandlingActivated;
     }
 
     @NonNull
@@ -54,4 +55,11 @@ public class InputSourceConfigurationProperties {
         this.deleteSourcesAfterSuccessfulProcessing = deleteSourcesAfterSuccessfulProcessing;
     }
 
+    public boolean isResetSuccessionHandlingApplicationStateActivated() {
+        return resetSuccessionHandlingApplicationStateActivated;
+    }
+
+    public void setResetSuccessionHandlingApplicationStateActivated(boolean resetSuccessionHandlingApplicationStateActivated) {
+        this.resetSuccessionHandlingApplicationStateActivated = resetSuccessionHandlingApplicationStateActivated;
+    }
 }

@@ -11,7 +11,7 @@ public class OrRowParsingTest {
 
     @Test
     public void parseOrRowBytes2Object() {
-        OrRowEntiy expectedOrRow = new OrRowEntiy();
+        OrRowEntity expectedOrRow = new OrRowEntity();
         expectedOrRow.setOrtDatum("19780101");
         expectedOrRow.setOrRowId(new OrRowId("00000500", "S"));
         expectedOrRow.setOrtOname("Aa-Bauerschaft                          ");
@@ -22,7 +22,7 @@ public class OrRowParsingTest {
         expectedOrRow.setOrtKgs("        ");
         expectedOrRow.setOrtAlortNeu("26631500");
         expectedOrRow.setImportingFileIdentifier("OR2309244");
-        OrRowEntiy parsedOrRow = OrRowEntiy.parseFrom(HOPSTENBAUERSCHAFT);
+        OrRowEntity parsedOrRow = OrRowEntity.parseFrom(HOPSTENBAUERSCHAFT);
         Assertions.assertEquals(expectedOrRow, parsedOrRow);
     }
 }

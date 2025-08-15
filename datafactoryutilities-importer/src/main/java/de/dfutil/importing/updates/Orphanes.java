@@ -4,7 +4,7 @@ import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
 import de.dfutil.entities.ObRowEntity;
-import de.dfutil.entities.OrRowEntiy;
+import de.dfutil.entities.OrRowEntity;
 import de.dfutil.entities.SbRowEntity;
 import de.dfutil.entities.ids.ObRowId;
 import de.dfutil.entities.ids.OrRowId;
@@ -37,19 +37,19 @@ public class Orphanes implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void handleOrObjects() {
-        List<OrRowEntiy> processableOrphanedOrObjects =
+        List<OrRowEntity> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
         log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            Optional<OrRowEntiy> formerExistingOrOptional = orRowRepository.findById(
+            Optional<OrRowEntity> formerExistingOrOptional = orRowRepository.findById(
                     new OrRowId(
                             processableOr.getOrRowId().getOrtAlort(),
                             "G"
                     )
             );
             if (formerExistingOrOptional.isPresent()) {
-                OrRowEntiy formerExistingOr = formerExistingOrOptional.get();
+                OrRowEntity formerExistingOr = formerExistingOrOptional.get();
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
             }

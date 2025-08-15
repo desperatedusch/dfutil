@@ -14,6 +14,13 @@
 
     <packaging>pom</packaging>
 
+    <modules>
+        <module>datafactoryutilities-adressinformationprovider</module>
+        <module>datafactoryutilities-commons</module>
+        <module>datafactoryutilities-downloader</module>
+        <module>datafactoryutilities-importer</module>
+    </modules>
+
     <properties>
         <java.version>24</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

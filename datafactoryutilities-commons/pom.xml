@@ -11,9 +11,8 @@
     <name>datafactoryutilities-commons</name>
 
     <properties>
-        <hibernate.version>7.0.7.Final</hibernate.version>
-        <hypersistence-utils-hibernate-70.version>3.10.1</hypersistence-utils-hibernate-70.version>
-        <HikariCP.version>6.3.2</HikariCP.version>
+        <hibernate.version>7.1.0.Final</hibernate.version>
+        <HikariCP.version>7.0.1</HikariCP.version>
         <guava.version>33.4.8-jre</guava.version>
         <postgresql.version>42.7.7</postgresql.version>
     </properties>

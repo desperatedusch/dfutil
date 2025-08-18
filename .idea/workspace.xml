@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds env.example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/elk/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/.env.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/elk/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/.env.example" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -662,15 +660,7 @@
       <workItem from="1755272537276" duration="3234000" />
       <workItem from="1755332787283" duration="788000" />
       <workItem from="1755496065437" duration="244000" />
-      <workItem from="1755496437932" duration="4400000" />
-    </task>
-    <task id="LOCAL-00084" summary="Adds basic ZipArchive Handling">
-      <option name="closed" value="true" />
-      <created>1738074213367</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1738074213367</updated>
+      <workItem from="1755496437932" duration="5729000" />
     </task>
     <task id="LOCAL-00085" summary="Adds basic ZipArchive Handling">
       <option name="closed" value="true" />
@@ -1056,7 +1046,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755501362234</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Adds env.example">
+      <option name="closed" value="true" />
+      <created>1755501472695</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1755501472695</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

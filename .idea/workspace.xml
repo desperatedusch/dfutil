@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds env.example">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/elk/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/.env.dev" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -660,15 +659,7 @@
       <workItem from="1755272537276" duration="3234000" />
       <workItem from="1755332787283" duration="788000" />
       <workItem from="1755496065437" duration="244000" />
-      <workItem from="1755496437932" duration="5729000" />
-    </task>
-    <task id="LOCAL-00085" summary="Adds basic ZipArchive Handling">
-      <option name="closed" value="true" />
-      <created>1738246033626</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1738246033626</updated>
+      <workItem from="1755496437932" duration="5814000" />
     </task>
     <task id="LOCAL-00086" summary="Adds basic ZipArchive Handling">
       <option name="closed" value="true" />
@@ -1054,7 +1045,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755501472695</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Adds env.example">
+      <option name="closed" value="true" />
+      <created>1755513464855</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1755513464855</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

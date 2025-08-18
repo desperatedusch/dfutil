@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds env.example">
-      <change beforePath="$PROJECT_DIR$/docker/elk/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/config/liquibase/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/config/liquibase/db.changelog-master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -659,15 +661,7 @@
       <workItem from="1755272537276" duration="3234000" />
       <workItem from="1755332787283" duration="788000" />
       <workItem from="1755496065437" duration="244000" />
-      <workItem from="1755496437932" duration="5814000" />
-    </task>
-    <task id="LOCAL-00086" summary="Adds basic ZipArchive Handling">
-      <option name="closed" value="true" />
-      <created>1738254423092</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1738254423092</updated>
+      <workItem from="1755496437932" duration="11348000" />
     </task>
     <task id="LOCAL-00087" summary="Files import for a file should only be once processed">
       <option name="closed" value="true" />
@@ -1053,7 +1047,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755513464855</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="Adds env.example">
+      <option name="closed" value="true" />
+      <created>1755513531735</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1755513531735</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

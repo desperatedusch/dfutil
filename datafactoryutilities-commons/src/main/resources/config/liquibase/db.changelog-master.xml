@@ -236,19 +236,19 @@
                     replaceIfExists="true"
                     schemaName="public"
                     viewName="already_processed_successionable_rows">
-            SELECT 'Ort'::text AS "Typ", o.uuid,
-                   o.ort_status         as "Status",
-                   o.already_applied_at as "bereits verarbeitet am",
-                   o.outdated_at        as "abgelöst am"
-            FROM ort o
-            WHERE o.already_applied_at IS NOT NULL
-               OR o.outdated_at IS NOT NULL
+            SELECT 'Ort'::text AS "Typ", ort.uuid,
+                   ort.ort_status         as "Status",
+                   ort.already_applied_at as "bereits verarbeitet am",
+                   ort.outdated_at        as "abgelöst am"
+            FROM or_row ort
+            WHERE ort.already_applied_at IS NOT NULL
+               OR ort.outdated_at IS NOT NULL
             UNION
             SELECT 'Ortsteil'::text , ot.uuid,
                    ot.otl_status         as "Status",
                    ot.already_applied_at as "bereits verarbeitet am",
                    ot.outdated_at        as "abgelöst am"
-            FROM ortsteil ot
+            FROM ot_row ot
             WHERE ot.already_applied_at IS NOT NULL
                OR ot.outdated_at IS NOT NULL
             UNION
@@ -256,7 +256,7 @@
                    st.str_status         as "Status",
                    st.already_applied_at as "bereits verarbeitet am",
                    st.outdated_at        as "abgelöst am"
-            FROM strasse st
+            FROM sb_row st
             WHERE st.already_applied_at IS NOT NULL
                OR st.outdated_at IS NOT NULL;
         </createView>

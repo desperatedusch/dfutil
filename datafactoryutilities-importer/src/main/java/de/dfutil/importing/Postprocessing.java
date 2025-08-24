@@ -19,7 +19,6 @@ public class Postprocessing {
     private static final Logger log = LoggerFactory.getLogger(Postprocessing.class);
 
     private final ImporterConfigurationProperties importerConfigurationProperties;
-
     private final ImportResultRepository importResultRepository;
 
     public Postprocessing(ImporterConfigurationProperties importerConfigurationProperties, ImportResultRepository importResultRepository) {
@@ -53,8 +52,8 @@ public class Postprocessing {
                 Files.deleteIfExists(inputSource);
             }
         } catch (IOException e) {
-            log.error("Failed to delete {}", inputSource);
-            throw new RuntimeException(e.getMessage(), e);
+            log.error("Failed to delete {}\n{}", inputSource, e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 

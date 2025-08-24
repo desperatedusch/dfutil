@@ -7,19 +7,19 @@
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>/logs/datafactoryutilities-importer/application.log</file>
+        <file>./logs/datafactoryutilities-importer/application.log</file>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
     <appender name="SUCCESSIONHANDLING" class="ch.qos.logback.core.FileAppender">
-        <file>/logs/datafactoryutilities-importer/successionhandling.log</file>
+        <file>./logs/datafactoryutilities-importer/successionhandling.log</file>
         <encoder>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
     </appender>
     <appender name="SQL" class="ch.qos.logback.core.FileAppender">
-        <file>/logs/datafactoryutilities-importer/sql.log</file>
+        <file>./logs/datafactoryutilities-importer/sql.log</file>
         <encoder>
             <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>

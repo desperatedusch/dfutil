@@ -1,5 +1,7 @@
 package de.dfutil.downloading;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import java.util.zip.ZipInputStream;
 @Service
 @EnableConfigurationProperties(DatafactoryDownloaderConfigurationProperties.class)
 public class Archives {
+
+    private static final Logger log = LoggerFactory.getLogger(Archives.class);
 
     private final DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties;
 
@@ -59,6 +63,7 @@ public class Archives {
                 zipEntry = zis.getNextEntry();
             }
         } catch (IOException e) {
+            log.error("Error during unzip operation\n{}", e.getMessage());
             throw new RuntimeException(e);
         }
     }

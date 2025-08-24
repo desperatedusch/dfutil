@@ -42,35 +42,35 @@ public class Parsing {
         switch (prefix) {
             case "KG":
                 KgRowEntity kg = KgRowEntity.parseFrom(line);
-                if (kgRowRepository.findById(kg.getKgRowId()).isEmpty()) {
+                if (!kgRowRepository.existsById(kg.getKgRowId())) {
                     kgRowRepository.save(kg);
                     rowsProcessed++;
                 }
                 break;
             case "OB":
                 ObRowEntity ob = ObRowEntity.parseFrom(line);
-                if (obRowRepository.findById(ob.getObRowId()).isEmpty()) {
+                if (!obRowRepository.existsById(ob.getObRowId())) {
                     obRowRepository.save(ob);
                     rowsProcessed++;
                 }
                 break;
             case "OR":
                 OrRowEntity or = OrRowEntity.parseFrom(line);
-                if (orRowRepository.findById(or.getOrRowId()).isEmpty()) {
+                if (!orRowRepository.existsById(or.getOrRowId())) {
                     orRowRepository.save(or);
                     rowsProcessed++;
                 }
                 break;
             case "PL":
                 PlRowEntity pl = PlRowEntity.parseFrom(line);
-                if (plRowRepository.findById(pl.getPlRowId()).isEmpty()) {
+                if (!plRowRepository.existsById(pl.getPlRowId())) {
                     plRowRepository.save(pl);
                     rowsProcessed++;
                 }
                 break;
             case "SB":
                 SbRowEntity sb = SbRowEntity.parseFrom(line);
-                if (sbRowRepository.findById(sb.getSbRowId()).isEmpty()) {
+                if (!sbRowRepository.existsById(sb.getSbRowId())) {
                     sbRowRepository.save(sb);
                     rowsProcessed++;
                 }
@@ -96,9 +96,9 @@ public class Parsing {
             postprocessing.parsedSuccessfully(path, duration);
             postprocessing.deleteProcessedInputSources(path);
         } catch (IOException e) {
-            log.error("Parsing {} failed", path);
+            log.error("Parsing {} failed\n{}", path, e.getMessage());
             postprocessing.parsingFailed(path, null);
-            throw new RuntimeException(e.getMessage(), e);
+            throw new RuntimeException(e);
         }
     }
 

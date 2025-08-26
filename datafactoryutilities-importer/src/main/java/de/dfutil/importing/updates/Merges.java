@@ -33,21 +33,21 @@ public class Merges implements Successions {
     public void handleOrObjects() {
         List<OrRowEntity> multipleSuccessors =
                 orRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+        log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
         List<ObRowEntity> multipleSuccessors =
                 obRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
+        log.info("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
         List<SbRowEntity> multipleSuccessors =
                 sbRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+        log.info("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
 }

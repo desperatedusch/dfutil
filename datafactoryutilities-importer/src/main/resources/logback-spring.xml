@@ -49,6 +49,9 @@
     <logger name="de.dfutil.importing.RelationshipUpdating" level="INFO">
         <appender-ref ref="ASYNC_SUCCESSIONHANDLING"/>
     </logger>
+    <logger name="de.dfutil.importing.updates.*" level="INFO">
+        <appender-ref ref="ASYNC_SUCCESSIONHANDLING"/>
+    </logger>
     <logger name="net.ttddyy.dsproxy.listener" level="ALL">
         <appender-ref ref="ASYNC_SQL"/>
     </logger>

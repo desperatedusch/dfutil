@@ -45,11 +45,11 @@ public interface OrRowRepository extends JpaRepository<OrRowEntity, OrRowId>, Su
     @Query("update OrRowEntity ort set ort.alreadyAppliedAt = :date where ort.uuid = :uuid")
     void apply(@Param("uuid") UUID uuid, @Param("date") LocalDateTime date);
 
-    @Modifying
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update OrRowEntity ort set ort.alreadyAppliedAt = null")
     void resetAppliedState();
 
-    @Modifying
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update OrRowEntity ort set ort.outdatedAt = null")
     void resetOutdatedState();
 

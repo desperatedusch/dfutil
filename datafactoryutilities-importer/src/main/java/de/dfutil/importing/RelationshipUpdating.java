@@ -11,11 +11,13 @@ import de.dfutil.importing.updates.Replacements;
 import de.dfutil.importing.updates.Splittings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@EnableConfigurationProperties(ImporterConfigurationProperties.class)
 public class RelationshipUpdating {
 
     private static final Logger log = LoggerFactory.getLogger(RelationshipUpdating.class);
@@ -44,10 +46,6 @@ public class RelationshipUpdating {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
-        if (importerConfigurationProperties
-                .isResetSuccessionHandlingApplicationStateActivated()) {
-            resetSuccessionsApplicationState();
-        }
         orphanes.process();
         splittings.process();
         replacements.process();
@@ -55,12 +53,16 @@ public class RelationshipUpdating {
         log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 
-    private void resetSuccessionsApplicationState() {
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void resetSuccessionsApplicationState() {
+        var stopwatch = Stopwatch.createStarted();
+        log.info("Starting Reset of SuccessionApplicationState...");
         Lists.newArrayList(orRowRepository, obRowRepository, sbRowRepository).forEach(
                 sar -> {
                     sar.resetAppliedState();
                     sar.resetOutdatedState();
                 });
+        log.info("Finished Reset of SuccessionApplicationState within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 
 }

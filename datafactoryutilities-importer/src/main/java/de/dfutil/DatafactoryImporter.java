@@ -54,6 +54,9 @@ public class DatafactoryImporter implements CommandLineRunner {
             relationshipUpdating.process();
             log.info("Succession handling finished");
         }
+        if (importerConfigurationProperties.isResetSuccessionHandlingApplicationStateActivated()) {
+            relationshipUpdating.resetSuccessionsApplicationState();
+        }
         log.info("Importing finished");
     }
 

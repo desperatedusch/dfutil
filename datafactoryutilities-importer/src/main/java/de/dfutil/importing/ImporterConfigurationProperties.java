@@ -12,6 +12,7 @@ public class ImporterConfigurationProperties {
     private boolean parsingActivated;
     private boolean successionHandlingActivated;
     private boolean resetSuccessionHandlingApplicationStateActivated;
+    private int batchSize;
 
     public boolean isParsingActivated() {
         return parsingActivated;
@@ -61,6 +62,14 @@ public class ImporterConfigurationProperties {
 
     public void setResetSuccessionHandlingApplicationStateActivated(boolean resetSuccessionHandlingApplicationStateActivated) {
         this.resetSuccessionHandlingApplicationStateActivated = resetSuccessionHandlingApplicationStateActivated;
+    }
+
+    public int getBatchSize() {
+        return batchSize;
+    }
+
+    public void setBatchSize(int batchSize) {
+        this.batchSize = batchSize;
     }
 
 }

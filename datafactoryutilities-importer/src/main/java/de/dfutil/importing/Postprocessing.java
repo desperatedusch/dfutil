@@ -26,7 +26,7 @@ public class Postprocessing {
         this.importResultRepository = importResultRepository;
     }
 
-    public void parsedSuccessfully(Path inputSource, Long duration) {
+    public void parsedSuccessfully(Path inputSource, long duration) {
         importResultRepository.save(
                 new ImportResultEntity(
                         inputSource.getFileName().toString(),

@@ -18,10 +18,7 @@ public class ImporterEnvironmentPostProcessor implements EnvironmentPostProcesso
         if (successionHandlingActivated
                 && resetSuccessionHandlingApplicationStateActivated) {
             throw new IllegalStateException(
-                    "Following properties mutually exclude each other to be true:\n" +
-                            "successionHandlingActivated\n" +
-                            "resetSuccessionHandlingApplicationStateActivated"
-            );
+                    "Following properties mutually exclude each other to be true [successionHandlingActivated<-|->resetSuccessionHandlingApplicationStateActivated]");
         }
     }
 

@@ -62,4 +62,5 @@ public class ImporterConfigurationProperties {
     public void setResetSuccessionHandlingApplicationStateActivated(boolean resetSuccessionHandlingApplicationStateActivated) {
         this.resetSuccessionHandlingApplicationStateActivated = resetSuccessionHandlingApplicationStateActivated;
     }
+
 }

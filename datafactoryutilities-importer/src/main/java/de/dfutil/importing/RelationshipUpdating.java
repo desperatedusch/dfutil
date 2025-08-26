@@ -46,6 +46,7 @@ public class RelationshipUpdating {
 
     public void process() {
         var stopwatch = Stopwatch.createStarted();
+        log.info("Starting successionhandling...");
         orphanes.process();
         splittings.process();
         replacements.process();

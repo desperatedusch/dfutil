@@ -23,7 +23,7 @@ public class Merges implements Successions {
     private final SbRowRepository sbRowRepository;
 
 
-    public Merges(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public Merges(final OrRowRepository orRowRepository, final ObRowRepository obRowRepository, final SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -31,23 +31,23 @@ public class Merges implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        List<OrRowEntity> multipleSuccessors =
-                orRowRepository.findMultipleSuccessorCandidates();
-        log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+        final List<OrRowEntity> multipleSuccessors =
+                this.orRowRepository.findMultipleSuccessorCandidates();
+        Merges.log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
-        List<ObRowEntity> multipleSuccessors =
-                obRowRepository.findMultipleSuccessorCandidates();
-        log.info("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
+        final List<ObRowEntity> multipleSuccessors =
+                this.obRowRepository.findMultipleSuccessorCandidates();
+        Merges.log.info("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
-        List<SbRowEntity> multipleSuccessors =
-                sbRowRepository.findMultipleSuccessorCandidates();
-        log.info("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+        final List<SbRowEntity> multipleSuccessors =
+                this.sbRowRepository.findMultipleSuccessorCandidates();
+        Merges.log.info("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
 }

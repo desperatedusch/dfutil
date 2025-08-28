@@ -28,35 +28,35 @@ public class DatafactoryImporter implements CommandLineRunner {
     private final Parsing parsing;
     private final RelationshipUpdating relationshipUpdating;
 
-    public DatafactoryImporter(ImporterConfigurationProperties importerConfigurationProperties, InputSourceDetection inputSourceDetection, Parsing parsing, RelationshipUpdating relationshipUpdating) {
+    public DatafactoryImporter(final ImporterConfigurationProperties importerConfigurationProperties, final InputSourceDetection inputSourceDetection, final Parsing parsing, final RelationshipUpdating relationshipUpdating) {
         this.importerConfigurationProperties = importerConfigurationProperties;
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
         this.relationshipUpdating = relationshipUpdating;
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         new SpringApplicationBuilder(DatafactoryImporter.class).web(WebApplicationType.NONE).run(args);
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        if (importerConfigurationProperties.isParsingActivated()) {
-            log.info("Searching for input sources...");
-            List<Path> files = inputSourceDetection.findFiles();
+    public void run(final String... args) throws Exception {
+        if (this.importerConfigurationProperties.isParsingActivated()) {
+            DatafactoryImporter.log.info("Searching for input sources...");
+            final List<Path> files = this.inputSourceDetection.findFiles();
             files.sort(Comparator.comparing(Path::getFileName));
-            files.forEach(parsing::fromFile);
-            log.info("Parsing of all input sources done...");
+            files.forEach(this.parsing::fromFile);
+            DatafactoryImporter.log.info("Parsing of all input sources done...");
         }
-        if (importerConfigurationProperties
+        if (this.importerConfigurationProperties
                 .isSuccessionHandlingActivated()) {
-            relationshipUpdating.process();
+            this.relationshipUpdating.process();
         }
-        if (importerConfigurationProperties
+        if (this.importerConfigurationProperties
                 .isResetSuccessionHandlingApplicationStateActivated()) {
-            relationshipUpdating.resetSuccessionsApplicationState();
+            this.relationshipUpdating.resetSuccessionsApplicationState();
         }
-        log.info("Importing process finished...");
+        DatafactoryImporter.log.info("Importing process finished...");
     }
 
 }

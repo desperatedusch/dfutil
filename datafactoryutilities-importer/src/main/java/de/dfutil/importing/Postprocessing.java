@@ -21,13 +21,13 @@ public class Postprocessing {
     private final ImporterConfigurationProperties importerConfigurationProperties;
     private final ImportResultRepository importResultRepository;
 
-    public Postprocessing(ImporterConfigurationProperties importerConfigurationProperties, ImportResultRepository importResultRepository) {
+    public Postprocessing(final ImporterConfigurationProperties importerConfigurationProperties, final ImportResultRepository importResultRepository) {
         this.importerConfigurationProperties = importerConfigurationProperties;
         this.importResultRepository = importResultRepository;
     }
 
-    public void parsedSuccessfully(Path inputSource, long duration) {
-        importResultRepository.save(
+    public void parsedSuccessfully(final Path inputSource, final long duration) {
+        this.importResultRepository.save(
                 new ImportResultEntity(
                         inputSource.getFileName().toString(),
                         LocalDateTime.now(),
@@ -36,8 +36,8 @@ public class Postprocessing {
         );
     }
 
-    public void parsingFailed(Path inputSource, Long duration) {
-        importResultRepository.save(
+    public void parsingFailed(final Path inputSource, final Long duration) {
+        this.importResultRepository.save(
                 new ImportResultEntity(
                         inputSource.getFileName().toString(),
                         LocalDateTime.now(),
@@ -46,13 +46,13 @@ public class Postprocessing {
         );
     }
 
-    public void deleteProcessedInputSources(Path inputSource) {
+    public void deleteProcessedInputSources(final Path inputSource) {
         try {
-            if (importerConfigurationProperties.isDeleteSourcesAfterSuccessfulProcessing()) {
+            if (this.importerConfigurationProperties.isDeleteSourcesAfterSuccessfulProcessing()) {
                 Files.deleteIfExists(inputSource);
             }
-        } catch (IOException e) {
-            log.error("Failed to delete {}\n{}", inputSource, e.getMessage());
+        } catch (final IOException e) {
+            Postprocessing.log.error("Failed to delete {}\n{}", inputSource, e.getMessage());
             throw new RuntimeException(e);
         }
     }

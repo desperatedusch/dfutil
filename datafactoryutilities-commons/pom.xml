@@ -18,6 +18,7 @@
         <HikariCP.version>7.0.1</HikariCP.version>
         <guava.version>33.4.8-jre</guava.version>
         <postgresql.version>42.7.7</postgresql.version>
+        <caffeine.version>3.2.2</caffeine.version>
     </properties>
 
     <dependencies>
@@ -32,6 +33,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>${caffeine.version}</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>

@@ -15,60 +15,60 @@ public class ImporterConfigurationProperties {
     private int batchSize;
 
     public boolean isParsingActivated() {
-        return parsingActivated;
+        return this.parsingActivated;
     }
 
-    public void setParsingActivated(boolean parsingActivated) {
+    public void setParsingActivated(final boolean parsingActivated) {
         this.parsingActivated = parsingActivated;
     }
 
     public boolean isSuccessionHandlingActivated() {
-        return successionHandlingActivated;
+        return this.successionHandlingActivated;
     }
 
-    public void setSuccessionHandlingActivated(boolean successionHandlingActivated) {
+    public void setSuccessionHandlingActivated(final boolean successionHandlingActivated) {
         this.successionHandlingActivated = successionHandlingActivated;
     }
 
     @NonNull
     public String getInputFolders() {
-        return inputFolders;
+        return this.inputFolders;
     }
 
-    public void setInputFolders(@NonNull String inputFolders) {
+    public void setInputFolders(@NonNull final String inputFolders) {
         this.inputFolders = inputFolders;
     }
 
     @NonNull
     public String getMainFileName() {
-        return mainFileName;
+        return this.mainFileName;
     }
 
-    public void setMainFileName(@NonNull String mainFileName) {
+    public void setMainFileName(@NonNull final String mainFileName) {
         this.mainFileName = mainFileName;
     }
 
     public boolean isDeleteSourcesAfterSuccessfulProcessing() {
-        return deleteSourcesAfterSuccessfulProcessing;
+        return this.deleteSourcesAfterSuccessfulProcessing;
     }
 
-    public void setDeleteSourcesAfterSuccessfulProcessing(boolean deleteSourcesAfterSuccessfulProcessing) {
+    public void setDeleteSourcesAfterSuccessfulProcessing(final boolean deleteSourcesAfterSuccessfulProcessing) {
         this.deleteSourcesAfterSuccessfulProcessing = deleteSourcesAfterSuccessfulProcessing;
     }
 
     public boolean isResetSuccessionHandlingApplicationStateActivated() {
-        return resetSuccessionHandlingApplicationStateActivated;
+        return this.resetSuccessionHandlingApplicationStateActivated;
     }
 
-    public void setResetSuccessionHandlingApplicationStateActivated(boolean resetSuccessionHandlingApplicationStateActivated) {
+    public void setResetSuccessionHandlingApplicationStateActivated(final boolean resetSuccessionHandlingApplicationStateActivated) {
         this.resetSuccessionHandlingApplicationStateActivated = resetSuccessionHandlingApplicationStateActivated;
     }
 
     public int getBatchSize() {
-        return batchSize;
+        return this.batchSize;
     }
 
-    public void setBatchSize(int batchSize) {
+    public void setBatchSize(final int batchSize) {
         this.batchSize = batchSize;
     }
 

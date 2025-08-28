@@ -15,7 +15,7 @@ public class DataJpaTestConfiguration {
 
     @Bean
     public OrRowRepository orRowRepository() {
-        RepositoryFactorySupport factory = new JpaRepositoryFactory(entityManager.getEntityManager());
+        final RepositoryFactorySupport factory = new JpaRepositoryFactory(this.entityManager.getEntityManager());
         return factory.getRepository(OrRowRepository.class);
     }
 

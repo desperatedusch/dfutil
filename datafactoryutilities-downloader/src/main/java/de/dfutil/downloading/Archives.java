@@ -20,15 +20,15 @@ public class Archives {
 
     private final DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties;
 
-    public Archives(DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties) {
+    public Archives(final DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties) {
         this.datafactoryDownloaderConfigurationProperties = datafactoryDownloaderConfigurationProperties;
     }
 
-    private File newFileFromZipEntry(File destinationDir, ZipEntry zipEntry) throws IOException {
-        File destFile = new File(destinationDir, zipEntry.getName());
+    private File newFileFromZipEntry(final File destinationDir, final ZipEntry zipEntry) throws IOException {
+        final File destFile = new File(destinationDir, zipEntry.getName());
 
-        String destDirPath = destinationDir.getCanonicalPath();
-        String destFilePath = destFile.getCanonicalPath();
+        final String destDirPath = destinationDir.getCanonicalPath();
+        final String destFilePath = destFile.getCanonicalPath();
 
         if (!destFilePath.startsWith(destDirPath + File.separator)) {
             throw new IOException("Entry is outside of the target dir: {}" + zipEntry.getName());
@@ -37,33 +37,33 @@ public class Archives {
     }
 
     public void unzip() {
-        byte[] buffer = new byte[1024];
-        try (FileInputStream fis = new FileInputStream(datafactoryDownloaderConfigurationProperties.getArchivedTargetDestination());
-             ZipInputStream zis = new ZipInputStream(fis)) {
+        final byte[] buffer = new byte[1024];
+        try (final FileInputStream fis = new FileInputStream(this.datafactoryDownloaderConfigurationProperties.getArchivedTargetDestination());
+             final ZipInputStream zis = new ZipInputStream(fis)) {
 
             ZipEntry zipEntry = zis.getNextEntry();
-            while (zipEntry != null) {
-                File newFile = newFileFromZipEntry(new File(datafactoryDownloaderConfigurationProperties.getTargetDestination()), zipEntry);
+            while (null != zipEntry) {
+                final File newFile = this.newFileFromZipEntry(new File(this.datafactoryDownloaderConfigurationProperties.getTargetDestination()), zipEntry);
                 if (zipEntry.isDirectory()) {
                     if (!newFile.isDirectory() && !newFile.mkdirs()) {
                         throw new IOException("Failed to create directory " + newFile);
                     }
                 } else {
-                    File parent = newFile.getParentFile();
+                    final File parent = newFile.getParentFile();
                     if (!parent.isDirectory() && !parent.mkdirs()) {
                         throw new IOException("Failed to create directory " + parent);
                     }
-                    FileOutputStream fos = new FileOutputStream(newFile);
+                    final FileOutputStream fos = new FileOutputStream(newFile);
                     int len;
-                    while ((len = zis.read(buffer)) > 0) {
+                    while (0 < (len = zis.read(buffer))) {
                         fos.write(buffer, 0, len);
                     }
                     fos.close();
                 }
                 zipEntry = zis.getNextEntry();
             }
-        } catch (IOException e) {
-            log.error("Error during unzip operation\n{}", e.getMessage());
+        } catch (final IOException e) {
+            Archives.log.error("Error during unzip operation\n{}", e.getMessage());
             throw new RuntimeException(e);
         }
     }

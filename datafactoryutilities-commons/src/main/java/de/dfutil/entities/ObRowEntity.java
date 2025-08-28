@@ -44,16 +44,8 @@ public class ObRowEntity extends AbstractRowEntity<ObRowEntity> implements Archi
     @JoinColumn(name = "succession_state_id")
     private SuccessionState successionState;
 
-    public SuccessionState getSuccessionState() {
-        return successionState;
-    }
-
-    public void setSuccessionState(SuccessionState successionState) {
-        this.successionState = successionState;
-    }
-
-    public static ObRowEntity parseFrom(String rowBytes) {
-        ObRowEntity row = new ObRowEntity();
+    public static ObRowEntity parseFrom(final String rowBytes) {
+        final ObRowEntity row = new ObRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.otlDatum = rowBytes.substring(9, 17);
         row.otlStverz = rowBytes.substring(34, 35);
@@ -68,84 +60,92 @@ public class ObRowEntity extends AbstractRowEntity<ObRowEntity> implements Archi
         return row;
     }
 
-    public Date getVersion() {
-        return version;
+    public SuccessionState getSuccessionState() {
+        return this.successionState;
     }
 
-    public void setVersion(Date version) {
+    public void setSuccessionState(final SuccessionState successionState) {
+        this.successionState = successionState;
+    }
+
+    public Date getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(final Date version) {
         this.version = version;
     }
 
     public RowType getRowType() {
-        return rowType;
+        return ObRowEntity.rowType;
     }
 
     public String getOtlDatum() {
-        return otlDatum;
+        return this.otlDatum;
     }
 
-    public void setOtlDatum(String otlDatum) {
+    public void setOtlDatum(final String otlDatum) {
         this.otlDatum = otlDatum;
     }
 
     public String getOtlStverz() {
-        return otlStverz;
+        return this.otlStverz;
     }
 
-    public void setOtlStverz(String otlStverz) {
+    public void setOtlStverz(final String otlStverz) {
         this.otlStverz = otlStverz;
     }
 
     public String getOtlName() {
-        return otlName;
+        return this.otlName;
     }
 
-    public void setOtlName(String otlName) {
+    public void setOtlName(final String otlName) {
         this.otlName = otlName;
     }
 
     public String getOtlKgs() {
-        return otlKgs;
+        return this.otlKgs;
     }
 
-    public void setOtlKgs(String otlKgs) {
+    public void setOtlKgs(final String otlKgs) {
         this.otlKgs = otlKgs;
     }
 
     public ObRowId getObRowId() {
-        return obRowId;
+        return this.obRowId;
     }
 
-    public void setObRowId(ObRowId obRowId) {
+    public void setObRowId(final ObRowId obRowId) {
         this.obRowId = obRowId;
     }
 
     public LocalDateTime getOutdatedAt() {
-        return outdatedAt;
+        return this.outdatedAt;
     }
 
-    public void setOutdatedAt(LocalDateTime outdatedSince) {
-        this.outdatedAt = outdatedSince;
+    public void setOutdatedAt(final LocalDateTime outdatedSince) {
+        outdatedAt = outdatedSince;
     }
 
     public LocalDateTime alreadyAppliedAt() {
-        return alreadyAppliedAt;
+        return this.alreadyAppliedAt;
     }
 
-    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
+    public void setAlreadyAppliedAt(final LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        ObRowEntity obRow = (ObRowEntity) o;
-        return Objects.equals(version, obRow.version) && Objects.equals(otlDatum, obRow.otlDatum) && Objects.equals(obRowId, obRow.obRowId) && Objects.equals(otlStverz, obRow.otlStverz) && Objects.equals(otlName, obRow.otlName) && Objects.equals(otlKgs, obRow.otlKgs) && Objects.equals(outdatedAt, obRow.outdatedAt) && Objects.equals(alreadyAppliedAt, obRow.alreadyAppliedAt);
+    public boolean equals(final Object o) {
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final ObRowEntity obRow = (ObRowEntity) o;
+        return Objects.equals(this.version, obRow.version) && Objects.equals(this.otlDatum, obRow.otlDatum) && Objects.equals(this.obRowId, obRow.obRowId) && Objects.equals(this.otlStverz, obRow.otlStverz) && Objects.equals(this.otlName, obRow.otlName) && Objects.equals(this.otlKgs, obRow.otlKgs) && Objects.equals(this.outdatedAt, obRow.outdatedAt) && Objects.equals(this.alreadyAppliedAt, obRow.alreadyAppliedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, otlDatum, obRowId, otlStverz, otlName, otlKgs, outdatedAt, alreadyAppliedAt);
+        return Objects.hash(this.version, this.otlDatum, this.obRowId, this.otlStverz, this.otlName, this.otlKgs, this.outdatedAt, this.alreadyAppliedAt);
     }
 
 }

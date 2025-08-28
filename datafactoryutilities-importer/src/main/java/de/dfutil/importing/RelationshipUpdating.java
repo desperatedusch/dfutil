@@ -33,7 +33,7 @@ public class RelationshipUpdating {
     private final SbRowRepository sbRowRepository;
 
 
-    public RelationshipUpdating(ImporterConfigurationProperties importerConfigurationProperties, Orphanes orphanes, Replacements replacements, Splittings splittings, Merges merges, OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public RelationshipUpdating(final ImporterConfigurationProperties importerConfigurationProperties, final Orphanes orphanes, final Replacements replacements, final Splittings splittings, final Merges merges, final OrRowRepository orRowRepository, final ObRowRepository obRowRepository, final SbRowRepository sbRowRepository) {
         this.importerConfigurationProperties = importerConfigurationProperties;
         this.orphanes = orphanes;
         this.replacements = replacements;
@@ -45,25 +45,25 @@ public class RelationshipUpdating {
     }
 
     public void process() {
-        var stopwatch = Stopwatch.createStarted();
-        log.info("Starting successionhandling...");
-        orphanes.process();
-        splittings.process();
-        replacements.process();
-        merges.process();
-        log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
+        final var stopwatch = Stopwatch.createStarted();
+        RelationshipUpdating.log.info("Starting successionhandling...");
+        this.orphanes.process();
+        this.splittings.process();
+        this.replacements.process();
+        this.merges.process();
+        RelationshipUpdating.log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void resetSuccessionsApplicationState() {
-        var stopwatch = Stopwatch.createStarted();
-        log.info("Starting Reset of SuccessionApplicationState...");
-        Lists.newArrayList(orRowRepository, obRowRepository, sbRowRepository).forEach(
+        final var stopwatch = Stopwatch.createStarted();
+        RelationshipUpdating.log.info("Starting Reset of SuccessionApplicationState...");
+        Lists.newArrayList(this.orRowRepository, this.obRowRepository, this.sbRowRepository).forEach(
                 sar -> {
                     sar.resetAppliedState();
                     sar.resetOutdatedState();
                 });
-        log.info("Finished Reset of SuccessionApplicationState within {} ms", stopwatch.stop().elapsed().toMillis());
+        RelationshipUpdating.log.info("Finished Reset of SuccessionApplicationState within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 
 }

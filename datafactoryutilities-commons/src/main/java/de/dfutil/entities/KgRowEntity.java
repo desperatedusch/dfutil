@@ -39,8 +39,8 @@ public class KgRowEntity extends AbstractRowEntity<KgRowEntity> implements Seria
     private KgRowId kgRowId;
     private String kgName;
 
-    public static KgRowEntity parseFrom(String rowBytes) {
-        KgRowEntity row = new KgRowEntity();
+    public static KgRowEntity parseFrom(final String rowBytes) {
+        final KgRowEntity row = new KgRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.kgDatum = rowBytes.substring(9, 17);
         row.kgName = rowBytes.substring(26, 66);
@@ -49,51 +49,51 @@ public class KgRowEntity extends AbstractRowEntity<KgRowEntity> implements Seria
     }
 
     public Date getVersion() {
-        return version;
+        return this.version;
     }
 
-    public void setVersion(Date version) {
+    public void setVersion(final Date version) {
         this.version = version;
     }
 
     public String getKgDatum() {
-        return kgDatum;
+        return this.kgDatum;
     }
 
-    public void setKgDatum(String kgDatum) {
+    public void setKgDatum(final String kgDatum) {
         this.kgDatum = kgDatum;
     }
 
     public String getKgName() {
-        return kgName;
+        return this.kgName;
     }
 
-    public void setKgName(String kgName) {
+    public void setKgName(final String kgName) {
         this.kgName = kgName;
     }
 
     public RowType getRowType() {
-        return rowType;
+        return KgRowEntity.rowType;
     }
 
     public KgRowId getKgRowId() {
-        return kgRowId;
+        return this.kgRowId;
     }
 
-    public void setKgRowId(KgRowId kgRowId) {
+    public void setKgRowId(final KgRowId kgRowId) {
         this.kgRowId = kgRowId;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        KgRowEntity kgRow = (KgRowEntity) o;
-        return Objects.equals(version, kgRow.version) && Objects.equals(kgDatum, kgRow.kgDatum) && Objects.equals(kgRowId, kgRow.kgRowId) && Objects.equals(kgName, kgRow.kgName);
+    public boolean equals(final Object o) {
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final KgRowEntity kgRow = (KgRowEntity) o;
+        return Objects.equals(this.version, kgRow.version) && Objects.equals(this.kgDatum, kgRow.kgDatum) && Objects.equals(this.kgRowId, kgRow.kgRowId) && Objects.equals(this.kgName, kgRow.kgName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, kgDatum, kgRowId, kgName);
+        return Objects.hash(this.version, this.kgDatum, this.kgRowId, this.kgName);
     }
 
 }

@@ -26,15 +26,15 @@ public class InputSourceDetection {
     private final ImportResultRepository importResultRepository;
     private List<ImportResultEntity> alreadySuccessfulImported;
 
-    public InputSourceDetection(ImporterConfigurationProperties importerConfigurationProperties, ImportResultRepository importResultRepository) {
+    public InputSourceDetection(final ImporterConfigurationProperties importerConfigurationProperties, final ImportResultRepository importResultRepository) {
         this.importerConfigurationProperties = importerConfigurationProperties;
         this.importResultRepository = importResultRepository;
     }
 
     @PostConstruct
     public void postConstruct() {
-        alreadySuccessfulImported =
-                importResultRepository
+        this.alreadySuccessfulImported =
+                this.importResultRepository
                         .findAll()
                         .stream()
                         .filter(ImportResultEntity::isImportSuccessful)
@@ -42,43 +42,43 @@ public class InputSourceDetection {
     }
 
     public List<Path> findFiles() throws IOException {
-        var folders = inputSourceFolders();
-        var result = new ArrayList<Path>();
-        for (var folder : folders) {
-            List<Path> files = searchFilesIn(folder);
+        final var folders = this.inputSourceFolders();
+        final var result = new ArrayList<Path>();
+        for (final var folder : folders) {
+            final List<Path> files = this.searchFilesIn(folder);
             result.addAll(files);
         }
         return result;
     }
 
     private List<Path> inputSourceFolders() {
-        var folders2Scan = new ArrayList<Path>();
-        final var stringTokenizer = new StringTokenizer(importerConfigurationProperties.getInputFolders(), ";", false);
+        final var folders2Scan = new ArrayList<Path>();
+        var stringTokenizer = new StringTokenizer(this.importerConfigurationProperties.getInputFolders(), ";", false);
         while (stringTokenizer.hasMoreTokens()) {
-            String token = stringTokenizer.nextToken();
+            final String token = stringTokenizer.nextToken();
             folders2Scan.add(Paths.get(token));
         }
-        log.info("Following folders are scanned for input sources:");
-        folders2Scan.forEach(f -> log.info(f.toString()));
+        InputSourceDetection.log.info("Following folders are scanned for input sources:");
+        folders2Scan.forEach(f -> InputSourceDetection.log.info(f.toString()));
         return folders2Scan;
     }
 
-    private List<Path> searchFilesIn(Path startPath) throws IOException {
-        final var pattern = "glob:" + importerConfigurationProperties.getMainFileName();
-        final var pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
-        final var paths = new ArrayList<Path>();
+    private List<Path> searchFilesIn(final Path startPath) throws IOException {
+        var pattern = "glob:" + this.importerConfigurationProperties.getMainFileName();
+        var pathMatcher = FileSystems.getDefault().getPathMatcher(pattern);
+        var paths = new ArrayList<Path>();
         Files.walkFileTree(startPath, new SimpleFileVisitor<>() {
 
             @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+            public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) {
                 if (attrs.isRegularFile()) {
-                    Path fileName = file.getFileName();
+                    final Path fileName = file.getFileName();
                     if (pathMatcher.matches(fileName)) {
-                        if (alreadySuccessfulImported.stream().anyMatch(ir -> ir.getFileName().equals(fileName.toString()))) {
-                            log.info("{} was already processed successfully", fileName);
+                        if (InputSourceDetection.this.alreadySuccessfulImported.stream().anyMatch(ir -> ir.getFileName().equals(fileName.toString()))) {
+                            InputSourceDetection.log.info("{} was already processed successfully", fileName);
                             return FileVisitResult.CONTINUE;
                         }
-                        log.info("{} is detetected for processing", file.toFile().getAbsolutePath());
+                        InputSourceDetection.log.info("{} is detetected for processing", file.toFile().getAbsolutePath());
                         paths.add(file);
                     }
                 }
@@ -86,8 +86,8 @@ public class InputSourceDetection {
             }
 
             @Override
-            public FileVisitResult visitFileFailed(Path file, IOException exc) {
-                log.error("Visiting file failed...", exc);
+            public FileVisitResult visitFileFailed(final Path file, final IOException exc) {
+                InputSourceDetection.log.error("Visiting file failed...", exc);
                 return FileVisitResult.CONTINUE;
             }
         });

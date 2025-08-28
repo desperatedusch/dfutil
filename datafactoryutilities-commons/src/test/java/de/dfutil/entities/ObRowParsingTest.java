@@ -11,14 +11,14 @@ public class ObRowParsingTest {
 
     @Test
     public void parseObRowBytes2Object() {
-        ObRowEntity expectedObRow = new ObRowEntity();
+        final ObRowEntity expectedObRow = new ObRowEntity();
         expectedObRow.setOtlDatum("19941203");
         expectedObRow.setObRowId(new ObRowId("00004000", "008", "52070", "G"));
         expectedObRow.setOtlStverz("2");
         expectedObRow.setOtlName("Laurensberg                             ");
         expectedObRow.setOtlKgs("05334002");
         expectedObRow.setImportingFileIdentifier("OB2309244");
-        ObRowEntity parsedObRow = ObRowEntity.parseFrom(LAURENSBERG);
+        final ObRowEntity parsedObRow = ObRowEntity.parseFrom(ObRowParsingTest.LAURENSBERG);
         Assertions.assertEquals(expectedObRow, parsedObRow);
     }
 }

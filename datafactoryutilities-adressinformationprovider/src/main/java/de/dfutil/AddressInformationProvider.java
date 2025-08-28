@@ -10,8 +10,8 @@ public class AddressInformationProvider {
 
     private static final Logger log = LoggerFactory.getLogger(AddressInformationProvider.class);
 
-    public static void main(String[] args) {
-        log.debug("AddressInformationProviderApplication started...");
+    public static void main(final String[] args) {
+        AddressInformationProvider.log.debug("AddressInformationProviderApplication started...");
         SpringApplication.run(AddressInformationProvider.class, args);
     }
 }

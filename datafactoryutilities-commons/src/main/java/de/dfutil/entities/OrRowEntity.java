@@ -48,17 +48,8 @@ public class OrRowEntity extends AbstractRowEntity<OrRowEntity> implements Archi
     @JoinColumn(name = "succession_state_id")
     private SuccessionState successionState;
 
-    public SuccessionState getSuccessionState() {
-        return successionState;
-    }
-
-    public void setSuccessionState(SuccessionState successionState) {
-        this.successionState = successionState;
-    }
-
-
-    public static OrRowEntity parseFrom(String rowBytes) {
-        OrRowEntity row = new OrRowEntity();
+    public static OrRowEntity parseFrom(final String rowBytes) {
+        final OrRowEntity row = new OrRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.ortDatum = rowBytes.substring(9, 17);
         row.ortOname = rowBytes.substring(26, 66);
@@ -72,120 +63,128 @@ public class OrRowEntity extends AbstractRowEntity<OrRowEntity> implements Archi
         return row;
     }
 
-    public Date getVersion() {
-        return version;
+    public SuccessionState getSuccessionState() {
+        return this.successionState;
     }
 
-    public void setVersion(Date version) {
+    public void setSuccessionState(final SuccessionState successionState) {
+        this.successionState = successionState;
+    }
+
+    public Date getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(final Date version) {
         this.version = version;
     }
 
     public RowType getRowType() {
-        return rowType;
+        return OrRowEntity.rowType;
     }
 
     public String getOrtAlortNeu() {
-        return ortAlortNeu;
+        return this.ortAlortNeu;
     }
 
-    public void setOrtAlortNeu(String ortANeu) {
-        this.ortAlortNeu = ortANeu;
+    public void setOrtAlortNeu(final String ortANeu) {
+        ortAlortNeu = ortANeu;
     }
 
     public String getOrtKgs() {
-        return ortKgs;
+        return this.ortKgs;
     }
 
-    public void setOrtKgs(String ortKgs) {
+    public void setOrtKgs(final String ortKgs) {
         this.ortKgs = ortKgs;
     }
 
     public String getOrtOname24() {
-        return ortOname24;
+        return this.ortOname24;
     }
 
-    public void setOrtOname24(String ortOname24) {
+    public void setOrtOname24(final String ortOname24) {
         this.ortOname24 = ortOname24;
     }
 
     public String getOrtArtOzusatz() {
-        return ortArtOzusatz;
+        return this.ortArtOzusatz;
     }
 
-    public void setOrtArtOzusatz(String ortArtOzusatz) {
+    public void setOrtArtOzusatz(final String ortArtOzusatz) {
         this.ortArtOzusatz = ortArtOzusatz;
     }
 
     public String getOrtOzusatz() {
-        return ortOzusatz;
+        return this.ortOzusatz;
     }
 
-    public void setOrtOzusatz(String ortOzusatz) {
+    public void setOrtOzusatz(final String ortOzusatz) {
         this.ortOzusatz = ortOzusatz;
     }
 
     public String getOrtOnamePost() {
-        return ortOnamePost;
+        return this.ortOnamePost;
     }
 
-    public void setOrtOnamePost(String ortOnamePost) {
+    public void setOrtOnamePost(final String ortOnamePost) {
         this.ortOnamePost = ortOnamePost;
     }
 
     public String getOrtOname() {
-        return ortOname;
+        return this.ortOname;
     }
 
-    public void setOrtOname(String ortOname) {
+    public void setOrtOname(final String ortOname) {
         this.ortOname = ortOname;
     }
 
     public String getOrtDatum() {
-        return ortDatum;
+        return this.ortDatum;
     }
 
-    public void setOrtDatum(String ortDatum) {
+    public void setOrtDatum(final String ortDatum) {
         this.ortDatum = ortDatum;
     }
 
     public OrRowId orRowId() {
-        return orRowId;
+        return this.orRowId;
     }
 
     public OrRowId getOrRowId() {
-        return orRowId;
+        return this.orRowId;
     }
 
-    public void setOrRowId(OrRowId orRowId) {
+    public void setOrRowId(final OrRowId orRowId) {
         this.orRowId = orRowId;
     }
 
     public LocalDateTime getOutdatedAt() {
-        return outdatedAt;
+        return this.outdatedAt;
     }
 
-    public void setOutdatedAt(LocalDateTime outdatedSince) {
-        this.outdatedAt = outdatedSince;
+    public void setOutdatedAt(final LocalDateTime outdatedSince) {
+        outdatedAt = outdatedSince;
     }
 
     public LocalDateTime alreadyAppliedAt() {
-        return alreadyAppliedAt;
+        return this.alreadyAppliedAt;
     }
 
-    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
+    public void setAlreadyAppliedAt(final LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        OrRowEntity orRow = (OrRowEntity) o;
-        return Objects.equals(version, orRow.version) && Objects.equals(ortDatum, orRow.ortDatum) && Objects.equals(orRowId, orRow.orRowId) && Objects.equals(ortOname, orRow.ortOname) && Objects.equals(ortOnamePost, orRow.ortOnamePost) && Objects.equals(ortOzusatz, orRow.ortOzusatz) && Objects.equals(ortArtOzusatz, orRow.ortArtOzusatz) && Objects.equals(ortOname24, orRow.ortOname24) && Objects.equals(ortKgs, orRow.ortKgs) && Objects.equals(ortAlortNeu, orRow.ortAlortNeu) && Objects.equals(outdatedAt, orRow.outdatedAt) && Objects.equals(alreadyAppliedAt, orRow.alreadyAppliedAt);
+    public boolean equals(final Object o) {
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final OrRowEntity orRow = (OrRowEntity) o;
+        return Objects.equals(this.version, orRow.version) && Objects.equals(this.ortDatum, orRow.ortDatum) && Objects.equals(this.orRowId, orRow.orRowId) && Objects.equals(this.ortOname, orRow.ortOname) && Objects.equals(this.ortOnamePost, orRow.ortOnamePost) && Objects.equals(this.ortOzusatz, orRow.ortOzusatz) && Objects.equals(this.ortArtOzusatz, orRow.ortArtOzusatz) && Objects.equals(this.ortOname24, orRow.ortOname24) && Objects.equals(this.ortKgs, orRow.ortKgs) && Objects.equals(this.ortAlortNeu, orRow.ortAlortNeu) && Objects.equals(this.outdatedAt, orRow.outdatedAt) && Objects.equals(this.alreadyAppliedAt, orRow.alreadyAppliedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, ortDatum, orRowId, ortOname, ortOnamePost, ortOzusatz, ortArtOzusatz, ortOname24, ortKgs, ortAlortNeu, outdatedAt, alreadyAppliedAt);
+        return Objects.hash(this.version, this.ortDatum, this.orRowId, this.ortOname, this.ortOnamePost, this.ortOzusatz, this.ortArtOzusatz, this.ortOname24, this.ortKgs, this.ortAlortNeu, this.outdatedAt, this.alreadyAppliedAt);
     }
 
 }

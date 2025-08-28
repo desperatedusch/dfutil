@@ -14,39 +14,39 @@ public class KgRowId implements Serializable {
     public KgRowId() {
     }
 
-    public KgRowId(String kgSchluessel, String kgSatzart) {
+    public KgRowId(final String kgSchluessel, final String kgSatzart) {
         this.kgSchluessel = kgSchluessel;
         this.kgSatzart = kgSatzart;
     }
 
     public String getKgSchluessel() {
-        return kgSchluessel;
+        return this.kgSchluessel;
     }
 
-    public void setKgSchluessel(String kgSchluessel) {
+    public void setKgSchluessel(final String kgSchluessel) {
         this.kgSchluessel = kgSchluessel;
     }
 
     public String getKgSatzart() {
-        return kgSatzart;
+        return this.kgSatzart;
     }
 
-    public void setKgSatzart(String kgSatzart) {
+    public void setKgSatzart(final String kgSatzart) {
         this.kgSatzart = kgSatzart;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        KgRowId kgRowId = (KgRowId) o;
-        return Objects.equals(kgSchluessel, kgRowId.kgSchluessel)
-                && Objects.equals(kgSatzart, kgRowId.kgSatzart);
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final KgRowId kgRowId = (KgRowId) o;
+        return Objects.equals(this.kgSchluessel, kgRowId.kgSchluessel)
+                && Objects.equals(this.kgSatzart, kgRowId.kgSatzart);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(kgSchluessel, kgSatzart);
+        return Objects.hash(this.kgSchluessel, this.kgSatzart);
     }
 
 }

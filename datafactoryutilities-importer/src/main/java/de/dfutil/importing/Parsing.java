@@ -90,7 +90,7 @@ public class Parsing {
         }
     }
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRED)
     public void fromFile(final Path path) {
         this.rowsProcessed.set(0);
         final Set<KgRowEntity> kgBatch = new HashSet<>();

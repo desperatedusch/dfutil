@@ -9,17 +9,17 @@ public enum ArchivingState {
     private final String description;
     private final String symbol;
 
-    ArchivingState(final String s, final String symbol) {
-        description = s;
+    ArchivingState(String s, String symbol) {
+        this.description = s;
         this.symbol = symbol;
     }
 
     public String description() {
-        return this.description;
+        return description;
     }
 
     public String symbol() {
-        return this.symbol;
+        return symbol;
     }
 
 

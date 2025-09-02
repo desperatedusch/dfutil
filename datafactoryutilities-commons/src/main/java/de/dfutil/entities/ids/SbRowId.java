@@ -19,7 +19,7 @@ public class SbRowId implements Serializable {
     public SbRowId() {
     }
 
-    public SbRowId(final String strAlort, final String strNamenSchl, final String strBundLfdnr, final String strHnrvon, final String strHnrbis, final String strStatus, final String strHnr1000) {
+    public SbRowId(String strAlort, String strNamenSchl, String strBundLfdnr, String strHnrvon, String strHnrbis, String strStatus, String strHnr1000) {
         this.strAlort = strAlort;
         this.strNamenSchl = strNamenSchl;
         this.strBundLfdnr = strBundLfdnr;
@@ -30,82 +30,82 @@ public class SbRowId implements Serializable {
     }
 
     public String getStrAlOrt() {
-        return this.strAlort;
+        return strAlort;
     }
 
     public String getStrNamenSchl() {
-        return this.strNamenSchl;
+        return strNamenSchl;
     }
 
-    public void setStrNamenSchl(final String strNamenSchl) {
+    public void setStrNamenSchl(String strNamenSchl) {
         this.strNamenSchl = strNamenSchl;
     }
 
     public String getStrBundLfdnr() {
-        return this.strBundLfdnr;
+        return strBundLfdnr;
     }
 
-    public void setStrBundLfdnr(final String strBundLfdnr) {
+    public void setStrBundLfdnr(String strBundLfdnr) {
         this.strBundLfdnr = strBundLfdnr;
     }
 
     public String getStrHnrVon() {
-        return this.strHnrvon;
+        return strHnrvon;
     }
 
     public String getStrHnrBis() {
-        return this.strHnrbis;
+        return strHnrbis;
     }
 
     public String getStrStatus() {
-        return this.strStatus;
+        return strStatus;
     }
 
-    public void setStrStatus(final String strStatus) {
+    public void setStrStatus(String strStatus) {
         this.strStatus = strStatus;
     }
 
     public String getStrHnr1000() {
-        return this.strHnr1000;
+        return strHnr1000;
     }
 
-    public void setStrHnr1000(final String strHnr1000) {
+    public void setStrHnr1000(String strHnr1000) {
         this.strHnr1000 = strHnr1000;
     }
 
     public String getStrAlort() {
-        return this.strAlort;
+        return strAlort;
     }
 
-    public void setStrAlort(final String strAlOrt) {
-        strAlort = strAlOrt;
+    public void setStrAlort(String strAlOrt) {
+        this.strAlort = strAlOrt;
     }
 
     public String getStrHnrvon() {
-        return this.strHnrvon;
+        return strHnrvon;
     }
 
-    public void setStrHnrvon(final String strHnrVon) {
-        strHnrvon = strHnrVon;
+    public void setStrHnrvon(String strHnrVon) {
+        this.strHnrvon = strHnrVon;
     }
 
     public String getStrHnrbis() {
-        return this.strHnrbis;
+        return strHnrbis;
     }
 
-    public void setStrHnrbis(final String strHnrBis) {
-        strHnrbis = strHnrBis;
+    public void setStrHnrbis(String strHnrBis) {
+        this.strHnrbis = strHnrBis;
     }
 
     @Override
-    public boolean equals(final Object o) {
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final SbRowId sbRowId = (SbRowId) o;
-        return Objects.equals(this.strAlort, sbRowId.strAlort) && Objects.equals(this.strNamenSchl, sbRowId.strNamenSchl) && Objects.equals(this.strBundLfdnr, sbRowId.strBundLfdnr) && Objects.equals(this.strHnrvon, sbRowId.strHnrvon) && Objects.equals(this.strHnrbis, sbRowId.strHnrbis) && Objects.equals(this.strStatus, sbRowId.strStatus) && Objects.equals(this.strHnr1000, sbRowId.strHnr1000);
+    public boolean equals(Object o) {
+        if (null == o || getClass() != o.getClass()) return false;
+        SbRowId sbRowId = (SbRowId) o;
+        return Objects.equals(strAlort, sbRowId.strAlort) && Objects.equals(strNamenSchl, sbRowId.strNamenSchl) && Objects.equals(strBundLfdnr, sbRowId.strBundLfdnr) && Objects.equals(strHnrvon, sbRowId.strHnrvon) && Objects.equals(strHnrbis, sbRowId.strHnrbis) && Objects.equals(strStatus, sbRowId.strStatus) && Objects.equals(strHnr1000, sbRowId.strHnr1000);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.strAlort, this.strNamenSchl, this.strBundLfdnr, this.strHnrvon, this.strHnrbis, this.strStatus, this.strHnr1000);
+        return Objects.hash(strAlort, strNamenSchl, strBundLfdnr, strHnrvon, strHnrbis, strStatus, strHnr1000);
     }
 }

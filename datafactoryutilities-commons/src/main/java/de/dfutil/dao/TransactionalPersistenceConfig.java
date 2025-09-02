@@ -12,7 +12,7 @@ public class TransactionalPersistenceConfig {
 
     @Bean
     public JpaTransactionManager transactionManager(
-            final EntityManagerFactory entityManagerFactory) {
+            EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
 

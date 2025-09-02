@@ -10,7 +10,9 @@ public interface SuccessionsApplicableRepository {
     void changeStatus(UUID uuid, String status);
 
     void apply(UUID uuid, LocalDateTime date);
+
     void resetAppliedState();
+
     void resetOutdatedState();
 
 }

@@ -23,7 +23,7 @@ public class Splittings implements Successions {
     private final SbRowRepository sbRowRepository;
 
 
-    public Splittings(final OrRowRepository orRowRepository, final ObRowRepository obRowRepository, final SbRowRepository sbRowRepository) {
+    public Splittings(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -31,23 +31,23 @@ public class Splittings implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
-        final List<SbRowEntity> multipleSuccessors =
-                this.sbRowRepository.findMultipleSuccessorCandidates();
-        Splittings.log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+        List<SbRowEntity> multipleSuccessors =
+                sbRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
-        final List<ObRowEntity> multipleSuccessors =
-                this.obRowRepository.findMultipleSuccessorCandidates();
-        Splittings.log.debug("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
+        List<ObRowEntity> multipleSuccessors =
+                obRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        final List<OrRowEntity> multipleSuccessors =
-                this.orRowRepository.findMultipleSuccessorCandidates();
-        Splittings.log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+        List<OrRowEntity> multipleSuccessors =
+                orRowRepository.findMultipleSuccessorCandidates();
+        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
 }

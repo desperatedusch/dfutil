@@ -29,7 +29,7 @@ public class Orphanes implements Successions {
     private final SbRowRepository sbRowRepository;
 
 
-    public Orphanes(final OrRowRepository orRowRepository, final ObRowRepository obRowRepository, final SbRowRepository sbRowRepository) {
+    public Orphanes(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -37,34 +37,34 @@ public class Orphanes implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void handleOrObjects() {
-        final List<OrRowEntity> processableOrphanedOrObjects =
-                this.orRowRepository.findProcessableOrphans();
-        Orphanes.log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
+        List<OrRowEntity> processableOrphanedOrObjects =
+                orRowRepository.findProcessableOrphans();
+        log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            final Optional<OrRowEntity> formerExistingOrOptional = this.orRowRepository.findById(
+            Optional<OrRowEntity> formerExistingOrOptional = orRowRepository.findById(
                     new OrRowId(
                             processableOr.getOrRowId().getOrtAlort(),
                             "G"
                     )
             );
             if (formerExistingOrOptional.isPresent()) {
-                final OrRowEntity formerExistingOr = formerExistingOrOptional.get();
-                this.orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
-                this.orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
+                OrRowEntity formerExistingOr = formerExistingOrOptional.get();
+                orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
+                orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void handleObObjects() {
-        final List<ObRowEntity> processableOrphanedObObjects =
-                this.obRowRepository.findProcessableOrphans();
-        Orphanes.log.debug("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
+        List<ObRowEntity> processableOrphanedObObjects =
+                obRowRepository.findProcessableOrphans();
+        log.debug("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
         processableOrphanedObObjects.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
-            final Optional<ObRowEntity> formerExistingObOptional =
-                    this.obRowRepository.findById(
+            Optional<ObRowEntity> formerExistingObOptional =
+                    obRowRepository.findById(
                             new ObRowId(
                                     processableOb.getObRowId().getOtlAlort(),
                                     processableOb.getObRowId().getOtlSchl(),
@@ -73,22 +73,22 @@ public class Orphanes implements Successions {
                             )
                     );
             if (formerExistingObOptional.isPresent()) {
-                final ObRowEntity formerExistingOb = formerExistingObOptional.get();
-                this.obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
-                this.obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
+                ObRowEntity formerExistingOb = formerExistingObOptional.get();
+                obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
+                obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void handleSbObjects() {
-        final List<SbRowEntity> processableOrphanedSbObjects =
-                this.sbRowRepository.findProcessableOrphans();
-        Orphanes.log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
+        var processableOrphanedSbObjects =
+                sbRowRepository.findProcessableOrphans();
+        log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
         processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
-            final Optional<SbRowEntity> formerExistingSbOptional =
-                    this.sbRowRepository.findById(
+            Optional<SbRowEntity> formerExistingSbOptional =
+                    sbRowRepository.findById(
                             new SbRowId(
                                     processableSb.getSbRowId().getStrAlOrt(),
                                     processableSb.getSbRowId().getStrNamenSchl(),
@@ -100,9 +100,9 @@ public class Orphanes implements Successions {
                             )
                     );
             if (formerExistingSbOptional.isPresent()) {
-                final SbRowEntity formerExistingSb = formerExistingSbOptional.get();
-                this.sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
-                this.sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
+                SbRowEntity formerExistingSb = formerExistingSbOptional.get();
+                sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
+                sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
             }
         });
     }

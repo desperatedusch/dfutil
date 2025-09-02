@@ -16,7 +16,7 @@ public class ObRowId implements Serializable {
     public ObRowId() {
     }
 
-    public ObRowId(final String otlAlort, final String otlSchl, final String otlPlz, final String otlStatus) {
+    public ObRowId(String otlAlort, String otlSchl, String otlPlz, String otlStatus) {
         this.otlAlort = otlAlort;
         this.otlSchl = otlSchl;
         this.otlPlz = otlPlz;
@@ -24,46 +24,46 @@ public class ObRowId implements Serializable {
     }
 
     public String getOtlAlort() {
-        return this.otlAlort;
+        return otlAlort;
     }
 
-    public void setOtlAlort(final String otlAlort) {
+    public void setOtlAlort(String otlAlort) {
         this.otlAlort = otlAlort;
     }
 
     public String getOtlSchl() {
-        return this.otlSchl;
+        return otlSchl;
     }
 
-    public void setOtlSchl(final String otlSchl) {
+    public void setOtlSchl(String otlSchl) {
         this.otlSchl = otlSchl;
     }
 
     public String getOtlPlz() {
-        return this.otlPlz;
+        return otlPlz;
     }
 
-    public void setOtlPlz(final String otlPlz) {
+    public void setOtlPlz(String otlPlz) {
         this.otlPlz = otlPlz;
     }
 
     public String getOtlStatus() {
-        return this.otlStatus;
+        return otlStatus;
     }
 
-    public void setOtlStatus(final String otlStatus) {
+    public void setOtlStatus(String otlStatus) {
         this.otlStatus = otlStatus;
     }
 
     @Override
-    public boolean equals(final Object o) {
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final ObRowId obRowId = (ObRowId) o;
-        return Objects.equals(this.otlAlort, obRowId.otlAlort) && Objects.equals(this.otlSchl, obRowId.otlSchl) && Objects.equals(this.otlPlz, obRowId.otlPlz) && Objects.equals(this.otlStatus, obRowId.otlStatus);
+    public boolean equals(Object o) {
+        if (null == o || getClass() != o.getClass()) return false;
+        ObRowId obRowId = (ObRowId) o;
+        return Objects.equals(otlAlort, obRowId.otlAlort) && Objects.equals(otlSchl, obRowId.otlSchl) && Objects.equals(otlPlz, obRowId.otlPlz) && Objects.equals(otlStatus, obRowId.otlStatus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.otlAlort, this.otlSchl, this.otlPlz, this.otlStatus);
+        return Objects.hash(otlAlort, otlSchl, otlPlz, otlStatus);
     }
 }

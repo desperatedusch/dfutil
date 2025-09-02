@@ -11,7 +11,7 @@ public class PlRowParsingTest {
 
     @Test
     public void parsePlRowBytes2Object() {
-        final PlRowEntity expectedPlRow = new PlRowEntity();
+        PlRowEntity expectedPlRow = new PlRowEntity();
         expectedPlRow.setPlzDatum("20070312");
         expectedPlRow.setPlRowId(new PlRowId("20639", "21336500"));
         expectedPlRow.setPlzArtKardinalität("0");
@@ -33,7 +33,7 @@ public class PlRowParsingTest {
         expectedPlRow.setPlzFzNr("21");
         expectedPlRow.setPlzBzNr("20");
         expectedPlRow.setImportingFileIdentifier("PL2308213");
-        final PlRowEntity parsedPlRow = PlRowEntity.parseFrom(PlRowParsingTest.HAMBURGERPLZ);
+        PlRowEntity parsedPlRow = PlRowEntity.parseFrom(HAMBURGERPLZ);
         Assertions.assertEquals(expectedPlRow, parsedPlRow);
     }
 }

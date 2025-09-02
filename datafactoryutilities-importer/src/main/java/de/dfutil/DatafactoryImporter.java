@@ -14,7 +14,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 import java.nio.file.Path;
 import java.util.Comparator;
-import java.util.List;
 
 @SpringBootApplication
 @EnableConfigurationProperties(ImporterConfigurationProperties.class)
@@ -28,35 +27,35 @@ public class DatafactoryImporter implements CommandLineRunner {
     private final Parsing parsing;
     private final RelationshipUpdating relationshipUpdating;
 
-    public DatafactoryImporter(final ImporterConfigurationProperties importerConfigurationProperties, final InputSourceDetection inputSourceDetection, final Parsing parsing, final RelationshipUpdating relationshipUpdating) {
+    public DatafactoryImporter(ImporterConfigurationProperties importerConfigurationProperties, InputSourceDetection inputSourceDetection, Parsing parsing, RelationshipUpdating relationshipUpdating) {
         this.importerConfigurationProperties = importerConfigurationProperties;
         this.inputSourceDetection = inputSourceDetection;
         this.parsing = parsing;
         this.relationshipUpdating = relationshipUpdating;
     }
 
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         new SpringApplicationBuilder(DatafactoryImporter.class).web(WebApplicationType.NONE).run(args);
     }
 
     @Override
-    public void run(final String... args) throws Exception {
-        if (this.importerConfigurationProperties.isParsingActivated()) {
-            DatafactoryImporter.log.info("Searching for input sources...");
-            final List<Path> files = this.inputSourceDetection.findFiles();
+    public void run(String... args) throws Exception {
+        if (importerConfigurationProperties.isParsingActivated()) {
+            log.info("Searching for input sources...");
+            var files = inputSourceDetection.findFiles();
             files.sort(Comparator.comparing(Path::getFileName));
-            files.forEach(this.parsing::fromFile);
-            DatafactoryImporter.log.info("Parsing of all input sources done...");
+            files.forEach(parsing::fromFile);
+            log.info("Parsing of all input sources done...");
         }
-        if (this.importerConfigurationProperties
+        if (importerConfigurationProperties
                 .isSuccessionHandlingActivated()) {
-            this.relationshipUpdating.process();
+            relationshipUpdating.process();
         }
-        if (this.importerConfigurationProperties
-                .isResetSuccessionHandlingApplicationStateActivated()) {
-            this.relationshipUpdating.resetSuccessionsApplicationState();
+        if (importerConfigurationProperties
+                .isResetSuccessionHandlingApplicationState()) {
+            relationshipUpdating.resetSuccessionsApplicationState();
         }
-        DatafactoryImporter.log.info("Importing process finished...");
+        log.info("Importing process finished...");
     }
 
 }

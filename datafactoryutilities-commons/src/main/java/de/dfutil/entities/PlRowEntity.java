@@ -52,8 +52,8 @@ public class PlRowEntity extends AbstractRowEntity<PlRowEntity> implements Seria
     private String plzFzNr;
     private String plzBzNr;
 
-    public static PlRowEntity parseFrom(final String rowBytes) {
-        final PlRowEntity row = new PlRowEntity();
+    public static PlRowEntity parseFrom(String rowBytes) {
+        PlRowEntity row = new PlRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.plzDatum = rowBytes.substring(9, 17);
         row.plzArtKardinalität = rowBytes.substring(30, 31);
@@ -79,187 +79,187 @@ public class PlRowEntity extends AbstractRowEntity<PlRowEntity> implements Seria
     }
 
     public Date getVersion() {
-        return this.version;
+        return version;
     }
 
-    public void setVersion(final Date version) {
+    public void setVersion(Date version) {
         this.version = version;
     }
 
     public RowType getRowType() {
-        return PlRowEntity.rowType;
+        return rowType;
     }
 
     public String getPlzDatum() {
-        return this.plzDatum;
+        return plzDatum;
     }
 
-    public void setPlzDatum(final String plzDatum) {
+    public void setPlzDatum(String plzDatum) {
         this.plzDatum = plzDatum;
     }
 
     public String getPlzArtKardinalität() {
-        return this.plzArtKardinalität;
+        return plzArtKardinalität;
     }
 
-    public void setPlzArtKardinalität(final String plzArtKardinalität) {
+    public void setPlzArtKardinalität(String plzArtKardinalität) {
         this.plzArtKardinalität = plzArtKardinalität;
     }
 
     public String getPlzArtAuslierferung() {
-        return this.plzArtAuslierferung;
+        return plzArtAuslierferung;
     }
 
-    public void setPlzArtAuslierferung(final String plzArtAuslierferung) {
+    public void setPlzArtAuslierferung(String plzArtAuslierferung) {
         this.plzArtAuslierferung = plzArtAuslierferung;
     }
 
     public String getPlzStverz() {
-        return this.plzStverz;
+        return plzStverz;
     }
 
-    public void setPlzStverz(final String plzStVerz) {
-        plzStverz = plzStVerz;
+    public void setPlzStverz(String plzStVerz) {
+        this.plzStverz = plzStVerz;
     }
 
     public String getPlzPfverz() {
-        return this.plzPfverz;
+        return plzPfverz;
     }
 
-    public void setPlzPfverz(final String plzPfVerz) {
-        plzPfverz = plzPfVerz;
+    public void setPlzPfverz(String plzPfVerz) {
+        this.plzPfverz = plzPfVerz;
     }
 
     public String getPlzOname() {
-        return this.plzOname;
+        return plzOname;
     }
 
-    public void setPlzOname(final String plzOName) {
-        plzOname = plzOName;
+    public void setPlzOname(String plzOName) {
+        this.plzOname = plzOName;
     }
 
     public String getPlzOzusatz() {
-        return this.plzOzusatz;
+        return plzOzusatz;
     }
 
-    public void setPlzOzusatz(final String plzOzusatz) {
+    public void setPlzOzusatz(String plzOzusatz) {
         this.plzOzusatz = plzOzusatz;
     }
 
     public String getPlzArtOzusatz() {
-        return this.plzArtOzusatz;
+        return plzArtOzusatz;
     }
 
-    public void setPlzArtOzusatz(final String plzArtOzusatz) {
+    public void setPlzArtOzusatz(String plzArtOzusatz) {
         this.plzArtOzusatz = plzArtOzusatz;
     }
 
     public String getPlzOname24() {
-        return this.plzOname24;
+        return plzOname24;
     }
 
-    public void setPlzOname24(final String plzOname24) {
+    public void setPlzOname24(String plzOname24) {
         this.plzOname24 = plzOname24;
     }
 
     public String getPlzPostlag() {
-        return this.plzPostlag;
+        return plzPostlag;
     }
 
-    public void setPlzPostlag(final String plzPostlag) {
+    public void setPlzPostlag(String plzPostlag) {
         this.plzPostlag = plzPostlag;
     }
 
     public String getPlzLaBrief() {
-        return this.plzLaBrief;
+        return plzLaBrief;
     }
 
-    public void setPlzLaBrief(final String plzLaBrief) {
+    public void setPlzLaBrief(String plzLaBrief) {
         this.plzLaBrief = plzLaBrief;
     }
 
     public String getPlzLaAlort() {
-        return this.plzLaAlort;
+        return plzLaAlort;
     }
 
-    public void setPlzLaAlort(final String plzLaAlort) {
+    public void setPlzLaAlort(String plzLaAlort) {
         this.plzLaAlort = plzLaAlort;
     }
 
     public String getPlzKgs() {
-        return this.plzKgs;
+        return plzKgs;
     }
 
-    public void setPlzKgs(final String plzKgs) {
+    public void setPlzKgs(String plzKgs) {
         this.plzKgs = plzKgs;
     }
 
     public String getPlzOrtCode() {
-        return this.plzOrtCode;
+        return plzOrtCode;
     }
 
-    public void setPlzOrtCode(final String plzOrtCode) {
+    public void setPlzOrtCode(String plzOrtCode) {
         this.plzOrtCode = plzOrtCode;
     }
 
     public String getPlzLeitcodeMax() {
-        return this.plzLeitcodeMax;
+        return plzLeitcodeMax;
     }
 
-    public void setPlzLeitcodeMax(final String plzLeitcodeMax) {
+    public void setPlzLeitcodeMax(String plzLeitcodeMax) {
         this.plzLeitcodeMax = plzLeitcodeMax;
     }
 
     public String getPlzRabattInfoSchwer() {
-        return this.plzRabattInfoSchwer;
+        return plzRabattInfoSchwer;
     }
 
-    public void setPlzRabattInfoSchwer(final String plzRabattInfoSchwer) {
+    public void setPlzRabattInfoSchwer(String plzRabattInfoSchwer) {
         this.plzRabattInfoSchwer = plzRabattInfoSchwer;
     }
 
     public String getPlzReserve() {
-        return this.plzReserve;
+        return plzReserve;
     }
 
-    public void setPlzReserve(final String plzReserve) {
+    public void setPlzReserve(String plzReserve) {
         this.plzReserve = plzReserve;
     }
 
     public String getPlzFzNr() {
-        return this.plzFzNr;
+        return plzFzNr;
     }
 
-    public void setPlzFzNr(final String plzFzNr) {
+    public void setPlzFzNr(String plzFzNr) {
         this.plzFzNr = plzFzNr;
     }
 
     public String getPlzBzNr() {
-        return this.plzBzNr;
+        return plzBzNr;
     }
 
-    public void setPlzBzNr(final String plzBzNr) {
+    public void setPlzBzNr(String plzBzNr) {
         this.plzBzNr = plzBzNr;
     }
 
     public PlRowId getPlRowId() {
-        return this.plRowId;
+        return plRowId;
     }
 
-    public void setPlRowId(final PlRowId plRowId) {
+    public void setPlRowId(PlRowId plRowId) {
         this.plRowId = plRowId;
     }
 
     @Override
-    public boolean equals(final Object o) {
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final PlRowEntity plRow = (PlRowEntity) o;
-        return Objects.equals(this.version, plRow.version) && Objects.equals(this.plzDatum, plRow.plzDatum) && Objects.equals(this.plRowId, plRow.plRowId) && Objects.equals(this.plzArtKardinalität, plRow.plzArtKardinalität) && Objects.equals(this.plzArtAuslierferung, plRow.plzArtAuslierferung) && Objects.equals(this.plzStverz, plRow.plzStverz) && Objects.equals(this.plzPfverz, plRow.plzPfverz) && Objects.equals(this.plzOname, plRow.plzOname) && Objects.equals(this.plzOzusatz, plRow.plzOzusatz) && Objects.equals(this.plzArtOzusatz, plRow.plzArtOzusatz) && Objects.equals(this.plzOname24, plRow.plzOname24) && Objects.equals(this.plzPostlag, plRow.plzPostlag) && Objects.equals(this.plzLaBrief, plRow.plzLaBrief) && Objects.equals(this.plzLaAlort, plRow.plzLaAlort) && Objects.equals(this.plzKgs, plRow.plzKgs) && Objects.equals(this.plzOrtCode, plRow.plzOrtCode) && Objects.equals(this.plzLeitcodeMax, plRow.plzLeitcodeMax) && Objects.equals(this.plzRabattInfoSchwer, plRow.plzRabattInfoSchwer) && Objects.equals(this.plzReserve, plRow.plzReserve) && Objects.equals(this.plzFzNr, plRow.plzFzNr) && Objects.equals(this.plzBzNr, plRow.plzBzNr);
+    public boolean equals(Object o) {
+        if (null == o || getClass() != o.getClass()) return false;
+        PlRowEntity plRow = (PlRowEntity) o;
+        return Objects.equals(version, plRow.version) && Objects.equals(plzDatum, plRow.plzDatum) && Objects.equals(plRowId, plRow.plRowId) && Objects.equals(plzArtKardinalität, plRow.plzArtKardinalität) && Objects.equals(plzArtAuslierferung, plRow.plzArtAuslierferung) && Objects.equals(plzStverz, plRow.plzStverz) && Objects.equals(plzPfverz, plRow.plzPfverz) && Objects.equals(plzOname, plRow.plzOname) && Objects.equals(plzOzusatz, plRow.plzOzusatz) && Objects.equals(plzArtOzusatz, plRow.plzArtOzusatz) && Objects.equals(plzOname24, plRow.plzOname24) && Objects.equals(plzPostlag, plRow.plzPostlag) && Objects.equals(plzLaBrief, plRow.plzLaBrief) && Objects.equals(plzLaAlort, plRow.plzLaAlort) && Objects.equals(plzKgs, plRow.plzKgs) && Objects.equals(plzOrtCode, plRow.plzOrtCode) && Objects.equals(plzLeitcodeMax, plRow.plzLeitcodeMax) && Objects.equals(plzRabattInfoSchwer, plRow.plzRabattInfoSchwer) && Objects.equals(plzReserve, plRow.plzReserve) && Objects.equals(plzFzNr, plRow.plzFzNr) && Objects.equals(plzBzNr, plRow.plzBzNr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.version, this.plzDatum, this.plRowId, this.plzArtKardinalität, this.plzArtAuslierferung, this.plzStverz, this.plzPfverz, this.plzOname, this.plzOzusatz, this.plzArtOzusatz, this.plzOname24, this.plzPostlag, this.plzLaBrief, this.plzLaAlort, this.plzKgs, this.plzOrtCode, this.plzLeitcodeMax, this.plzRabattInfoSchwer, this.plzReserve, this.plzFzNr, this.plzBzNr);
+        return Objects.hash(version, plzDatum, plRowId, plzArtKardinalität, plzArtAuslierferung, plzStverz, plzPfverz, plzOname, plzOzusatz, plzArtOzusatz, plzOname24, plzPostlag, plzLaBrief, plzLaAlort, plzKgs, plzOrtCode, plzLeitcodeMax, plzRabattInfoSchwer, plzReserve, plzFzNr, plzBzNr);
     }
 
 }

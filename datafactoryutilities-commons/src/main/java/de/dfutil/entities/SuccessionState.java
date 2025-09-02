@@ -31,72 +31,72 @@ public class SuccessionState {
     public SuccessionState() {
     }
 
-    public SuccessionState(final UUID uuid) {
+    public SuccessionState(UUID uuid) {
         this.uuid = uuid;
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
-    public void setId(final Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public UUID getUuid() {
-        return this.uuid;
+        return uuid;
     }
 
-    public void setUuid(final UUID uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 
     public Set<SuccessionState> getPredecessors() {
-        return this.predecessors;
+        return predecessors;
     }
 
-    public void setPredecessors(final Set<SuccessionState> predecessors) {
+    public void setPredecessors(Set<SuccessionState> predecessors) {
         this.predecessors = predecessors;
     }
 
     public Set<SuccessionState> getSuccessors() {
-        return this.successors;
+        return successors;
     }
 
-    public void setSuccessors(final Set<SuccessionState> successors) {
+    public void setSuccessors(Set<SuccessionState> successors) {
         this.successors = successors;
     }
 
-    public void addPredecessor(final SuccessionState predecessor) {
-        this.predecessors.add(predecessor);
+    public void addPredecessor(SuccessionState predecessor) {
+        predecessors.add(predecessor);
         predecessor.successors.add(this);
     }
 
-    public void removePredecessor(final SuccessionState predecessor) {
-        this.predecessors.remove(predecessor);
+    public void removePredecessor(SuccessionState predecessor) {
+        predecessors.remove(predecessor);
         predecessor.successors.remove(this);
     }
 
-    public void addSuccessor(final SuccessionState successor) {
-        this.successors.add(successor);
+    public void addSuccessor(SuccessionState successor) {
+        successors.add(successor);
         successor.predecessors.add(this);
     }
 
-    public void removeSuccessor(final SuccessionState successor) {
-        this.successors.remove(successor);
+    public void removeSuccessor(SuccessionState successor) {
+        successors.remove(successor);
         successor.predecessors.remove(this);
     }
 
     @Override
-    public boolean equals(final Object o) {
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final SuccessionState that = (SuccessionState) o;
-        return Objects.equals(this.id, that.id) && Objects.equals(this.uuid, that.uuid);
+    public boolean equals(Object o) {
+        if (null == o || getClass() != o.getClass()) return false;
+        SuccessionState that = (SuccessionState) o;
+        return Objects.equals(id, that.id) && Objects.equals(uuid, that.uuid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.uuid);
+        return Objects.hash(id, uuid);
     }
 
 }

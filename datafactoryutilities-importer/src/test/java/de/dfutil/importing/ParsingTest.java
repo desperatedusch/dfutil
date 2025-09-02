@@ -21,8 +21,8 @@ public class ParsingTest {
 
     @Test
     public void parseInputFile() throws IOException {
-        this.cut.fromFile(
-                this.resourceLoader.getResource(
+        cut.fromFile(
+                resourceLoader.getResource(
                         "D:/Stuff/Datafactory/2024/B2401001.DAT").getFile().toPath());
     }
 

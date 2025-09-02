@@ -20,21 +20,21 @@ public class DatafactoryDownloader implements CommandLineRunner {
     private final DatafactoryResources datafactoryFiles;
     private final Archives archives;
 
-    public DatafactoryDownloader(final DatafactoryResources datafactoryFiles, final Archives archives) {
+    public DatafactoryDownloader(DatafactoryResources datafactoryFiles, Archives archives) {
         this.datafactoryFiles = datafactoryFiles;
         this.archives = archives;
     }
 
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         new SpringApplicationBuilder(DatafactoryDownloader.class)
                 .web(WebApplicationType.NONE)
                 .run(args);
     }
 
     @Override
-    public void run(final String... args) throws Exception {
-        this.datafactoryFiles.fetch();
-        this.archives.unzip();
+    public void run(String... args) throws Exception {
+        datafactoryFiles.fetch();
+        archives.unzip();
     }
 
 }

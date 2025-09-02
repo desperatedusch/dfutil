@@ -22,40 +22,40 @@ public abstract class AbstractRowEntity<T extends SerializablePostalObject> {
     protected Date modifiedAt;
 
     public UUID getUuid() {
-        return this.uuid;
+        return uuid;
     }
 
-    public void setUuid(final UUID uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 
     public String getImportingFileIdentifier() {
-        return this.importingFileIdentifier;
+        return importingFileIdentifier;
     }
 
-    public void setImportingFileIdentifier(final String importingFileIdentifier) {
+    public void setImportingFileIdentifier(String importingFileIdentifier) {
         this.importingFileIdentifier = importingFileIdentifier;
     }
 
     public Date getCreatedAt() {
-        return this.createdAt;
+        return createdAt;
     }
 
-    public void setCreatedAt(final Date createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
     public Date getModifiedAt() {
-        return this.modifiedAt;
+        return modifiedAt;
     }
 
-    public void setModifiedAt(final Date modifiedAt) {
+    public void setModifiedAt(Date modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
 
     @PrePersist
     protected void onCreate() {
-        this.uuid = UUID.randomUUID();
+        uuid = UUID.randomUUID();
     }
 
 }

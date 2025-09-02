@@ -20,7 +20,7 @@ public class OrRowRepositoryTest {
 
     @Test
     public void findValidById() {
-        Assertions.assertTrue(this.cut.findById(
+        Assertions.assertTrue(cut.findById(
                 new OrRowId(
                         "ORTSTEILNAME", "G"
                 )

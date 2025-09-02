@@ -17,66 +17,66 @@ public class DatafactoryDownloaderConfigurationProperties {
     private String targetDestination;
 
     public String getArchivedTargetDestination() {
-        return this.archivedTargetDestination;
+        return archivedTargetDestination;
     }
 
-    public void setArchivedTargetDestination(final String archivedTargetDestination) {
+    public void setArchivedTargetDestination(String archivedTargetDestination) {
         this.archivedTargetDestination = archivedTargetDestination;
     }
 
     public String getTargetDestination() {
-        return this.targetDestination;
+        return targetDestination;
     }
 
-    public void setTargetDestination(final String targetDestination) {
+    public void setTargetDestination(String targetDestination) {
         this.targetDestination = targetDestination;
     }
 
     public String getTargetFolder() {
-        return this.targetFolder;
+        return targetFolder;
     }
 
-    public void setTargetFolder(final String targetFolder) {
+    public void setTargetFolder(String targetFolder) {
         this.targetFolder = targetFolder;
     }
 
     public String getResourceUrl() {
-        return this.resourceUrl;
+        return resourceUrl;
     }
 
-    public void setResourceUrl(@NonNull final String resourceUrl) {
+    public void setResourceUrl(@NonNull String resourceUrl) {
         this.resourceUrl = resourceUrl;
     }
 
     public String getTargetDestinationArchived() {
-        return this.targetDestinationArchived;
+        return targetDestinationArchived;
     }
 
-    public void setTargetDestinationArchived(@NonNull final String targetDestinationArchived) {
+    public void setTargetDestinationArchived(@NonNull String targetDestinationArchived) {
         this.targetDestinationArchived = targetDestinationArchived;
     }
 
     public String getUser() {
-        return this.user;
+        return user;
     }
 
-    public void setUser(@NonNull final String user) {
+    public void setUser(@NonNull String user) {
         this.user = user;
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
-    public void setPassword(@NonNull final String password) {
+    public void setPassword(@NonNull String password) {
         this.password = password;
     }
 
     public String getTargetDestinationUnzipped() {
-        return this.targetDestinationUnzipped;
+        return targetDestinationUnzipped;
     }
 
-    public void setTargetDestinationUnzipped(@NonNull final String targetDestinationUnzipped) {
+    public void setTargetDestinationUnzipped(@NonNull String targetDestinationUnzipped) {
         this.targetDestinationUnzipped = targetDestinationUnzipped;
     }
 

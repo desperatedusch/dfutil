@@ -3,15 +3,10 @@ package de.dfutil.importing.updates;
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
-import de.dfutil.entities.ObRowEntity;
-import de.dfutil.entities.OrRowEntity;
-import de.dfutil.entities.SbRowEntity;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class Merges implements Successions {
@@ -23,7 +18,7 @@ public class Merges implements Successions {
     private final SbRowRepository sbRowRepository;
 
 
-    public Merges(final OrRowRepository orRowRepository, final ObRowRepository obRowRepository, final SbRowRepository sbRowRepository) {
+    public Merges(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -31,23 +26,23 @@ public class Merges implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        final List<OrRowEntity> multipleSuccessors =
-                this.orRowRepository.findMultipleSuccessorCandidates();
-        Merges.log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+        var multipleSuccessors =
+                orRowRepository.findMultipleSuccessorCandidates();
+        log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
-        final List<ObRowEntity> multipleSuccessors =
-                this.obRowRepository.findMultipleSuccessorCandidates();
-        Merges.log.info("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
+        var multipleSuccessors =
+                obRowRepository.findMultipleSuccessorCandidates();
+        log.info("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
-        final List<SbRowEntity> multipleSuccessors =
-                this.sbRowRepository.findMultipleSuccessorCandidates();
-        Merges.log.info("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+        var multipleSuccessors =
+                sbRowRepository.findMultipleSuccessorCandidates();
+        log.info("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
     }
 
 }

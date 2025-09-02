@@ -14,38 +14,38 @@ public class PlRowId implements Serializable {
     public PlRowId() {
     }
 
-    public PlRowId(final String plzPlz, final String plzAlort) {
+    public PlRowId(String plzPlz, String plzAlort) {
         this.plzPlz = plzPlz;
         this.plzAlort = plzAlort;
     }
 
     public String getPlzPlz() {
-        return this.plzPlz;
+        return plzPlz;
     }
 
-    public void setPlzPlz(final String plzPlz) {
+    public void setPlzPlz(String plzPlz) {
         this.plzPlz = plzPlz;
     }
 
     public String getPlzAlOrt() {
-        return this.plzAlort;
+        return plzAlort;
     }
 
-    public void setPlzAlort(final String plzAlOrt) {
-        plzAlort = plzAlOrt;
+    public void setPlzAlort(String plzAlOrt) {
+        this.plzAlort = plzAlOrt;
     }
 
     @Override
-    public boolean equals(final Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final PlRowId plRowId = (PlRowId) o;
-        return Objects.equals(this.plzPlz, plRowId.plzPlz) && Objects.equals(this.plzAlort, plRowId.plzAlort);
+        if (null == o || getClass() != o.getClass()) return false;
+        PlRowId plRowId = (PlRowId) o;
+        return Objects.equals(plzPlz, plRowId.plzPlz) && Objects.equals(plzAlort, plRowId.plzAlort);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.plzPlz, this.plzAlort);
+        return Objects.hash(plzPlz, plzAlort);
     }
 
 }

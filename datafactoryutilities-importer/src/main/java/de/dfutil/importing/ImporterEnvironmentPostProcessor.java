@@ -8,17 +8,17 @@ public class ImporterEnvironmentPostProcessor implements EnvironmentPostProcesso
 
     @Override
     public void postProcessEnvironment(
-            final ConfigurableEnvironment environment,
-            final SpringApplication application
+            ConfigurableEnvironment environment,
+            SpringApplication application
     ) {
-        final boolean successionHandlingActivated = Boolean.parseBoolean(
+        boolean successionHandlingActivated = Boolean.parseBoolean(
                 environment.getProperty("app.importer.inputsource.succession_handling_activated"));
-        final boolean resetSuccessionHandlingApplicationStateActivated = Boolean.parseBoolean(
-                environment.getProperty("app.importer.inputsource.reset_succession_handling_application_state_activated"));
+        boolean resetSuccessionHandlingApplicationState = Boolean.parseBoolean(
+                environment.getProperty("app.importer.inputsource.reset_succession_handling_application_state"));
         if (successionHandlingActivated
-                && resetSuccessionHandlingApplicationStateActivated) {
+                && resetSuccessionHandlingApplicationState) {
             throw new IllegalStateException(
-                    "Following properties mutually exclude each other to be true: \n\t\t[successionHandlingActivated <- | -> resetSuccessionHandlingApplicationStateActivated]");
+                    "Following properties mutually exclude each other to be true: \n\t\t[successionHandlingActivated <- | -> resetSuccessionHandlingApplicationState]");
         }
     }
 

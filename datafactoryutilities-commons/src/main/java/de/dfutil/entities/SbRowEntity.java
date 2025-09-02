@@ -57,8 +57,8 @@ public class SbRowEntity extends AbstractRowEntity<SbRowEntity> implements Archi
     @JoinColumn(name = "succession_state_id")
     private SuccessionState successionState;
 
-    public static SbRowEntity parseFrom(final String rowBytes) {
-        final SbRowEntity row = new SbRowEntity();
+    public static SbRowEntity parseFrom(String rowBytes) {
+        SbRowEntity row = new SbRowEntity();
         row.importingFileIdentifier = rowBytes.substring(0, 9);
         row.strDatum = rowBytes.substring(9, 17);
         row.strStverz = rowBytes.substring(54, 55);
@@ -90,202 +90,202 @@ public class SbRowEntity extends AbstractRowEntity<SbRowEntity> implements Archi
     }
 
     public SuccessionState getSuccessionState() {
-        return this.successionState;
+        return successionState;
     }
 
-    public void setSuccessionState(final SuccessionState successionState) {
+    public void setSuccessionState(SuccessionState successionState) {
         this.successionState = successionState;
     }
 
     public Date getVersion() {
-        return this.version;
+        return version;
     }
 
-    public void setVersion(final Date version) {
+    public void setVersion(Date version) {
         this.version = version;
     }
 
     public RowType getRowType() {
-        return SbRowEntity.rowType;
+        return rowType;
     }
 
     public String getStrDatum() {
-        return this.strDatum;
+        return strDatum;
     }
 
-    public void setStrDatum(final String strDatum) {
+    public void setStrDatum(String strDatum) {
         this.strDatum = strDatum;
     }
 
     public String strStverz() {
-        return this.strStverz;
+        return strStverz;
     }
 
     public String strNameSort() {
-        return this.strNameSort;
+        return strNameSort;
     }
 
     public String getStrName46() {
-        return this.strName46;
+        return strName46;
     }
 
-    public void setStrName46(final String strName46) {
+    public void setStrName46(String strName46) {
         this.strName46 = strName46;
     }
 
     public String getStrName22() {
-        return this.strName22;
+        return strName22;
     }
 
-    public void setStrName22(final String strName22) {
+    public void setStrName22(String strName22) {
         this.strName22 = strName22;
     }
 
     public String getStrReserve() {
-        return this.strReserve;
+        return strReserve;
     }
 
-    public void setStrReserve(final String strReserve) {
+    public void setStrReserve(String strReserve) {
         this.strReserve = strReserve;
     }
 
     public String getStrHnrTyp() {
-        return this.strHnrTyp;
+        return strHnrTyp;
     }
 
-    public void setStrHnrTyp(final String strHnrTyp) {
+    public void setStrHnrTyp(String strHnrTyp) {
         this.strHnrTyp = strHnrTyp;
     }
 
     public String getStrPlz() {
-        return this.strPlz;
+        return strPlz;
     }
 
-    public void setStrPlz(final String strPlz) {
+    public void setStrPlz(String strPlz) {
         this.strPlz = strPlz;
     }
 
     public String getStrCode() {
-        return this.strCode;
+        return strCode;
     }
 
-    public void setStrCode(final String strCode) {
+    public void setStrCode(String strCode) {
         this.strCode = strCode;
     }
 
     public String getStrOtlSchl() {
-        return this.strOtlSchl;
+        return strOtlSchl;
     }
 
-    public void setStrOtlSchl(final String strOtlSchl) {
+    public void setStrOtlSchl(String strOtlSchl) {
         this.strOtlSchl = strOtlSchl;
     }
 
     public String getStrAlorgB() {
-        return this.strAlorgB;
+        return strAlorgB;
     }
 
-    public void setStrAlorgB(final String strAlorgB) {
+    public void setStrAlorgB(String strAlorgB) {
         this.strAlorgB = strAlorgB;
     }
 
     public String getStrKgs() {
-        return this.strKgs;
+        return strKgs;
     }
 
-    public void setStrKgs(final String strKgs) {
+    public void setStrKgs(String strKgs) {
         this.strKgs = strKgs;
     }
 
     public String getStrAlortNeu() {
-        return this.strAlortNeu;
+        return strAlortNeu;
     }
 
-    public void setStrAlortNeu(final String strAlortNeu) {
+    public void setStrAlortNeu(String strAlortNeu) {
         this.strAlortNeu = strAlortNeu;
     }
 
     public String getStrNamenSchlNeu() {
-        return this.strNamenSchlNeu;
+        return strNamenSchlNeu;
     }
 
-    public void setStrNamenSchlNeu(final String strNamenSchlNeu) {
+    public void setStrNamenSchlNeu(String strNamenSchlNeu) {
         this.strNamenSchlNeu = strNamenSchlNeu;
     }
 
     public String getStrBundLfdnrNeu() {
-        return this.strBundLfdnrNeu;
+        return strBundLfdnrNeu;
     }
 
-    public void setStrBundLfdnrNeu(final String strBundLfdnrNNeu) {
-        strBundLfdnrNeu = strBundLfdnrNNeu;
+    public void setStrBundLfdnrNeu(String strBundLfdnrNNeu) {
+        this.strBundLfdnrNeu = strBundLfdnrNNeu;
     }
 
     public String getStrHnrvonNeu() {
-        return this.strHnrvonNeu;
+        return strHnrvonNeu;
     }
 
-    public void setStrHnrvonNeu(final String strHnrvonNeu) {
+    public void setStrHnrvonNeu(String strHnrvonNeu) {
         this.strHnrvonNeu = strHnrvonNeu;
     }
 
     public String getStrHnrbisNeu() {
-        return this.strHnrbisNeu;
+        return strHnrbisNeu;
     }
 
-    public void setStrHnrbisNeu(final String strHnrbisNeu) {
+    public void setStrHnrbisNeu(String strHnrbisNeu) {
         this.strHnrbisNeu = strHnrbisNeu;
     }
 
     public SbRowId getSbRowId() {
-        return this.sbRowId;
+        return sbRowId;
     }
 
-    public void setSbRowId(final SbRowId sbRowId) {
+    public void setSbRowId(SbRowId sbRowId) {
         this.sbRowId = sbRowId;
     }
 
     public String getStrStverz() {
-        return this.strStverz;
+        return strStverz;
     }
 
-    public void setStrStverz(final String strStverz) {
+    public void setStrStverz(String strStverz) {
         this.strStverz = strStverz;
     }
 
     public String getStrNameSort() {
-        return this.strNameSort;
+        return strNameSort;
     }
 
-    public void setStrNameSort(final String strNameSort) {
+    public void setStrNameSort(String strNameSort) {
         this.strNameSort = strNameSort;
     }
 
     public LocalDateTime getOutdatedAt() {
-        return this.outdatedAt;
+        return outdatedAt;
     }
 
-    public void setOutdatedAt(final LocalDateTime outdatedSince) {
-        outdatedAt = outdatedSince;
+    public void setOutdatedAt(LocalDateTime outdatedSince) {
+        this.outdatedAt = outdatedSince;
     }
 
     public LocalDateTime alreadyAppliedAt() {
-        return this.alreadyAppliedAt;
+        return alreadyAppliedAt;
     }
 
-    public void setAlreadyAppliedAt(final LocalDateTime alreadyAppliedAt) {
+    public void setAlreadyAppliedAt(LocalDateTime alreadyAppliedAt) {
         this.alreadyAppliedAt = alreadyAppliedAt;
     }
 
     @Override
-    public boolean equals(final Object o) {
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final SbRowEntity sbRow = (SbRowEntity) o;
-        return Objects.equals(this.version, sbRow.version) && Objects.equals(this.strDatum, sbRow.strDatum) && Objects.equals(this.sbRowId, sbRow.sbRowId) && Objects.equals(this.strStverz, sbRow.strStverz) && Objects.equals(this.strNameSort, sbRow.strNameSort) && Objects.equals(this.strName46, sbRow.strName46) && Objects.equals(this.strName22, sbRow.strName22) && Objects.equals(this.strReserve, sbRow.strReserve) && Objects.equals(this.strHnrTyp, sbRow.strHnrTyp) && Objects.equals(this.strPlz, sbRow.strPlz) && Objects.equals(this.strCode, sbRow.strCode) && Objects.equals(this.strOtlSchl, sbRow.strOtlSchl) && Objects.equals(this.strAlorgB, sbRow.strAlorgB) && Objects.equals(this.strKgs, sbRow.strKgs) && Objects.equals(this.strAlortNeu, sbRow.strAlortNeu) && Objects.equals(this.strNamenSchlNeu, sbRow.strNamenSchlNeu) && Objects.equals(this.strBundLfdnrNeu, sbRow.strBundLfdnrNeu) && Objects.equals(this.strHnrvonNeu, sbRow.strHnrvonNeu) && Objects.equals(this.strHnrbisNeu, sbRow.strHnrbisNeu) && Objects.equals(this.outdatedAt, sbRow.outdatedAt) && Objects.equals(this.alreadyAppliedAt, sbRow.alreadyAppliedAt);
+    public boolean equals(Object o) {
+        if (null == o || getClass() != o.getClass()) return false;
+        SbRowEntity sbRow = (SbRowEntity) o;
+        return Objects.equals(version, sbRow.version) && Objects.equals(strDatum, sbRow.strDatum) && Objects.equals(sbRowId, sbRow.sbRowId) && Objects.equals(strStverz, sbRow.strStverz) && Objects.equals(strNameSort, sbRow.strNameSort) && Objects.equals(strName46, sbRow.strName46) && Objects.equals(strName22, sbRow.strName22) && Objects.equals(strReserve, sbRow.strReserve) && Objects.equals(strHnrTyp, sbRow.strHnrTyp) && Objects.equals(strPlz, sbRow.strPlz) && Objects.equals(strCode, sbRow.strCode) && Objects.equals(strOtlSchl, sbRow.strOtlSchl) && Objects.equals(strAlorgB, sbRow.strAlorgB) && Objects.equals(strKgs, sbRow.strKgs) && Objects.equals(strAlortNeu, sbRow.strAlortNeu) && Objects.equals(strNamenSchlNeu, sbRow.strNamenSchlNeu) && Objects.equals(strBundLfdnrNeu, sbRow.strBundLfdnrNeu) && Objects.equals(strHnrvonNeu, sbRow.strHnrvonNeu) && Objects.equals(strHnrbisNeu, sbRow.strHnrbisNeu) && Objects.equals(outdatedAt, sbRow.outdatedAt) && Objects.equals(alreadyAppliedAt, sbRow.alreadyAppliedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.version, this.strDatum, this.sbRowId, this.strStverz, this.strNameSort, this.strName46, this.strName22, this.strReserve, this.strHnrTyp, this.strPlz, this.strCode, this.strOtlSchl, this.strAlorgB, this.strKgs, this.strAlortNeu, this.strNamenSchlNeu, this.strBundLfdnrNeu, this.strHnrvonNeu, this.strHnrbisNeu, this.outdatedAt, this.alreadyAppliedAt);
+        return Objects.hash(version, strDatum, sbRowId, strStverz, strNameSort, strName46, strName22, strReserve, strHnrTyp, strPlz, strCode, strOtlSchl, strAlorgB, strKgs, strAlortNeu, strNamenSchlNeu, strBundLfdnrNeu, strHnrvonNeu, strHnrbisNeu, outdatedAt, alreadyAppliedAt);
     }
 }

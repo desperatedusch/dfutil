@@ -6,9 +6,9 @@ public interface Successions {
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     default void process() {
-        this.handleOrObjects();
-        this.handleObObjects();
-        this.handleSbObjects();
+        handleOrObjects();
+        handleObObjects();
+        handleSbObjects();
     }
 
     void handleOrObjects();

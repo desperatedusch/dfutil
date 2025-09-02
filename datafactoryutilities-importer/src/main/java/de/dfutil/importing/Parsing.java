@@ -36,7 +36,13 @@ public class Parsing {
 
     private final AtomicLong rowsProcessed = new AtomicLong(0);
 
-    public Parsing(final ImporterConfigurationProperties importerConfigurationProperties, final SbRowRepository sbRowRepository, final PlRowRepository plRowRepository, final OrRowRepository orRowRepository, final ObRowRepository obRowRepository, final KgRowRepository kgRowRepository, final Postprocessing postprocessing) {
+    public Parsing(ImporterConfigurationProperties importerConfigurationProperties,
+                   SbRowRepository sbRowRepository,
+                   PlRowRepository plRowRepository,
+                   OrRowRepository orRowRepository,
+                   ObRowRepository obRowRepository,
+                   KgRowRepository kgRowRepository,
+                   Postprocessing postprocessing) {
         this.importerConfigurationProperties = importerConfigurationProperties;
         this.sbRowRepository = sbRowRepository;
         this.plRowRepository = plRowRepository;
@@ -46,43 +52,43 @@ public class Parsing {
         this.postprocessing = postprocessing;
     }
 
-    private void persist(final String line, final Set<KgRowEntity> kgBatch, final Set<ObRowEntity> obBatch,
-                         final Set<OrRowEntity> orBatch, final Set<PlRowEntity> plBatch, final Set<SbRowEntity> sbBatch) {
-        final String prefix = line.substring(0, 2);
+    private void persist(String line, Set<KgRowEntity> kgBatch, Set<ObRowEntity> obBatch,
+                         Set<OrRowEntity> orBatch, Set<PlRowEntity> plBatch, Set<SbRowEntity> sbBatch) {
+        String prefix = line.substring(0, 2);
         switch (prefix) {
             case "KG":
-                final KgRowEntity kg = KgRowEntity.parseFrom(line);
-                if (!this.kgRowRepository.existsById(kg.getKgRowId())) {
+                KgRowEntity kg = KgRowEntity.parseFrom(line);
+                if (!kgRowRepository.existsById(kg.getKgRowId())) {
                     kgBatch.add(kg);
-                    this.rowsProcessed.incrementAndGet();
+                    rowsProcessed.incrementAndGet();
                 }
                 break;
             case "OB":
-                final ObRowEntity ob = ObRowEntity.parseFrom(line);
-                if (!this.obRowRepository.existsById(ob.getObRowId())) {
+                ObRowEntity ob = ObRowEntity.parseFrom(line);
+                if (!obRowRepository.existsById(ob.getObRowId())) {
                     obBatch.add(ob);
-                    this.rowsProcessed.incrementAndGet();
+                    rowsProcessed.incrementAndGet();
                 }
                 break;
             case "OR":
-                final OrRowEntity or = OrRowEntity.parseFrom(line);
-                if (!this.orRowRepository.existsById(or.getOrRowId())) {
+                OrRowEntity or = OrRowEntity.parseFrom(line);
+                if (!orRowRepository.existsById(or.getOrRowId())) {
                     orBatch.add(or);
-                    this.rowsProcessed.incrementAndGet();
+                    rowsProcessed.incrementAndGet();
                 }
                 break;
             case "PL":
-                final PlRowEntity pl = PlRowEntity.parseFrom(line);
-                if (!this.plRowRepository.existsById(pl.getPlRowId())) {
+                PlRowEntity pl = PlRowEntity.parseFrom(line);
+                if (!plRowRepository.existsById(pl.getPlRowId())) {
                     plBatch.add(pl);
-                    this.rowsProcessed.incrementAndGet();
+                    rowsProcessed.incrementAndGet();
                 }
                 break;
             case "SB":
-                final SbRowEntity sb = SbRowEntity.parseFrom(line);
-                if (!this.sbRowRepository.existsById(sb.getSbRowId())) {
+                SbRowEntity sb = SbRowEntity.parseFrom(line);
+                if (!sbRowRepository.existsById(sb.getSbRowId())) {
                     sbBatch.add(sb);
-                    this.rowsProcessed.incrementAndGet();
+                    rowsProcessed.incrementAndGet();
                 }
                 break;
             default:
@@ -91,58 +97,58 @@ public class Parsing {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void fromFile(final Path path) {
-        this.rowsProcessed.set(0);
-        final Set<KgRowEntity> kgBatch = new HashSet<>();
-        final Set<ObRowEntity> obBatch = new HashSet<>();
-        final Set<OrRowEntity> orBatch = new HashSet<>();
-        final Set<PlRowEntity> plBatch = new HashSet<>();
-        final Set<SbRowEntity> sbBatch = new HashSet<>();
+    public void fromFile(Path path) {
+        rowsProcessed.set(0);
+        Set<KgRowEntity> kgBatch = new HashSet<>();
+        Set<ObRowEntity> obBatch = new HashSet<>();
+        Set<OrRowEntity> orBatch = new HashSet<>();
+        Set<PlRowEntity> plBatch = new HashSet<>();
+        Set<SbRowEntity> sbBatch = new HashSet<>();
 
-        try (final BufferedReader br = new BufferedReader(new FileReader(path.toFile(), Charset.forName("Cp850")))) {
-            final var BATCH_SIZE = this.importerConfigurationProperties.getBatchSize();
-            final var stopwatch = Stopwatch.createStarted();
-            final long duration;
+        try (BufferedReader br = new BufferedReader(new FileReader(path.toFile(), Charset.forName("Cp850")))) {
+            var BATCH_SIZE = importerConfigurationProperties.getBatchSize();
+            var stopwatch = Stopwatch.createStarted();
+            long duration;
             String line;
             while (null != (line = br.readLine())) {
                 if (!line.isEmpty()) {
-                    this.persist(line, kgBatch, obBatch, orBatch, plBatch, sbBatch);
+                    persist(line, kgBatch, obBatch, orBatch, plBatch, sbBatch);
                     if (kgBatch.size() >= BATCH_SIZE) {
-                        this.kgRowRepository.saveAll(kgBatch);
+                        kgRowRepository.saveAll(kgBatch);
                         kgBatch.clear();
                     }
                     if (obBatch.size() >= BATCH_SIZE) {
-                        this.obRowRepository.saveAll(obBatch);
+                        obRowRepository.saveAll(obBatch);
                         obBatch.clear();
                     }
                     if (orBatch.size() >= BATCH_SIZE) {
-                        this.orRowRepository.saveAll(orBatch);
+                        orRowRepository.saveAll(orBatch);
                         orBatch.clear();
                     }
                     if (plBatch.size() >= BATCH_SIZE) {
-                        this.plRowRepository.saveAll(plBatch);
+                        plRowRepository.saveAll(plBatch);
                         plBatch.clear();
                     }
                     if (sbBatch.size() >= BATCH_SIZE) {
-                        this.sbRowRepository.saveAll(sbBatch);
+                        sbRowRepository.saveAll(sbBatch);
                         sbBatch.clear();
                     }
                 }
             }
-            if (!kgBatch.isEmpty()) this.kgRowRepository.saveAll(kgBatch);
-            if (!obBatch.isEmpty()) this.obRowRepository.saveAll(obBatch);
-            if (!orBatch.isEmpty()) this.orRowRepository.saveAll(orBatch);
-            if (!plBatch.isEmpty()) this.plRowRepository.saveAll(plBatch);
-            if (!sbBatch.isEmpty()) this.sbRowRepository.saveAll(sbBatch);
+            if (!kgBatch.isEmpty()) kgRowRepository.saveAll(kgBatch);
+            if (!obBatch.isEmpty()) obRowRepository.saveAll(obBatch);
+            if (!orBatch.isEmpty()) orRowRepository.saveAll(orBatch);
+            if (!plBatch.isEmpty()) plRowRepository.saveAll(plBatch);
+            if (!sbBatch.isEmpty()) sbRowRepository.saveAll(sbBatch);
 
             duration = stopwatch.stop().elapsed().toMillis();
-            Parsing.log.info("Successfully parsed, imported {} rows with new/updated content, from {} within {} ms", this.rowsProcessed, path, duration);
+            log.info("Successfully parsed, imported {} rows with new/updated content, from {} within {} ms", rowsProcessed, path, duration);
 
-            this.postprocessing.parsedSuccessfully(path, duration);
-            this.postprocessing.deleteProcessedInputSources(path);
-        } catch (final IOException e) {
-            Parsing.log.error("Parsing {} failed\n{}", path, e.getMessage());
-            this.postprocessing.parsingFailed(path, null);
+            postprocessing.parsedSuccessfully(path, duration);
+            postprocessing.deleteProcessedInputSources(path);
+        } catch (IOException e) {
+            log.error("Parsing {} failed\n{}", path, e.getMessage());
+            postprocessing.parsingFailed(path, null);
             throw new RuntimeException(e);
         }
     }

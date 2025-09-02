@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -32,7 +31,7 @@ public class Replacements implements Successions {
     private final SbRowRepository sbRowRepository;
 
 
-    public Replacements(final OrRowRepository orRowRepository, final ObRowRepository obRowRepository, final SbRowRepository sbRowRepository) {
+    public Replacements(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -40,13 +39,13 @@ public class Replacements implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
-        final List<ObRowEntity> processableSingleSuccessors =
-                this.obRowRepository.findReplacementCandidates();
-        Replacements.log.debug("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
+        var processableSingleSuccessors =
+                obRowRepository.findReplacementCandidates();
+        log.debug("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
-            final Optional<ObRowEntity> predecessorObOptional =
-                    this.obRowRepository.findById(
+            Optional<ObRowEntity> predecessorObOptional =
+                    obRowRepository.findById(
                             new ObRowId(
                                     processableOb.getObRowId().getOtlAlort(),
                                     processableOb.getObRowId().getOtlSchl(),
@@ -56,24 +55,24 @@ public class Replacements implements Successions {
                     );
             if (predecessorObOptional.isPresent()
                     && !Objects.equals(predecessorObOptional.get(), processableOb)) {
-                final ObRowEntity formerExistingOb = predecessorObOptional.get();
-                this.orRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
-                this.obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
-                this.orRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
-                this.obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
+                ObRowEntity formerExistingOb = predecessorObOptional.get();
+                orRowRepository.changeStatus(formerExistingOb.getUuid(), INVALID.symbol());
+                obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
+                orRowRepository.changeStatus(processableOb.getUuid(), VALID.symbol());
+                obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        final List<OrRowEntity> processableSingleSuccessors =
-                this.orRowRepository.findReplacementCandidates();
-        Replacements.log.debug("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
+        var processableSingleSuccessors =
+                orRowRepository.findReplacementCandidates();
+        log.debug("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            final Optional<OrRowEntity> predecessorOrOptional =
-                    this.orRowRepository.findById(
+            Optional<OrRowEntity> predecessorOrOptional =
+                    orRowRepository.findById(
                             new OrRowId(
                                     processableOr.getOrRowId().getOrtAlort(),
                                     "G"
@@ -81,24 +80,24 @@ public class Replacements implements Successions {
                     );
             if (predecessorOrOptional.isPresent()
                     && !Objects.equals(predecessorOrOptional.get(), processableOr)) {
-                final OrRowEntity formerExistingOr = predecessorOrOptional.get();
-                this.orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
-                this.orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
-                this.orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());
-                this.orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
+                OrRowEntity formerExistingOr = predecessorOrOptional.get();
+                orRowRepository.changeStatus(formerExistingOr.getUuid(), INVALID.symbol());
+                orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
+                orRowRepository.changeStatus(processableOr.getUuid(), VALID.symbol());
+                orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
             }
         });
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
-        final List<SbRowEntity> processableSingleSuccessors =
-                this.sbRowRepository.findReplacementCandidates();
-        Replacements.log.debug("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
+        var processableSingleSuccessors =
+                sbRowRepository.findReplacementCandidates();
+        log.debug("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
-            final Optional<SbRowEntity> predecessorSbOptional =
-                    this.sbRowRepository.findById(
+            Optional<SbRowEntity> predecessorSbOptional =
+                    sbRowRepository.findById(
                             new SbRowId(
                                     processableSb.getSbRowId().getStrAlOrt(),
                                     processableSb.getSbRowId().getStrNamenSchl(),
@@ -111,11 +110,11 @@ public class Replacements implements Successions {
                     );
             if (predecessorSbOptional.isPresent()
                     && !Objects.equals(predecessorSbOptional.get(), processableSb)) {
-                final SbRowEntity formerExistingSb = predecessorSbOptional.get();
-                this.sbRowRepository.changeStatus(formerExistingSb.getUuid(), INVALID.symbol());
-                this.sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
-                this.sbRowRepository.changeStatus(processableSb.getUuid(), VALID.symbol());
-                this.sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
+                SbRowEntity formerExistingSb = predecessorSbOptional.get();
+                sbRowRepository.changeStatus(formerExistingSb.getUuid(), INVALID.symbol());
+                sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
+                sbRowRepository.changeStatus(processableSb.getUuid(), VALID.symbol());
+                sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
             }
         });
     }

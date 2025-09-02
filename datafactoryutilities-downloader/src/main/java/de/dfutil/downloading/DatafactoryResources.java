@@ -28,28 +28,28 @@ public class DatafactoryResources {
 
     private final WebClient client;
 
-    public DatafactoryResources(final DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties) {
+    public DatafactoryResources(DatafactoryDownloaderConfigurationProperties datafactoryDownloaderConfigurationProperties) {
         this.datafactoryDownloaderConfigurationProperties = datafactoryDownloaderConfigurationProperties;
-        client = WebClient.builder().baseUrl(datafactoryDownloaderConfigurationProperties.getResourceUrl())
-                .exchangeStrategies(this.useMaxMemory())
+        this.client = WebClient.builder().baseUrl(datafactoryDownloaderConfigurationProperties.getResourceUrl())
+                .exchangeStrategies(useMaxMemory())
                 .build();
     }
 
     public long fetch() throws IOException {
-        final String basicAuthHeader = "basic " + Base64.getEncoder().encodeToString((this.datafactoryDownloaderConfigurationProperties.getUser() + ":" + this.datafactoryDownloaderConfigurationProperties.getPassword()).getBytes(StandardCharsets.UTF_8));
-        final Flux<DataBuffer> flux = this.client
+        String basicAuthHeader = "basic " + Base64.getEncoder().encodeToString((datafactoryDownloaderConfigurationProperties.getUser() + ":" + datafactoryDownloaderConfigurationProperties.getPassword()).getBytes(StandardCharsets.UTF_8));
+        Flux<DataBuffer> flux = client
                 .get()
                 .header(HttpHeaders.AUTHORIZATION, basicAuthHeader)
                 .retrieve()
                 .bodyToFlux(DataBuffer.class);
-        final Path path = Paths.get(this.datafactoryDownloaderConfigurationProperties.getTargetFolder());
+        Path path = Paths.get(datafactoryDownloaderConfigurationProperties.getTargetFolder());
         DataBufferUtils.write(flux, path)
                 .block();
         return Files.size(path);
     }
 
     private ExchangeStrategies useMaxMemory() {
-        final long totalMemory = Runtime.getRuntime().maxMemory();
+        long totalMemory = Runtime.getRuntime().maxMemory();
 
         return ExchangeStrategies.builder()
                 .codecs(configurer -> configurer.defaultCodecs()

@@ -24,7 +24,7 @@ public class InputSourceDetectionTest {
 
     @Test
     public void findInputFiles() throws IOException {
-        Assertions.assertEquals(10, this.cut.findFiles().size());
+        Assertions.assertEquals(10, cut.findFiles().size());
     }
 
 }

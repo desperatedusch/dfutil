@@ -19,7 +19,7 @@ public class ImportResultEntity implements Serializable {
     private Long duration;
 
     public ImportResultEntity(
-            final String fileName, final LocalDateTime importDate, final boolean importSuccessful, final Long duration) {
+            String fileName, LocalDateTime importDate, boolean importSuccessful, Long duration) {
         this.fileName = fileName;
         this.importDate = importDate;
         this.importSuccessful = importSuccessful;
@@ -30,59 +30,59 @@ public class ImportResultEntity implements Serializable {
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
-    public void setId(final Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getFileName() {
-        return this.fileName;
+        return fileName;
     }
 
-    public void setFileName(final String fileName) {
+    public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
     public LocalDateTime getImportDate() {
-        return this.importDate;
+        return importDate;
     }
 
-    public void setImportDate(final LocalDateTime importDate) {
+    public void setImportDate(LocalDateTime importDate) {
         this.importDate = importDate;
     }
 
     public boolean isImportSuccessful() {
-        return this.importSuccessful;
+        return importSuccessful;
     }
 
-    public void setImportSuccessful(final boolean importSuccessful) {
+    public void setImportSuccessful(boolean importSuccessful) {
         this.importSuccessful = importSuccessful;
     }
 
     public Long getDuration() {
-        return this.duration;
+        return duration;
     }
 
-    public void setDuration(final Long duration) {
+    public void setDuration(Long duration) {
         this.duration = duration;
     }
 
     @Override
-    public boolean equals(final Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final ImportResultEntity that = (ImportResultEntity) o;
-        return this.importSuccessful == that.importSuccessful
-                && Objects.equals(this.fileName, that.fileName)
-                && Objects.equals(this.importDate, that.importDate)
-                && Objects.equals(this.duration, that.duration);
+        if (null == o || getClass() != o.getClass()) return false;
+        ImportResultEntity that = (ImportResultEntity) o;
+        return importSuccessful == that.importSuccessful
+                && Objects.equals(fileName, that.fileName)
+                && Objects.equals(importDate, that.importDate)
+                && Objects.equals(duration, that.duration);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.fileName, this.importDate, this.importSuccessful);
+        return Objects.hash(fileName, importDate, importSuccessful);
     }
 
 }

@@ -11,7 +11,7 @@ public class SbRowEntitiyParsingTest {
 
     @Test
     public void parseSBRowBytes2Object() {
-        final SbRowEntity expectedSbRow = new SbRowEntity();
+        SbRowEntity expectedSbRow = new SbRowEntity();
         expectedSbRow.setStrDatum("19991027");
         expectedSbRow.setSbRowId(new SbRowId("00002100", "001762", "00013", "        ", "        ", "G", "0"));
         expectedSbRow.setStrStverz("1");
@@ -31,7 +31,7 @@ public class SbRowEntitiyParsingTest {
         expectedSbRow.setStrHnrvonNeu("        ");
         expectedSbRow.setStrHnrbisNeu("        ");
         expectedSbRow.setImportingFileIdentifier("SB2410277");
-        final SbRowEntity parsedSbRow = SbRowEntity.parseFrom(SbRowEntitiyParsingTest.ALPENSTRASSE);
+        SbRowEntity parsedSbRow = SbRowEntity.parseFrom(ALPENSTRASSE);
         Assertions.assertEquals(expectedSbRow, parsedSbRow);
     }
 }

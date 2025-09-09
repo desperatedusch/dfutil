@@ -96,7 +96,7 @@ public class Parsing {
         }
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void fromFile(Path path) {
         rowsProcessed.set(0);
         Set<KgRowEntity> kgBatch = new HashSet<>();
@@ -106,34 +106,12 @@ public class Parsing {
         Set<SbRowEntity> sbBatch = new HashSet<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path.toFile(), Charset.forName("Cp850")))) {
-            var BATCH_SIZE = importerConfigurationProperties.getBatchSize();
             var stopwatch = Stopwatch.createStarted();
             long duration;
             String line;
             while (null != (line = br.readLine())) {
-                if (!line.isEmpty()) {
+                if (!line.isEmpty())
                     persist(line, kgBatch, obBatch, orBatch, plBatch, sbBatch);
-                    if (kgBatch.size() >= BATCH_SIZE) {
-                        kgRowRepository.saveAll(kgBatch);
-                        kgBatch.clear();
-                    }
-                    if (obBatch.size() >= BATCH_SIZE) {
-                        obRowRepository.saveAll(obBatch);
-                        obBatch.clear();
-                    }
-                    if (orBatch.size() >= BATCH_SIZE) {
-                        orRowRepository.saveAll(orBatch);
-                        orBatch.clear();
-                    }
-                    if (plBatch.size() >= BATCH_SIZE) {
-                        plRowRepository.saveAll(plBatch);
-                        plBatch.clear();
-                    }
-                    if (sbBatch.size() >= BATCH_SIZE) {
-                        sbRowRepository.saveAll(sbBatch);
-                        sbBatch.clear();
-                    }
-                }
             }
             if (!kgBatch.isEmpty()) kgRowRepository.saveAll(kgBatch);
             if (!obBatch.isEmpty()) obRowRepository.saveAll(obBatch);

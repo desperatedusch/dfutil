@@ -2,6 +2,7 @@ package de.dfutil.dao;
 
 import de.dfutil.entities.KgRowEntity;
 import de.dfutil.entities.ids.KgRowId;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -27,4 +28,7 @@ public interface KgRowRepository extends JpaRepository<KgRowEntity, KgRowId> {
     @Query
     KgRowEntity getByUuid(UUID uuid);
 
+    @Override
+    @Cacheable(cacheNames = {"kgCache"})
+    boolean existsById(KgRowId kgRowId);
 }

@@ -15,7 +15,7 @@
 
     <properties>
         <hibernate.version>7.1.0.Final</hibernate.version>
-        <HikariCP.version>7.0.1</HikariCP.version>
+        <!--        <HikariCP.version>7.0.1</HikariCP.version>-->
         <guava.version>33.4.8-jre</guava.version>
         <postgresql.version>42.7.7</postgresql.version>
         <caffeine.version>3.2.2</caffeine.version>
@@ -62,11 +62,11 @@
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>${HikariCP.version}</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.zaxxer</groupId>-->
+        <!--            <artifactId>HikariCP</artifactId>-->
+        <!--            <version>${HikariCP.version}</version>-->
+        <!--        </dependency>-->
         <!-- logging.level.net.ttddyy.dsproxy.listener=debug property for sql debug messages -->
         <dependency>
             <groupId>com.github.gavlyukovskiy</groupId>

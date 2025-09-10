@@ -137,15 +137,15 @@ public class ObRowEntity extends AbstractRowEntity<ObRowEntity> implements Archi
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (null == o || getClass() != o.getClass()) return false;
-        ObRowEntity obRow = (ObRowEntity) o;
-        return Objects.equals(version, obRow.version) && Objects.equals(otlDatum, obRow.otlDatum) && Objects.equals(obRowId, obRow.obRowId) && Objects.equals(otlStverz, obRow.otlStverz) && Objects.equals(otlName, obRow.otlName) && Objects.equals(otlKgs, obRow.otlKgs) && Objects.equals(outdatedAt, obRow.outdatedAt) && Objects.equals(alreadyAppliedAt, obRow.alreadyAppliedAt);
+    public boolean equals(final Object o) {
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final ObRowEntity that = (ObRowEntity) o;
+        return Objects.equals(this.obRowId, that.obRowId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, otlDatum, obRowId, otlStverz, otlName, otlKgs, outdatedAt, alreadyAppliedAt);
+        return Objects.hashCode(this.obRowId);
     }
 
 }

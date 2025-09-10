@@ -85,15 +85,15 @@ public class KgRowEntity extends AbstractRowEntity<KgRowEntity> implements Seria
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (null == o || getClass() != o.getClass()) return false;
-        KgRowEntity kgRow = (KgRowEntity) o;
-        return Objects.equals(version, kgRow.version) && Objects.equals(kgDatum, kgRow.kgDatum) && Objects.equals(kgRowId, kgRow.kgRowId) && Objects.equals(kgName, kgRow.kgName);
+    public boolean equals(final Object o) {
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final KgRowEntity that = (KgRowEntity) o;
+        return Objects.equals(this.kgRowId, that.kgRowId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, kgDatum, kgRowId, kgName);
+        return Objects.hashCode(this.kgRowId);
     }
 
 }

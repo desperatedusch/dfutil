@@ -251,15 +251,15 @@ public class PlRowEntity extends AbstractRowEntity<PlRowEntity> implements Seria
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (null == o || getClass() != o.getClass()) return false;
-        PlRowEntity plRow = (PlRowEntity) o;
-        return Objects.equals(version, plRow.version) && Objects.equals(plzDatum, plRow.plzDatum) && Objects.equals(plRowId, plRow.plRowId) && Objects.equals(plzArtKardinalität, plRow.plzArtKardinalität) && Objects.equals(plzArtAuslierferung, plRow.plzArtAuslierferung) && Objects.equals(plzStverz, plRow.plzStverz) && Objects.equals(plzPfverz, plRow.plzPfverz) && Objects.equals(plzOname, plRow.plzOname) && Objects.equals(plzOzusatz, plRow.plzOzusatz) && Objects.equals(plzArtOzusatz, plRow.plzArtOzusatz) && Objects.equals(plzOname24, plRow.plzOname24) && Objects.equals(plzPostlag, plRow.plzPostlag) && Objects.equals(plzLaBrief, plRow.plzLaBrief) && Objects.equals(plzLaAlort, plRow.plzLaAlort) && Objects.equals(plzKgs, plRow.plzKgs) && Objects.equals(plzOrtCode, plRow.plzOrtCode) && Objects.equals(plzLeitcodeMax, plRow.plzLeitcodeMax) && Objects.equals(plzRabattInfoSchwer, plRow.plzRabattInfoSchwer) && Objects.equals(plzReserve, plRow.plzReserve) && Objects.equals(plzFzNr, plRow.plzFzNr) && Objects.equals(plzBzNr, plRow.plzBzNr);
+    public boolean equals(final Object o) {
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final PlRowEntity that = (PlRowEntity) o;
+        return Objects.equals(this.plRowId, that.plRowId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, plzDatum, plRowId, plzArtKardinalität, plzArtAuslierferung, plzStverz, plzPfverz, plzOname, plzOzusatz, plzArtOzusatz, plzOname24, plzPostlag, plzLaBrief, plzLaAlort, plzKgs, plzOrtCode, plzLeitcodeMax, plzRabattInfoSchwer, plzReserve, plzFzNr, plzBzNr);
+        return Objects.hashCode(this.plRowId);
     }
 
 }

@@ -176,15 +176,15 @@ public class OrRowEntity extends AbstractRowEntity<OrRowEntity> implements Archi
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (null == o || getClass() != o.getClass()) return false;
-        OrRowEntity orRow = (OrRowEntity) o;
-        return Objects.equals(version, orRow.version) && Objects.equals(ortDatum, orRow.ortDatum) && Objects.equals(orRowId, orRow.orRowId) && Objects.equals(ortOname, orRow.ortOname) && Objects.equals(ortOnamePost, orRow.ortOnamePost) && Objects.equals(ortOzusatz, orRow.ortOzusatz) && Objects.equals(ortArtOzusatz, orRow.ortArtOzusatz) && Objects.equals(ortOname24, orRow.ortOname24) && Objects.equals(ortKgs, orRow.ortKgs) && Objects.equals(ortAlortNeu, orRow.ortAlortNeu) && Objects.equals(outdatedAt, orRow.outdatedAt) && Objects.equals(alreadyAppliedAt, orRow.alreadyAppliedAt);
+    public boolean equals(final Object o) {
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final OrRowEntity that = (OrRowEntity) o;
+        return Objects.equals(this.orRowId, that.orRowId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version, ortDatum, orRowId, ortOname, ortOnamePost, ortOzusatz, ortArtOzusatz, ortOname24, ortKgs, ortAlortNeu, outdatedAt, alreadyAppliedAt);
+        return Objects.hashCode(this.orRowId);
     }
 
 }

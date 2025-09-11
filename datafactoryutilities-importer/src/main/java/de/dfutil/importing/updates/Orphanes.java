@@ -39,7 +39,7 @@ public class Orphanes implements Successions {
     public void handleOrObjects() {
         List<OrRowEntity> processableOrphanedOrObjects =
                 orRowRepository.findProcessableOrphans();
-        log.debug("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
+        log.info("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
             Optional<OrRowEntity> formerExistingOrOptional = orRowRepository.findById(
@@ -60,7 +60,7 @@ public class Orphanes implements Successions {
     public void handleObObjects() {
         List<ObRowEntity> processableOrphanedObObjects =
                 obRowRepository.findProcessableOrphans();
-        log.debug("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
+        log.info("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
         processableOrphanedObObjects.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
             Optional<ObRowEntity> formerExistingObOptional =
@@ -84,7 +84,7 @@ public class Orphanes implements Successions {
     public void handleSbObjects() {
         var processableOrphanedSbObjects =
                 sbRowRepository.findProcessableOrphans();
-        log.debug("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
+        log.info("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
         processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
             Optional<SbRowEntity> formerExistingSbOptional =

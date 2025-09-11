@@ -5,10 +5,9 @@ import com.google.common.collect.Lists;
 import de.dfutil.dao.ObRowRepository;
 import de.dfutil.dao.OrRowRepository;
 import de.dfutil.dao.SbRowRepository;
-import de.dfutil.importing.updates.Merges;
 import de.dfutil.importing.updates.Orphanes;
 import de.dfutil.importing.updates.Replacements;
-import de.dfutil.importing.updates.Splittings;
+import de.dfutil.importing.updates.SplittingsAndMerges;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -25,20 +24,26 @@ public class RelationshipUpdating {
     private final ImporterConfigurationProperties importerConfigurationProperties;
     private final Orphanes orphanes;
     private final Replacements replacements;
-    private final Splittings splittings;
-    private final Merges merges;
+    private final SplittingsAndMerges splittingsAndMerges;
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public RelationshipUpdating(ImporterConfigurationProperties importerConfigurationProperties, Orphanes orphanes, Replacements replacements, Splittings splittings, Merges merges, OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public RelationshipUpdating(
+            ImporterConfigurationProperties importerConfigurationProperties,
+            Orphanes orphanes,
+            Replacements replacements,
+            SplittingsAndMerges splittingsAndMerges,
+            OrRowRepository orRowRepository,
+            ObRowRepository obRowRepository,
+            SbRowRepository sbRowRepository
+    ) {
         this.importerConfigurationProperties = importerConfigurationProperties;
         this.orphanes = orphanes;
         this.replacements = replacements;
-        this.splittings = splittings;
-        this.merges = merges;
+        this.splittingsAndMerges = splittingsAndMerges;
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -48,9 +53,8 @@ public class RelationshipUpdating {
         var stopwatch = Stopwatch.createStarted();
         log.info("Starting successionhandling...");
         orphanes.process();
-        splittings.process();
+        splittingsAndMerges.process();
         replacements.process();
-        merges.process();
         log.info("Finished successionhandling within {} ms", stopwatch.stop().elapsed().toMillis());
     }
 

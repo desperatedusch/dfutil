@@ -41,7 +41,7 @@ public class Replacements implements Successions {
     public void handleObObjects() {
         var processableSingleSuccessors =
                 obRowRepository.findReplacementCandidates();
-        log.debug("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
+        log.info("Processing replacements of Ob objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
             Optional<ObRowEntity> predecessorObOptional =
@@ -68,7 +68,7 @@ public class Replacements implements Successions {
     public void handleOrObjects() {
         var processableSingleSuccessors =
                 orRowRepository.findReplacementCandidates();
-        log.debug("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
+        log.info("Processing replacements of Or objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
             Optional<OrRowEntity> predecessorOrOptional =
@@ -93,7 +93,7 @@ public class Replacements implements Successions {
     public void handleSbObjects() {
         var processableSingleSuccessors =
                 sbRowRepository.findReplacementCandidates();
-        log.debug("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
+        log.info("Processing replacements of Sb objects... {} found", processableSingleSuccessors.size());
         processableSingleSuccessors.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
             Optional<SbRowEntity> predecessorSbOptional =

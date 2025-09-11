@@ -25,11 +25,11 @@ public interface ObRowRepository extends JpaRepository<ObRowEntity, ObRowId>, Su
     @Query("Select ortsteil from ObRowEntity ortsteil where ortsteil.obRowId.otlStatus = 'W' and ortsteil.alreadyAppliedAt is null order by ortsteil.version asc")
     List<ObRowEntity> findProcessableOrphans();
 
-    @Query("Select ortsteil from ObRowEntity ortsteil where ortsteil.obRowId.otlStatus IN ('1','2','3','4','5','6','7','8','9') and ortsteil.alreadyAppliedAt is null order by ortsteil.version asc")
-    List<ObRowEntity> findMultipleSuccessorCandidates();
-
     @Query("Select ortsteil from ObRowEntity ortsteil where ortsteil.obRowId.otlStatus = 'S' and ortsteil.alreadyAppliedAt is null order by ortsteil.version asc")
     List<ObRowEntity> findReplacementCandidates();
+
+    @Query("Select ortsteil from ObRowEntity ortsteil where ortsteil.obRowId.otlStatus IN ('1','2','3','4','5','6','7','8','9') and ortsteil.alreadyAppliedAt is null order by ortsteil.version asc")
+    List<ObRowEntity> findMultipleSuccessions();
 
     @Query
     ObRowEntity getByUuid(UUID uuid);

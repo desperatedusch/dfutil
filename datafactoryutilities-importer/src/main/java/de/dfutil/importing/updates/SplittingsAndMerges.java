@@ -14,16 +14,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class Splittings implements Successions {
+public class SplittingsAndMerges implements Successions {
 
-    private static final Logger log = LoggerFactory.getLogger(Splittings.class);
+    private static final Logger log = LoggerFactory.getLogger(SplittingsAndMerges.class);
 
     private final OrRowRepository orRowRepository;
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
 
-    public Splittings(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
+    public SplittingsAndMerges(OrRowRepository orRowRepository, ObRowRepository obRowRepository, SbRowRepository sbRowRepository) {
         this.orRowRepository = orRowRepository;
         this.obRowRepository = obRowRepository;
         this.sbRowRepository = sbRowRepository;
@@ -31,23 +31,23 @@ public class Splittings implements Successions {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleSbObjects() {
-        List<SbRowEntity> multipleSuccessors =
-                sbRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessors.size());
+        List<SbRowEntity> multipleSuccessions =
+                sbRowRepository.findMultipleSuccessions();
+        log.info("Processing multiple successor candidates of Sb objects... {} found", multipleSuccessions.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleObObjects() {
-        List<ObRowEntity> multipleSuccessors =
-                obRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessors.size());
+        List<ObRowEntity> multipleSuccessions =
+                obRowRepository.findMultipleSuccessions();
+        log.info("Processing multiple successor candidates of Ob objects... {} found", multipleSuccessions.size());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void handleOrObjects() {
-        List<OrRowEntity> multipleSuccessors =
-                orRowRepository.findMultipleSuccessorCandidates();
-        log.debug("Processing multiple successor candidates of Or objects... {} found", multipleSuccessors.size());
+        List<OrRowEntity> multipleSuccessions =
+                orRowRepository.findMultipleSuccessions();
+        log.info("Processing multiple successor candidates of Or objects... {} found", multipleSuccessions.size());
     }
 
 }

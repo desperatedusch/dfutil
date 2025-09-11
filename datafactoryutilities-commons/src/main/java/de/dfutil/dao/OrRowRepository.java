@@ -24,11 +24,11 @@ public interface OrRowRepository extends JpaRepository<OrRowEntity, OrRowId>, Su
     @Query("Select ort from OrRowEntity ort where ort.orRowId.ortStatus = 'W' and ort.alreadyAppliedAt is null order by ort.version asc")
     List<OrRowEntity> findProcessableOrphans();
 
-    @Query("Select ort from OrRowEntity ort where ort.orRowId.ortStatus IN ('1','2','3','4','5','6','7','8','9') and ort.alreadyAppliedAt is null order by ort.version asc")
-    List<OrRowEntity> findMultipleSuccessorCandidates();
-
     @Query("Select ort from OrRowEntity ort where ort.orRowId.ortStatus = 'S' and ort.alreadyAppliedAt is null order by ort.version asc")
     List<OrRowEntity> findReplacementCandidates();
+
+    @Query("Select ort from OrRowEntity ort where ort.orRowId.ortStatus IN ('1','2','3','4','5','6','7','8','9') and ort.alreadyAppliedAt is null order by ort.version asc")
+    List<OrRowEntity> findMultipleSuccessions();
 
     @Query
     OrRowEntity getByUuid(UUID uuid);

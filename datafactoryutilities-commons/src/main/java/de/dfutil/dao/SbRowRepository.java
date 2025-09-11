@@ -24,11 +24,11 @@ public interface SbRowRepository extends JpaRepository<SbRowEntity, SbRowId>, Su
     @Query("Select strasse from SbRowEntity strasse where strasse.sbRowId.strStatus = 'W' and strasse.alreadyAppliedAt is null order by strasse.version asc")
     List<SbRowEntity> findProcessableOrphans();
 
-    @Query("Select strasse from SbRowEntity strasse where strasse.sbRowId.strStatus IN ('1','2','3','4','5','6','7','8','9') and strasse.alreadyAppliedAt is null order by strasse.version asc")
-    List<SbRowEntity> findMultipleSuccessorCandidates();
-
     @Query("Select strasse from SbRowEntity strasse where strasse.sbRowId.strStatus = 'S' and strasse.alreadyAppliedAt is null order by strasse.version asc")
     List<SbRowEntity> findReplacementCandidates();
+
+    @Query("Select strasse from SbRowEntity strasse where strasse.sbRowId.strStatus IN ('1','2','3','4','5','6','7','8','9') and strasse.alreadyAppliedAt is null order by strasse.version asc")
+    List<SbRowEntity> findMultipleSuccessions();
 
     @Query
     SbRowEntity getByUuid(UUID uuid);

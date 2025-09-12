@@ -42,7 +42,7 @@ public class ObRowEntity extends AbstractRowEntity<ObRowEntity> implements Archi
 
     @OneToOne
     @JoinColumn(name = "succession_state_id")
-    private SuccessionState successionState;
+    private SuccessionStateLinkElement successionStateLinkElement;
 
     public static ObRowEntity parseFrom(String rowBytes) {
         ObRowEntity row = new ObRowEntity();
@@ -60,12 +60,12 @@ public class ObRowEntity extends AbstractRowEntity<ObRowEntity> implements Archi
         return row;
     }
 
-    public SuccessionState getSuccessionState() {
-        return successionState;
+    public SuccessionStateLinkElement getSuccessionState() {
+        return successionStateLinkElement;
     }
 
-    public void setSuccessionState(SuccessionState successionState) {
-        this.successionState = successionState;
+    public void setSuccessionState(SuccessionStateLinkElement successionStateLinkElement) {
+        this.successionStateLinkElement = successionStateLinkElement;
     }
 
     public Date getVersion() {

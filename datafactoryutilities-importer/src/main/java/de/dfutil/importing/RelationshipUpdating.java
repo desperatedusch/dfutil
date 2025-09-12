@@ -21,7 +21,6 @@ public class RelationshipUpdating {
 
     private static final Logger log = LoggerFactory.getLogger(RelationshipUpdating.class);
 
-    private final ImporterConfigurationProperties importerConfigurationProperties;
     private final Orphanes orphanes;
     private final Replacements replacements;
     private final SplittingsAndMerges splittingsAndMerges;
@@ -30,9 +29,7 @@ public class RelationshipUpdating {
     private final ObRowRepository obRowRepository;
     private final SbRowRepository sbRowRepository;
 
-
     public RelationshipUpdating(
-            ImporterConfigurationProperties importerConfigurationProperties,
             Orphanes orphanes,
             Replacements replacements,
             SplittingsAndMerges splittingsAndMerges,
@@ -40,7 +37,6 @@ public class RelationshipUpdating {
             ObRowRepository obRowRepository,
             SbRowRepository sbRowRepository
     ) {
-        this.importerConfigurationProperties = importerConfigurationProperties;
         this.orphanes = orphanes;
         this.replacements = replacements;
         this.splittingsAndMerges = splittingsAndMerges;

@@ -91,7 +91,7 @@ public class SuccessionStateLinkElement {
     public boolean equals(Object o) {
         if (null == o || getClass() != o.getClass()) return false;
         SuccessionStateLinkElement that = (SuccessionStateLinkElement) o;
-        return Objects.equals(id, that.id) && Objects.equals(uuid, that.uuid);
+        return Objects.equals(uuid, that.uuid);
     }
 
     @Override
@@ -100,5 +100,3 @@ public class SuccessionStateLinkElement {
     }
 
 }
-
-

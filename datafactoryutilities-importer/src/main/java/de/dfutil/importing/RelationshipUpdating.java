@@ -1,13 +1,10 @@
 package de.dfutil.importing;
 
 import com.google.common.base.Stopwatch;
-import com.google.common.collect.Lists;
-import de.dfutil.dao.ObRowRepository;
-import de.dfutil.dao.OrRowRepository;
-import de.dfutil.dao.SbRowRepository;
 import de.dfutil.importing.updates.Orphanes;
 import de.dfutil.importing.updates.Replacements;
 import de.dfutil.importing.updates.SplittingsAndMerges;
+import de.dfutil.importing.updates.SuccessionStateReset;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -24,25 +21,18 @@ public class RelationshipUpdating {
     private final Orphanes orphanes;
     private final Replacements replacements;
     private final SplittingsAndMerges splittingsAndMerges;
-
-    private final OrRowRepository orRowRepository;
-    private final ObRowRepository obRowRepository;
-    private final SbRowRepository sbRowRepository;
+    private final SuccessionStateReset successionStateReset;
 
     public RelationshipUpdating(
             Orphanes orphanes,
             Replacements replacements,
             SplittingsAndMerges splittingsAndMerges,
-            OrRowRepository orRowRepository,
-            ObRowRepository obRowRepository,
-            SbRowRepository sbRowRepository
+            SuccessionStateReset successionStateReset
     ) {
         this.orphanes = orphanes;
         this.replacements = replacements;
         this.splittingsAndMerges = splittingsAndMerges;
-        this.orRowRepository = orRowRepository;
-        this.obRowRepository = obRowRepository;
-        this.sbRowRepository = sbRowRepository;
+        this.successionStateReset = successionStateReset;
     }
 
     public void process() {
@@ -56,14 +46,7 @@ public class RelationshipUpdating {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void resetSuccessionsApplicationState() {
-        var stopwatch = Stopwatch.createStarted();
-        log.info("Starting Reset of SuccessionApplicationState...");
-        Lists.newArrayList(orRowRepository, obRowRepository, sbRowRepository).forEach(
-                sar -> {
-                    sar.resetAppliedState();
-                    sar.resetOutdatedState();
-                });
-        log.info("Finished Reset of SuccessionApplicationState within {} ms", stopwatch.stop().elapsed().toMillis());
+        successionStateReset.process();
     }
 
 }

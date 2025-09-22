@@ -42,6 +42,7 @@ public class InputSourceDetection {
     }
 
     public List<Path> findFiles() throws IOException {
+        log.info("Searching for input sources...");
         var folders = inputSourceFolders();
         var result = new ArrayList<Path>();
         for (var folder : folders) {

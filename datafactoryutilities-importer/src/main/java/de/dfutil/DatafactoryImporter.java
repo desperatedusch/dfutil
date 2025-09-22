@@ -41,11 +41,10 @@ public class DatafactoryImporter implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (importerConfigurationProperties.isParsingActivated()) {
-            log.info("Searching for input sources...");
             var files = inputSourceDetection.findFiles();
             files.sort(Comparator.comparing(Path::getFileName));
             files.forEach(parsing::fromFile);
-            log.info("Parsing of all input sources done...");
+            log.info("Parsing of all input sources finished...");
         }
         if (importerConfigurationProperties
                 .isSuccessionHandlingActivated()) {

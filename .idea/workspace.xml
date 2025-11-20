@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds env.example">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/config/liquibase/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/src/main/resources/config/liquibase/db.changelog-master.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/dao/DataJpaTestConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/dao/OrRowRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +89,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/desperatedusch/dfutil&quot;,
-    &quot;accountId&quot;: &quot;fdefe372-5523-41e5-8160-0b11a5ed1cd2&quot;
+    &quot;url&quot;: &quot;https://github.com/desperatedusch/dfutil.git&quot;,
+    &quot;accountId&quot;: &quot;730b1197-a0e3-48fd-8c7e-7c5173e8effc&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -102,21 +108,13 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="customMavenHome" value="D:\SEU\apache-maven-3.9.11" />
-        <option name="localRepository" value="d:\SEU\.m2\repository" />
+        <option name="customMavenHome" value="D:\SEU\apache-maven-4.0.0-rc-5" />
         <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
         <option name="printErrorStackTraces" value="true" />
-        <option name="userSettingsFile" value="C:\Users\dusch\.m2\settings.xml" />
       </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="jdkForImporter" value="openjdk-24" />
-      </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenRunner">
-    <option name="jreName" value="openjdk-24" />
     <option name="skipTests" value="true" />
   </component>
   <component name="ProblemsViewState">
@@ -191,6 +189,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AddressInformationProviderApplication.executor": "Run",
@@ -211,12 +210,12 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.43788344",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   },
@@ -414,8 +413,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
       </set>
     </attachedChunks>
   </component>
@@ -662,14 +661,23 @@
       <workItem from="1755332787283" duration="788000" />
       <workItem from="1755496065437" duration="244000" />
       <workItem from="1755496437932" duration="11348000" />
-    </task>
-    <task id="LOCAL-00087" summary="Files import for a file should only be once processed">
-      <option name="closed" value="true" />
-      <created>1739567879068</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1739567879068</updated>
+      <workItem from="1757523212582" duration="1525000" />
+      <workItem from="1757532102479" duration="13000" />
+      <workItem from="1758470224259" duration="556000" />
+      <workItem from="1758564458236" duration="1381000" />
+      <workItem from="1758571832819" duration="254000" />
+      <workItem from="1758572131057" duration="639000" />
+      <workItem from="1758572814842" duration="233000" />
+      <workItem from="1758573399298" duration="22000" />
+      <workItem from="1758573431612" duration="203000" />
+      <workItem from="1758658412416" duration="10000" />
+      <workItem from="1759593782836" duration="2666000" />
+      <workItem from="1759673732174" duration="799000" />
+      <workItem from="1759842675018" duration="2807000" />
+      <workItem from="1760251874653" duration="596000" />
+      <workItem from="1760296803505" duration="9000" />
+      <workItem from="1763659265092" duration="4282000" />
+      <workItem from="1763665572176" duration="1267000" />
     </task>
     <task id="LOCAL-00088" summary="Files import for a file should only be once processed">
       <option name="closed" value="true" />
@@ -1055,7 +1063,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755513531735</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="Adds env.example">
+      <option name="closed" value="true" />
+      <created>1759598595313</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1759598595313</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

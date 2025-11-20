@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.1.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 https://maven.apache.org/xsd/maven-4.1.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.1.0</modelVersion>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.0-M3</version>
+        <version>4.0.0-RC2</version>
     </parent>
 
     <groupId>de.dfutil</groupId>
@@ -16,16 +16,17 @@
 
     <packaging>pom</packaging>
 
-    <modules>
-        <module>datafactoryutilities-adressinformationprovider</module>
-        <module>datafactoryutilities-commons</module>
-        <module>datafactoryutilities-downloader</module>
-        <module>datafactoryutilities-importer</module>
-    </modules>
+    <subprojects>
+        <subproject>datafactoryutilities-adressinformationprovider</subproject>
+        <subproject>datafactoryutilities-commons</subproject>
+        <subproject>datafactoryutilities-downloader</subproject>
+        <subproject>datafactoryutilities-importer</subproject>
+    </subprojects>
 
     <properties>
         <java.version>25</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <build>

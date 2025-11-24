@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b56c1f-4839-456f-bdb9-76bdd4b3c951" name="Changes" comment="Adds env.example">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-adressinformationprovider/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/dao/DataJpaTestConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-commons/src/test/java/de/dfutil/dao/OrRowRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-downloader/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-downloader/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datafactoryutilities-importer/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,6 +169,7 @@
     "Maven.datafactoryutilities-aggregator-parent [package].executor": "Run",
     "Maven.datafactoryutilities-aggregator-parent [test].executor": "Run",
     "Maven.datafactoryutilities-aggregator-parent [verify].executor": "Run",
+    "Maven.datafactoryutilities-aggregator-parent [versions:display-dependency-updates].executor": "Run",
     "Maven.datafactoryutilities-commons [clean].executor": "Run",
     "Maven.datafactoryutilities-commons [install].executor": "Run",
     "Maven.datafactoryutilities-downloader [clean].executor": "Run",
@@ -215,7 +210,7 @@
     "project.structure.side.proportion": "0.43788344",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "MavenSettings",
     "settings.editor.splitter.proportion": "0.29663607",
     "vue.rearranger.settings.migration": "true"
   },
@@ -291,6 +286,11 @@
       <recent name="de.dfutil.events" />
       <recent name="de.dfutil.core.files.parsing.procedural" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn versions:display-dependency-updates" />
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.DatafactoryImporter">
     <configuration name="KgRowParsingTest.parseKgRowBytes2Object" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -678,6 +678,7 @@
       <workItem from="1760296803505" duration="9000" />
       <workItem from="1763659265092" duration="4282000" />
       <workItem from="1763665572176" duration="1267000" />
+      <workItem from="1763914904102" duration="6917000" />
     </task>
     <task id="LOCAL-00088" summary="Files import for a file should only be once processed">
       <option name="closed" value="true" />

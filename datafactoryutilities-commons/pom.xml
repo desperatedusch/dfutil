@@ -14,11 +14,11 @@
     <name>datafactoryutilities-commons</name>
 
     <properties>
-        <hibernate.version>7.1.0.Final</hibernate.version>
-        <!--        <HikariCP.version>7.0.1</HikariCP.version>-->
-        <guava.version>33.4.8-jre</guava.version>
-        <postgresql.version>42.7.7</postgresql.version>
-        <caffeine.version>3.2.2</caffeine.version>
+        <hibernate.version>7.2.0.CR2</hibernate.version>
+        <HikariCP.version>7.0.2</HikariCP.version>
+        <guava.version>33.5.0-jre</guava.version>
+        <postgresql.version>42.7.8</postgresql.version>
+        <caffeine.version>3.2.3</caffeine.version>
     </properties>
 
     <dependencies>

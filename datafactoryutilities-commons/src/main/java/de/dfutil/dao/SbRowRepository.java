@@ -52,5 +52,7 @@ public interface SbRowRepository extends JpaRepository<SbRowEntity, SbRowId>, Su
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update SbRowEntity strasse set strasse.outdatedAt = null")
     void resetOutdatedState();
-
+    
+    @Query
+    SbRowEntity getBySbRowId(SbRowId sbRowId);
 }

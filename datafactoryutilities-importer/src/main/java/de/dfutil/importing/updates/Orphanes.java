@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class Orphanes implements Successions {
@@ -42,14 +41,14 @@ public class Orphanes implements Successions {
         log.info("Processing orphaned Or objects... {} found", processableOrphanedOrObjects.size());
         processableOrphanedOrObjects.stream().filter(Objects::nonNull).forEach(processableOr ->
         {
-            Optional<OrRowEntity> formerExistingOrOptional = orRowRepository.findById(
-                    new OrRowId(
-                            processableOr.getOrRowId().getOrtAlort(),
-                            "G"
-                    )
-            );
-            if (formerExistingOrOptional.isPresent()) {
-                OrRowEntity formerExistingOr = formerExistingOrOptional.get();
+            OrRowEntity formerExistingOr =
+                    orRowRepository.getByOrRowId(
+                            new OrRowId(
+                                    processableOr.getOrRowId().getOrtAlort(),
+                                    "G"
+                            )
+                    );
+            if (Objects.nonNull(formerExistingOr)) {
                 orRowRepository.outdate(formerExistingOr.getUuid(), LocalDateTime.now());
                 orRowRepository.apply(processableOr.getUuid(), LocalDateTime.now());
             }
@@ -63,8 +62,8 @@ public class Orphanes implements Successions {
         log.info("Processing orphaned Ob objects... {} found", processableOrphanedObObjects.size());
         processableOrphanedObObjects.stream().filter(Objects::nonNull).forEach(processableOb ->
         {
-            Optional<ObRowEntity> formerExistingObOptional =
-                    obRowRepository.findById(
+            ObRowEntity formerExistingOb =
+                    obRowRepository.getByObRowId(
                             new ObRowId(
                                     processableOb.getObRowId().getOtlAlort(),
                                     processableOb.getObRowId().getOtlSchl(),
@@ -72,8 +71,7 @@ public class Orphanes implements Successions {
                                     "G"
                             )
                     );
-            if (formerExistingObOptional.isPresent()) {
-                ObRowEntity formerExistingOb = formerExistingObOptional.get();
+            if (Objects.nonNull(formerExistingOb)) {
                 obRowRepository.outdate(formerExistingOb.getUuid(), LocalDateTime.now());
                 obRowRepository.apply(processableOb.getUuid(), LocalDateTime.now());
             }
@@ -87,8 +85,8 @@ public class Orphanes implements Successions {
         log.info("Processing orphaned Sb objects... {} found", processableOrphanedSbObjects.size());
         processableOrphanedSbObjects.stream().filter(Objects::nonNull).forEach(processableSb ->
         {
-            Optional<SbRowEntity> formerExistingSbOptional =
-                    sbRowRepository.findById(
+            SbRowEntity formerExistingSb =
+                    sbRowRepository.getBySbRowId(
                             new SbRowId(
                                     processableSb.getSbRowId().getStrAlOrt(),
                                     processableSb.getSbRowId().getStrNamenSchl(),
@@ -99,8 +97,7 @@ public class Orphanes implements Successions {
                                     processableSb.getSbRowId().getStrHnr1000()
                             )
                     );
-            if (formerExistingSbOptional.isPresent()) {
-                SbRowEntity formerExistingSb = formerExistingSbOptional.get();
+            if (Objects.nonNull(formerExistingSb)) {
                 sbRowRepository.outdate(formerExistingSb.getUuid(), LocalDateTime.now());
                 sbRowRepository.apply(processableSb.getUuid(), LocalDateTime.now());
             }

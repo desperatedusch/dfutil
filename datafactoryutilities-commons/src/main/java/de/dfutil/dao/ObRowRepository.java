@@ -53,5 +53,7 @@ public interface ObRowRepository extends JpaRepository<ObRowEntity, ObRowId>, Su
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update ObRowEntity ortsteil set ortsteil.outdatedAt = null")
     void resetOutdatedState();
-
+    
+    @Query
+    ObRowEntity getByObRowId(ObRowId obRowId);
 }

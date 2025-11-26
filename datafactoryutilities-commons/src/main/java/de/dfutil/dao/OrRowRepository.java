@@ -54,6 +54,6 @@ public interface OrRowRepository extends JpaRepository<OrRowEntity, OrRowId>, Su
     void resetOutdatedState();
 
     @Query
-    OrRowEntity getByOrRowId(OrRowId obRowId);
+    OrRowEntity getByOrRowId(OrRowId orRowId);
     
 }
